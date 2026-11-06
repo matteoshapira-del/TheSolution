@@ -1,0 +1,314 @@
+{
+ "groups_and_leaders": {
+  "israeli": [
+   {
+    "variable": "israel people",
+    "title": "ISRAELI PUBLIC"
+   },
+   {
+    "variable": "yesha",
+    "title": "YESHA (ISRAELI SETTLERS' COUNCIL)"
+   },
+   {
+    "variable": "palestinian president",
+    "title": "PALESTINIAN AUTHORITY PRESIDENT"
+   },
+   {
+    "variable": "palestinian people",
+    "title": "PALESTINIAN PUBLIC"
+   },
+   {
+    "variable": "hamas",
+    "title": "MILITANT GROUPS"
+   },
+   {
+    "variable": "un",
+    "title": "UNITED NATIONS"
+   },
+   {
+    "variable": "usa",
+    "title": "USA"
+   },
+   {
+    "variable": "arab world",
+    "title": "THE ARAB WORLD"
+   }
+  ],
+  "palestinian": [
+   {
+    "variable": "palestinian public approval",
+    "title": "PALESTINIAN PUBLIC"
+   },
+   {
+    "variable": "fatah approval",
+    "title": "FATAH"
+   },
+   {
+    "variable": "hamas approval",
+    "title": "HAMAS"
+   },
+   {
+    "variable": "israeli prime minister approval",
+    "title": "ISRAELI PRIME MINISTER"
+   },
+   {
+    "variable": "israeli public approval",
+    "title": "ISRAELI PUBLIC"
+   },
+   {
+    "variable": "un approval",
+    "title": "UNITED NATIONS"
+   },
+   {
+    "variable": "usa approval",
+    "title": "UNITED STATES"
+   },
+   {
+    "variable": "arab world approval",
+    "title": "THE ARAB WORLD"
+   }
+  ]
+ },
+ "polls": {
+  "palestinian": [
+   {
+    "variable": "economy",
+    "title": "PALESTINIAN ECONOMY"
+   },
+   {
+    "variable": "government authority",
+    "title": "PALESTINIAN GOVERNMENT AUTHORITY"
+   },
+   {
+    "variable": "independence",
+    "title": "PALESTINIAN INDEPENDENCE"
+   },
+   {
+    "variable": "leadership",
+    "title": "PALESTINIAN PRESIDENT'S LEADERSHIP"
+   },
+   {
+    "variable": "tolerance",
+    "title": "PALESTINIAN VIEW OF ISRAEL"
+   },
+   {
+    "variable": "israeli cooperation",
+    "title": "ISRAELI COOPERATION"
+   }
+  ],
+  "israeli": [
+   {
+    "variable": "security",
+    "title": "ISRAELI SECURITY"
+   },
+   {
+    "variable": "suppression",
+    "title": "MILITANT ACTIVITY SUPRESSION"
+   },
+   {
+    "variable": "leadership",
+    "title": "ISRAELI LEADERSHIP"
+   },
+   {
+    "variable": "sympathy",
+    "title": "ISRAELI SYMPATHY"
+   },
+   {
+    "variable": "palestinian cooperation",
+    "title": "PALESTINIAN COOPERATION"
+   }
+  ]
+ },
+ "cities": [
+  {
+   "name": "TEL-AVIV",
+   "map_mask_color": "0x000000"
+  },
+  {
+   "name": "JERUSALEM",
+   "map_mask_color": "0xFF00DC"
+  },
+  {
+   "name": "HAIFA",
+   "map_mask_color": "0xFF6A00"
+  },
+  {
+   "name": "ISRAELI SETTLEMENTS",
+   "map_mask_color": "0x00FFFFF"
+  },
+  {
+   "name": "ISRAELI SETTLEMENTS",
+   "map_mask_color": "0x00FFFFF"
+  },
+  {
+   "name": "ISRAELI SETTLEMENTS",
+   "map_mask_color": "0x00FFFFF"
+  },
+  {
+   "name": "ISRAELI SETTLEMENTS",
+   "map_mask_color": "0x00FFFFF"
+  },
+  {
+   "name": "EAST JERUSALEM",
+   "map_mask_color": "0xFF006E"
+  },
+  {
+   "name": "GAZA",
+   "map_mask_color": "0x007F0E"
+  },
+  {
+   "name": "JENIN",
+   "map_mask_color": "0x0026FF"
+  },
+  {
+   "name": "RAMALLAH",
+   "map_mask_color": "0xB200FF"
+  },
+  {
+   "name": "JERICHO",
+   "map_mask_color": "0x7F3300"
+  },
+  {
+   "name": "HEBRON",
+   "map_mask_color": "0x808080"
+  },
+  {
+   "name": "GREEN LINE",
+   "map_mask_color": "0xB6FF00"
+  },
+  {
+   "name": "ISRAELI SECURITY FENCE",
+   "map_mask_color": "0x4CFF00"
+  },
+  {
+   "name": "ISRAELI SECURITY FENCE",
+   "map_mask_color": "0x4CFF00"
+  },
+  {
+   "name": "RAFAH",
+   "map_mask_color": "0x004A7F"
+  },
+  {
+   "name": "HADERA",
+   "map_mask_color": "0xFF0000"
+  },
+  {
+   "name": "NETANYA",
+   "map_mask_color": "0x404040"
+  },
+  {
+   "name": "SDEROT",
+   "map_mask_color": "0x5B7F00"
+  },
+  {
+   "name": "AFULA",
+   "map_mask_color": "0x0094FF"
+  },
+  {
+   "name": "BEERSHEVA",
+   "map_mask_color": "0x7F6A00"
+  },
+  {
+   "name": "KFAR SAVA",
+   "map_mask_color": "0xFFD800"
+  },
+  {
+   "name": "NABLUS",
+   "map_mask_color": "0x4800FF"
+  },
+  {
+   "name": "TULKARM",
+   "map_mask_color": "0x111111"
+  },
+  {
+   "name": "QALQILYE",
+   "map_mask_color": "0x222222"
+  },
+  {
+   "name": "BETHLEHEM",
+   "map_mask_color": "0x7F0000"
+  }
+ ],
+ "timeline_labels": [
+  "TODAY",
+  "2006",
+  "2005",
+  "2000",
+  "1994",
+  "1993",
+  "1990s",
+  "1987",
+  "1982",
+  "1968",
+  "1968-1980",
+  "1967",
+  "1950s",
+  "1948",
+  "1920-1948"
+ ],
+ "difficulties": [
+  "calm",
+  "tense",
+  "violent"
+ ],
+ "tutorial_steps": [
+  {
+   "order": 1,
+   "header": "Welcome"
+  },
+  {
+   "order": 2,
+   "header": "The Map"
+  },
+  {
+   "order": 3,
+   "header": "Events"
+  },
+  {
+   "order": 4,
+   "header": "The Groups and Leaders"
+  },
+  {
+   "order": 5,
+   "header": "The Polls"
+  },
+  {
+   "order": 6,
+   "header": "Your Score"
+  },
+  {
+   "order": 7,
+   "header": "The Actions"
+  },
+  {
+   "order": 8,
+   "header": "MISSING"
+  },
+  {
+   "order": 9,
+   "header": "Advisors"
+  },
+  {
+   "order": 10,
+   "header": "TURN"
+  },
+  {
+   "order": 11,
+   "header": "MISSING"
+  },
+  {
+   "order": 12,
+   "header": "MISSING"
+  }
+ ],
+ "advisors": {
+  "palestinian": {
+   "dove": "Your Foreign Advisor Says:",
+   "hawk": "Your National Advisor Says:"
+  },
+  "israeli": {
+   "dove": "The Dove Says:",
+   "hawk": "The Hawk Says:"
+  }
+ }
+}

@@ -1,0 +1,1374 @@
+{
+ "palestinian": [
+  {
+   "id": "project",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "project cost",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "palestinian public approval",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "fatah approval",
+   "default": 70,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "hamas approval",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "israeli prime minister approval",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "israeli public approval",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "usa approval",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "un approval",
+   "default": 50,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "arab world approval",
+   "default": 50,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "internal authority score",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": true,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "external authority score",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": true,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "economy",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "leadership",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "government authority",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "independence",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "israeli cooperation",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "tolerance",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "usa budget",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "un budget",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "eu budget",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "egypt budget",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "jordan budget",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "israel budget",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "other groups budget",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "police units out",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "police units total",
+   "default": 2,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "airports",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "seaports",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "budget",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "independent state",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "joint patrols",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "joint training",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "gaza border open",
+   "default": 1,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "gaza border presence",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "gaza border international troops",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control internal travel",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control gaza border",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control holy sites",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "holy sites palestinian access",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "holy sites israeli access",
+   "default": 1,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "holy sites foreigner access",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control seaspace",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control airspace",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control water",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "control education",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "curriculum restructured",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "tourism open",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "POLICE TRAIN",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "POLICE INCREASE FUNDING",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "FATAH BRIBE",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "HOUSING",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "AGRICULTURE",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "INDUSTRY",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "RECLAIM SETTLEMENTS",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "ROADS",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "AIRPORT",
+   "default": 60,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "SEAPORT",
+   "default": 50,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "INFRASTRUCTURE",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "COMMUNICATIONS",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "WATER TREATMENT PLANT",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "POWER PLANT",
+   "default": 40,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "HEALTH CARE",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "CARE FOR THE POOR",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "EDUCATION REOPEN CLOSED SCHOOLS",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "EDUCATION BUILD NEW SCHOOLS",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "POLICE STATION",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "PRISON",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "IMPORT ARMS",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "reject push control",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject egypt",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject fatah",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject arab states",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject eu",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject israel",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject other palestinian",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject un",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject usa",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject gaza border",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject hamas",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject internal travel",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject refugee affairs",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject assassination",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject settlements",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject security wall",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject bulldoze",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject reconstruction aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject checkpoints",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject trade restrictions",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject worker permits",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject education aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject government",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject idf",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject curfew",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject medical aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject missile strike",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject palestinian president",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to israelis",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject police",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to world",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject prisoners",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject jordan",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject extreme measures",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject police manage",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to palestinians",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "negative effects",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "turns",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "endreport",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": true,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "aggression",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  }
+ ],
+ "israeli": [
+  {
+   "id": "israel people",
+   "default": 55,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "yesha",
+   "default": 40,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "palestinian president",
+   "default": 25,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "palestinian people",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "hamas",
+   "default": 7,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "usa",
+   "default": 40,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "un",
+   "default": 20,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "arab world",
+   "default": 15,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "security",
+   "default": 30,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "sympathy",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "suppression",
+   "default": 25,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "palestinian cooperation",
+   "default": 10,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "leadership",
+   "default": 25,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "internal authority score",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": true,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "external authority score",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": true,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "internal speech timer",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "external speech timer",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "internal win count",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "external win count",
+   "default": 5,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "reject push control",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject egypt",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject fatah",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject arab states",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject eu",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject israel",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject other palestinian",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject un",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject usa",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject gaza border",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject hamas",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject internal travel",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject refugee affairs",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject assassination",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject settlements",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject security wall",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject bulldoze",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject reconstruction aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject checkpoints",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject trade restrictions",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject worker permits",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject education aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject government",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject idf",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject curfew",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject medical aid",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject missile strike",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject palestinian president",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to israelis",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject police",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to world",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject prisoners",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject jordan",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject extreme measures",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject police manage",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject speech to palestinians",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "negative effects",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "turns",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "endreport",
+   "default": 0,
+   "auto_decrement": false,
+   "can_be_negative": false,
+   "can_be_over_100": true,
+   "debug_modify_ignored": true
+  },
+  {
+   "id": "aggression",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject yesha",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject cultural",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  },
+  {
+   "id": "reject domestic",
+   "default": 0,
+   "auto_decrement": true,
+   "can_be_negative": false,
+   "can_be_over_100": false,
+   "debug_modify_ignored": false
+  }
+ ]
+}

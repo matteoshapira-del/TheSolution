@@ -1,0 +1,238 @@
+[
+ {
+  "id": 1,
+  "string_id": "ISRAELI: PLOT 1",
+  "tag": "israeli plot 1",
+  "box_type": "plot",
+  "location": "JERUSALEM",
+  "sound": "Cheer",
+  "image": "RTRNU7F.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_3_Plot1.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 30,
+   "external authority score": 30
+  },
+  "title": "Gaza Approaches Independence"
+ },
+ {
+  "id": 2,
+  "string_id": "ISRAELI: PLOT 2",
+  "tag": "israeli plot 2",
+  "box_type": "plot",
+  "location": "GAZA",
+  "sound": "Cheer",
+  "image": "RTR1ILPO.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_4_Plot2.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 50,
+   "external authority score": 50
+  },
+  "title": "Train Travels between Gaza and the West Bank"
+ },
+ {
+  "id": 3,
+  "string_id": "ISRAELI: PLOT 3",
+  "tag": "israeli plot 3",
+  "box_type": "plot",
+  "location": "RAMALLAH",
+  "sound": "Cheer3",
+  "image": "RTRDWGF.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_5_Plot3.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 70,
+   "external authority score": 70
+  },
+  "title": "Winds of Peace"
+ },
+ {
+  "id": 4,
+  "string_id": "ISRAELI: WIN",
+  "tag": "israeli ending, win",
+  "box_type": "ending",
+  "location": "JERUSALEM",
+  "sound": "Success",
+  "image": "RTRHU5J.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_6_Win.mov",
+  "hold_for": 3,
+  "compare": "more",
+  "mode": "win",
+  "thresholds": {
+   "internal authority score": 95,
+   "external authority score": 95
+  },
+  "title": "You Win: Two-State Solution"
+ },
+ {
+  "id": 5,
+  "string_id": "ISRAELI: ISRAELI LOSE",
+  "tag": "israeli ending, israeli lose",
+  "box_type": "ending",
+  "location": "JERUSALEM",
+  "sound": "Failure",
+  "image": "PM_israeli_emblem.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_7_Lose1.mov",
+  "hold_for": 3,
+  "compare": "less",
+  "mode": "lose",
+  "thresholds": {
+   "internal authority score": -50
+  },
+  "title": "You Lose: You Have Been Removed from Office"
+ },
+ {
+  "id": 6,
+  "string_id": "ISRAELI: ISRAELI LOSE 2",
+  "tag": "israeli ending, palestinian lose",
+  "box_type": "ending",
+  "location": "JERUSALEM",
+  "sound": "GunAttack4",
+  "image": "RTRMNHO.jpg",
+  "event_type": "plot",
+  "role": "israeli",
+  "video": "Israel_8_Lose2.mov",
+  "hold_for": 3,
+  "compare": "less",
+  "mode": "lose",
+  "thresholds": {
+   "external authority score": -50
+  },
+  "title": "You Lose: The Third Intifada"
+ },
+ {
+  "id": 562,
+  "string_id": "PLOT 1",
+  "tag": "plot 1",
+  "box_type": "plot",
+  "location": "GAZA",
+  "sound": "Cheer2",
+  "image": "RTRJDOF.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_3_Plot1.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 30,
+   "external authority score": 30
+  },
+  "title": "Gaza Approaches Independence"
+ },
+ {
+  "id": 563,
+  "string_id": "PLOT 2",
+  "tag": "plot 2",
+  "box_type": "plot",
+  "location": "GAZA",
+  "sound": "Cheer2",
+  "image": "RTR1ILPO.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_4_Plot2.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 50,
+   "external authority score": 50
+  },
+  "title": "Train Route between Gaza and West Bank"
+ },
+ {
+  "id": 564,
+  "string_id": "PLOT 3",
+  "tag": "plot 3",
+  "box_type": "plot",
+  "location": "RAMALLAH",
+  "sound": "Cheer2",
+  "image": "RTRK1LV.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_5_Plot3.mov",
+  "hold_for": 1,
+  "compare": "more",
+  "mode": "milestone",
+  "thresholds": {
+   "internal authority score": 70,
+   "external authority score": 70
+  },
+  "title": "West Bank Approaches Independence"
+ },
+ {
+  "id": 565,
+  "string_id": "ENDING: WIN",
+  "tag": "ending, win",
+  "box_type": "ending",
+  "location": "RAMALLAH",
+  "sound": "Applause3",
+  "image": "RTR193BR.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_6_Win.mov",
+  "hold_for": 3,
+  "compare": "more",
+  "mode": "win",
+  "thresholds": {
+   "internal authority score": 95,
+   "external authority score": 95
+  },
+  "title": "You Win: Palestine Attains Statehood"
+ },
+ {
+  "id": 566,
+  "string_id": "ENDING: INTERNAL LOSE",
+  "tag": "ending, internal lose",
+  "box_type": "ending",
+  "location": "GAZA",
+  "sound": "Failure",
+  "image": "RTR1FBTD.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_7_Lose1.mov",
+  "hold_for": 3,
+  "compare": "less",
+  "mode": "lose",
+  "thresholds": {
+   "internal authority score": -50
+  },
+  "title": "You Lose: A Civil War Breaks Out"
+ },
+ {
+  "id": 567,
+  "string_id": "ENDING: EXTERNAL LOSE",
+  "tag": "ending, external lose",
+  "box_type": "ending",
+  "location": "RAMALLAH",
+  "sound": "Failure",
+  "image": "RTRBDM3.jpg",
+  "event_type": "plot",
+  "role": "palestinian",
+  "video": "Palestine_8_Lose2.mov",
+  "hold_for": 3,
+  "compare": "less",
+  "mode": "lose",
+  "thresholds": {
+   "external authority score": -50
+  },
+  "title": "You Lose: International Support Pulled"
+ }
+]

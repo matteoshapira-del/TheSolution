@@ -1,0 +1,885 @@
+{
+ "generated_by": "tools/harvest/simulate.py (seed 1)",
+ "runs": {
+  "israeli-calm-greedy": {
+   "role": "israeli",
+   "difficulty": "calm",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 27.0,
+    "min": 24,
+    "max": 31
+   },
+   "milestone_turn_median": {
+    "ISRAELI: PLOT 1": 9.0,
+    "ISRAELI: PLOT 2": 14.0,
+    "ISRAELI: PLOT 3": 18.0,
+    "ISRAELI: WIN": 27.0
+   },
+   "end_report_violence_median": 152.0,
+   "most_used_actions": [
+    [
+     "player:Withdrawal Support:success",
+     375
+    ],
+    [
+     "player:Demand Anti-Militant Actions:success",
+     335
+    ],
+    [
+     "player:Suppress Violence:success",
+     258
+    ],
+    [
+     "player:Ask for Anti-Militant Support:success",
+     229
+    ],
+    [
+     "player:Arrest Extremist Leaders:success",
+     173
+    ],
+    [
+     "player:Educational Initiatives:success",
+     127
+    ],
+    [
+     "player:Unite for Peace:success",
+     110
+    ],
+    [
+     "player:Mediation Support:success",
+     98
+    ],
+    [
+     "player:Only if Incitement Stops:success",
+     72
+    ],
+    [
+     "player:Educational Grants:success",
+     70
+    ],
+    [
+     "player:Structured Dialogue:success",
+     62
+    ],
+    [
+     "player:Directly:success",
+     56
+    ]
+   ]
+  },
+  "israeli-calm-random": {
+   "role": "israeli",
+   "difficulty": "calm",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "lose:ISRAELI: ISRAELI LOSE 2": 268,
+    "timeout": 18,
+    "win": 14
+   },
+   "turns_to_win": {
+    "median": 136.0,
+    "min": 58,
+    "max": 180
+   },
+   "milestone_turn_median": {
+    "ISRAELI: ISRAELI LOSE 2": 15.5,
+    "ISRAELI: PLOT 1": 36.0,
+    "ISRAELI: PLOT 2": 47.0,
+    "ISRAELI: PLOT 3": 67,
+    "ISRAELI: WIN": 136.0
+   },
+   "end_report_violence_median": 117.0,
+   "most_used_actions": [
+    [
+     "player:Israel's Security:neutrally",
+     258
+    ],
+    [
+     "player:The Peace Process:neutrally",
+     216
+    ],
+    [
+     "player:Palestinian Cooperation:neutrally",
+     211
+    ],
+    [
+     "player:Mediation Support:success",
+     208
+    ],
+    [
+     "player:Political Pressure on Palestine:success",
+     163
+    ],
+    [
+     "player:Secure Area:success",
+     161
+    ],
+    [
+     "player:Expand Existing Settlements:success",
+     143
+    ],
+    [
+     "player:Arrest Extremist Leaders:success",
+     137
+    ],
+    [
+     "player:Anti-Militancy:neutrally",
+     137
+    ],
+    [
+     "player:Suppress Violence:success",
+     135
+    ],
+    [
+     "player:Political Pressure on Palestine:refusal",
+     134
+    ],
+    [
+     "player:Listen to Concerns:low palestinian trust",
+     123
+    ]
+   ]
+  },
+  "israeli-tense-greedy": {
+   "role": "israeli",
+   "difficulty": "tense",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 28.0,
+    "min": 24,
+    "max": 33
+   },
+   "milestone_turn_median": {
+    "ISRAELI: PLOT 1": 9.0,
+    "ISRAELI: PLOT 2": 14.0,
+    "ISRAELI: PLOT 3": 19.0,
+    "ISRAELI: WIN": 28.0
+   },
+   "end_report_violence_median": 175.0,
+   "most_used_actions": [
+    [
+     "player:Withdrawal Support:success",
+     373
+    ],
+    [
+     "player:Demand Anti-Militant Actions:success",
+     357
+    ],
+    [
+     "player:Suppress Violence:success",
+     258
+    ],
+    [
+     "player:Ask for Anti-Militant Support:success",
+     222
+    ],
+    [
+     "player:Arrest Extremist Leaders:success",
+     177
+    ],
+    [
+     "player:Educational Initiatives:success",
+     120
+    ],
+    [
+     "player:Unite for Peace:success",
+     109
+    ],
+    [
+     "player:Mediation Support:success",
+     105
+    ],
+    [
+     "player:Educational Grants:success",
+     69
+    ],
+    [
+     "player:Only if Incitement Stops:success",
+     64
+    ],
+    [
+     "player:Cross-Cultural Projects:success",
+     59
+    ],
+    [
+     "player:Political Pressure on Palestine:success",
+     57
+    ]
+   ]
+  },
+  "israeli-tense-random": {
+   "role": "israeli",
+   "difficulty": "tense",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "lose:ISRAELI: ISRAELI LOSE 2": 275,
+    "timeout": 12,
+    "win": 11,
+    "lose:ISRAELI: ISRAELI LOSE": 2
+   },
+   "turns_to_win": {
+    "median": 110,
+    "min": 67,
+    "max": 165
+   },
+   "milestone_turn_median": {
+    "ISRAELI: ISRAELI LOSE 2": 15,
+    "ISRAELI: PLOT 1": 36.0,
+    "ISRAELI: PLOT 2": 51,
+    "ISRAELI: PLOT 3": 61.0,
+    "ISRAELI: WIN": 110,
+    "ISRAELI: ISRAELI LOSE": 49.5
+   },
+   "end_report_violence_median": 118.5,
+   "most_used_actions": [
+    [
+     "player:Israel's Security:neutrally",
+     216
+    ],
+    [
+     "player:Palestinian Cooperation:neutrally",
+     169
+    ],
+    [
+     "player:Mediation Support:success",
+     162
+    ],
+    [
+     "player:The Peace Process:neutrally",
+     160
+    ],
+    [
+     "player:Secure Area:success",
+     148
+    ],
+    [
+     "player:Political Pressure on Palestine:refusal",
+     117
+    ],
+    [
+     "player:Anti-Militancy:neutrally",
+     108
+    ],
+    [
+     "player:Expand Existing Settlements:success",
+     107
+    ],
+    [
+     "player:Suppress Violence:success",
+     107
+    ],
+    [
+     "player:Political Pressure on Palestine:success",
+     103
+    ],
+    [
+     "player:Arrest Extremist Leaders:success",
+     94
+    ],
+    [
+     "player:Anti-Militancy:poorly",
+     93
+    ]
+   ]
+  },
+  "israeli-violent-greedy": {
+   "role": "israeli",
+   "difficulty": "violent",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 29.0,
+    "min": 24,
+    "max": 36
+   },
+   "milestone_turn_median": {
+    "ISRAELI: PLOT 1": 9.0,
+    "ISRAELI: PLOT 2": 15.0,
+    "ISRAELI: PLOT 3": 20.0,
+    "ISRAELI: WIN": 29.0
+   },
+   "end_report_violence_median": 218.0,
+   "most_used_actions": [
+    [
+     "player:Withdrawal Support:success",
+     367
+    ],
+    [
+     "player:Demand Anti-Militant Actions:success",
+     335
+    ],
+    [
+     "player:Suppress Violence:success",
+     277
+    ],
+    [
+     "player:Ask for Anti-Militant Support:success",
+     275
+    ],
+    [
+     "player:Arrest Extremist Leaders:success",
+     156
+    ],
+    [
+     "player:Mediation Support:success",
+     128
+    ],
+    [
+     "player:Unite for Peace:success",
+     125
+    ],
+    [
+     "player:Educational Initiatives:success",
+     120
+    ],
+    [
+     "player:Political Pressure on Palestine:success",
+     68
+    ],
+    [
+     "player:Only if Incitement Stops:success",
+     61
+    ],
+    [
+     "player:Educational Grants:success",
+     60
+    ],
+    [
+     "player:Cross-Cultural Projects:success",
+     53
+    ]
+   ]
+  },
+  "israeli-violent-random": {
+   "role": "israeli",
+   "difficulty": "violent",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "lose:ISRAELI: ISRAELI LOSE 2": 284,
+    "win": 5,
+    "timeout": 10,
+    "lose:ISRAELI: ISRAELI LOSE": 1
+   },
+   "turns_to_win": {
+    "median": 155,
+    "min": 65,
+    "max": 197
+   },
+   "milestone_turn_median": {
+    "ISRAELI: ISRAELI LOSE 2": 15.0,
+    "ISRAELI: PLOT 1": 43.0,
+    "ISRAELI: PLOT 2": 77.5,
+    "ISRAELI: PLOT 3": 79.5,
+    "ISRAELI: WIN": 155,
+    "ISRAELI: ISRAELI LOSE": 26
+   },
+   "end_report_violence_median": 137.0,
+   "most_used_actions": [
+    [
+     "player:Israel's Security:neutrally",
+     188
+    ],
+    [
+     "player:Mediation Support:success",
+     175
+    ],
+    [
+     "player:The Peace Process:neutrally",
+     159
+    ],
+    [
+     "player:Secure Area:success",
+     148
+    ],
+    [
+     "player:Anti-Militancy:neutrally",
+     121
+    ],
+    [
+     "player:Palestinian Cooperation:neutrally",
+     111
+    ],
+    [
+     "player:Political Pressure on Palestine:success",
+     108
+    ],
+    [
+     "player:Political Pressure on Palestine:refusal",
+     106
+    ],
+    [
+     "player:Clearing and Securing Routes:success",
+     95
+    ],
+    [
+     "player:Ease Curfews:sub-optimal",
+     92
+    ],
+    [
+     "player:Anti-Militancy:poorly",
+     90
+    ],
+    [
+     "player:Increase Curfews:success",
+     88
+    ]
+   ]
+  },
+  "palestinian-calm-greedy": {
+   "role": "palestinian",
+   "difficulty": "calm",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 21.0,
+    "min": 18,
+    "max": 26
+   },
+   "milestone_turn_median": {
+    "PLOT 1": 7.0,
+    "PLOT 2": 11.0,
+    "PLOT 3": 15.0,
+    "ENDING: WIN": 21.0
+   },
+   "end_report_violence_median": 18.0,
+   "most_used_actions": [
+    [
+     "player:Housing Construction:success",
+     274
+    ],
+    [
+     "player:Power Plant:success",
+     259
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     207
+    ],
+    [
+     "player:Request a Meeting:success",
+     173
+    ],
+    [
+     "player:Health Care:success",
+     169
+    ],
+    [
+     "player:Yes - Announce Independence:success",
+     105
+    ],
+    [
+     "player:Seaport Construction:success",
+     102
+    ],
+    [
+     "player:Open Tourism:sub-optimal",
+     99
+    ],
+    [
+     "player:Water Treatment Plant:success",
+     85
+    ],
+    [
+     "player:Lower Travel Restrictions:success",
+     78
+    ],
+    [
+     "player:Help in Fighting Corruption:success",
+     72
+    ],
+    [
+     "player:Yes - Announce Independence:close",
+     69
+    ]
+   ]
+  },
+  "palestinian-calm-random": {
+   "role": "palestinian",
+   "difficulty": "calm",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "win": 290,
+    "lose:ENDING: EXTERNAL LOSE": 2,
+    "lose:ENDING: INTERNAL LOSE": 7,
+    "timeout": 1
+   },
+   "turns_to_win": {
+    "median": 63.0,
+    "min": 35,
+    "max": 164
+   },
+   "milestone_turn_median": {
+    "PLOT 1": 26,
+    "PLOT 2": 34,
+    "PLOT 3": 44,
+    "ENDING: WIN": 63.0,
+    "ENDING: EXTERNAL LOSE": 17.5,
+    "ENDING: INTERNAL LOSE": 16
+   },
+   "end_report_violence_median": 247.0,
+   "most_used_actions": [
+    [
+     "player:Request Aid:success",
+     813
+    ],
+    [
+     "player:Request a Meeting:success",
+     800
+    ],
+    [
+     "player:Political Pressure on Israel:success",
+     741
+    ],
+    [
+     "player:Request Investment:success",
+     645
+    ],
+    [
+     "player:Request Investment:delay",
+     309
+    ],
+    [
+     "player:Support in Law and Order:success",
+     304
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     276
+    ],
+    [
+     "player:Demanding Speech:demanding",
+     271
+    ],
+    [
+     "player:Hopeful Speech:hopeful",
+     269
+    ],
+    [
+     "player:Raise Travel Restrictions:success",
+     267
+    ],
+    [
+     "player:Decrease Police Funding:success",
+     264
+    ],
+    [
+     "player:Cautious Speech:cautious",
+     261
+    ]
+   ]
+  },
+  "palestinian-tense-greedy": {
+   "role": "palestinian",
+   "difficulty": "tense",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 21.0,
+    "min": 19,
+    "max": 25
+   },
+   "milestone_turn_median": {
+    "PLOT 1": 7.0,
+    "PLOT 2": 11.0,
+    "PLOT 3": 15.0,
+    "ENDING: WIN": 21.0
+   },
+   "end_report_violence_median": 25.5,
+   "most_used_actions": [
+    [
+     "player:Housing Construction:success",
+     270
+    ],
+    [
+     "player:Power Plant:success",
+     242
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     203
+    ],
+    [
+     "player:Request a Meeting:success",
+     186
+    ],
+    [
+     "player:Health Care:success",
+     163
+    ],
+    [
+     "player:Seaport Construction:success",
+     126
+    ],
+    [
+     "player:Yes - Announce Independence:success",
+     101
+    ],
+    [
+     "player:Open Tourism:sub-optimal",
+     100
+    ],
+    [
+     "player:Water Treatment Plant:success",
+     94
+    ],
+    [
+     "player:Lower Travel Restrictions:success",
+     74
+    ],
+    [
+     "player:Help in Fighting Corruption:success",
+     63
+    ],
+    [
+     "player:Push for Control of Airspace:success",
+     56
+    ]
+   ]
+  },
+  "palestinian-tense-random": {
+   "role": "palestinian",
+   "difficulty": "tense",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "lose:ENDING: EXTERNAL LOSE": 19,
+    "lose:ENDING: INTERNAL LOSE": 24,
+    "win": 255,
+    "timeout": 2
+   },
+   "turns_to_win": {
+    "median": 67,
+    "min": 36,
+    "max": 177
+   },
+   "milestone_turn_median": {
+    "ENDING: EXTERNAL LOSE": 34,
+    "ENDING: INTERNAL LOSE": 26.0,
+    "PLOT 1": 29.0,
+    "PLOT 2": 40,
+    "PLOT 3": 49,
+    "ENDING: WIN": 67
+   },
+   "end_report_violence_median": 307.5,
+   "most_used_actions": [
+    [
+     "player:Request Aid:success",
+     814
+    ],
+    [
+     "player:Political Pressure on Israel:success",
+     718
+    ],
+    [
+     "player:Request a Meeting:success",
+     715
+    ],
+    [
+     "player:Request Investment:success",
+     642
+    ],
+    [
+     "player:Request Investment:delay",
+     354
+    ],
+    [
+     "player:Decrease Police Funding:success",
+     314
+    ],
+    [
+     "player:Raise Travel Restrictions:success",
+     299
+    ],
+    [
+     "player:Demanding Speech:demanding",
+     292
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     290
+    ],
+    [
+     "player:Cautious Speech:cautious",
+     286
+    ],
+    [
+     "player:Support in Law and Order:success",
+     285
+    ],
+    [
+     "player:Lower Travel Restrictions:success",
+     280
+    ]
+   ]
+  },
+  "palestinian-violent-greedy": {
+   "role": "palestinian",
+   "difficulty": "violent",
+   "policy": "greedy",
+   "games": 100,
+   "results": {
+    "win": 100
+   },
+   "turns_to_win": {
+    "median": 22.0,
+    "min": 19,
+    "max": 26
+   },
+   "milestone_turn_median": {
+    "PLOT 1": 7.0,
+    "PLOT 2": 12.0,
+    "PLOT 3": 15.0,
+    "ENDING: WIN": 22.0
+   },
+   "end_report_violence_median": 38.0,
+   "most_used_actions": [
+    [
+     "player:Housing Construction:success",
+     257
+    ],
+    [
+     "player:Power Plant:success",
+     216
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     193
+    ],
+    [
+     "player:Request a Meeting:success",
+     189
+    ],
+    [
+     "player:Health Care:success",
+     174
+    ],
+    [
+     "player:Seaport Construction:success",
+     145
+    ],
+    [
+     "player:Yes - Announce Independence:success",
+     101
+    ],
+    [
+     "player:Open Tourism:sub-optimal",
+     100
+    ],
+    [
+     "player:Water Treatment Plant:success",
+     97
+    ],
+    [
+     "player:Lower Travel Restrictions:success",
+     77
+    ],
+    [
+     "player:Help in Fighting Corruption:success",
+     63
+    ],
+    [
+     "player:Push for Control of Airspace:success",
+     62
+    ]
+   ]
+  },
+  "palestinian-violent-random": {
+   "role": "palestinian",
+   "difficulty": "violent",
+   "policy": "random",
+   "games": 300,
+   "results": {
+    "lose:ENDING: INTERNAL LOSE": 72,
+    "timeout": 16,
+    "win": 143,
+    "lose:ENDING: EXTERNAL LOSE": 69
+   },
+   "turns_to_win": {
+    "median": 75,
+    "min": 39,
+    "max": 192
+   },
+   "milestone_turn_median": {
+    "ENDING: INTERNAL LOSE": 35.0,
+    "PLOT 1": 30.5,
+    "PLOT 2": 43,
+    "PLOT 3": 57.0,
+    "ENDING: WIN": 75,
+    "ENDING: EXTERNAL LOSE": 51
+   },
+   "end_report_violence_median": 384.5,
+   "most_used_actions": [
+    [
+     "player:Request Aid:success",
+     782
+    ],
+    [
+     "player:Political Pressure on Israel:success",
+     616
+    ],
+    [
+     "player:Request a Meeting:success",
+     595
+    ],
+    [
+     "player:Request Investment:delay",
+     521
+    ],
+    [
+     "player:Request Investment:success",
+     494
+    ],
+    [
+     "player:Request a Meeting:delay",
+     390
+    ],
+    [
+     "player:Political Pressure on Israel:delay",
+     339
+    ],
+    [
+     "player:Cautious Speech:cautious",
+     326
+    ],
+    [
+     "player:Lower Travel Restrictions:success",
+     325
+    ],
+    [
+     "player:Decrease Police Funding:success",
+     319
+    ],
+    [
+     "player:Raise Travel Restrictions:success",
+     304
+    ],
+    [
+     "player:Pro Law and Order:pro-law and order",
+     299
+    ]
+   ]
+  }
+ }
+}

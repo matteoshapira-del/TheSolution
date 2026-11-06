@@ -1,0 +1,5 @@
+# Verbatim PeaceMaker files (ImpactGames' copyright) — local reference only
+harvest_raw/
+__pycache__/
+*.pyc
+.DS_Store

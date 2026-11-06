@@ -1,0 +1,2915 @@
+{
+ "israeli": [
+  {
+   "id": "IsrClock",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": true,
+   "affected_by_difficulty": false,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "reduceSuppressionAndAddCooperation"
+   ],
+   "tree": [
+    {
+     "description": "per turn var modifications",
+     "pass": {
+      "action": "reduceSuppressionAndAddCooperation"
+     }
+    }
+   ]
+  },
+  {
+   "id": "IsrMusicDJ",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": false,
+   "poll_branches": [],
+   "reachable_outcomes": [],
+   "tree": [
+    {
+     "description": "test losing internal",
+     "conditions": [
+      {
+       "op": "#Less",
+       "arg1": "internal authority score",
+       "arg2": -30
+      }
+     ],
+     "pass": {
+      "music": "mus_Lp_Isr_Neg_ST"
+     }
+    },
+    {
+     "description": "test losing external",
+     "conditions": [
+      {
+       "op": "#Less",
+       "arg1": "external authority score",
+       "arg2": -30
+      }
+     ],
+     "pass": {
+      "music": "mus_Lp_Isr_Neg_ST"
+     }
+    },
+    {
+     "description": "test Winning",
+     "conditions": [
+      {
+       "op": "#Greater",
+       "arg1": "internal authority score",
+       "arg2": 30
+      },
+      {
+       "op": "#Greater",
+       "arg1": "external authority score",
+       "arg2": 30
+      }
+     ],
+     "pass": {
+      "music": "mus_Lp_Isr_Pos_ST"
+     },
+     "fail": {
+      "music": "mus_Lp_Isr_Neutral_ST"
+     }
+    }
+   ]
+  },
+  {
+   "id": "IPMPalestinianPublic",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "IPMPublicAgressiveProtestAntiYou",
+    "IPMPublicHighQualityOfLife",
+    "IPMPublicLowQualityOfLife",
+    "IPMPublicStreetProtestAntiYou",
+    "IPMPublicStreetRallyProYou",
+    "IPMPublicTooMuchViolence"
+   ],
+   "tree": [
+    {
+     "description": "initial setup roll..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 5
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "IPMPublicStreetRallyProYou test..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         },
+         {
+          "op": "#Threshold",
+          "arg1": "palestinian people",
+          "arg2": 80,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "action": "IPMPublicStreetRallyProYou"
+        }
+       },
+       {
+        "description": "IPMPublicAgressiveProtestAntiYou test..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         },
+         {
+          "op": "#NotThreshold",
+          "arg1": "palestinian people",
+          "arg2": 20,
+          "arg3": 10
+         }
+        ],
+        "pass": {
+         "action": "IPMPublicAgressiveProtestAntiYou"
+        }
+       },
+       {
+        "description": "IPMPublicStreetProtestAntiYou test..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         },
+         {
+          "op": "#NotThreshold",
+          "arg1": "palestinian people",
+          "arg2": 40,
+          "arg3": 10
+         }
+        ],
+        "pass": {
+         "action": "IPMPublicStreetProtestAntiYou"
+        }
+       },
+       {
+        "description": "Pal Public listen to concerns...",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 4
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "IPMPublicTooMuchViolence test..",
+           "conditions": [
+            {
+             "op": "#Greater",
+             "arg1": "suppression",
+             "arg2": 60
+            }
+           ],
+           "pass": {
+            "action": "IPMPublicTooMuchViolence"
+           }
+          },
+          {
+           "description": "IPMPublicHighQualityOfLife test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Greater",
+             "arg1": "palestinian people",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMPublicHighQualityOfLife"
+           }
+          },
+          {
+           "description": "IPMPublicLowQualityOfLife test..",
+           "else": true,
+           "pass": {
+            "action": "IPMPublicLowQualityOfLife"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Hamas",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "IPMHamasAntiIsraelFunds",
+    "IPMHamasAntiIsraelWords",
+    "IPMHamasAttack",
+    "IPMHamasExtremeAttack",
+    "IPMHamasOrganizeWithInternationalTerror"
+   ],
+   "tree": [
+    {
+     "description": "Hamas suppression test...",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 300
+      },
+      {
+       "op": "#Less",
+       "arg1": "roll",
+       "arg2": "suppression"
+      }
+     ],
+     "pass": {
+      "action": "NoAction"
+     },
+     "fail": {
+      "branches": [
+       {
+        "description": "Setup hamas action..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 100
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "IPMHamasOrganizeWithInternationalTerror test..",
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "hamas",
+             "arg2": 20,
+             "arg3": 10
+            },
+            {
+             "op": "#NotThreshold",
+             "arg1": "suppression",
+             "arg2": 10,
+             "arg3": 10
+            },
+            {
+             "op": "#Greater",
+             "arg1": "roll",
+             "arg2": 95
+            }
+           ],
+           "pass": {
+            "action": "IPMHamasOrganizeWithInternationalTerror"
+           }
+          },
+          {
+           "description": "IPMHamasExtremeAttack test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "hamas",
+             "arg2": 30,
+             "arg3": 10
+            },
+            {
+             "op": "#NotThreshold",
+             "arg1": "suppression",
+             "arg2": 25,
+             "arg3": 10
+            },
+            {
+             "op": "#Greater",
+             "arg1": "roll",
+             "arg2": 70
+            }
+           ],
+           "pass": {
+            "action": "IPMHamasExtremeAttack"
+           }
+          },
+          {
+           "description": "IPMHamasAttack test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "hamas",
+             "arg2": 50,
+             "arg3": 10
+            },
+            {
+             "op": "#NotThreshold",
+             "arg1": "suppression",
+             "arg2": 40,
+             "arg3": 10
+            },
+            {
+             "op": "#Greater",
+             "arg1": "roll",
+             "arg2": 40
+            }
+           ],
+           "pass": {
+            "action": "IPMHamasAttack"
+           }
+          },
+          {
+           "description": "IPMHamasAntiIsraelFunds test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Greater",
+             "arg1": "roll",
+             "arg2": 10
+            }
+           ],
+           "pass": {
+            "action": "IPMHamasAntiIsraelFunds"
+           },
+           "fail": {
+            "action": "IPMHamasAntiIsraelWords"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "International Press",
+   "call_frequency": 5,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "IPMPressHighApproval",
+    "IPMPressHighQualityOfLife",
+    "IPMPressHighSecurity",
+    "IPMPressHighSympathy",
+    "IPMPressHighTrust",
+    "IPMPressLowApproval",
+    "IPMPressLowQualityOfLife",
+    "IPMPressLowSecurity",
+    "IPMPressLowSympathy",
+    "IPMPressLowTrust"
+   ],
+   "tree": [
+    {
+     "description": "test for lowApproval..",
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "israel people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Less",
+       "arg1": "israel people",
+       "arg2": 40
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowApproval"
+     }
+    },
+    {
+     "description": "test for lowTrust..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "palestinian president",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Less",
+       "arg1": "palestinian president",
+       "arg2": 45
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowTrust"
+     }
+    },
+    {
+     "description": "test for lowQOL..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "palestinian people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Less",
+       "arg1": "palestinian people",
+       "arg2": 45
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowQualityOfLife"
+     }
+    },
+    {
+     "description": "test for lowSecurity..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "security",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Less",
+       "arg1": "security",
+       "arg2": 45
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowSecurity"
+     }
+    },
+    {
+     "description": "test for IPMPressLowSympathy..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "sympathy",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Less",
+       "arg1": "sympathy",
+       "arg2": 20
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowSympathy"
+     }
+    },
+    {
+     "description": "test for IPMPressHighApproval..",
+     "conditions": [
+      {
+       "op": "#HighestTopic",
+       "arg1": "israel people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Greater",
+       "arg1": "israel people",
+       "arg2": 70
+      }
+     ],
+     "pass": {
+      "action": "IPMPressHighApproval"
+     }
+    },
+    {
+     "description": "test for IPMPressHighTrust..",
+     "conditions": [
+      {
+       "op": "#HighestTopic",
+       "arg1": "palestinian president",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Greater",
+       "arg1": "palestinian president",
+       "arg2": 75
+      }
+     ],
+     "pass": {
+      "action": "IPMPressHighTrust"
+     }
+    },
+    {
+     "description": "test for IPMPressHighQualityOfLife..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#HighestTopic",
+       "arg1": "palestinian people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Greater",
+       "arg1": "palestinian people",
+       "arg2": 75
+      }
+     ],
+     "pass": {
+      "action": "IPMPressHighQualityOfLife"
+     }
+    },
+    {
+     "description": "test for IPMPressHighSecurity..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#HighestTopic",
+       "arg1": "security",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Greater",
+       "arg1": "security",
+       "arg2": 75
+      }
+     ],
+     "pass": {
+      "action": "IPMPressHighSecurity"
+     }
+    },
+    {
+     "description": "test for IPMPressHighSympathy..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#HighestTopic",
+       "arg1": "sympathy",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      },
+      {
+       "op": "#Greater",
+       "arg1": "sympathy",
+       "arg2": 70
+      }
+     ],
+     "pass": {
+      "action": "IPMPressHighSympathy"
+     }
+    },
+    {
+     "description": "test for lowApproval2..",
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "israel people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowApproval"
+     }
+    },
+    {
+     "description": "test for lowTrust2..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "palestinian president",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowTrust"
+     }
+    },
+    {
+     "description": "test for lowQOL2..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "palestinian people",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowQualityOfLife"
+     }
+    },
+    {
+     "description": "test for lowSecurity2..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "security",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowSecurity"
+     }
+    },
+    {
+     "description": "test for IPMPressLowSympathy2..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#LowestTopic",
+       "arg1": "sympathy",
+       "arg2": "israel people, palestinian president, palestinian people, security, sympathy"
+      }
+     ],
+     "pass": {
+      "action": "IPMPressLowSympathy"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Israeli People",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [
+    "IsrPeopleConcerns"
+   ],
+   "reachable_outcomes": [
+    "IPMIsraeliPeopleAntiPalestineStreetProtest",
+    "IPMIsraeliPeopleAntiYouPetition",
+    "IPMIsraeliPeopleAntiYouStreetProtest",
+    "IPMIsraeliPeopleConcernLowApproval",
+    "IPMIsraeliPeopleConcernLowSecurity",
+    "IPMIsraeliPeopleConcernLowSuppression",
+    "IPMIsraeliPeoplePraiseHighApproval",
+    "IPMIsraeliPeoplePraiseHighSecurity",
+    "IPMIsraeliPeoplePraiseHighSuppression",
+    "IPMIsraeliPeoplePraiseHighSympathy",
+    "IPMIsraeliPeopleProYouPetition",
+    "IPMIsraeliPeopleProYouStreetRally"
+   ],
+   "tree": [
+    {
+     "description": "roll setup..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 5
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "test ISR People listen to concerns..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         }
+        ],
+        "pass": {
+         "poll_id": "IsrPeopleConcerns",
+         "branches": [
+          {
+           "description": "test for lowApproval..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, suppression"
+            },
+            {
+             "op": "#Less",
+             "arg1": "israel people",
+             "arg2": 40
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowApproval"
+           }
+          },
+          {
+           "description": "test for lowSecurity..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, suppression"
+            },
+            {
+             "op": "#Less",
+             "arg1": "security",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowSecurity"
+           }
+          },
+          {
+           "description": "test for lowSuprpession..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "suppression",
+             "arg2": "israel people, security, suppression"
+            },
+            {
+             "op": "#Less",
+             "arg1": "suppression",
+             "arg2": 30
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowSuppression"
+           }
+          },
+          {
+           "description": "test for highApproval..",
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, suppression, sympathy"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "israel people",
+             "arg2": 70
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeoplePraiseHighApproval"
+           }
+          },
+          {
+           "description": "test for highSecurity..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, suppression, sympathy"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "security",
+             "arg2": 70
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeoplePraiseHighSecurity"
+           }
+          },
+          {
+           "description": "test for highSympathy..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "sympathy",
+             "arg2": "israel people, security, suppression, sympathy"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "sympathy",
+             "arg2": 70
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeoplePraiseHighSympathy"
+           }
+          },
+          {
+           "description": "test for highSympathy..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "suppression",
+             "arg2": "israel people, security, suppression, sympathy"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "suppression",
+             "arg2": 60
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeoplePraiseHighSuppression"
+           }
+          },
+          {
+           "description": "test for lowApproval2..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, suppression"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowApproval"
+           }
+          },
+          {
+           "description": "test for lowSecurity2..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, suppression"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowSecurity"
+           }
+          },
+          {
+           "description": "test for lowSuppression..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "suppression",
+             "arg2": "israel people, security, suppression"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleConcernLowSuppression"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for anti you..",
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "israel people",
+          "arg2": 20,
+          "arg3": 20
+         },
+         {
+          "op": "#Not",
+          "arg1": "roll",
+          "arg2": 4
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "flip for IPMIsraeliPeopleAntiYouStreetProtest or IPMIsraeliPeopleAntiYouPetition.. ",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "flip",
+             "arg2": 2
+            },
+            {
+             "op": "#Equals",
+             "arg1": "flip",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleAntiYouStreetProtest"
+           },
+           "fail": {
+            "action": "IPMIsraeliPeopleAntiYouPetition"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for antiPalestine..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "sympathy",
+          "arg2": 30,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "action": "IPMIsraeliPeopleAntiPalestineStreetProtest"
+        }
+       },
+       {
+        "description": "test for proyou..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "israel people",
+          "arg2": 70,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "flip for IPMIsraeliPeopleProYouStreetRally or IPMIsraeliPeopleProYouPetition..",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "flip",
+             "arg2": 2
+            },
+            {
+             "op": "#Equals",
+             "arg1": "flip",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliPeopleProYouStreetRally"
+           },
+           "fail": {
+            "action": "IPMIsraeliPeopleProYouPetition"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Israeli Government",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [
+    "IPMIsrGovConcerns"
+   ],
+   "reachable_outcomes": [
+    "IPMIsraeliGovernmentAntiPalestineWords",
+    "IPMIsraeliGovernmentAntiYouWords",
+    "IPMIsraeliGovernmentConcernLowPopularApproval",
+    "IPMIsraeliGovernmentConcernLowSecurity",
+    "IPMIsraeliGovernmentLowPalestinianTrust",
+    "IPMIsraeliGovernmentLowQualityOfLife",
+    "IPMIsraeliGovernmentPraiseHighPalestinianTrust",
+    "IPMIsraeliGovernmentPraiseHighPopularApproval",
+    "IPMIsraeliGovernmentPraiseHighQualityOfLife",
+    "IPMIsraeliGovernmentPraiseHighSecurity",
+    "IPMIsraeliGovernmentProYouWords"
+   ],
+   "tree": [
+    {
+     "description": "roll setup..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 5
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Test for ISR Gov concerns..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         }
+        ],
+        "pass": {
+         "poll_id": "IPMIsrGovConcerns",
+         "branches": [
+          {
+           "description": "test for lowApproval..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Less",
+             "arg1": "israel people",
+             "arg2": 40
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentConcernLowPopularApproval"
+           }
+          },
+          {
+           "description": "test for lowSecurity..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Less",
+             "arg1": "security",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentConcernLowSecurity"
+           }
+          },
+          {
+           "description": "test for lowTrust..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Less",
+             "arg1": "palestinian people",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentLowPalestinianTrust"
+           }
+          },
+          {
+           "description": "test for lowQOL..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "apalestinian president",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Less",
+             "arg1": "palestinian president",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentLowQualityOfLife"
+           }
+          },
+          {
+           "description": "test for highApproval..",
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "israel people",
+             "arg2": 70
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentPraiseHighPopularApproval"
+           }
+          },
+          {
+           "description": "test for highSecurity..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "security",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentPraiseHighSecurity"
+           }
+          },
+          {
+           "description": "test for highTrust..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "palestinian president",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "palestinian president",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentPraiseHighPalestinianTrust"
+           }
+          },
+          {
+           "description": "test for highQOL..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "palestinian people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "palestinian people",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentPraiseHighQualityOfLife"
+           }
+          },
+          {
+           "description": "test for lowApproval..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentConcernLowPopularApproval"
+           }
+          },
+          {
+           "description": "test for lowSecurity..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "security",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentConcernLowSecurity"
+           }
+          },
+          {
+           "description": "test for lowTrust..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian people",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentLowPalestinianTrust"
+           }
+          },
+          {
+           "description": "test for lowQOL..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "apalestinian president",
+             "arg2": "israel people, security, palestinian people, palestinian president"
+            }
+           ],
+           "pass": {
+            "action": "IPMIsraeliGovernmentLowQualityOfLife"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for IPMIsraeliGovernmentAntiYouWords..",
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "israel people",
+          "arg2": 70,
+          "arg3": 20
+         },
+         {
+          "op": "#NotEquals",
+          "arg1": "roll",
+          "arg2": 4
+         }
+        ],
+        "pass": {
+         "action": "IPMIsraeliGovernmentAntiYouWords"
+        }
+       },
+       {
+        "description": "test for IPMIsraeliGovernmentAntiPalestineWords..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "sympathy",
+          "arg2": 30,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "action": "IPMIsraeliGovernmentAntiPalestineWords"
+        }
+       },
+       {
+        "description": "test for IPMIsraeliGovernmentProYouWords..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "israel people",
+          "arg2": 70,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "action": "IPMIsraeliGovernmentProYouWords"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Palestinian President",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [
+    "PalPresConcerns"
+   ],
+   "reachable_outcomes": [
+    "IPMPalestinianPresidentAntiMilitantExtremePolice",
+    "IPMPalestinianPresidentAntiMilitantPolitical",
+    "IPMPalestinianPresidentAntiMilitantWords",
+    "IPMPalestinianPresidentAntiYouWords",
+    "IPMPalestinianPresidentConcernLowQualityOfLife",
+    "IPMPalestinianPresidentConcernLowTrust",
+    "IPMPalestinianPresidentConcernTooMuchViolence",
+    "IPMPalestinianPresidentPraiseHighQualityOfLife",
+    "IPMPalestinianPresidentPraiseHighTrust",
+    "IPMPalestinianPresidentProYouOfferToMeetForNegotiations",
+    "IPMPalestinianPresidentProYouStreetRally",
+    "IPMPalestinianPresidentProYouWords"
+   ],
+   "tree": [
+    {
+     "description": "roll setup..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 5
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Test Pal Pres for concerns..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         }
+        ],
+        "pass": {
+         "poll_id": "PalPresConcerns",
+         "branches": [
+          {
+           "description": "test for high suppression..",
+           "conditions": [
+            {
+             "op": "#Greater",
+             "arg1": "suppression",
+             "arg2": 60
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentConcernTooMuchViolence"
+           }
+          },
+          {
+           "description": "test for lowTrust..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian president",
+             "arg2": "palestinian president, palestinian people"
+            },
+            {
+             "op": "#Less",
+             "arg1": "palestinian president",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentConcernLowTrust"
+           }
+          },
+          {
+           "description": "test for lowQOL..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian people",
+             "arg2": "palestinian president, palestinian people"
+            },
+            {
+             "op": "#Less",
+             "arg1": "palestinian people",
+             "arg2": 45
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentConcernLowQualityOfLife"
+           }
+          },
+          {
+           "description": "test for highTrust..",
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "palestinian president",
+             "arg2": "palestinian president, palestinian people"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "palestinian president",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentPraiseHighTrust"
+           }
+          },
+          {
+           "description": "test for highQOL..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "palestinian people",
+             "arg2": "palestinian president, palestinian people"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "palestinian people",
+             "arg2": 75
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentPraiseHighQualityOfLife"
+           }
+          },
+          {
+           "description": "test for lowTrust2..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian president",
+             "arg2": "palestinian president, palestinian people"
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentConcernLowTrust"
+           }
+          },
+          {
+           "description": "test for lowQOL2..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "palestinian people",
+             "arg2": "palestinian president, palestinian people"
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentConcernLowQualityOfLife"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for antiYou..",
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "palestinian president",
+          "arg2": 20,
+          "arg3": 10
+         }
+        ],
+        "pass": {
+         "action": "IPMPalestinianPresidentAntiYouWords"
+        }
+       },
+       {
+        "description": "test for antiMilitant..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "palestinian president",
+          "arg2": 60,
+          "arg3": 30
+         },
+         {
+          "op": "#Greater",
+          "arg1": "roll",
+          "arg2": 2
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "roll for anti militant..",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "roll2",
+             "arg2": 4
+            }
+           ],
+           "pass": {
+            "branches": [
+             {
+              "description": "test for IPMPalestinianPresidentAntiMilitantExtremePolice..",
+              "conditions": [
+               {
+                "op": "#Threshold",
+                "arg1": "palestinian president",
+                "arg2": 80,
+                "arg3": 20
+               }
+              ],
+              "pass": {
+               "action": "IPMPalestinianPresidentAntiMilitantExtremePolice"
+              }
+             },
+             {
+              "description": "test for IPMPalestinianPresidentAntiMilitantExtremePolice..",
+              "conditions": [
+               {
+                "op": "#Threshold",
+                "arg1": "palestinian president",
+                "arg2": 70,
+                "arg3": 20
+               },
+               {
+                "op": "#Less",
+                "arg1": "roll2",
+                "arg2": 2
+               }
+              ],
+              "pass": {
+               "action": "IPMPalestinianPresidentAntiMilitantExtremePolice"
+              }
+             },
+             {
+              "description": "test for IPMPalestinianPresidentAntiMilitantPolitical..",
+              "conditions": [
+               {
+                "op": "#Threshold",
+                "arg1": "palestinian president",
+                "arg2": 70,
+                "arg3": 20
+               },
+               {
+                "op": "#Greater",
+                "arg1": "roll2",
+                "arg2": 1
+               }
+              ],
+              "pass": {
+               "action": "IPMPalestinianPresidentAntiMilitantPolitical"
+              },
+              "fail": {
+               "action": "IPMPalestinianPresidentAntiMilitantWords"
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for proYou..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "palestinian president",
+          "arg2": 60,
+          "arg3": 30
+         },
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 1
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "test for IPMPalestinianPresidentProYouOfferToMeetForNegotiations..",
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "palestinian president",
+             "arg2": 80,
+             "arg3": 20
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentProYouOfferToMeetForNegotiations"
+           }
+          },
+          {
+           "description": "test for IPMPalestinianPresidentProYouStreetRally..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "palestinian president",
+             "arg2": 70,
+             "arg3": 20
+            }
+           ],
+           "pass": {
+            "action": "IPMPalestinianPresidentProYouStreetRally"
+           },
+           "fail": {
+            "action": "IPMPalestinianPresidentProYouWords"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Yesha",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "IPMYeshaAntiPalestineAssault",
+    "IPMYeshaAntiPalestineHarassment",
+    "IPMYeshaAntiPalestineIllegalExpansion",
+    "IPMYeshaAntiYouPetition",
+    "IPMYeshaAntiYouStreetProtests",
+    "IPMYeshaConcernLowApproval",
+    "IPMYeshaConcernSettlementWithdrawal",
+    "IPMYeshaPraiseHighApproval"
+   ],
+   "tree": [
+    {
+     "description": "roll setup..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 5
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Test for concerns..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 0
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "test for lowApproval..",
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "israel people",
+             "arg2": "israel people, yesha"
+            },
+            {
+             "op": "#Less",
+             "arg1": "israel people",
+             "arg2": 40
+            }
+           ],
+           "pass": {
+            "action": "IPMYeshaConcernLowApproval"
+           }
+          },
+          {
+           "description": "test for lowSettlers..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#LowestTopic",
+             "arg1": "yesha",
+             "arg2": "israel people, yesha"
+            },
+            {
+             "op": "#Less",
+             "arg1": "yesha",
+             "arg2": 25
+            }
+           ],
+           "pass": {
+            "action": "IPMYeshaConcernSettlementWithdrawal"
+           }
+          },
+          {
+           "description": "test for highSettlers..",
+           "conditions": [
+            {
+             "op": "#HighestTopic",
+             "arg1": "yesha",
+             "arg2": "israel people, yesha"
+            },
+            {
+             "op": "#Greater",
+             "arg1": "yesha",
+             "arg2": 60
+            }
+           ],
+           "pass": {
+            "action": "IPMYeshaPraiseHighApproval"
+           }
+          },
+          {
+           "description": "no concerns detected.  no action performed",
+           "pass": {
+            "action": "NoAction"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for antiYou..",
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "yesha",
+          "arg2": 30,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "die roll setup",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "roll2",
+             "arg2": 3
+            }
+           ],
+           "pass": {
+            "branches": [
+             {
+              "description": "IPMYeshaAntiYouStreetProtests test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll2",
+                "arg2": 0
+               }
+              ],
+              "pass": {
+               "action": "IPMYeshaAntiYouStreetProtests"
+              }
+             },
+             {
+              "description": "IPMYeshaAntiYouPetition test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll2",
+                "arg2": 1
+               }
+              ],
+              "pass": {
+               "action": "IPMYeshaAntiYouPetition"
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "test for antiPalestine..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "sympathy",
+          "arg2": 50,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "die roll setup..",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "roll2",
+             "arg2": 4
+            }
+           ],
+           "pass": {
+            "branches": [
+             {
+              "description": "IPMYeshaAntiPalestineIllegalExpansion test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll2",
+                "arg2": 0
+               }
+              ],
+              "pass": {
+               "action": "IPMYeshaAntiPalestineIllegalExpansion"
+              }
+             },
+             {
+              "description": "IPMYeshaAntiPalestineHarassment test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll2",
+                "arg2": 1
+               }
+              ],
+              "pass": {
+               "action": "IPMYeshaAntiPalestineHarassment"
+              }
+             },
+             {
+              "description": "IPMYeshaAntiPalestineAssault test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll2",
+                "arg2": 2
+               }
+              ],
+              "pass": {
+               "action": "IPMYeshaAntiPalestineAssault"
+              }
+             }
+            ]
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "palestinian": [
+  {
+   "id": "PalMusicDJ",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": false,
+   "poll_branches": [],
+   "reachable_outcomes": [],
+   "tree": [
+    {
+     "description": "test losing internal",
+     "conditions": [
+      {
+       "op": "#Less",
+       "arg1": "internal authority score",
+       "arg2": -30
+      }
+     ],
+     "pass": {
+      "music": "mus_LP_PA_Neg_ST"
+     }
+    },
+    {
+     "description": "test losing external",
+     "conditions": [
+      {
+       "op": "#Less",
+       "arg1": "external authority score",
+       "arg2": -30
+      }
+     ],
+     "pass": {
+      "music": "mus_LP_PA_Neg_ST"
+     }
+    },
+    {
+     "description": "test Winning",
+     "conditions": [
+      {
+       "op": "#Greater",
+       "arg1": "internal authority score",
+       "arg2": 30
+      },
+      {
+       "op": "#Greater",
+       "arg1": "external authority score",
+       "arg2": 30
+      }
+     ],
+     "pass": {
+      "music": "mus_LP_PA_Pos_ST"
+     },
+     "fail": {
+      "music": "mus_LP_PA_Neutral_ST"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Clock",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": true,
+   "affected_by_difficulty": false,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "addBudgets"
+   ],
+   "tree": [
+    {
+     "description": "Always true.. add budgets",
+     "pass": {
+      "action": "addBudgets"
+     }
+    }
+   ]
+  },
+  {
+   "id": "Hamas",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "HamasAntiIsraelWords",
+    "HamasAntiYouWords",
+    "HamasAttack",
+    "HamasAttackOnYou",
+    "HamasClaimVictories",
+    "HamasCommitToReconstruction",
+    "HamasExtremeAttack",
+    "HamasFunds",
+    "HamasJoinPoliticalProcess",
+    "HamasOrganizeWithInternationalTerror",
+    "HamasPartialDisarm",
+    "HamasProYouWords"
+   ],
+   "tree": [
+    {
+     "description": "If Hamas likes us..",
+     "conditions": [
+      {
+       "op": "#Threshold",
+       "arg1": "hamas approval",
+       "arg2": 80,
+       "arg3": 20
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Hamas Partial Disarm Test..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "flip",
+          "arg2": 2
+         },
+         {
+          "op": "#Equals",
+          "arg1": "flip",
+          "arg2": 1
+         },
+         {
+          "op": "#Threshold",
+          "arg1": "hamas approval",
+          "arg2": 70,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "action": "HamasPartialDisarm"
+        }
+       },
+       {
+        "description": "Hamas either commits to reconstruction or join political process..",
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "hamas approval",
+          "arg2": 55,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "Hamas flips between reconstruction or political process..",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "flip",
+             "arg2": 2
+            },
+            {
+             "op": "#Equals",
+             "arg1": "flip",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "HamasCommitToReconstruction"
+           },
+           "fail": {
+            "action": "HamasJoinPoliticalProcess"
+           }
+          }
+         ]
+        },
+        "fail": {
+         "action": "HamasProYouWords"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "description": "If Hamas really hates us..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "flip",
+       "arg2": 2
+      },
+      {
+       "op": "#Equals",
+       "arg1": "flip",
+       "arg2": 0
+      },
+      {
+       "op": "#NotThreshold",
+       "arg1": "hamas approval",
+       "arg2": 30,
+       "arg3": 30
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Hamas Attacks You Test..",
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "hamas approval",
+          "arg2": 15,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "action": "HamasAttackOnYou"
+        }
+       },
+       {
+        "description": "Hamas either talks shit or claims a victory..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "flip",
+          "arg2": 2
+         },
+         {
+          "op": "#Equals",
+          "arg1": "flip",
+          "arg2": 1
+         }
+        ],
+        "pass": {
+         "action": "HamasAntiYouWords"
+        },
+        "fail": {
+         "action": "HamasClaimVictories"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "description": "Hamas Anti Israel..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#NotThreshold",
+       "arg1": "tolerance",
+       "arg2": 100,
+       "arg3": 30
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Setting up Anti Israel...",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 8
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "Either Hamas Extreme Attack or Organize with international terrorists..",
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "tolerance",
+             "arg2": 30,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "branches": [
+             {
+              "description": "Extreme attack test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll",
+                "arg2": 0
+               },
+               {
+                "op": "#NotThreshold",
+                "arg1": "hamas approval",
+                "arg2": 40,
+                "arg3": 5
+               }
+              ],
+              "pass": {
+               "action": "HamasExtremeAttack"
+              }
+             },
+             {
+              "description": "Organize with terrorists test..",
+              "conditions": [
+               {
+                "op": "#Equals",
+                "arg1": "roll",
+                "arg2": 1
+               },
+               {
+                "op": "#ThresholdNot",
+                "arg1": "hamas approval",
+                "arg2": 30,
+                "arg3": 5
+               }
+              ],
+              "pass": {
+               "action": "HamasOrganizeWithInternationalTerror"
+              }
+             }
+            ]
+           }
+          },
+          {
+           "description": "Regular Hamas Attack test..",
+           "conditions": [
+            {
+             "op": "#ThresholdNot",
+             "arg1": "tolerance",
+             "arg2": 60,
+             "arg3": 5
+            },
+            {
+             "op": "#Less",
+             "arg1": "roll",
+             "arg2": 3
+            }
+           ],
+           "pass": {
+            "action": "HamasAttack"
+           }
+          },
+          {
+           "description": "Hamas Fund test..",
+           "conditions": [
+            {
+             "op": "#Less",
+             "arg1": "roll",
+             "arg2": 4
+            }
+           ],
+           "pass": {
+            "action": "HamasFunds"
+           }
+          },
+          {
+           "description": "Hamas Anti Isreali Words test..",
+           "conditions": [
+            {
+             "op": "#Greater",
+             "arg1": "roll",
+             "arg2": 6
+            }
+           ],
+           "pass": {
+            "action": "HamasAntiIsraelWords"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Fatah",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "FatahAntiCorruption",
+    "FatahAntiIsraelWords",
+    "FatahAntiYouWords",
+    "FatahAttack",
+    "FatahAttackOnYou",
+    "FatahCommitToReconstruction",
+    "FatahExtremeAttack",
+    "FatahFunds",
+    "FatahPartialDisarm",
+    "FatahPoliticalManeuvering",
+    "FatahProYouWords"
+   ],
+   "tree": [
+    {
+     "description": "If Fatah likes us...",
+     "conditions": [
+      {
+       "op": "#Threshold",
+       "arg1": "fatah approval",
+       "arg2": 80,
+       "arg3": 20
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Test for Fatah Partial Disarm..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "flip",
+          "arg2": 2
+         },
+         {
+          "op": "#Equals",
+          "arg1": "flip",
+          "arg2": 1
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "Test for Fatah approval again.. (but i think this is redundant)",
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "fatah approval",
+             "arg2": 70,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "action": "FatahPartialDisarm"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "Test for FatahCommitToReconstruction or FatahAntiCorruption or fail to ProWords..",
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "fatah approval",
+          "arg2": 55,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "Test for FatahCommitToReconstruction or FatahAntiCorruption..",
+           "conditions": [
+            {
+             "op": "#Roll",
+             "arg1": "flip",
+             "arg2": 2
+            },
+            {
+             "op": "#Equals",
+             "arg1": "flip",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "FatahCommitToReconstruction"
+           },
+           "fail": {
+            "action": "FatahAntiCorruption"
+           }
+          }
+         ]
+        },
+        "fail": {
+         "action": "FatahProYouWords"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "description": "If Fatah really hates us...",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#ThresholdNot",
+       "arg1": "fatah approval",
+       "arg2": 30,
+       "arg3": 30
+      },
+      {
+       "op": "#Roll",
+       "arg1": "flip",
+       "arg2": 2
+      },
+      {
+       "op": "#Equals",
+       "arg1": "flip",
+       "arg2": 0
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "Test for Fatah Attack on you..",
+        "conditions": [
+         {
+          "op": "#ThresholdNot",
+          "arg1": "fatah approval",
+          "arg2": 15,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "action": "FatahAttackOnYou"
+        }
+       },
+       {
+        "description": "Test for Fatah anti words or political maneuvering",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "flip",
+          "arg2": 2
+         },
+         {
+          "op": "#Equals",
+          "arg1": "flip",
+          "arg2": 1
+         }
+        ],
+        "pass": {
+         "action": "FatahAntiYouWords"
+        },
+        "fail": {
+         "action": "FatahPoliticalManeuvering"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "description": "Fatah Anti Israel Default..",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#ThresholdNot",
+       "arg1": "tolerance",
+       "arg2": 100,
+       "arg3": 30
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 8
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "Test for Fatah extreme attack..",
+           "conditions": [
+            {
+             "op": "#ThresholdNot",
+             "arg1": "tolerance",
+             "arg2": 30,
+             "arg3": 5
+            },
+            {
+             "op": "#Equals",
+             "arg1": "roll",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "FatahExtremeAttack"
+           }
+          }
+         ]
+        }
+       },
+       {
+        "description": "Test for Fatah Attack..",
+        "conditions": [
+         {
+          "op": "#ThresholdNot",
+          "arg1": "tolerance",
+          "arg2": 50,
+          "arg3": 5
+         },
+         {
+          "op": "#Less",
+          "arg1": "roll",
+          "arg2": 3
+         }
+        ],
+        "pass": {
+         "action": "FatahAttack"
+        }
+       },
+       {
+        "description": "Test for Fatah Funds..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 8
+         }
+        ],
+        "pass": {
+         "action": "FatahFunds"
+        }
+       },
+       {
+        "description": "Test for Fatah Anti Israel Words..",
+        "conditions": [
+         {
+          "op": "#Equals",
+          "arg1": "roll",
+          "arg2": 7
+         }
+        ],
+        "pass": {
+         "action": "FatahAntiIsraelWords"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Israeli Prime Minister",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "IsraeliApologize",
+    "IsraeliBlameYou",
+    "IsraeliExtremeSecurityAct",
+    "IsraeliOfferAidInConstruction",
+    "IsraeliRemoveSecurityMeasure",
+    "IsraeliSecurityMeasures"
+   ],
+   "tree": [
+    {
+     "description": "No Action test..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "flip",
+       "arg2": 2
+      },
+      {
+       "op": "#Equals",
+       "arg1": "flip",
+       "arg2": 0
+      }
+     ],
+     "pass": {
+      "action": "NoAction"
+     }
+    },
+    {
+     "description": "IPM Pro You test...",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#Threshold",
+       "arg1": "israeli prime minister approval",
+       "arg2": 45,
+       "arg3": 10
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "roll for IPM pro you choice..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 3
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "IsraeliOfferAidInConstruction test..",
+           "conditions": [
+            {
+             "op": "#Equals",
+             "arg1": "roll",
+             "arg2": 0
+            }
+           ],
+           "pass": {
+            "action": "IsraeliOfferAidInConstruction"
+           }
+          },
+          {
+           "description": "IsraeliRemoveSecurityMeasure test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Equals",
+             "arg1": "roll",
+             "arg2": 1
+            }
+           ],
+           "pass": {
+            "action": "IsraeliRemoveSecurityMeasure"
+           }
+          },
+          {
+           "description": "IsraeliApologize test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Equals",
+             "arg1": "roll",
+             "arg2": 2
+            }
+           ],
+           "pass": {
+            "action": "IsraeliApologize"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    },
+    {
+     "description": "IPM Anti You test...",
+     "else": true,
+     "conditions": [
+      {
+       "op": "#NotThreshold",
+       "arg1": "israeli prime minister approval",
+       "arg2": 30,
+       "arg3": 30
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "roll for IPM anti you choice..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 9
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "IsraeliExtremeSecurityAct test..",
+           "conditions": [
+            {
+             "op": "#Equals",
+             "arg1": "roll",
+             "arg2": 0
+            },
+            {
+             "op": "#NotThreshold",
+             "arg1": "israeli prime minister approval",
+             "arg2": 20,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "action": "IsraeliExtremeSecurityAct"
+           }
+          },
+          {
+           "description": "IsraeliSecurityMeasures test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Less",
+             "arg1": "roll",
+             "arg2": 5
+            }
+           ],
+           "pass": {
+            "action": "IsraeliSecurityMeasures"
+           }
+          },
+          {
+           "description": "default case..",
+           "else": true,
+           "pass": {
+            "action": "IsraeliBlameYou"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Palestinian Public",
+   "call_frequency": 1,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "PalestinianPublicAngry",
+    "PalestinianPublicDesireAction",
+    "PalestinianPublicEnthusiastic",
+    "PalestinianPublicMaterialNeeds",
+    "PalestinianPublicReconstruction",
+    "PalestinianPublicRights",
+    "PalestinianPublicSupportFatah",
+    "PalestinianPublicSupportHamas",
+    "PalestinianPublicSupportPresident"
+   ],
+   "tree": [
+    {
+     "description": "feedbackAboutPeaceProcess test..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "flip",
+       "arg2": 2
+      },
+      {
+       "op": "#Equals",
+       "arg1": "flip",
+       "arg2": 0
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "PalestinianPublicEnthusiastic test..",
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "independence",
+          "arg2": 80,
+          "arg3": 20
+         }
+        ],
+        "pass": {
+         "action": "PalestinianPublicEnthusiastic"
+        }
+       },
+       {
+        "description": "PalestinianPublicDesireAction test..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#Threshold",
+          "arg1": "independence",
+          "arg2": 40,
+          "arg3": 10
+         }
+        ],
+        "pass": {
+         "action": "PalestinianPublicDesireAction"
+        }
+       },
+       {
+        "description": "PalestinianPublicAngry test..",
+        "else": true,
+        "conditions": [
+         {
+          "op": "#NotThreshold",
+          "arg1": "independence",
+          "arg2": 10,
+          "arg3": 5
+         }
+        ],
+        "pass": {
+         "action": "PalestinianPublicAngry"
+        }
+       }
+      ]
+     },
+     "fail": {
+      "branches": [
+       {
+        "description": "flip for approval or economy..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "flip",
+          "arg2": 2
+         },
+         {
+          "op": "#Equals",
+          "arg1": "flip",
+          "arg2": 0
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "test for PalestinianPublicReconstruction..",
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "economy",
+             "arg2": 70,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "action": "PalestinianPublicReconstruction"
+           }
+          },
+          {
+           "description": "test for PalestinianPublicMaterialNeeds..",
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "economy",
+             "arg2": 10,
+             "arg3": 10
+            }
+           ],
+           "pass": {
+            "action": "PalestinianPublicMaterialNeeds"
+           }
+          },
+          {
+           "description": "No action..",
+           "pass": {
+            "action": "NoAction"
+           }
+          }
+         ]
+        },
+        "fail": {
+         "branches": [
+          {
+           "description": "PalestinianPublicRights test..",
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "palestinian public approval",
+             "arg2": 20,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "action": "PalestinianPublicRights"
+           }
+          },
+          {
+           "description": "PalestinianPublicSupportFatah or PalestinianPublicSupportHamas test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#NotThreshold",
+             "arg1": "palestinian public approval",
+             "arg2": 40,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "branches": [
+             {
+              "description": "pick fatah or hamas now..",
+              "conditions": [
+               {
+                "op": "#Threshold",
+                "arg1": "tolerance",
+                "arg2": 25,
+                "arg3": 5
+               }
+              ],
+              "pass": {
+               "action": "PalestinianPublicSupportFatah"
+              },
+              "fail": {
+               "action": "PalestinianPublicSupportHamas"
+              }
+             }
+            ]
+           }
+          },
+          {
+           "description": "PalestinianPublicSupportPresident test..",
+           "else": true,
+           "conditions": [
+            {
+             "op": "#Threshold",
+             "arg1": "palestinian public approval",
+             "arg2": 75,
+             "arg3": 5
+            }
+           ],
+           "pass": {
+            "action": "PalestinianPublicSupportPresident"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "Yesha",
+   "call_frequency": 0,
+   "bundled_with_player_feedback": false,
+   "affected_by_difficulty": true,
+   "poll_branches": [],
+   "reachable_outcomes": [
+    "PPYeshaAntiPalestineAssault",
+    "PPYeshaAntiPalestineHarassment",
+    "PPYeshaAntiPalestineIllegalExpansion"
+   ],
+   "tree": [
+    {
+     "description": "roll for yesha action..",
+     "conditions": [
+      {
+       "op": "#Roll",
+       "arg1": "roll",
+       "arg2": 3
+      },
+      {
+       "op": "#Equals",
+       "arg1": "roll",
+       "arg2": 0
+      }
+     ],
+     "pass": {
+      "branches": [
+       {
+        "description": "pre roll 8 sided..",
+        "conditions": [
+         {
+          "op": "#Roll",
+          "arg1": "roll",
+          "arg2": 8
+         }
+        ],
+        "pass": {
+         "branches": [
+          {
+           "description": "PPYeshaAntiPalestineIllegalExpansion test",
+           "conditions": [
+            {
+             "op": "#Less",
+             "arg1": "roll",
+             "arg2": 2
+            }
+           ],
+           "pass": {
+            "action": "PPYeshaAntiPalestineIllegalExpansion"
+           }
+          },
+          {
+           "description": "PPYeshaAntiPalestineAssault test",
+           "conditions": [
+            {
+             "op": "#Less",
+             "arg1": "roll",
+             "arg2": 5
+            }
+           ],
+           "pass": {
+            "action": "PPYeshaAntiPalestineAssault"
+           }
+          },
+          {
+           "description": "default case PPYeshaAntiPalestineHarassment..",
+           "pass": {
+            "action": "PPYeshaAntiPalestineHarassment"
+           }
+          }
+         ]
+        }
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

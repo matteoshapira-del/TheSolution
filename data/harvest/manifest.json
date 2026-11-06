@@ -1,0 +1,126 @@
+{
+ "game": "PeaceMaker (ImpactGames)",
+ "build": "Build from Tim’s MacBook Pro at 11/17/2015 17:22:58",
+ "installer_sha256": "28848be6eee4411b6d33412537ce3797e76466890bee8199b80ccb3fb1e3dd0e",
+ "engine": "Unity (Mono), NGUI, I2 Localization, SQLite content DB",
+ "text_assets": {
+  "Localization": {
+   "bundle": "resources.assets",
+   "bytes": 1253,
+   "file": "Localization.csv",
+   "purpose": "I2 Localization term table (CSV)."
+  },
+  "data.en-us": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 120210,
+   "file": "data.en-us.xml",
+   "purpose": "Player action menus (headers, advisor lines) in English."
+  },
+  "interface.ar": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 86783,
+   "file": "interface.ar.xml",
+   "purpose": "UI strings (Arabic)."
+  },
+  "init": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 17296,
+   "file": "init.xml",
+   "purpose": "Starting value and flags of every simulation variable, per role."
+  },
+  "outcomes": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 1231020,
+   "file": "outcomes.xml",
+   "purpose": "Outcome tables: for each action id, ordered result branches with conditions and effects."
+  },
+  "ai2": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 83497,
+   "file": "ai2.xml",
+   "purpose": "Decision trees for the non-player actors that act every turn."
+  },
+  "interface.en-us": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 68468,
+   "file": "interface.en-us.xml",
+   "purpose": "UI strings, stakeholders, polls, cities, timeline, tutorial (English)."
+  },
+  "events.en-us": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 809746,
+   "file": "events.en-us.xml",
+   "purpose": "All news/feedback events in English (source of the events DB)."
+  },
+  "interface.he": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 79846,
+   "file": "interface.he.xml",
+   "purpose": "UI strings (Hebrew)."
+  },
+  "actions-to-outcomes": {
+   "bundle": "sharedassets2.assets",
+   "bytes": 18161,
+   "file": "actions-to-outcomes.xml",
+   "purpose": "Maps player action ids to outcome table ids."
+  }
+ },
+ "streaming_asset_file_counts": {
+  "Videos": 18,
+  "TimelineImages": 15,
+  "ActionIcons": 0,
+  "AIImages": 0,
+  "EventImages": 1096,
+  "TutorialImages": 8,
+  "Other": 75,
+  "ActionImages": 249
+ },
+ "counts": {
+  "variables": {
+   "palestinian": 109,
+   "israeli": 62
+  },
+  "action_nodes": {
+   "israeli": 108,
+   "palestinian": 127
+  },
+  "leaf_actions": {
+   "israeli": 76,
+   "palestinian": 99
+  },
+  "outcome_tables": 300,
+  "outcome_branches": 675,
+  "duplicate_outcome_tables_ignored_by_engine": 20,
+  "ai_actors": {
+   "israeli": 9,
+   "palestinian": 7
+  },
+  "events": 1350,
+  "event_tags": 574,
+  "plot_events": 12,
+  "cities": 27
+ },
+ "duplicate_outcome_tables": [
+  "IPMIsraeliLoseState",
+  "IPMPalestinianLoseState",
+  "IPMPressHighApproval",
+  "IPMPressHighQualityOfLife",
+  "IPMPressHighSecurity",
+  "IPMPressHighSympathy",
+  "IPMPressHighTrust",
+  "IPMPressLowApproval",
+  "IPMPressLowQualityOfLife",
+  "IPMPressLowSecurity",
+  "IPMPressLowSympathy",
+  "IPMPressLowTrust",
+  "IPMPublicAgressiveProtestAntiYou",
+  "IPMPublicHighQualityOfLife",
+  "IPMPublicLowQualityOfLife",
+  "IPMPublicStreetProtestAntiYou",
+  "IPMPublicStreetRallyProYou",
+  "IPMPublicTooMuchViolence",
+  "IPMWinState",
+  "PoliceSeizeMilitantArms"
+ ],
+ "leaf_actions_without_outcome": []
+}

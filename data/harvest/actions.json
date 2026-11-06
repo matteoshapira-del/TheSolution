@@ -1,0 +1,3360 @@
+{
+ "israeli": [
+  {
+   "id": 1,
+   "string_id": "MANAGE SETTLEMENTS",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Build or Remove Settlements",
+   "children": [
+    2,
+    3
+   ]
+  },
+  {
+   "id": 2,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SETTLEMENTS: ISRAEL BUILD SETTLEMENTS",
+   "category": "Construction",
+   "parent": 1,
+   "is_root": false,
+   "label": "Build Settlements",
+   "header": "Build Settlements",
+   "children": [
+    61,
+    62
+   ]
+  },
+  {
+   "id": 3,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SETTLEMENTS: ISRAEL REMOVE SETTLEMENTS",
+   "category": "Construction",
+   "parent": 1,
+   "is_root": false,
+   "label": "Remove Settlements",
+   "header": "Remove Settlements",
+   "children": [
+    63,
+    64
+   ]
+  },
+  {
+   "id": 4,
+   "string_id": "DOMESTIC INITIATIVES",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Domestic Initiatives",
+   "children": [
+    65,
+    66,
+    67
+   ]
+  },
+  {
+   "id": 5,
+   "string_id": "MEDICAL AID",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Fund Palestinian Medical Institutions",
+   "children": [
+    68,
+    69
+   ]
+  },
+  {
+   "id": 6,
+   "string_id": "EDUCATION AID",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Fund Palestinian Education",
+   "children": [
+    70,
+    71
+   ]
+  },
+  {
+   "id": 7,
+   "string_id": "RECONSTRUCTION AID",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Fund Palestinian Reconstruction",
+   "children": [
+    72,
+    73,
+    74
+   ]
+  },
+  {
+   "id": 8,
+   "string_id": "MANAGE SECURITY WALL",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Build or Remove Security Fence",
+   "children": [
+    9,
+    75
+   ]
+  },
+  {
+   "id": 9,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SECURITY WALL: ISRAEL EXPAND SECURITY WALL",
+   "category": "Construction",
+   "parent": 8,
+   "is_root": false,
+   "label": "Build More Fence",
+   "header": "Expand the Security Wall",
+   "children": [
+    76,
+    77
+   ]
+  },
+  {
+   "id": 10,
+   "string_id": "REFUGEE AFFAIRS",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Refugee Affairs",
+   "children": [
+    78,
+    79
+   ]
+  },
+  {
+   "id": 11,
+   "string_id": "TALK TO YOUR PEOPLE",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Make a Speech to Your People",
+   "children": [
+    80,
+    81,
+    82,
+    83,
+    84
+   ]
+  },
+  {
+   "id": 12,
+   "string_id": "TALK TO YOUR GOVERNMENT",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Talk to Your Government",
+   "children": [
+    85,
+    86,
+    87,
+    88,
+    89
+   ]
+  },
+  {
+   "id": 13,
+   "string_id": "TALK TO THE WORLD",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Make a Speech to the World",
+   "children": [
+    90,
+    91,
+    92,
+    93
+   ]
+  },
+  {
+   "id": 14,
+   "string_id": "YESHA ISSUES",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Yesha Issues",
+   "children": [
+    94,
+    95,
+    96,
+    97
+   ]
+  },
+  {
+   "id": 15,
+   "string_id": "TALK TO PALESTINIAN PRESIDENT",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Talk to the Palestinian President",
+   "children": [
+    98,
+    99,
+    100,
+    101,
+    102
+   ]
+  },
+  {
+   "id": 16,
+   "string_id": "TALK TO WORLD LEADERS",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Negotiate with the World",
+   "children": [
+    17,
+    18,
+    19
+   ]
+  },
+  {
+   "id": 17,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL USA NEGOTIATION",
+   "category": "Politics",
+   "parent": 16,
+   "is_root": false,
+   "label": "The United States",
+   "header": "USA Negotiations",
+   "children": [
+    103,
+    104
+   ]
+  },
+  {
+   "id": 18,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL UN NEGOTIATION",
+   "category": "Politics",
+   "parent": 16,
+   "is_root": false,
+   "label": "The United Nations",
+   "header": "UN Negotiations",
+   "children": [
+    105,
+    106
+   ]
+  },
+  {
+   "id": 19,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL EU NEGOTIATION",
+   "category": "Politics",
+   "parent": 16,
+   "is_root": false,
+   "label": "The European Union",
+   "header": "EU Negotiations",
+   "children": [
+    107,
+    108
+   ]
+  },
+  {
+   "id": 20,
+   "string_id": "TRADE RESTRICTIONS",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Apply Trade Restrictions",
+   "children": [
+    109,
+    110
+   ]
+  },
+  {
+   "id": 21,
+   "string_id": "WORKER PERMITS",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Apply Worker Permits",
+   "children": [
+    111,
+    112
+   ]
+  },
+  {
+   "id": 22,
+   "string_id": "CULTURAL INITIATIVES",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Cultural Initiatives",
+   "children": [
+    113,
+    114,
+    115,
+    116
+   ]
+  },
+  {
+   "id": 23,
+   "string_id": "ORDER IDF",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Order the Israeli Army",
+   "children": [
+    24,
+    117
+   ]
+  },
+  {
+   "id": 24,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER IDF: ISRAEL SEND IDF",
+   "category": "Security",
+   "parent": 23,
+   "is_root": false,
+   "label": "Send Army Units",
+   "header": "Send Israeli Army Units",
+   "children": [
+    118,
+    119,
+    120
+   ]
+  },
+  {
+   "id": 25,
+   "string_id": "ORDER POLICE",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Order the Israeli Police",
+   "children": [
+    26,
+    121
+   ]
+  },
+  {
+   "id": 26,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER POLICE: ISRAEL SEND POLICE",
+   "category": "Security",
+   "parent": 25,
+   "is_root": false,
+   "label": "Send Police Units",
+   "header": "Send Israeli Police Units",
+   "children": [
+    122,
+    123
+   ]
+  },
+  {
+   "id": 27,
+   "string_id": "MANAGE CHECKPOINTS",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Change Checkpoint Level",
+   "children": [
+    124,
+    125
+   ]
+  },
+  {
+   "id": 28,
+   "string_id": "ISRAEL: SECURITY: ISRAEL CURFEWS",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Curfews",
+   "children": [
+    126,
+    127
+   ]
+  },
+  {
+   "id": 29,
+   "string_id": "RELEASE PRISONERS",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Release Prisoners",
+   "children": [
+    128,
+    129
+   ]
+  },
+  {
+   "id": 30,
+   "string_id": "MISSILE STRIKE",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Order Missile Attack",
+   "children": [
+    130,
+    131,
+    132
+   ]
+  },
+  {
+   "id": 31,
+   "string_id": "ASSASSINATE MILITANT LEADER",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Assassinate a Militant Leader",
+   "children": [
+    133,
+    134
+   ]
+  },
+  {
+   "id": 32,
+   "string_id": "BULLDOZE AREA",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Bulldoze an Area",
+   "children": [
+    135,
+    136
+   ]
+  },
+  {
+   "id": 61,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL BUILD SETTLEMENTS: ISRAEL BUILD SETTLEMENTS: ISRAEL EXPAND SETTLEMENTS",
+   "category": "Construction",
+   "parent": 2,
+   "is_root": false,
+   "label": "Expand Existing Settlements",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelExpandSettlements",
+   "outcome_found": true
+  },
+  {
+   "id": 62,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL REMOVE SETTLEMENTS: ISRAEL BUILD SETTLEMENTS: ISRAEL BUILD NEW SETTLEMENT",
+   "category": "Construction",
+   "parent": 2,
+   "is_root": false,
+   "label": "Build New Settlement",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelBuildNewSettlement",
+   "outcome_found": true
+  },
+  {
+   "id": 63,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL BUILD SETTLEMENTS: ISRAEL REMOVE SETTLEMENTS: ISRAEL HALT SETTLEMENT EXPANSION",
+   "category": "Construction",
+   "parent": 3,
+   "is_root": false,
+   "label": "Freeze Settlement Construction",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelHaltSettlementExpansion",
+   "outcome_found": true
+  },
+  {
+   "id": 64,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL REMOVE SETTLEMENTS: ISRAEL REMOVE SETTLEMENTS: ISRAEL DISMANTLE SETTLEMENT",
+   "category": "Construction",
+   "parent": 3,
+   "is_root": false,
+   "label": "Remove Existing Settlements",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelDismantleSettlement",
+   "outcome_found": true
+  },
+  {
+   "id": 65,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL DOMESTIC INITIATIVES: ISRAEL ECONOMIC STIMULUS PACKAGE",
+   "category": "Construction",
+   "parent": 4,
+   "is_root": false,
+   "label": "Economic Stimulus Package",
+   "header": null,
+   "children": [],
+   "outcome_id": "EconomicStimulusPackage",
+   "outcome_found": true
+  },
+  {
+   "id": 66,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL DOMESTIC INITIATIVES: ISRAEL SOCIAL PROGRAM INITIATIVE",
+   "category": "Construction",
+   "parent": 4,
+   "is_root": false,
+   "label": "Social Program Initiative",
+   "header": null,
+   "children": [],
+   "outcome_id": "SocialProgramInitiative",
+   "outcome_found": true
+  },
+  {
+   "id": 67,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL DOMESTIC INITIATIVES: ISRAEL EDUCATIONAL GRANTS",
+   "category": "Construction",
+   "parent": 4,
+   "is_root": false,
+   "label": "Educational Grants",
+   "header": null,
+   "children": [],
+   "outcome_id": "EducationalGrants",
+   "outcome_found": true
+  },
+  {
+   "id": 68,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MEDICAL AID: ISRAEL MEDICAL AID DIRECT",
+   "category": "Construction",
+   "parent": 5,
+   "is_root": false,
+   "label": "Directly",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelMedicalAidDirect",
+   "outcome_found": true
+  },
+  {
+   "id": 69,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MEDICAL AID: ISRAEL MEDICAL AID THROUGH UN",
+   "category": "Construction",
+   "parent": 5,
+   "is_root": false,
+   "label": "Through UN Organizations",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelMedicalAidThroughUN",
+   "outcome_found": true
+  },
+  {
+   "id": 70,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL EDUCATION AID: ISRAEL EDUCATION AID DIRECT",
+   "category": "Construction",
+   "parent": 6,
+   "is_root": false,
+   "label": "No Conditions for Funding",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelEducationAidDirect",
+   "outcome_found": true
+  },
+  {
+   "id": 71,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL EDUCATION AID: ISRAEL EDUCATION AID WITH RESTRICTION",
+   "category": "Construction",
+   "parent": 6,
+   "is_root": false,
+   "label": "Only if Incitement Stops",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelEducationAidWithRestriction",
+   "outcome_found": true
+  },
+  {
+   "id": 72,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL RECONSTRUCTION AID: ISRAEL CIVILIAN AID",
+   "category": "Construction",
+   "parent": 7,
+   "is_root": false,
+   "label": "Give Civilian Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelCivilianAid",
+   "outcome_found": true
+  },
+  {
+   "id": 73,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL RECONSTRUCTION AID: ISRAEL INFRASTRUCTURE AID",
+   "category": "Construction",
+   "parent": 7,
+   "is_root": false,
+   "label": "Give Infrastructure Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelInfrastructureAid",
+   "outcome_found": true
+  },
+  {
+   "id": 74,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL RECONSTRUCTION AID: ISRAEL SECURITY AID",
+   "category": "Construction",
+   "parent": 7,
+   "is_root": false,
+   "label": "Give Security Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelSecurityAid",
+   "outcome_found": true
+  },
+  {
+   "id": 75,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SECURITY WALL: ISRAEL REMOVE SECURITY WALL",
+   "category": "Construction",
+   "parent": 8,
+   "is_root": false,
+   "label": "Remove Part of the Fence",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelRemoveSecurityWall",
+   "outcome_found": true
+  },
+  {
+   "id": 76,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SECURITY WALL: ISRAEL EXPAND SECURITY WALL: ISRAEL BUILD WALL ON GREEN LINE",
+   "category": "Construction",
+   "parent": 9,
+   "is_root": false,
+   "label": "Along Green Line (1967 Border)",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelBuildWallOnGreenLine",
+   "outcome_found": true
+  },
+  {
+   "id": 77,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL MANAGE SECURITY WALL: ISRAEL EXPAND SECURITY WALL: ISRAEL BUILD WALL ON PALESTINIAN LAND",
+   "category": "Construction",
+   "parent": 9,
+   "is_root": false,
+   "label": "Around or Between Settlements",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelBuildWallOnPalestinianLand",
+   "outcome_found": true
+  },
+  {
+   "id": 78,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL REFUGEE AFFAIRS: ISRAEL ALLOW SOME PALESTINIAN IMMIGRANTS",
+   "category": "Construction",
+   "parent": 10,
+   "is_root": false,
+   "label": "Allow Refugee Immigration",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAllowSomePalestinianImmigrants",
+   "outcome_found": true
+  },
+  {
+   "id": 79,
+   "string_id": "ISRAEL: CONSTRUCTION: ISRAEL REFUGEE AFFAIRS: ISRAEL AUTHORIZE PAYMENTS TO REFUGEES",
+   "category": "Construction",
+   "parent": 10,
+   "is_root": false,
+   "label": "Authorize Compensation",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAuthorizePaymentsToRefugees",
+   "outcome_found": true
+  },
+  {
+   "id": 80,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR PEOPLE: ISRAEL PEOPLE PRO-SECURITY",
+   "category": "Politics",
+   "parent": 11,
+   "is_root": false,
+   "label": "Israel's Security",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPeopleProSecurity",
+   "outcome_found": true
+  },
+  {
+   "id": 81,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR PEOPLE: ISRAEL PEOPLE PRO-PEACE PROCESS",
+   "category": "Politics",
+   "parent": 11,
+   "is_root": false,
+   "label": "The Peace Process",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPeopleProPeaceProcess",
+   "outcome_found": true
+  },
+  {
+   "id": 82,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR PEOPLE: ISRAEL PEOPLE PRO-PALESTINIAN COOPERATION",
+   "category": "Politics",
+   "parent": 11,
+   "is_root": false,
+   "label": "Palestinian Cooperation",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPeopleProPalestinianCooperation",
+   "outcome_found": true
+  },
+  {
+   "id": 83,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR PEOPLE: ISRAEL PEOPLE ANTI-MILITANCY",
+   "category": "Politics",
+   "parent": 11,
+   "is_root": false,
+   "label": "Anti-Militancy",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPeopleAntiMilitancy",
+   "outcome_found": true
+  },
+  {
+   "id": 84,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR PEOPLE: ISRAEL PEOPLE LISTEN TO CONCERNS",
+   "category": "Politics",
+   "parent": 11,
+   "is_root": false,
+   "label": "Listen to Concerns",
+   "header": null,
+   "children": [],
+   "poll": {
+    "actor": "Israeli People",
+    "branch": "IsrPeopleConcerns"
+   },
+   "outcome_id": "IsraelPeopleListenToConcerns",
+   "outcome_found": true
+  },
+  {
+   "id": 85,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR GOVERNMENT: ISRAEL GOVERNMENT ASK TO UNITE FOR PEACE",
+   "category": "Politics",
+   "parent": 12,
+   "is_root": false,
+   "label": "Unite for Peace",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelGovernmentAskToUniteForPeace",
+   "outcome_found": true
+  },
+  {
+   "id": 86,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR GOVERNMENT: ISRAEL GOVERNMENT ASK FOR LESS CRITICISM",
+   "category": "Politics",
+   "parent": 12,
+   "is_root": false,
+   "label": "Less Criticism",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelGovernmentAskForLessCriticism",
+   "outcome_found": true
+  },
+  {
+   "id": 87,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR GOVERNMENT: ISRAEL GOVERNMENT LISTEN TO CONCERNS",
+   "category": "Politics",
+   "parent": 12,
+   "is_root": false,
+   "label": "Listen to Concerns",
+   "header": null,
+   "children": [],
+   "poll": {
+    "actor": "Israeli Government",
+    "branch": "IPMIsrGovConcerns"
+   },
+   "outcome_id": "IsraelGovernmentListenToConcerns",
+   "outcome_found": true
+  },
+  {
+   "id": 88,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR GOVERNMENT: ISRAEL GOVERNMENT PROMISE MORE SECURITY",
+   "category": "Politics",
+   "parent": 12,
+   "is_root": false,
+   "label": "Promise More Security",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelGovernmentPromiseMoreSecurity",
+   "outcome_found": true
+  },
+  {
+   "id": 89,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO YOUR GOVERNMENT: ISRAEL GOVERNMENT ASK FOR WITHDRAWAL SUPPORT",
+   "category": "Politics",
+   "parent": 12,
+   "is_root": false,
+   "label": "Withdrawal Support",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelGovernmentAskForWithdrawalSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 90,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO THE WORLD: ISRAEL WORLD PRO-SECURITY",
+   "category": "Politics",
+   "parent": 13,
+   "is_root": false,
+   "label": "Israel's Security",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelWorldProSecurity",
+   "outcome_found": true
+  },
+  {
+   "id": 91,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO THE WORLD: ISRAEL WORLD PRO-PEACE PROCESS",
+   "category": "Politics",
+   "parent": 13,
+   "is_root": false,
+   "label": "The Peace Process",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelWorldProPeaceProcess",
+   "outcome_found": true
+  },
+  {
+   "id": 92,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO THE WORLD: ISRAEL WORLD PRO-PALESTINIAN COOPERATION",
+   "category": "Politics",
+   "parent": 13,
+   "is_root": false,
+   "label": "Palestinian Cooperation",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelWorldProPalestinianCooperation",
+   "outcome_found": true
+  },
+  {
+   "id": 93,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO THE WORLD: ISRAEL WORLD ANTI-MILITANCY",
+   "category": "Politics",
+   "parent": 13,
+   "is_root": false,
+   "label": "Anti-Militancy",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelWorldAntiMilitancy",
+   "outcome_found": true
+  },
+  {
+   "id": 94,
+   "string_id": "ISRAEL: POLITICAL: YESHA ISSUES: ISRAEL YESHA ASK FOR RESTRAINT",
+   "category": "Politics",
+   "parent": 14,
+   "is_root": false,
+   "label": "Ask for Restraint",
+   "header": null,
+   "children": [],
+   "outcome_id": "YeshaAskForConstraint",
+   "outcome_found": true
+  },
+  {
+   "id": 95,
+   "string_id": "ISRAEL: POLITICAL: YESHA ISSUES: ISRAEL YESHA PROMISE CONCESSIONS",
+   "category": "Politics",
+   "parent": 14,
+   "is_root": false,
+   "label": "Promise Concessions",
+   "header": null,
+   "children": [],
+   "outcome_id": "YeshaPromiseConcessions",
+   "outcome_found": true
+  },
+  {
+   "id": 96,
+   "string_id": "ISRAEL: POLITICAL: YESHA ISSUES: ISRAEL YESHA SUPPRESS VIOLENCE",
+   "category": "Politics",
+   "parent": 14,
+   "is_root": false,
+   "label": "Suppress Violence",
+   "header": null,
+   "children": [],
+   "outcome_id": "YeshaSendForces",
+   "outcome_found": true
+  },
+  {
+   "id": 97,
+   "string_id": "ISRAEL: POLITICAL: YESHA ISSUES: ISRAEL YESHA ARREST LEADERS",
+   "category": "Politics",
+   "parent": 14,
+   "is_root": false,
+   "label": "Arrest Extremist Leaders",
+   "header": null,
+   "children": [],
+   "outcome_id": "YeshaArrestLeader",
+   "outcome_found": true
+  },
+  {
+   "id": 98,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO PALESTINIAN PRESIDENT: ISRAEL PALESTINIAN PRESIDENT ASK FOR ANTI-MILITANT SUPPORT",
+   "category": "Politics",
+   "parent": 15,
+   "is_root": false,
+   "label": "Ask for Anti-Militant Support",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPalestinianPresidentAskForAntiMilitantSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 99,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO PALESTINIAN PRESIDENT: ISRAEL PALESTINIAN PRESIDENT INSIST ON ANTI-MILITANT ACTIONS",
+   "category": "Politics",
+   "parent": 15,
+   "is_root": false,
+   "label": "Demand Anti-Militant Actions",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPalestinianPresidentInsistOnAntiMilitantActions",
+   "outcome_found": true
+  },
+  {
+   "id": 100,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO PALESTINIAN PRESIDENT: ISRAEL PALESTINIAN PRESIDENT LISTEN TO CONCERNS",
+   "category": "Politics",
+   "parent": 15,
+   "is_root": false,
+   "label": "Listen to Concerns",
+   "header": null,
+   "children": [],
+   "poll": {
+    "actor": "Palestinian President",
+    "branch": "PalPresConcerns"
+   },
+   "outcome_id": "IsraelPalestinianPresidentListenToConcerns",
+   "outcome_found": true
+  },
+  {
+   "id": 101,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO PALESTINIAN PRESIDENT: ISRAEL PALESTINIAN PRESIDENT PROMISE SECURITY CONCESSIONS",
+   "category": "Politics",
+   "parent": 15,
+   "is_root": false,
+   "label": "Promise Security Concessions",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPalestinianPresidentPromiseSecurityConcessions",
+   "outcome_found": true
+  },
+  {
+   "id": 102,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO PALESTINIAN PRESIDENT: ISRAEL PALESTINIAN PRESIDENT PROMISE RECONSTRUCTION ASSISTANCE",
+   "category": "Politics",
+   "parent": 15,
+   "is_root": false,
+   "label": "Promise Reconstruction Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPalestinianPresidentPromiseReconstructionAssistance",
+   "outcome_found": true
+  },
+  {
+   "id": 103,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL USA NEGOTIATION: ISRAEL USA ASK FOR MEDIATION SUPPORT",
+   "category": "Politics",
+   "parent": 17,
+   "is_root": false,
+   "label": "Mediation Support",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelUSAAskForMediationSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 104,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL USA NEGOTIATION: ISRAEL USA ASK FOR POLITICAL PRESSURE ON PALESTINE",
+   "category": "Politics",
+   "parent": 17,
+   "is_root": false,
+   "label": "Political Pressure on Palestine",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelUSAAskForPoliticalPressureOnPalestine",
+   "outcome_found": true
+  },
+  {
+   "id": 105,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL UN NEGOTIATION: ISRAEL UN ASK FOR MEDIATION SUPPORT",
+   "category": "Politics",
+   "parent": 18,
+   "is_root": false,
+   "label": "Mediation Support",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelUNAskForMediationSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 106,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL UN NEGOTIATION: ISRAEL UN ASK FOR POLITICAL PRESSURE ON PALESTINE",
+   "category": "Politics",
+   "parent": 18,
+   "is_root": false,
+   "label": "Political Pressure on Palestine",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelUNAskForPoliticalPressureOnPalestine",
+   "outcome_found": true
+  },
+  {
+   "id": 107,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL EU NEGOTIATION: ISRAEL EU ASK FOR MEDIATION SUPPORT",
+   "category": "Politics",
+   "parent": 19,
+   "is_root": false,
+   "label": "Mediation Support",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelEUAskForMediationSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 108,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TALK TO WORLD LEADERS: ISRAEL EU NEGOTIATION: ISRAEL EU ASK FOR POLITICAL PRESSURE ON PALESTINE",
+   "category": "Politics",
+   "parent": 19,
+   "is_root": false,
+   "label": "Political Pressure on Palestine",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelEUAskForPoliticalPressureOnPalestine",
+   "outcome_found": true
+  },
+  {
+   "id": 109,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TRADE RESTRICTIONS: ISRAEL INCREASE TRADE RESTRICTIONS",
+   "category": "Politics",
+   "parent": 20,
+   "is_root": false,
+   "label": "Increase Trade Restrictions",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIncreaseTradeRestrictions",
+   "outcome_found": true
+  },
+  {
+   "id": 110,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL TRADE RESTRICTIONS: ISRAEL DECREASE TRADE RESTRICTIONS",
+   "category": "Politics",
+   "parent": 20,
+   "is_root": false,
+   "label": "Decrease Trade Restrictions",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelDecreaseTradeRestrictions",
+   "outcome_found": true
+  },
+  {
+   "id": 111,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL WORKER PERMITS: ISRAEL INCREASE WORKER PERMITS",
+   "category": "Politics",
+   "parent": 21,
+   "is_root": false,
+   "label": "Increase Number of Permits",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIncreaseWorkerPermits",
+   "outcome_found": true
+  },
+  {
+   "id": 112,
+   "string_id": "ISRAEL: POLITICAL: ISRAEL WORKER PERMITS: ISRAEL DECREASE WORKER PERMITS",
+   "category": "Politics",
+   "parent": 21,
+   "is_root": false,
+   "label": "Decrease Number of Permits",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelDecreaseWorkerPermits",
+   "outcome_found": true
+  },
+  {
+   "id": 113,
+   "string_id": "ISRAEL: POLITICAL: CULTURAL INITIATIVES: ISRAEL CROSS-CULTURAL PROJECT",
+   "category": "Politics",
+   "parent": 22,
+   "is_root": false,
+   "label": "Cross-Cultural Projects",
+   "header": null,
+   "children": [],
+   "outcome_id": "CulturalCrossCulture",
+   "outcome_found": true
+  },
+  {
+   "id": 114,
+   "string_id": "ISRAEL: POLITICAL: CULTURAL INITIATIVES: ISRAEL EDUCATIONAL INITIATIVE",
+   "category": "Politics",
+   "parent": 22,
+   "is_root": false,
+   "label": "Educational Initiatives",
+   "header": null,
+   "children": [],
+   "outcome_id": "CulturalEducationInitiative",
+   "outcome_found": true
+  },
+  {
+   "id": 115,
+   "string_id": "ISRAEL: POLITICAL: CULTURAL INITIATIVES: ISRAEL TRADE INITIATIVE",
+   "category": "Politics",
+   "parent": 22,
+   "is_root": false,
+   "label": "Trade Initiatives",
+   "header": null,
+   "children": [],
+   "outcome_id": "CulturalTradeInitiative",
+   "outcome_found": true
+  },
+  {
+   "id": 116,
+   "string_id": "ISRAEL: POLITICAL: CULTURAL INITIATIVES: ISRAEL STRUCTURED DIALOG",
+   "category": "Politics",
+   "parent": 22,
+   "is_root": false,
+   "label": "Structured Dialogue",
+   "header": null,
+   "children": [],
+   "outcome_id": "CulturalStructuredDialog",
+   "outcome_found": true
+  },
+  {
+   "id": 117,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER IDF: ISRAEL REMOVE IDF",
+   "category": "Security",
+   "parent": 23,
+   "is_root": false,
+   "label": "Remove Army Units",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelRemoveIDF",
+   "outcome_found": true
+  },
+  {
+   "id": 118,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER IDF: ISRAEL SEND IDF: ISRAEL IDF SECURE AREA",
+   "category": "Security",
+   "parent": 24,
+   "is_root": false,
+   "label": "Secure Area",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIDFSecureArea",
+   "outcome_found": true
+  },
+  {
+   "id": 119,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER IDF: ISRAEL SEND IDF: ISRAEL IDF ARREST MILITANTS",
+   "category": "Security",
+   "parent": 24,
+   "is_root": false,
+   "label": "Arrest Palestinian Militants",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIDFArrestMilitants",
+   "outcome_found": true
+  },
+  {
+   "id": 120,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER IDF: ISRAEL SEND IDF: ISRAEL IDF DESTROY MILITANT INFRASTRUCTURE",
+   "category": "Security",
+   "parent": 24,
+   "is_root": false,
+   "label": "Destroy Militant Infrastructure",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIDFDestroyMilitantInfrastructure",
+   "outcome_found": true
+  },
+  {
+   "id": 121,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER POLICE: ISRAEL REMOVE POLICE",
+   "category": "Security",
+   "parent": 25,
+   "is_root": false,
+   "label": "Remove Police Units",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelRemovePolice",
+   "outcome_found": true
+  },
+  {
+   "id": 122,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER POLICE: ISRAEL SEND POLICE: ISRAEL POLICE PATROL",
+   "category": "Security",
+   "parent": 26,
+   "is_root": false,
+   "label": "Police Patrol",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPolicePatrol",
+   "outcome_found": true
+  },
+  {
+   "id": 123,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ORDER POLICE: ISRAEL SEND POLICE: ISRAEL POLICE SECURE",
+   "category": "Security",
+   "parent": 26,
+   "is_root": false,
+   "label": "Secure Area",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelPoliceSecure",
+   "outcome_found": true
+  },
+  {
+   "id": 124,
+   "string_id": "ISRAEL: SECURITY: ISRAEL MANAGE CHECKPOINTS: ISRAEL INCREASE CHECKPOINTS",
+   "category": "Security",
+   "parent": 27,
+   "is_root": false,
+   "label": "Add Checkpoints",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelIncreaseCheckpoints",
+   "outcome_found": true
+  },
+  {
+   "id": 125,
+   "string_id": "ISRAEL: SECURITY: ISRAEL MANAGE CHECKPOINTS: ISRAEL DECREASE CHECKPOINTS",
+   "category": "Security",
+   "parent": 27,
+   "is_root": false,
+   "label": "Remove Checkpoints",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelDecreaseCheckpoints",
+   "outcome_found": true
+  },
+  {
+   "id": 126,
+   "string_id": "ISRAEL: SECURITY: ISRAEL CURFEWS: ISRAEL IMPOSE CURFEW",
+   "category": "Security",
+   "parent": 28,
+   "is_root": false,
+   "label": "Increase Curfews",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelImposeCurfew",
+   "outcome_found": true
+  },
+  {
+   "id": 127,
+   "string_id": "ISRAEL: SECURITY: ISRAEL CURFEWS: ISRAEL RAISE CURFEW",
+   "category": "Security",
+   "parent": 28,
+   "is_root": false,
+   "label": "Ease Curfews",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelRaiseCurfew",
+   "outcome_found": true
+  },
+  {
+   "id": 128,
+   "string_id": "ISRAEL: SECURITY: ISRAEL RELEASE PRISONERS: ISRAEL RELEASE NON-VIOLENT PRISONERS",
+   "category": "Security",
+   "parent": 29,
+   "is_root": false,
+   "label": "Convicted for Non-Violent Acts",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelReleaseNonViolentPrisoners",
+   "outcome_found": true
+  },
+  {
+   "id": 129,
+   "string_id": "ISRAEL: SECURITY: ISRAEL RELEASE PRISONERS: ISRAEL RELEASE VIOLENT PRISONERS",
+   "category": "Security",
+   "parent": 29,
+   "is_root": false,
+   "label": "Convicted for Violent Acts",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelReleaseViolentPrisoners",
+   "outcome_found": true
+  },
+  {
+   "id": 130,
+   "string_id": "ISRAEL: SECURITY: ISRAEL MISSILE STRIKE: ISRAEL MISSILE MILITANT HQ",
+   "category": "Security",
+   "parent": 30,
+   "is_root": false,
+   "label": "Militants' Headquarters",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelMissileMilitantHQ",
+   "outcome_found": true
+  },
+  {
+   "id": 131,
+   "string_id": "ISRAEL: SECURITY: ISRAEL MISSILE STRIKE: ISRAEL MISSILE PA INFRASTRUCTURE",
+   "category": "Security",
+   "parent": 30,
+   "is_root": false,
+   "label": "Government Infrastructure",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelMissilePAInfrastructure",
+   "outcome_found": true
+  },
+  {
+   "id": 132,
+   "string_id": "ISRAEL: SECURITY: ISRAEL MISSILE STRIKE: ISRAEL MISSILE PA POLICE",
+   "category": "Security",
+   "parent": 30,
+   "is_root": false,
+   "label": "Palestinian Police Forces",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelMissilePAPolice",
+   "outcome_found": true
+  },
+  {
+   "id": 133,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ASSASSINATE MILITANT LEADER: ISRAEL ASSASSINATE APACHE STRIKE",
+   "category": "Security",
+   "parent": 31,
+   "is_root": false,
+   "label": "Apache Strike",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAssassinateApacheStrike",
+   "outcome_found": true
+  },
+  {
+   "id": 134,
+   "string_id": "ISRAEL: SECURITY: ISRAEL ASSASSINATE MILITANT LEADER: ISRAEL ASSASSINATE COVERT OPERATION",
+   "category": "Security",
+   "parent": 31,
+   "is_root": false,
+   "label": "Covert Operation",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAssassinateCovertOperation",
+   "outcome_found": true
+  },
+  {
+   "id": 135,
+   "string_id": "ISRAEL: SECURITY: ISRAEL BULLDOZE AREA: ISRAEL BULLDOZE CLEAR ROADBLOCKS",
+   "category": "Security",
+   "parent": 32,
+   "is_root": false,
+   "label": "Clearing and Securing Routes",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelBulldozeClearRoadblocks",
+   "outcome_found": true
+  },
+  {
+   "id": 136,
+   "string_id": "ISRAEL: SECURITY: ISRAEL BULLDOZE AREA: ISRAEL BULLDOZE PUNISH MILITANTS",
+   "category": "Security",
+   "parent": 32,
+   "is_root": false,
+   "label": "As a response to Militant Attacks",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelBulldozePunishMilitants",
+   "outcome_found": true
+  }
+ ],
+ "palestinian": [
+  {
+   "id": 33,
+   "string_id": "CIVILIAN CONSTRUCTION",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Civilian Construction",
+   "children": [
+    137,
+    138,
+    139,
+    140
+   ]
+  },
+  {
+   "id": 34,
+   "string_id": "TRANSPORTATION CONSTRUCTION",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Transportation Construction",
+   "children": [
+    141,
+    142,
+    143,
+    144,
+    145
+   ]
+  },
+  {
+   "id": 35,
+   "string_id": "NATURAL RESOURCE CONSTRUCTION",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Natural and National Resources",
+   "children": [
+    146,
+    147,
+    148,
+    149,
+    150
+   ]
+  },
+  {
+   "id": 36,
+   "string_id": "SOCIAL SERVICES CONSTRUCTION",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Social Services Financing",
+   "children": [
+    37,
+    151,
+    152
+   ]
+  },
+  {
+   "id": 37,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION",
+   "category": "Construction",
+   "parent": 36,
+   "is_root": false,
+   "label": "Finance Education",
+   "header": "Finance Education",
+   "children": [
+    153,
+    154,
+    155,
+    156,
+    157
+   ]
+  },
+  {
+   "id": 38,
+   "string_id": "GOVERNMENTAL CONSTRUCTION",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Governmental Construction",
+   "children": [
+    158,
+    159,
+    160
+   ]
+  },
+  {
+   "id": 39,
+   "string_id": "TOURISM",
+   "category": "Construction",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Tourism",
+   "children": [
+    161,
+    162
+   ]
+  },
+  {
+   "id": 40,
+   "string_id": "FINANCING: FINANCING",
+   "category": "Financing",
+   "parent": null,
+   "is_root": false,
+   "label": null,
+   "header": "Finance Project",
+   "children": [
+    41,
+    163,
+    164,
+    165
+   ]
+  },
+  {
+   "id": 41,
+   "string_id": "FINANCING: FINANCING: FOREIGN INVESTMENT",
+   "category": "Financing",
+   "parent": 40,
+   "is_root": false,
+   "label": "Foreign Investors",
+   "header": "Foreign Investors",
+   "children": [
+    166,
+    167,
+    168,
+    169
+   ]
+  },
+  {
+   "id": 42,
+   "string_id": "SPEECH TO PALESTINIANS",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Give a Speech to the Palestinian People",
+   "children": [
+    170,
+    171,
+    172,
+    173
+   ]
+  },
+  {
+   "id": 43,
+   "string_id": "SPEECH TO WORLD",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Give a Speech to the World",
+   "children": [
+    174,
+    175,
+    176
+   ]
+  },
+  {
+   "id": 44,
+   "string_id": "POLITICS: INTERNAL NEGOTIATION",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Commence Internal Negotiations",
+   "children": [
+    45,
+    46
+   ]
+  },
+  {
+   "id": 45,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: FATAH NEGOTIATION",
+   "category": "Politics",
+   "parent": 44,
+   "is_root": false,
+   "label": "Negotiations with Fatah",
+   "header": "Negotiate with the Fatah",
+   "children": [
+    177,
+    178,
+    179,
+    180
+   ]
+  },
+  {
+   "id": 46,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: HAMAS NEGOTIATION",
+   "category": "Politics",
+   "parent": 44,
+   "is_root": false,
+   "label": "Negotiations with Hamas",
+   "header": "Negotiate with the Hamas",
+   "children": [
+    181,
+    182,
+    183,
+    184
+   ]
+  },
+  {
+   "id": 47,
+   "string_id": "POLITICS: ISRAEL NEGOTIATION",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Negotiate with Israel",
+   "children": [
+    185,
+    186,
+    187,
+    188
+   ]
+  },
+  {
+   "id": 48,
+   "string_id": "POLITICS: FOREIGN NEGOTIATION",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Commence Foreign Negotiations",
+   "children": [
+    49,
+    50,
+    51,
+    52
+   ]
+  },
+  {
+   "id": 49,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: USA NEGOTIATE",
+   "category": "Politics",
+   "parent": 48,
+   "is_root": false,
+   "label": "With the USA",
+   "header": "Negotiate with the United States of America",
+   "children": [
+    189,
+    190,
+    191,
+    192
+   ]
+  },
+  {
+   "id": 50,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: UN NEGOTIATE",
+   "category": "Politics",
+   "parent": 48,
+   "is_root": false,
+   "label": "With the United Nations",
+   "header": "Negotiate with the United Nations",
+   "children": [
+    193,
+    194,
+    195,
+    196
+   ]
+  },
+  {
+   "id": 51,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: EGYPT NEGOTIATE",
+   "category": "Politics",
+   "parent": 48,
+   "is_root": false,
+   "label": "With Egypt",
+   "header": "Negotiate with Egypt",
+   "children": [
+    197,
+    198,
+    199,
+    200
+   ]
+  },
+  {
+   "id": 52,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: JORDAN NEGOTIATE",
+   "category": "Politics",
+   "parent": 48,
+   "is_root": false,
+   "label": "With Jordan",
+   "header": "Negotiate with Jordan",
+   "children": [
+    201,
+    202,
+    203,
+    204
+   ]
+  },
+  {
+   "id": 53,
+   "string_id": "POLITICS: CALL FOR INDEPENDENT STATE",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Declare an Independent Palestinian State",
+   "children": [
+    205
+   ]
+  },
+  {
+   "id": 54,
+   "string_id": "POLITICS: HOLY SITES",
+   "category": "Politics",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Holy Sites",
+   "children": [
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212
+   ]
+  },
+  {
+   "id": 55,
+   "string_id": "POLICE PRESENCE",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Increase Police Presence",
+   "children": [
+    213,
+    214
+   ]
+  },
+  {
+   "id": 56,
+   "string_id": "POLICE MANAGE",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Manage the Palestinian Police",
+   "children": [
+    215,
+    216,
+    217,
+    218
+   ]
+  },
+  {
+   "id": 57,
+   "string_id": "EXTREME MEASURES",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Extreme Measures",
+   "children": [
+    219,
+    220,
+    221
+   ]
+  },
+  {
+   "id": 58,
+   "string_id": "ISRAELI FORCES COOPERATION",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Joint Israeli and Palestinian Forces Cooperation",
+   "children": [
+    222,
+    223,
+    224,
+    225
+   ]
+  },
+  {
+   "id": 59,
+   "string_id": "INTERNAL TRAVEL",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Control over Internal Travel",
+   "children": [
+    226,
+    227,
+    228
+   ]
+  },
+  {
+   "id": 60,
+   "string_id": "GAZA BORDER CONTROL",
+   "category": "Security",
+   "parent": null,
+   "is_root": true,
+   "label": null,
+   "header": "Border Control",
+   "children": [
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235
+   ]
+  },
+  {
+   "id": 137,
+   "string_id": "CONSTRUCTION: CIVILIAN CONSTRUCTION: HOUSING",
+   "category": "Construction",
+   "parent": 33,
+   "is_root": false,
+   "label": "Housing Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "HOUSING"
+   },
+   "outcome_id": "Housing",
+   "outcome_found": true
+  },
+  {
+   "id": 138,
+   "string_id": "CONSTRUCTION: CIVILIAN CONSTRUCTION: AGRICULTURE",
+   "category": "Construction",
+   "parent": 33,
+   "is_root": false,
+   "label": "Agriculture Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "AGRICULTURE"
+   },
+   "outcome_id": "Agriculture",
+   "outcome_found": true
+  },
+  {
+   "id": 139,
+   "string_id": "CONSTRUCTION: CIVILIAN CONSTRUCTION: INDUSTRY",
+   "category": "Construction",
+   "parent": 33,
+   "is_root": false,
+   "label": "Industry Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "INDUSTRY"
+   },
+   "outcome_id": "Industry",
+   "outcome_found": true
+  },
+  {
+   "id": 140,
+   "string_id": "CONSTRUCTION: CIVILIAN CONSTRUCTION: RECLAIM SETTLEMENTS",
+   "category": "Construction",
+   "parent": 33,
+   "is_root": false,
+   "label": "Reclaim Evicted Settlements",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "RECLAIM SETTLEMENTS"
+   },
+   "outcome_id": "ReclaimSettlements",
+   "outcome_found": true
+  },
+  {
+   "id": 141,
+   "string_id": "CONSTRUCTION: TRANSPORTATION CONSTRUCTION: ROADS",
+   "category": "Construction",
+   "parent": 34,
+   "is_root": false,
+   "label": "Roads Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "ROADS"
+   },
+   "outcome_id": "ROADS",
+   "outcome_found": true
+  },
+  {
+   "id": 142,
+   "string_id": "CONSTRUCTION: TRANSPORTATION CONSTRUCTION: AIRSPACE PUSH CONTROL",
+   "category": "Construction",
+   "parent": 34,
+   "is_root": false,
+   "label": "Push for Control of Airspace",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control airspace",
+     "value": 0,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "AirspacePushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 143,
+   "string_id": "CONSTRUCTION: TRANSPORTATION CONSTRUCTION: AIRPORT",
+   "category": "Construction",
+   "parent": 34,
+   "is_root": false,
+   "label": "Airport Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "AIRPORT"
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control airspace",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "Airport",
+   "outcome_found": true
+  },
+  {
+   "id": 144,
+   "string_id": "CONSTRUCTION: TRANSPORTATION CONSTRUCTION: COASTAL WATERS PUSH CONTROL",
+   "category": "Construction",
+   "parent": 34,
+   "is_root": false,
+   "label": "Push for Control of Coast",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control seaspace",
+     "value": 0,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "CoastalWatersPushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 145,
+   "string_id": "CONSTRUCTION: TRANSPORTATION CONSTRUCTION: SEAPORT",
+   "category": "Construction",
+   "parent": 34,
+   "is_root": false,
+   "label": "Seaport Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "SEAPORT"
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control seaspace",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "Seaport",
+   "outcome_found": true
+  },
+  {
+   "id": 146,
+   "string_id": "CONSTRUCTION: NATURAL RESOURCE CONSTRUCTION: INFRASTRUCTURE",
+   "category": "Construction",
+   "parent": 35,
+   "is_root": false,
+   "label": "Infrastructure Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "INFRASTRUCTURE"
+   },
+   "outcome_id": "Infrastructure",
+   "outcome_found": true
+  },
+  {
+   "id": 147,
+   "string_id": "CONSTRUCTION: NATURAL RESOURCE CONSTRUCTION: COMMUNICATIONS",
+   "category": "Construction",
+   "parent": 35,
+   "is_root": false,
+   "label": "Communications Construction",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "COMMUNICATIONS"
+   },
+   "outcome_id": "Communications",
+   "outcome_found": true
+  },
+  {
+   "id": 148,
+   "string_id": "CONSTRUCTION: NATURAL RESOURCE CONSTRUCTION: WATER TABLE PUSH CONTROL",
+   "category": "Construction",
+   "parent": 35,
+   "is_root": false,
+   "label": "Push for Control of Water Table",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control water",
+     "value": 0,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "WaterTablePushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 149,
+   "string_id": "CONSTRUCTION: NATURAL RESOURCE CONSTRUCTION: WATER TREATMENT PLANT",
+   "category": "Construction",
+   "parent": 35,
+   "is_root": false,
+   "label": "Water Treatment Plant",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "WATER TEATMENT PLANT"
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control water",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "WaterTreatmentPlant",
+   "outcome_found": true
+  },
+  {
+   "id": 150,
+   "string_id": "CONSTRUCTION: NATURAL RESOURCE CONSTRUCTION: POWER PLANT",
+   "category": "Construction",
+   "parent": 35,
+   "is_root": false,
+   "label": "Power Plant",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "POWER PLANT"
+   },
+   "outcome_id": "PowerPlant",
+   "outcome_found": true
+  },
+  {
+   "id": 151,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: HEALTH CARE",
+   "category": "Construction",
+   "parent": 36,
+   "is_root": false,
+   "label": "Health Care",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "HEALTH CARE"
+   },
+   "outcome_id": "HealthCare",
+   "outcome_found": true
+  },
+  {
+   "id": 152,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: CARE FOR THE POOR",
+   "category": "Construction",
+   "parent": 36,
+   "is_root": false,
+   "label": "Care for the Poor",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "CARE FOR THE POOR"
+   },
+   "outcome_id": "CareForThePoor",
+   "outcome_found": true
+  },
+  {
+   "id": 153,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION: EDUCATION PUSH CONTROL",
+   "category": "Construction",
+   "parent": 37,
+   "is_root": false,
+   "label": "Push for Control of Schools",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control education",
+     "value": 0,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "EducationPushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 154,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION: EDUCATION REOPEN CLOSED SCHOOLS",
+   "category": "Construction",
+   "parent": 37,
+   "is_root": false,
+   "label": "Reopen Closed Schools",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "EDUCATION REOPEN CLOSED SCHOOLS"
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control education",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "ReopenClosedSchools",
+   "outcome_found": true
+  },
+  {
+   "id": 155,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION: EDUCATION BUILD NEW SCHOOLS",
+   "category": "Construction",
+   "parent": 37,
+   "is_root": false,
+   "label": "Build New Schools",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "EDUCATION BUILD NEW SCHOOLS"
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control education",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "BuildNewSchools",
+   "outcome_found": true
+  },
+  {
+   "id": 156,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION: EDUCATION RESTRUCTURE CURRICULUM",
+   "category": "Construction",
+   "parent": 37,
+   "is_root": false,
+   "label": "Reform Curriculum (Co-Existence)",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "curriculum restructured",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control education",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "EducationRestructureCurriculum",
+   "outcome_found": true
+  },
+  {
+   "id": 157,
+   "string_id": "CONSTRUCTION: SOCIAL SERVICES CONSTRUCTION: EDUCATION: EDUCATION REVERT CURRICULUM",
+   "category": "Construction",
+   "parent": 37,
+   "is_root": false,
+   "label": "Revert to Old Curriculum",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "curriculum restructured",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control education",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "EducationRevertCurriculum",
+   "outcome_found": true
+  },
+  {
+   "id": 158,
+   "string_id": "CONSTRUCTION: GOVERNMENTAL CONSTRUCTION: POLICE STATION",
+   "category": "Construction",
+   "parent": 38,
+   "is_root": false,
+   "label": "Build a Police Station",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "POLICE STATION"
+   },
+   "outcome_id": "PoliceStation",
+   "outcome_found": true
+  },
+  {
+   "id": 159,
+   "string_id": "CONSTRUCTION: GOVERNMENTAL CONSTRUCTION: PRISON",
+   "category": "Construction",
+   "parent": 38,
+   "is_root": false,
+   "label": "Build a Prison",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "PRISON"
+   },
+   "outcome_id": "Prison",
+   "outcome_found": true
+  },
+  {
+   "id": 160,
+   "string_id": "CONSTRUCTION: GOVERNMENTAL CONSTRUCTION: IMPORT ARMS",
+   "category": "Construction",
+   "parent": 38,
+   "is_root": false,
+   "label": "Import Arms",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "IMPORT ARMS"
+   },
+   "outcome_id": "ImportArms",
+   "outcome_found": true
+  },
+  {
+   "id": 161,
+   "string_id": "CONSTRUCTION: TOURISM: TOURISM OPEN",
+   "category": "Construction",
+   "parent": 39,
+   "is_root": false,
+   "label": "Open Tourism",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "tourism open",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "airports",
+     "value": 1,
+     "compare": "#Equals"
+    },
+    {
+     "variable": "seaports",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "TourismOpen",
+   "outcome_found": true
+  },
+  {
+   "id": 162,
+   "string_id": "CONSTRUCTION: TOURISM: TOURISM CLOSE",
+   "category": "Construction",
+   "parent": 39,
+   "is_root": false,
+   "label": "Close Tourism",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "tourism open",
+    "value": 1
+   },
+   "outcome_id": "TourismClose",
+   "outcome_found": true
+  },
+  {
+   "id": 163,
+   "string_id": "FINANCING: FINANCING: FINANCING OWN RESOURCES",
+   "category": "Financing",
+   "parent": 40,
+   "is_root": false,
+   "label": "Palestinian Authority Budget",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "budget",
+     "value": "project cost",
+     "compare": "#Greater"
+    }
+   ],
+   "outcome_id": "SelfFinance",
+   "outcome_found": true
+  },
+  {
+   "id": 164,
+   "string_id": "FINANCING: FINANCING: FINANCING OTHER PALESTINIANS",
+   "category": "Financing",
+   "parent": 40,
+   "is_root": false,
+   "label": "Palestinian Allies",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceOtherPalestinians",
+   "outcome_found": true
+  },
+  {
+   "id": 165,
+   "string_id": "FINANCING: FINANCING: FINANCING ISRAEL",
+   "category": "Financing",
+   "parent": 40,
+   "is_root": false,
+   "label": "Israeli Investment",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceIsrael",
+   "outcome_found": true
+  },
+  {
+   "id": 166,
+   "string_id": "FINANCING: FINANCING: FOREIGN INVESTMENT: INVESTMENT USA",
+   "category": "Financing",
+   "parent": 41,
+   "is_root": false,
+   "label": "The United States",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceUsa",
+   "outcome_found": true
+  },
+  {
+   "id": 167,
+   "string_id": "FINANCING: FINANCING: FOREIGN INVESTMENT: INVESTMENT UN",
+   "category": "Financing",
+   "parent": 41,
+   "is_root": false,
+   "label": "The United Nations",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceUn",
+   "outcome_found": true
+  },
+  {
+   "id": 168,
+   "string_id": "FINANCING: FINANCING: FOREIGN INVESTMENT: INVESTMENT EU",
+   "category": "Financing",
+   "parent": 41,
+   "is_root": false,
+   "label": "The European Union",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceEu",
+   "outcome_found": true
+  },
+  {
+   "id": 169,
+   "string_id": "FINANCING: FINANCING: FOREIGN INVESTMENT: INVESTMENT ARAB STATES",
+   "category": "Financing",
+   "parent": 41,
+   "is_root": false,
+   "label": "Arab States",
+   "header": null,
+   "children": [],
+   "outcome_id": "FinanceArab",
+   "outcome_found": true
+  },
+  {
+   "id": 170,
+   "string_id": "POLITICS: SPEECH TO PALESTINIANS: SPEECH TO PALESTINIANS PRO-LAW AND ORDER",
+   "category": "Politics",
+   "parent": 42,
+   "is_root": false,
+   "label": "Pro Law and Order",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToPalestiniansProLawAndOrder",
+   "outcome_found": true
+  },
+  {
+   "id": 171,
+   "string_id": "POLITICS: SPEECH TO PALESTINIANS: SPEECH TO PALESTINIANS PRO-RECONSTRUCTION",
+   "category": "Politics",
+   "parent": 42,
+   "is_root": false,
+   "label": "Pro Reconstruction",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToPalestiniansProReconstruction",
+   "outcome_found": true
+  },
+  {
+   "id": 172,
+   "string_id": "POLITICS: SPEECH TO PALESTINIANS: SPEECH TO PALESTINIANS ANTI-MILITANCY",
+   "category": "Politics",
+   "parent": 42,
+   "is_root": false,
+   "label": "Anti Violent Resistance",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToPalestiniansAntiMilitancy",
+   "outcome_found": true
+  },
+  {
+   "id": 173,
+   "string_id": "POLITICS: SPEECH TO PALESTINIANS: SPEECH TO PALESTINIANS PRO-MILITANCY",
+   "category": "Politics",
+   "parent": 42,
+   "is_root": false,
+   "label": "Pro Violent Resistance",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToPalestiniansProMilitancy",
+   "outcome_found": true
+  },
+  {
+   "id": 174,
+   "string_id": "POLITICS: SPEECH TO WORLD: SPEECH TO WORLD DEMANDING",
+   "category": "Politics",
+   "parent": 43,
+   "is_root": false,
+   "label": "Demanding Speech",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToWorldDemanding",
+   "outcome_found": true
+  },
+  {
+   "id": 175,
+   "string_id": "POLITICS: SPEECH TO WORLD: SPEECH TO WORLD HOPEFUL",
+   "category": "Politics",
+   "parent": 43,
+   "is_root": false,
+   "label": "Hopeful Speech",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToWorldHopeful",
+   "outcome_found": true
+  },
+  {
+   "id": 176,
+   "string_id": "POLITICS: SPEECH TO WORLD: SPEECH TO WORLD CAUTIOUS",
+   "category": "Politics",
+   "parent": 43,
+   "is_root": false,
+   "label": "Cautious Speech",
+   "header": null,
+   "children": [],
+   "outcome_id": "SpeechToWorldCautious",
+   "outcome_found": true
+  },
+  {
+   "id": 177,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: FATAH NEGOTIATION: FATAH ASK FOR LAW AND ORDER",
+   "category": "Politics",
+   "parent": 45,
+   "is_root": false,
+   "label": "Support in Law and Order",
+   "header": null,
+   "children": [],
+   "outcome_id": "FatahAskForLawAndOrder",
+   "outcome_found": true
+  },
+  {
+   "id": 178,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: FATAH NEGOTIATION: FATAH ASK FOR PEACE SUPPORT",
+   "category": "Politics",
+   "parent": 45,
+   "is_root": false,
+   "label": "Support for Peace Agenda",
+   "header": null,
+   "children": [],
+   "outcome_id": "FatahAskForPeaceSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 179,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: FATAH NEGOTIATION: FATAH ASK FOR ANTI-CORRUPTION",
+   "category": "Politics",
+   "parent": 45,
+   "is_root": false,
+   "label": "Help in Fighting Corruption",
+   "header": null,
+   "children": [],
+   "outcome_id": "FatahAskForAntiCorruption",
+   "outcome_found": true
+  },
+  {
+   "id": 180,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: FATAH NEGOTIATION: FATAH BRIBE",
+   "category": "Politics",
+   "parent": 45,
+   "is_root": false,
+   "label": "Offer Financial Favors",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "FATAH BRIBE"
+   },
+   "outcome_id": "FatahBribe",
+   "outcome_found": true
+  },
+  {
+   "id": 181,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: HAMAS NEGOTIATION: HAMAS ASK FOR LAW AND ORDER",
+   "category": "Politics",
+   "parent": 46,
+   "is_root": false,
+   "label": "Support in Law and Order",
+   "header": null,
+   "children": [],
+   "outcome_id": "HamasAskForLawAndOrder",
+   "outcome_found": true
+  },
+  {
+   "id": 182,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: HAMAS NEGOTIATION: HAMAS ASK FOR PEACE SUPPORT",
+   "category": "Politics",
+   "parent": 46,
+   "is_root": false,
+   "label": "Support a Two-State Solution",
+   "header": null,
+   "children": [],
+   "outcome_id": "HamasAskForPeaceSupport",
+   "outcome_found": true
+  },
+  {
+   "id": 183,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: HAMAS NEGOTIATION: HAMAS ASK FOR CEASE-FIRE",
+   "category": "Politics",
+   "parent": 46,
+   "is_root": false,
+   "label": "Cease Resistance Activity",
+   "header": null,
+   "children": [],
+   "outcome_id": "HamasAskForCeaseFire",
+   "outcome_found": true
+  },
+  {
+   "id": 184,
+   "string_id": "POLITICS: INTERNAL NEGOTIATIONS: HAMAS NEGOTIATION: HAMAS ASK TO DISARM",
+   "category": "Politics",
+   "parent": 46,
+   "is_root": false,
+   "label": "Disarm and Unify Forces",
+   "header": null,
+   "children": [],
+   "outcome_id": "HamasAskToDisarm",
+   "outcome_found": true
+  },
+  {
+   "id": 185,
+   "string_id": "POLITICS: ISRAEL NEGOTIATION: ISRAEL ASK FOR SAFETY",
+   "category": "Politics",
+   "parent": 47,
+   "is_root": false,
+   "label": "Ask to Stop Aggression",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAskForSafety",
+   "outcome_found": true
+  },
+  {
+   "id": 186,
+   "string_id": "POLITICS: ISRAEL NEGOTIATION: ISRAEL ASK FOR WITHDRAWAL",
+   "category": "Politics",
+   "parent": 47,
+   "is_root": false,
+   "label": "Ask for Withdrawal",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAskForWithdrawal",
+   "outcome_found": true
+  },
+  {
+   "id": 187,
+   "string_id": "POLITICS: ISRAEL NEGOTIATION: ISRAEL ASK FOR WALL REMOVAL",
+   "category": "Politics",
+   "parent": 47,
+   "is_root": false,
+   "label": "Ask for Wall Removal",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelAskForWallRemoval",
+   "outcome_found": true
+  },
+  {
+   "id": 188,
+   "string_id": "POLITICS: ISRAEL NEGOTIATION: ISRAEL OFFER THANKS",
+   "category": "Politics",
+   "parent": 47,
+   "is_root": false,
+   "label": "Offer Thanks",
+   "header": null,
+   "children": [],
+   "outcome_id": "IsraelOfferThanks",
+   "outcome_found": true
+  },
+  {
+   "id": 189,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: USA NEGOTIATE: USA REQUEST MEETING",
+   "category": "Politics",
+   "parent": 49,
+   "is_root": false,
+   "label": "Request a Meeting",
+   "header": null,
+   "children": [],
+   "outcome_id": "UsaRequestMeeting",
+   "outcome_found": true
+  },
+  {
+   "id": 190,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: USA NEGOTIATE: USA REQUEST AID",
+   "category": "Politics",
+   "parent": 49,
+   "is_root": false,
+   "label": "Request Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "UsaRequestAid",
+   "outcome_found": true
+  },
+  {
+   "id": 191,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: USA NEGOTIATE: USA REQUEST INVESTMENT",
+   "category": "Politics",
+   "parent": 49,
+   "is_root": false,
+   "label": "Request Investment",
+   "header": null,
+   "children": [],
+   "outcome_id": "UsaRequestInvestment",
+   "outcome_found": true
+  },
+  {
+   "id": 192,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: USA NEGOTIATE: USA REQUEST POLITICAL PRESSURE",
+   "category": "Politics",
+   "parent": 49,
+   "is_root": false,
+   "label": "Political Pressure on Israel",
+   "header": null,
+   "children": [],
+   "outcome_id": "UsaRequestPoliticalPressure",
+   "outcome_found": true
+  },
+  {
+   "id": 193,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: UN NEGOTIATE: UN REQUEST MEETING",
+   "category": "Politics",
+   "parent": 50,
+   "is_root": false,
+   "label": "Request a Meeting",
+   "header": null,
+   "children": [],
+   "outcome_id": "UnRequestMeeting",
+   "outcome_found": true
+  },
+  {
+   "id": 194,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: UN NEGOTIATE: UN REQUEST AID",
+   "category": "Politics",
+   "parent": 50,
+   "is_root": false,
+   "label": "Request Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "UnRequestAid",
+   "outcome_found": true
+  },
+  {
+   "id": 195,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: UN NEGOTIATE: UN REQUEST INVESTMENT",
+   "category": "Politics",
+   "parent": 50,
+   "is_root": false,
+   "label": "Request Investment",
+   "header": null,
+   "children": [],
+   "outcome_id": "UnRequestInvestment",
+   "outcome_found": true
+  },
+  {
+   "id": 196,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: UN NEGOTIATE: UN REQUEST POLITICAL PRESSURE",
+   "category": "Politics",
+   "parent": 50,
+   "is_root": false,
+   "label": "Political Pressure on Israel",
+   "header": null,
+   "children": [],
+   "outcome_id": "UnRequestPoliticalPressure",
+   "outcome_found": true
+  },
+  {
+   "id": 197,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: EGYPT NEGOTIATE: EGYPT REQUEST MEETING",
+   "category": "Politics",
+   "parent": 51,
+   "is_root": false,
+   "label": "Request a Meeting",
+   "header": null,
+   "children": [],
+   "outcome_id": "EgyptRequestMeeting",
+   "outcome_found": true
+  },
+  {
+   "id": 198,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: EGYPT NEGOTIATE: EGYPT REQUEST AID",
+   "category": "Politics",
+   "parent": 51,
+   "is_root": false,
+   "label": "Request Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "EgyptRequestAid",
+   "outcome_found": true
+  },
+  {
+   "id": 199,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: EGYPT NEGOTIATE: EGYPT REQUEST INVESTMENT",
+   "category": "Politics",
+   "parent": 51,
+   "is_root": false,
+   "label": "Request Investment",
+   "header": null,
+   "children": [],
+   "outcome_id": "EgyptRequestInvestment",
+   "outcome_found": true
+  },
+  {
+   "id": 200,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: EGYPT NEGOTIATE: EGYPT REQUEST POLITICAL PRESSURE",
+   "category": "Politics",
+   "parent": 51,
+   "is_root": false,
+   "label": "Political Pressure on Israel",
+   "header": null,
+   "children": [],
+   "outcome_id": "EgyptRequestPoliticalPressure",
+   "outcome_found": true
+  },
+  {
+   "id": 201,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: JORDAN NEGOTIATE: JORDAN REQUEST MEETING",
+   "category": "Politics",
+   "parent": 52,
+   "is_root": false,
+   "label": "Request a Meeting",
+   "header": null,
+   "children": [],
+   "outcome_id": "JordanRequestMeeting",
+   "outcome_found": true
+  },
+  {
+   "id": 202,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: JORDAN NEGOTIATE: JORDAN REQUEST AID",
+   "category": "Politics",
+   "parent": 52,
+   "is_root": false,
+   "label": "Request Aid",
+   "header": null,
+   "children": [],
+   "outcome_id": "JordanRequestAid",
+   "outcome_found": true
+  },
+  {
+   "id": 203,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: JORDAN NEGOTIATE: JORDAN REQUEST INVESTMENT",
+   "category": "Politics",
+   "parent": 52,
+   "is_root": false,
+   "label": "Request Investment",
+   "header": null,
+   "children": [],
+   "outcome_id": "JordanRequestInvestment",
+   "outcome_found": true
+  },
+  {
+   "id": 204,
+   "string_id": "POLITICS: FOREIGN NEGOTIATIONS: JORDAN NEGOTIATE: JORDAN REQUEST POLITICAL PRESSURE",
+   "category": "Politics",
+   "parent": 52,
+   "is_root": false,
+   "label": "Political Pressure on Israel",
+   "header": null,
+   "children": [],
+   "outcome_id": "JordanRequestPoliticalPressure",
+   "outcome_found": true
+  },
+  {
+   "id": 205,
+   "string_id": "POLITICS: CALL FOR INDEPENDENT STATE: CALL FOR INDEPENDENT STATE CONFIRM",
+   "category": "Politics",
+   "parent": 53,
+   "is_root": false,
+   "label": "Yes - Announce Independence",
+   "header": null,
+   "children": [],
+   "outcome_id": "CallForIndependentStateConfirm",
+   "outcome_found": true
+  },
+  {
+   "id": 206,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES PUSH CONTROL",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Push for Control over Holy Sites",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "control holy sites",
+    "value": 0
+   },
+   "outcome_id": "HolySitesPushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 207,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES RESTRICT ACCESS PALESTINIANS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Restrict Access for Palestinians",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites palestinian access",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesRestrictAccessPalestinians",
+   "outcome_found": true
+  },
+  {
+   "id": 208,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES RESTRICT ACCESS ISRAELIS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Restrict Access for Israelis",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites israeli access",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesRestrictAccessIsraelis",
+   "outcome_found": true
+  },
+  {
+   "id": 209,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES RESTRICT ACCESS FOREIGNERS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Restrict Access for Foreigners",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites foreigner access",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesRestrictAccessForeigners",
+   "outcome_found": true
+  },
+  {
+   "id": 210,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES PERMIT ACCESS PALESTINIANS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Permit Access for Palestinians",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites palestinian access",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesPermitAccessPalestinians",
+   "outcome_found": true
+  },
+  {
+   "id": 211,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES PERMIT ACCESS ISRAELIS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Permit Access for Israelis",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites israeli access",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesPermitAccessIsraelis",
+   "outcome_found": true
+  },
+  {
+   "id": 212,
+   "string_id": "POLITICS: HOLY SITES: HOLY SITES PERMIT ACCESS FOREIGNERS",
+   "category": "Politics",
+   "parent": 54,
+   "is_root": false,
+   "label": "Permit Access for Foreigners",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "holy sites foreigner access",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control holy sites",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "HolySitesPermitAccessForeigners",
+   "outcome_found": true
+  },
+  {
+   "id": 213,
+   "string_id": "SECURITY: POLICE PRESENCE: POLICE MAINTAIN ORDER",
+   "category": "Security",
+   "parent": 55,
+   "is_root": false,
+   "label": "Maintain Order",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceMaintainOrder",
+   "outcome_found": true
+  },
+  {
+   "id": 214,
+   "string_id": "SECURITY: INCREASE POLICE PRESENCE: POLICE PATROL FOR MILITANTS",
+   "category": "Security",
+   "parent": 55,
+   "is_root": false,
+   "label": "Patrol for Militants",
+   "header": null,
+   "children": [],
+   "outcome_id": "PolicePatrolForMilitants",
+   "outcome_found": true
+  },
+  {
+   "id": 215,
+   "string_id": "SECURITY: POLICE MANAGE: POLICE RESTRUCTURE",
+   "category": "Security",
+   "parent": 56,
+   "is_root": false,
+   "label": "Restructure Leadership",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceRestructure",
+   "outcome_found": true
+  },
+  {
+   "id": 216,
+   "string_id": "SECURITY: POLICE MANAGE: POLICE TRAIN",
+   "category": "Security",
+   "parent": 56,
+   "is_root": false,
+   "label": "Order Police Training",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "POLICE TRAIN"
+   },
+   "outcome_id": "PoliceTrain",
+   "outcome_found": true
+  },
+  {
+   "id": 217,
+   "string_id": "SECURITY: POLICE MANAGE: POLICE INCREASE FUNDING",
+   "category": "Security",
+   "parent": 56,
+   "is_root": false,
+   "label": "Increase Police Funding",
+   "header": null,
+   "children": [],
+   "then_requires": "FINANCING: FINANCING",
+   "sets_variable": {
+    "variable": "project cost",
+    "from": "POLICE INCREASE FUNDING"
+   },
+   "outcome_id": "PoliceIncreaseFunding",
+   "outcome_found": true
+  },
+  {
+   "id": 218,
+   "string_id": "SECURITY: POLICE MANAGE: POLICE DECREASE FUNDING",
+   "category": "Security",
+   "parent": 56,
+   "is_root": false,
+   "label": "Decrease Police Funding",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceDecreaseFunding",
+   "outcome_found": true
+  },
+  {
+   "id": 219,
+   "string_id": "SECURITY: EXTREME MEASURES: POLICE ARREST KNOWN MILITANTS",
+   "category": "Security",
+   "parent": 57,
+   "is_root": false,
+   "label": "Arrest Known Militants",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceArrestKnownMilitants",
+   "outcome_found": true
+  },
+  {
+   "id": 220,
+   "string_id": "SECURITY: EXTREME MEASURES: POLICE SEIZE MILITANT ARMS",
+   "category": "Security",
+   "parent": 57,
+   "is_root": false,
+   "label": "Seize Militant Arms",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceSeizeMilitantArms",
+   "outcome_found": true
+  },
+  {
+   "id": 221,
+   "string_id": "SECURITY: EXTREME MEASURES: POLICE ASSASSINATE MILITANT LEADER",
+   "category": "Security",
+   "parent": 57,
+   "is_root": false,
+   "label": "Assassinate Militant Leader",
+   "header": null,
+   "children": [],
+   "outcome_id": "PoliceAssassinateMilitantLeader",
+   "outcome_found": true
+  },
+  {
+   "id": 222,
+   "string_id": "SECURITY: ISRAELI FORCES COOPERATION: ISRAELI JOINT TRAINING START",
+   "category": "Security",
+   "parent": 58,
+   "is_root": false,
+   "label": "Initiate Joint Training",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "joint training",
+    "value": 0
+   },
+   "outcome_id": "IsraeliJointTrainingStart",
+   "outcome_found": true
+  },
+  {
+   "id": 223,
+   "string_id": "SECURITY: ISRAELI FORCES COOPERATION: ISRAELI JOINT TRAINING STOP",
+   "category": "Security",
+   "parent": 58,
+   "is_root": false,
+   "label": "Cease Joint Training",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "joint training",
+    "value": 1
+   },
+   "outcome_id": "IsraeliJointTrainingStop",
+   "outcome_found": true
+  },
+  {
+   "id": 224,
+   "string_id": "SECURITY: ISRAELI FORCES COOPERATION: ISRAELI JOINT PATROLS START",
+   "category": "Security",
+   "parent": 58,
+   "is_root": false,
+   "label": "Initiate Joint Patrols",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "joint patrols",
+    "value": 0
+   },
+   "outcome_id": "IsraeliJointPatrolsStart",
+   "outcome_found": true
+  },
+  {
+   "id": 225,
+   "string_id": "SECURITY: ISRAELI FORCES COOPERATION: ISRAELI JOINT PATROLS STOP",
+   "category": "Security",
+   "parent": 58,
+   "is_root": false,
+   "label": "Cease Joint Patrols",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "joint patrols",
+    "value": 1
+   },
+   "outcome_id": "IsraeliJointPatrolsStop",
+   "outcome_found": true
+  },
+  {
+   "id": 226,
+   "string_id": "SECURITY: INTERNAL TRAVEL: INTERNAL TRAVEL PUSH CONTROL",
+   "category": "Security",
+   "parent": 59,
+   "is_root": false,
+   "label": "Push for Control over Travel",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "control internal travel",
+    "value": 0
+   },
+   "outcome_id": "InternalTravelPushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 227,
+   "string_id": "SECURITY: INTERNAL TRAVEL: INTERNAL TRAVEL LOWER RESTRICTIONS",
+   "category": "Security",
+   "parent": 59,
+   "is_root": false,
+   "label": "Lower Travel Restrictions",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control internal travel",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "InternalTravelLowerRestrictions",
+   "outcome_found": true
+  },
+  {
+   "id": 228,
+   "string_id": "SECURITY: INTERNAL TRAVEL RAISE RESTRICTIONS",
+   "category": "Security",
+   "parent": 59,
+   "is_root": false,
+   "label": "Raise Travel Restrictions",
+   "header": null,
+   "children": [],
+   "enabled_if_any": [
+    {
+     "variable": "control internal travel",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "InternalTravelRaiseRestrictions",
+   "outcome_found": true
+  },
+  {
+   "id": 229,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER PUSH CONTROL",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Push for More Border Control",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "control gaza border",
+    "value": 0
+   },
+   "outcome_id": "GazaBorderPushControl",
+   "outcome_found": true
+  },
+  {
+   "id": 230,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER INCREASE PRESENCE",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Increase Border Patrol Presence",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border presence",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderIncreasePresence",
+   "outcome_found": true
+  },
+  {
+   "id": 231,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER DECREASE PRESENCE",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Decrease Border Patrol Presence",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border presence",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderDecreasePresence",
+   "outcome_found": true
+  },
+  {
+   "id": 232,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER OPEN",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Open Borders",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border open",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderOpen",
+   "outcome_found": true
+  },
+  {
+   "id": 233,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER CLOSE",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Close Borders",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border open",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderClose",
+   "outcome_found": true
+  },
+  {
+   "id": 234,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER REQUEST INTERNATIONAL TROOPS",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Request International Presence",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border international troops",
+    "value": 0
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderRequestInternationalTroops",
+   "outcome_found": true
+  },
+  {
+   "id": 235,
+   "string_id": "SECURITY: GAZA BORDER CONTROL: GAZA BORDER EJECT INTERNATIONAL TROOPS",
+   "category": "Security",
+   "parent": 60,
+   "is_root": false,
+   "label": "Cease International Border Patrols",
+   "header": null,
+   "children": [],
+   "shown_if": {
+    "variable": "gaza border international troops",
+    "value": 1
+   },
+   "enabled_if_any": [
+    {
+     "variable": "control gaza border",
+     "value": 1,
+     "compare": "#Equals"
+    }
+   ],
+   "outcome_id": "GazaBorderEjectInternationalTroops",
+   "outcome_found": true
+  }
+ ]
+}

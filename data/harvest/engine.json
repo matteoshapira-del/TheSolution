@@ -1,0 +1,111 @@
+{
+ "source": "Decompiled Assembly-CSharp.dll from the 2015 Unity build (ilspycmd).",
+ "variable_clamp": "0..100 unless flagged can_be_negative / can_be_over_100",
+ "score_formulas": {
+  "israeli": {
+   "internal_raw": "israel people + security + sympathy",
+   "internal_map": {
+    "zero_at": 95,
+    "full_at": 280
+   },
+   "external_raw": "palestinian president + palestinian people + 0.33*(usa + un + arab world)",
+   "external_map": {
+    "zero_at": 70,
+    "full_at": 270
+   },
+   "leadership": "0.33*(usa + un + arab world)"
+  },
+  "palestinian": {
+   "internal_raw": "1.25*tolerance + palestinian public approval + fatah approval + economy + government authority + 0.75*hamas approval",
+   "internal_map": {
+    "zero_at": 136.25,
+    "full_at": 500
+   },
+   "external_raw": "1.5*leadership + 1.25*israeli prime minister approval + usa approval + 0.75*(israeli public approval + un approval + arab world approval)",
+   "external_map": {
+    "zero_at": 155,
+    "full_at": 500
+   }
+  },
+  "map_rule": "raw<zero_at: (raw-zero_at)/zero_at*100 ; zero_at<=raw<=full_at: (raw-zero_at)/(full_at-zero_at)*100 ; raw>full_at: 100 ; truncated to int"
+ },
+ "budget_modifier_table": [
+  [
+   15,
+   0.0
+  ],
+  [
+   20,
+   0.25
+  ],
+  [
+   25,
+   0.5
+  ],
+  [
+   30,
+   0.75
+  ],
+  [
+   35,
+   1.0
+  ],
+  [
+   45,
+   1.25
+  ],
+  [
+   55,
+   1.5
+  ],
+  [
+   65,
+   1.75
+  ],
+  [
+   75,
+   2.0
+  ],
+  [
+   null,
+   2.5
+  ]
+ ],
+ "budget_modifier_rule": "first row whose bound > value; e.g. value 40 -> 1.25",
+ "threshold_condition": "#Threshold(x, t, v) passes when x >= Uniform(t-v, t+v)",
+ "roll_condition": "#Roll(name, n) stores UniformInt[0, n-1] in a temp variable",
+ "ai": {
+  "max_tagged_ai_actions_per_turn": 3,
+  "initial_sleep_if_affected_by_difficulty": "call_frequency + 3 + 3 + UniformInt[0, N]; N = violent 3, tense 4, calm 8",
+  "sleep_difficulty_adjust": {
+   "violent": -1,
+   "tense": 1,
+   "calm": 3
+  }
+ },
+ "plot_points": "checked once per turn after AI; condition must hold on hold_for+1 consecutive checks; at most one fires per turn; win/lose ends the game",
+ "end_report_violence_tiers": [
+  [
+   0,
+   "NONE"
+  ],
+  [
+   50,
+   "LOW"
+  ],
+  [
+   100,
+   "MODERATE"
+  ],
+  [
+   150,
+   "HIGH"
+  ],
+  [
+   null,
+   "EXTREME"
+  ]
+ ],
+ "end_report_rule": "tier by final 'endreport' variable: >150 EXTREME, >100 HIGH, >50 MODERATE, >0 LOW, else NONE",
+ "difficulty_default": "violent"
+}

@@ -1,0 +1,365 @@
+#!/usr/bin/env python3
+"""Render the harvested JSON (data/harvest/) into readable Markdown catalogs.
+
+    python3 tools/harvest/render_docs.py            # writes docs/harvest/catalog/*.md
+
+Everything here is derived from the mechanics JSON only (no game prose).
+"""
+from __future__ import annotations
+
+import collections
+import json
+import sys
+from pathlib import Path
+
+DATA = Path("data/harvest")
+OUT = Path("docs/harvest/catalog")
+
+BOOKKEEPING_PREFIXES = ("reject ",)
+VIOLENCE_VARS = {"endreport", "aggression", "negative effects"}
+
+
+def load(name):
+    with open(DATA / f"{name}.json", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def fmt_num(v):
+    if isinstance(v, float) and v.is_integer():
+        v = int(v)
+    return f"+{v}" if isinstance(v, (int, float)) and v > 0 else str(v)
+
+
+def cond_text(c: dict, topics: list[str] | None = None) -> str:
+    op, a1, a2, a3 = c.get("op"), c.get("arg1"), c.get("arg2"), c.get("arg3")
+    if op == "#Threshold":
+        return f"`{a1}` ≥ rand({a2}±{a3})"
+    if op in ("#NotThreshold", "#ThresholdNot"):
+        return f"`{a1}` < rand({a2}±{a3})"
+    if op == "#Greater":
+        return f"`{a1}` > {a2}"
+    if op == "#GreaterEquals":
+        return f"`{a1}` ≥ {a2}"
+    if op == "#Less":
+        return f"`{a1}` < {a2}"
+    if op == "#Equals":
+        return f"`{a1}` = {a2}"
+    if op in ("#NotEquals", "#NotEqual"):
+        return f"`{a1}` ≠ {a2}"
+    if op == "#Roll":
+        return f"roll `{a1}` ∈ 0..{int(a2) - 1}"
+    if op == "#LowestTopic":
+        return f"`{a1}` is the lowest of ({a2})" if a2 else f"`{a1}` is the lowest topic"
+    if op == "#HighestTopic":
+        return f"`{a1}` is 'highest' of ({a2})" if a2 else f"`{a1}` is 'highest' topic"
+    if op == "#Assign":
+        return f"set `{a1}` := `{a2}`"
+    if op == "#Add":
+        return f"set `{a1}` += `{a2}`"
+    if op == "#And":
+        return "and"
+    return f"{op} {a1} {a2} {a3 or ''}".strip()
+
+
+def method_text(m: dict) -> str:
+    op, a1, a2, a3 = m.get("op"), m.get("arg1"), m.get("arg2"), m.get("arg3")
+    if op == "#Sleep":
+        return f"{a1} sleeps {a2} turns"
+    if op == "#SleepDifficulty":
+        return f"{a1} sleeps {a2} turns (difficulty-adjusted)"
+    if op == "#Subtract":
+        return f"`{a1}` −= `{a2}`"
+    if op == "#Addition":
+        return f"`{a1}` += {a2}"
+    if op == "#Divide":
+        return f"`{a1}` ÷= {a2}"
+    if op == "#AdditionBudgetMult":
+        return f"`{a1}` += {a3} × budgetMod(`{a2}`)"
+    if op == "#AddBudget":
+        return f"`{a1}` += {a3} × budgetMod(`{a2}`)"
+    return f"{op} {a1} {a2} {a3 or ''}".strip()
+
+
+def split_changes(changes: dict):
+    main, cooldown, violence = [], [], []
+    for k, v in sorted(changes.items(), key=lambda kv: (-abs(kv[1]) if isinstance(kv[1], (int, float)) else 0, kv[0])):
+        item = f"{fmt_num(v)} {k}"
+        if k.startswith(BOOKKEEPING_PREFIXES):
+            cooldown.append(item)
+        elif k in VIOLENCE_VARS:
+            violence.append(item)
+        else:
+            main.append(item)
+    return main, cooldown, violence
+
+
+def branch_rows(branches: list) -> list[str]:
+    rows = ["| # | result | when (tested in order, first match wins) | effects | cooldown / violence | event shown |",
+            "|---|---|---|---|---|---|"]
+    for b in branches:
+        conds = b["conditions"]
+        topics = None
+        when = " and ".join(cond_text(c, topics) for c in conds if c.get("op") != "#And") or "otherwise"
+        effs, cds, meths, tags, types = [], [], [], [], []
+        for e in b["effects"]:
+            m, c, v = split_changes(e["changes"])
+            effs += m
+            cds += c + v
+            meths += [method_text(x) for x in e["methods"]]
+            if e.get("timing"):
+                effs.append(f"(after {e['timing']} turns)")
+            if e.get("event_tag"):
+                tags.append(e["event_tag"])
+            if e.get("type"):
+                types.append(e["type"])
+        eff_txt = ", ".join(effs) if effs else "—"
+        if meths:
+            eff_txt += ("; " if effs else "") + "; ".join(meths)
+        tag_txt = "; ".join(f"`{t}`" for t in tags) or "—"
+        if types:
+            tag_txt += f" ({'/'.join(sorted(set(types)))})"
+        rows.append(f"| {b['order']} | **{b['result']}** | {when} | {eff_txt} | {', '.join(cds) or '—'} | {tag_txt} |")
+    return rows
+
+
+# ---------------------------------------------------------------- action catalog
+def render_actions(role: str, actions: dict, outcomes: dict, ai: dict) -> str:
+    nodes = {n["id"]: n for n in actions[role]}
+    roots = [n for n in actions[role] if not n["parent"]]
+    by_cat = collections.defaultdict(list)
+    for n in roots:
+        by_cat[n["category"]].append(n)
+    title = {"israeli": "Israeli Prime Minister", "palestinian": "Palestinian President"}[role]
+    lines = [f"# Action catalog — {title}", "",
+             "Generated by `tools/harvest/render_docs.py` from `data/harvest/actions.json` and `outcomes.json`.",
+             "Each leaf action resolves to an outcome table. Branches are tested top to bottom and the first",
+             "whose conditions pass is applied. `rand(t±v)` means the value is compared against a uniform random",
+             "number between t−v and t+v, so success probability rises linearly across that band.", ""]
+    leaf_count = sum(1 for n in actions[role] if not n["children"])
+    lines.append(f"**{len(roots)} top-level entries, {leaf_count} leaf actions.**\n")
+
+    def walk(n, depth, path):
+        label = n["label"] or n["header"] or n["string_id"]
+        here = path + [label]
+        if n["children"]:
+            for cid in n["children"]:
+                walk(nodes[cid], depth + 1, here)
+            return
+        lines.append(f"### {' › '.join(here)}")
+        meta = [f"id `{n['string_id']}`", f"outcome `{n.get('outcome_id')}`"]
+        if n.get("poll"):
+            meta.append(f"poll → actor **{n['poll']['actor']}**, branch `{n['poll']['branch']}`")
+        if n.get("sets_variable"):
+            sv = n["sets_variable"]
+            meta.append(f"sets `{sv['variable']}` := `{sv['from']}`")
+        if n.get("then_requires"):
+            meta.append(f"then opens `{n['then_requires']}` (must be financed)")
+        if n.get("enabled_if_any"):
+            meta.append("enabled if " + " or ".join(
+                f"`{p['variable']}` {'≥' if p['compare'] == '#Greater' else '='} {p['value']}" for p in n["enabled_if_any"]))
+        lines.append("- " + "; ".join(meta))
+        lines.append("")
+        if n.get("poll"):
+            lines.append("_Outcome is chosen by the polled actor's decision tree (see AI catalog)._")
+            lines.append("")
+            return
+        br = outcomes.get(n.get("outcome_id"), [])
+        if br:
+            lines.extend(branch_rows(br))
+        else:
+            lines.append("_No outcome table found._")
+        lines.append("")
+
+    for cat in sorted(by_cat):
+        lines.append(f"## {cat}")
+        lines.append("")
+        for r in by_cat[cat]:
+            walk(r, 0, [])
+    return "\n".join(lines) + "\n"
+
+
+# --------------------------------------------------------------------- AI catalog
+def render_tree(branches, depth, lines):
+    pad = "  " * depth
+    for b in branches:
+        tag = " _(else)_" if b.get("else") else ""
+        poll = f" **[poll `{b['poll_id']}`]**" if b.get("poll_id") else ""
+        conds = b.get("conditions") or []
+        when = " and ".join(cond_text(c) for c in conds if c.get("op") != "#And") or "always"
+        lines.append(f"{pad}- {b.get('description') or ''}{tag}{poll} — if {when}")
+        for key, word in (("pass", "then"), ("fail", "else")):
+            sub = b.get(key)
+            if not sub:
+                continue
+            if sub.get("poll_id"):
+                lines.append(f"{pad}  - {word} **[poll entry `{sub['poll_id']}` — what \"Listen to Concerns\" evaluates]**:")
+            if "action" in sub:
+                lines.append(f"{pad}  - {word} → `{sub['action']}`")
+            if "music" in sub:
+                lines.append(f"{pad}  - {word} → music `{sub['music']}`")
+            if "branches" in sub:
+                lines.append(f"{pad}  - {word}:")
+                render_tree(sub["branches"], depth + 2, lines)
+
+
+def render_ai(ai: dict, outcomes: dict) -> str:
+    lines = ["# AI actor catalog", "",
+             "Generated from `data/harvest/ai_actors.json`. Actors run every turn in the order listed.",
+             "`call frequency` is the number of turns an actor sleeps after acting (0 = acts every turn).",
+             "Actors flagged *difficulty* start with an extra 6–14 turns of sleep and have their",
+             "`#SleepDifficulty` naps lengthened or shortened by difficulty. At most 3 actors may",
+             "produce a news event per turn; once that cap is hit the remaining actors are skipped.", ""]
+    for role, actors in ai.items():
+        lines.append(f"## Playing as {role}")
+        lines.append("")
+        lines.append("| order | actor | call frequency | difficulty | bundled with player turn | outcomes it can trigger |")
+        lines.append("|---|---|---|---|---|---|")
+        for i, a in enumerate(actors, 1):
+            lines.append(f"| {i} | **{a['id']}** | {a['call_frequency']} | {'yes' if a['affected_by_difficulty'] else '—'} | "
+                         f"{'yes' if a['bundled_with_player_feedback'] else '—'} | {len(a['reachable_outcomes'])} |")
+        lines.append("")
+        for a in actors:
+            lines.append(f"### {role} · {a['id']}")
+            lines.append("")
+            if a["poll_branches"]:
+                lines.append(f"Poll branches the player can query: {', '.join('`'+p+'`' for p in a['poll_branches'])}")
+                lines.append("")
+            render_tree(a["tree"], 0, lines)
+            lines.append("")
+            if a["reachable_outcomes"]:
+                lines.append("<details><summary>Outcome effects</summary>")
+                lines.append("")
+                for oid in a["reachable_outcomes"]:
+                    br = outcomes.get(oid)
+                    if not br:
+                        lines.append(f"- `{oid}`: _no table_")
+                        continue
+                    # AI actors always apply the FIRST branch of the table (no condition test).
+                    b = br[0]
+                    eff, meth, tags = [], [], []
+                    for e in b["effects"]:
+                        m, c, v = split_changes(e["changes"])
+                        eff += m + c + v
+                        meth += [method_text(x) for x in e["methods"]]
+                        if e.get("event_tag"):
+                            tags.append(e["event_tag"])
+                    lines.append(f"- `{oid}` ({b['result']}): {', '.join(eff) or '—'}"
+                                 f"{'; ' + '; '.join(meth) if meth else ''}"
+                                 f"{' — event `' + tags[0] + '`' if tags else ''}")
+                lines.append("")
+                lines.append("</details>")
+                lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------- variable table
+def render_variables(variables: dict, actions: dict, outcomes: dict, ai: dict, interface: dict) -> str:
+    # Which outcome tables touch which variable, split by player vs AI ownership.
+    role_outcomes = {}
+    for role in ("israeli", "palestinian"):
+        player = {n["outcome_id"] for n in actions[role] if n.get("outcome_id")}
+        aio = {o for a in ai[role] for o in a["reachable_outcomes"]}
+        role_outcomes[role] = (player, aio)
+    titles = {}
+    for role in ("israeli", "palestinian"):
+        for g in interface["groups_and_leaders"].get(role, []):
+            titles[(role, g["variable"])] = f"Group/leader meter: {g['title'].title()}"
+        for p in interface["polls"].get(role, []):
+            titles[(role, p["variable"])] = f"Poll: {p['title'].title()}"
+    lines = ["# Variable catalog", "",
+             "Generated from `data/harvest/variables.json`. Values are clamped to 0..100 unless flagged.",
+             "`auto-dec` variables lose 1 point every time the engine advances effects (twice per turn) —",
+             "they are cooldown and violence counters. Counts show how many player-action outcome tables",
+             "and AI outcome tables move each variable (up / down).", ""]
+    for role, rows in variables.items():
+        player, aio = role_outcomes[role]
+        up_p, dn_p, up_a, dn_a = (collections.Counter() for _ in range(4))
+        for oid, br in outcomes.items():
+            for b in br:
+                for e in b["effects"]:
+                    for k, v in e["changes"].items():
+                        if not isinstance(v, (int, float)):
+                            continue
+                        if oid in player:
+                            (up_p if v > 0 else dn_p)[k] += 1
+                        if oid in aio:
+                            (up_a if v > 0 else dn_a)[k] += 1
+        lines.append(f"## {role}")
+        lines.append("")
+        lines.append("| variable | default | flags | shown in UI as | player ↑/↓ | AI ↑/↓ |")
+        lines.append("|---|---|---|---|---|---|")
+        for r in rows:
+            flags = [f for f, on in (("auto-dec", r["auto_decrement"]), ("can be negative", r["can_be_negative"]),
+                                     ("can exceed 100", r["can_be_over_100"])) if on]
+            lines.append(f"| `{r['id']}` | {r['default']} | {', '.join(flags) or '—'} | {titles.get((role, r['id']), '—')} | "
+                         f"{up_p[r['id']]}/{dn_p[r['id']]} | {up_a[r['id']]}/{dn_a[r['id']]} |")
+        lines.append("")
+    return "\n".join(lines) + "\n"
+
+
+# ------------------------------------------------------------------ event summary
+def render_events(events: list, tags: dict, plot: list) -> str:
+    lines = ["# Event catalog (structure only)", "",
+             "Generated from `data/harvest/events_index.json` and `event_tags.json`. The game holds",
+             f"**{len(events)} events** under **{len(tags)} tags**. Whenever an outcome fires a tag, one",
+             "variant with that tag is picked uniformly at random, so tags with many variants feel less",
+             "repetitive. Prose is not reproduced here — run the harvester locally to read it.", ""]
+    fam = collections.Counter()
+    fam_variants = collections.Counter()
+    for t, info in tags.items():
+        head = t.split(",")[0].strip() if t else "(none)"
+        fam[head] += 1
+        fam_variants[head] += info["variants"]
+    lines.append("## Tag families (first tag token = who/what the event is about)")
+    lines.append("")
+    lines.append("| family | distinct tags | event variants |")
+    lines.append("|---|---|---|")
+    for k, v in fam_variants.most_common():
+        lines.append(f"| {k} | {fam[k]} | {v} |")
+    lines.append("")
+    bt = collections.Counter(e["box_type"] or "(none)" for e in events)
+    loc = collections.Counter(e["location"] or "(none)" for e in events)
+    snd = collections.Counter(e["sound"] or "(none)" for e in events)
+    lines.append("## Presentation")
+    lines.append("")
+    lines.append("Box types: " + ", ".join(f"{k} {v}" for k, v in bt.most_common()))
+    lines.append("")
+    lines.append("Map locations: " + ", ".join(f"{k} {v}" for k, v in loc.most_common()))
+    lines.append("")
+    lines.append("Sound cues: " + ", ".join(f"{k} {v}" for k, v in snd.most_common()))
+    lines.append("")
+    lines.append("## Milestones and endings")
+    lines.append("")
+    lines.append("| role | id | mode | needs | held for | title |")
+    lines.append("|---|---|---|---|---|---|")
+    for p in plot:
+        cmp = "≥" if p["compare"] == "more" else "≤"
+        needs = " and ".join(f"{k} {cmp} {v}" for k, v in p["thresholds"].items())
+        lines.append(f"| {p['role']} | `{p['string_id']}` | {p['mode']} | {needs} | {p['hold_for'] + 1} consecutive checks | {p['title']} |")
+    lines.append("")
+    lines.append("## All tags")
+    lines.append("")
+    lines.append("| tag | variants | box types | locations |")
+    lines.append("|---|---|---|---|")
+    for t, info in tags.items():
+        lines.append(f"| `{t}` | {info['variants']} | {', '.join(k or '—' for k in info['box_types'])} | "
+                     f"{', '.join(k or '—' for k in info['locations'])} |")
+    return "\n".join(lines) + "\n"
+
+
+def main() -> int:
+    actions, outcomes, ai = load("actions"), load("outcomes"), load("ai_actors")
+    variables, interface = load("variables"), load("interface")
+    events, tags, plot = load("events_index"), load("event_tags"), load("milestones_and_endings")
+    OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "actions-israeli.md").write_text(render_actions("israeli", actions, outcomes, ai), encoding="utf-8")
+    (OUT / "actions-palestinian.md").write_text(render_actions("palestinian", actions, outcomes, ai), encoding="utf-8")
+    (OUT / "ai-actors.md").write_text(render_ai(ai, outcomes), encoding="utf-8")
+    (OUT / "variables.md").write_text(render_variables(variables, actions, outcomes, ai, interface), encoding="utf-8")
+    (OUT / "events.md").write_text(render_events(events, tags, plot), encoding="utf-8")
+    print("Wrote", ", ".join(sorted(p.name for p in OUT.glob("*.md"))))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

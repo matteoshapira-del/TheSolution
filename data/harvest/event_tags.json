@@ -1,0 +1,7629 @@
+{
+ "call for independent state, feedback, close": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 2
+  }
+ },
+ "call for independent state, feedback, crazy": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 2
+  }
+ },
+ "call for independent state, feedback, polite refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Suboptimal": 1
+  }
+ },
+ "call for independent state, feedback, strong refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 2
+  }
+ },
+ "call for independent state, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Fanfare": 1
+  }
+ },
+ "civilian construction, agriculture, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "Success": 1
+  }
+ },
+ "civilian construction, housing, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 2
+  }
+ },
+ "civilian construction, industry, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 1,
+   "News": 1
+  }
+ },
+ "civilian construction, reclaim settlements, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Cheer2": 1
+  }
+ },
+ "education, build new schools, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "School": 1
+  }
+ },
+ "education, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "education, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "education, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "education, reopen closed schools, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "School": 2
+  }
+ },
+ "egypt negotiate, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "egypt negotiate, request aid, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "egypt negotiate, request aid, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "egypt negotiate, request aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "egypt negotiate, request investment, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "egypt negotiate, request investment, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "egypt negotiate, request investment, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Cash": 1
+  }
+ },
+ "egypt negotiate, request meeting, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "egypt negotiate, request meeting, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "egypt negotiate, request meeting, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 2
+  }
+ },
+ "egypt negotiate, request political pressure, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "egypt negotiate, request political pressure, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "egypt negotiate, request political pressure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "ending, external lose": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Failure": 1
+  }
+ },
+ "ending, internal lose": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "GAZA": 1
+  },
+  "sounds": {
+   "Failure": 1
+  }
+ },
+ "ending, win": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Applause3": 1
+  }
+ },
+ "extreme measures, arrest known militants, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur2": 1
+  }
+ },
+ "extreme measures, arrest known militants, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMen": 1,
+   "News": 1
+  }
+ },
+ "extreme measures, arrest known militants, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren": 2
+  }
+ },
+ "extreme measures, assassinate militant leader, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur2": 1
+  }
+ },
+ "extreme measures, assassinate militant leader, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "AngryMob2": 1
+  }
+ },
+ "extreme measures, assassinate militant leader, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Black": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "GunAttack4": 1,
+   "AngryMob": 1
+  }
+ },
+ "extreme measures, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "extreme measures, seize militant arm, feedback, failure": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur2": 1
+  }
+ },
+ "extreme measures, seize militant arms, feedback, failure": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Protest": 1
+  }
+ },
+ "extreme measures, seize militant arms, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "AngryMob2": 1
+  }
+ },
+ "extreme measures, seize militant arms, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Siren": 1
+  }
+ },
+ "fatah negotiation, ask for anti-corruption, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "fatah negotiation, ask for anti-corruption, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur": 1
+  }
+ },
+ "fatah negotiation, ask for anti-corruption, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "fatah negotiation, ask for law and order, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Whisper2": 1
+  }
+ },
+ "fatah negotiation, ask for law and order, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "fatah negotiation, ask for law and order, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause2": 1,
+   "Success": 1
+  }
+ },
+ "fatah negotiation, ask for peace support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "News": 1
+  }
+ },
+ "fatah negotiation, ask for peace support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "AngryMen": 1
+  }
+ },
+ "fatah negotiation, ask for peace support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "fatah negotiation, bribe, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 1,
+   "Success": 1
+  }
+ },
+ "fatah negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "fatah, anti-israel, attack": {
+  "variants": 5,
+  "box_types": {
+   "Black": 4,
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "GAZA": 1,
+   "ISRAEL_SETTLEMENT 4": 1,
+   "NABLUS": 1,
+   "JENIN": 1
+  },
+  "sounds": {
+   "GunAttack4": 1,
+   "GunAttack3": 1,
+   "GunAttack2": 1,
+   "GunAttack": 1,
+   "MortarAttack": 1
+  }
+ },
+ "fatah, anti-israel, extreme attack": {
+  "variants": 5,
+  "box_types": {
+   "Black": 5
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 3": 1,
+   "ISRAEL_SETTLEMENT 1": 1,
+   "JERUSALEM": 1,
+   "TEL-AVIV": 1,
+   "KFAR SAVA": 1
+  },
+  "sounds": {
+   "GunAttack": 3,
+   "SuicideBomb": 1,
+   "Siren": 1
+  }
+ },
+ "fatah, anti-israel, funds": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "GAZA": 2
+  },
+  "sounds": {
+   "Cash": 2,
+   "Helicopter": 1
+  }
+ },
+ "fatah, anti-israel, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 2,
+   "JENIN": 1,
+   "NABLUS": 2
+  },
+  "sounds": {
+   "AngryMob2": 2,
+   "Protest": 2,
+   "Murmur2": 1
+  }
+ },
+ "fatah, anti-you, attack on your organization": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "RAMALLAH": 4,
+   "GAZA": 1
+  },
+  "sounds": {
+   "GunAttack4": 1,
+   "GunAttack2": 2,
+   "Siren2": 1,
+   "News": 1
+  }
+ },
+ "fatah, anti-you, political maneuvering": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 3
+  },
+  "sounds": {
+   "Whisper": 2,
+   "Whisper2": 1
+  }
+ },
+ "fatah, anti-you, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 2,
+   "NABLUS": 1
+  },
+  "sounds": {
+   "Murmur": 2,
+   "News": 1,
+   "Protest": 2
+  }
+ },
+ "fatah, pro-you, anti-corruption measure": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "RAMALLAH": 3,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Meeting": 1,
+   "Applause4": 1,
+   "Whisper2": 1
+  }
+ },
+ "fatah, pro-you, commit to reconstruction": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 3
+  },
+  "sounds": {
+   "Build": 2,
+   "Meeting": 1
+  }
+ },
+ "fatah, pro-you, partial disarmament of military wing": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "HEBRON": 1,
+   "RAMALLAH": 1,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 2
+  }
+ },
+ "fatah, pro-you, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 3,
+   "GAZA": 2
+  },
+  "sounds": {
+   "Cheer3": 1,
+   "Cheer": 2,
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "feedback, aggression": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "": 5
+  },
+  "sounds": {
+   "Aggressive": 5
+  }
+ },
+ "feedback, education, restructure curriculum, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Failure": 1
+  }
+ },
+ "feedback, education, restructure curriculum, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "School": 1,
+   "Applause": 1
+  }
+ },
+ "feedback, education, revert curriculum, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Murmur2": 1
+  }
+ },
+ "feedback, holy sites, permit access foreigners, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "AngryMob2": 1
+  }
+ },
+ "feedback, holy sites, permit access foreigners, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "ChurchBells": 1
+  }
+ },
+ "feedback, holy sites, permit access israelis, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Protest": 1
+  }
+ },
+ "feedback, holy sites, permit access israelis, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Success": 1
+  }
+ },
+ "feedback, holy sites, permit access palestinians, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Success": 1
+  }
+ },
+ "feedback, holy sites, restrict access foreigners, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "feedback, holy sites, restrict access israelis, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur": 1
+  }
+ },
+ "feedback, holy sites, restrict access palestinians, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Protest": 1
+  }
+ },
+ "feedback, holy sites, restrict access palestinians, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint patrols start, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "feedback, israeli forces cooperation, joint patrols start, refusal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Suboptimal": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint patrols start, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause4": 1,
+   "Success": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint patrols stop, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "News": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint training start, delay": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Suboptimal": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint training start, refusal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Failure": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint training start, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "GunAttack2": 1
+  }
+ },
+ "feedback, israeli forces cooperation, joint training stop, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "feedback, speech to palestinians, anti-militancy, received poorly": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "AngryMob2": 1
+  }
+ },
+ "feedback, speech to palestinians, anti-militancy, received well": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "News": 1
+  }
+ },
+ "feedback, speech to palestinians, pro-militancy": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "": 4
+  },
+  "sounds": {
+   "Murmur": 1,
+   "News2": 1,
+   "Whisper2": 1,
+   "Murmur2": 1
+  }
+ },
+ "feedback, speech to palestinians, pro-reconstruction": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Success": 1
+  }
+ },
+ "feedback, speech to world, cautious": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Cheer2": 1
+  }
+ },
+ "feedback, speech to world, demanding": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur": 1
+  }
+ },
+ "feedback, speech to world, hopeful": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Applause": 1
+  }
+ },
+ "feedback, tourism, close, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "ChurchBells": 1
+  }
+ },
+ "feedback, tourism, open, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "ChurchBells": 2
+  }
+ },
+ "feedback, tourism, open, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "ChurchBells": 1,
+   "Camera": 1
+  }
+ },
+ "financing, arab states, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "financing, arab states, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "financing, arab states, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, arab states, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "financing, eu, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "financing, eu, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "financing, eu, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, eu, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "financing, israel, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "financing, israel, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News": 1
+  }
+ },
+ "financing, israel, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, israel, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "financing, other palestinian, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "Murmur2": 1
+  }
+ },
+ "financing, other palestinian, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Murmur2": 1
+  }
+ },
+ "financing, other palestinian, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, other palestinian, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "financing, own resources, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, un, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "financing, un, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "financing, un, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, un, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "financing, usa, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "financing, usa, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "financing, usa, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "financing, usa, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "gaza border control, close, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, decrease presence, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, eject international troops, feedback, delay": {
+  "variants": 1,
+  "box_types": {
+   "": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "grumbling": 1
+  }
+ },
+ "gaza border control, eject international troops, feedback, refusal": {
+  "variants": 1,
+  "box_types": {
+   "": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "angry_men": 1
+  }
+ },
+ "gaza border control, eject international troops, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Success": 1
+  }
+ },
+ "gaza border control, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "GAZA": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "gaza border control, increase presence, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Whisper": 1
+  }
+ },
+ "gaza border control, increase presence, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Bulldoze": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, open, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Cheer3": 1
+  }
+ },
+ "gaza border control, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "gaza border control, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause4": 1,
+   "Success": 1
+  }
+ },
+ "gaza border control, request international troops, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, request international troops, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News": 1
+  }
+ },
+ "gaza border control, request international troops, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "gaza border, increase presence, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "whispering": 1
+  }
+ },
+ "governmental construction, import arms, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "governmental construction, police station, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren": 1,
+   "Fanfare": 1
+  }
+ },
+ "governmental construction, prison, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 2
+  }
+ },
+ "hamas negotiation, ask for cease-fire, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Suboptimal": 1
+  }
+ },
+ "hamas negotiation, ask for cease-fire, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "AngryMen": 1
+  }
+ },
+ "hamas negotiation, ask for cease-fire, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "hamas negotiation, ask for cease-fire, feedback, violent refusal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "GunAttack3": 1,
+   "AngryMob": 1
+  }
+ },
+ "hamas negotiation, ask for law and order, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "Suboptimal": 1
+  }
+ },
+ "hamas negotiation, ask for law and order, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "Failure": 1
+  }
+ },
+ "hamas negotiation, ask for law and order, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "hamas negotiation, ask for peace support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "Suboptimal": 1
+  }
+ },
+ "hamas negotiation, ask for peace support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "AngryMob": 1
+  }
+ },
+ "hamas negotiation, ask for peace support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "hamas negotiation, ask to disarm, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Murmur": 1
+  }
+ },
+ "hamas negotiation, ask to disarm, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "hamas negotiation, ask to disarm, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "hamas negotiation, ask to disarm, feedback, violent refusal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "GunAttack": 1
+  }
+ },
+ "hamas negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "hamas, anti-israel, attack": {
+  "variants": 10,
+  "box_types": {
+   "Black": 8,
+   "Normal": 2
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 1,
+   "NABLUS": 1,
+   "JERICHO": 1,
+   "TULKARM": 1,
+   "ISRAEL_SETTLEMENT 1": 1,
+   "ISRAEL_SETTLEMENT 3": 1,
+   "SDEROT": 2,
+   "GAZA": 2
+  },
+  "sounds": {
+   "GunAttack3": 3,
+   "SuicideBomb": 3,
+   "GunAttack2": 1,
+   "GunAttack4": 1,
+   "MortarAttack": 2
+  }
+ },
+ "hamas, anti-israel, extreme attack": {
+  "variants": 10,
+  "box_types": {
+   "Black": 10
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 3": 1,
+   "ISRAEL_SETTLEMENT 2": 1,
+   "BETHLEHEM": 1,
+   "NABLUS": 1,
+   "JENIN": 1,
+   "TEL-AVIV": 1,
+   "HADERA": 1,
+   "JERUSALEM": 1,
+   "RAMALLAH": 1,
+   "BEERSHEVA": 1
+  },
+  "sounds": {
+   "GunAttack2": 1,
+   "SuicideBomb": 3,
+   "GunAttack4": 1,
+   "GunAttack3": 1,
+   "MortarAttack": 1,
+   "News": 1,
+   "Siren2": 1,
+   "GunAttack": 1
+  }
+ },
+ "hamas, anti-israel, funds": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAFAH": 1,
+   "GAZA": 1,
+   "NABLUS": 1
+  },
+  "sounds": {
+   "News": 1,
+   "Cash": 2
+  }
+ },
+ "hamas, anti-israel, organize with international terror": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 2,
+   "Black": 1
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "RAMALLAH": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Failure": 1,
+   "News": 1
+  }
+ },
+ "hamas, anti-israel, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 1,
+   "JENIN": 1,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "News2": 1,
+   "News": 2
+  }
+ },
+ "hamas, anti-you, attack on your organization": {
+  "variants": 3,
+  "box_types": {
+   "Black": 2,
+   "Normal": 1
+  },
+  "locations": {
+   "GAZA": 1,
+   "HEBRON": 1,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "GunAttack3": 1,
+   "AngryMob2": 1,
+   "Siren": 1
+  }
+ },
+ "hamas, anti-you, claim victories over you": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "News": 2,
+   "Murmur2": 1
+  }
+ },
+ "hamas, anti-you, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "Protest": 1,
+   "News": 1
+  }
+ },
+ "hamas, pro-you, commit to reconstruction": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 1,
+   "RAMALLAH": 1,
+   "EAST JERUSALEM": 1
+  },
+  "sounds": {
+   "News": 1,
+   "Cheer": 1,
+   "Success": 1
+  }
+ },
+ "hamas, pro-you, join political process": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 3
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Cheer3": 1,
+   "News": 1
+  }
+ },
+ "hamas, pro-you, partial disarmament": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 3
+  },
+  "sounds": {
+   "News": 3
+  }
+ },
+ "hamas, pro-you, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 3
+  },
+  "sounds": {
+   "News2": 1,
+   "Murmur2": 1,
+   "News": 1
+  }
+ },
+ "hamas-fatah, anti-israel, attack": {
+  "variants": 11,
+  "box_types": {
+   "Black": 10,
+   "Normal": 1
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 1": 1,
+   "NABLUS": 3,
+   "HEBRON": 1,
+   "ISRAEL_SETTLEMENT 4": 1,
+   "QALQILYE": 1,
+   "ISRAEL_SETTLEMENT 2": 1,
+   "JERUSALEM": 1,
+   "RAMALLAH": 1,
+   "SDEROT": 1
+  },
+  "sounds": {
+   "GunAttack2": 4,
+   "GunAttack3": 1,
+   "MortarAttack": 3,
+   "GunAttack": 2,
+   "Siren": 1
+  }
+ },
+ "hamas-fatah, anti-israel, extreme attack": {
+  "variants": 11,
+  "box_types": {
+   "Black": 11
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 3": 1,
+   "HAIFA": 2,
+   "ISRAEL_SETTLEMENT 2": 1,
+   "ISRAEL_SETTLEMENT 1": 2,
+   "TULKARM": 1,
+   "TEL-AVIV": 2,
+   "NETANYA": 1,
+   "SDEROT": 1
+  },
+  "sounds": {
+   "GunAttack3": 2,
+   "SuicideBomb": 6,
+   "MortarAttack": 2,
+   "Mourn": 1
+  }
+ },
+ "hamas-fatah, anti-israel, funds-material": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "RAFAH": 2,
+   "HEBRON": 1,
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "News": 2,
+   "Cash": 1,
+   "Failure": 1
+  }
+ },
+ "hamas-fatah, anti-israel, organize with international terror": {
+  "variants": 3,
+  "box_types": {
+   "Black": 1,
+   "Normal": 2
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Failure": 1,
+   "News": 2
+  }
+ },
+ "hamas-fatah, anti-israel, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 4,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "News2": 2,
+   "Type": 1,
+   "AngryMob2": 1
+  }
+ },
+ "holy sites, permit access foreigners, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Protest": 1
+  }
+ },
+ "holy sites, permit access foreigners, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "ChurchBells": 1
+  }
+ },
+ "holy sites, permit access israelis, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "AngryMob2": 1
+  }
+ },
+ "holy sites, permit access israelis, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "holy sites, permit access palestinians, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "holy sites, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "holy sites, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "holy sites, push control, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Cheer2": 1
+  }
+ },
+ "holy sites, restrict access foreigners, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "News": 1
+  }
+ },
+ "holy sites, restrict access israelis, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur2": 1
+  }
+ },
+ "holy sites, restrict access palestinians, feedback, sub-optimal": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "AngryMen": 1
+  }
+ },
+ "holy sites, restrict access palestinians, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Whisper": 1
+  }
+ },
+ "immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "whispering": 1
+  }
+ },
+ "internal travel, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "internal travel, lower restrictions, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "TrafficJam": 1,
+   "Bulldoze": 1
+  }
+ },
+ "internal travel, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "internal travel, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News": 1
+  }
+ },
+ "internal travel, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "TrafficJam": 1
+  }
+ },
+ "internal travel, raise restrictions, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur2": 1
+  }
+ },
+ "international press, concern, low palestinian trust": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur": 1,
+   "News": 1
+  }
+ },
+ "international press, concern, low popular approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "Jerusalem": 1,
+   "Tel-Aviv": 2
+  },
+  "sounds": {
+   "typing_short": 2,
+   "whispering": 1
+  }
+ },
+ "international press, concern, low quality of life": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 3
+  },
+  "sounds": {
+   "News2": 1,
+   "Murmur2": 1,
+   "Airplane": 1
+  }
+ },
+ "international press, concern, low security": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "Siren": 2,
+   "News": 1
+  }
+ },
+ "international press, concern, low sympathy": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "Failure": 2,
+   "News2": 1
+  }
+ },
+ "international press, praise, high palestinian trust": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Success": 3
+  }
+ },
+ "international press, praise, high popular approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Success": 3
+  }
+ },
+ "international press, praise, high quality of life": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 1
+  },
+  "sounds": {
+   "News": 2,
+   "Cheer3": 1
+  }
+ },
+ "international press, praise, high security": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "TEL-AVIV": 1,
+   "NETANYA": 1,
+   "HAIFA": 1
+  },
+  "sounds": {
+   "News": 1,
+   "Success": 2
+  }
+ },
+ "international press, praise, high sympathy": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "TULKARM": 1,
+   "JERUSALEM": 2
+  },
+  "sounds": {
+   "News": 1,
+   "News2": 1,
+   "Type": 1
+  }
+ },
+ "israel assassinate militant leader, apache strike, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "Helicopter": 1
+  }
+ },
+ "israel assassinate militant leader, apache strike, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Black": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Helicopter": 3
+  }
+ },
+ "israel assassinate militant leader, covert operation, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "GunAttack3": 1
+  }
+ },
+ "israel assassinate militant leader, covert operation, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Black": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "AngryMen": 1,
+   "GunAttack2": 2
+  }
+ },
+ "israel assassinate militant leader, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel bulldoze area, clear roadblocks, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Bulldoze": 2
+  }
+ },
+ "israel bulldoze area, clear roadblocks, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Bulldoze": 2
+  }
+ },
+ "israel bulldoze area, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel bulldoze area, punish militants, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Bulldoze": 1
+  }
+ },
+ "israel bulldoze area, punish militants, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Demolition2": 2
+  }
+ },
+ "israel cultural initiatives, cross-cultural project, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur": 1
+  }
+ },
+ "israel cultural initiatives, cross-cultural project, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Murmur": 1
+  }
+ },
+ "israel cultural initiatives, cross-cultural project, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Applause": 1,
+   "Type2": 1,
+   "Applause2": 1
+  }
+ },
+ "israel cultural initiatives, educational initiative, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Whisper": 1
+  }
+ },
+ "israel cultural initiatives, educational initiative, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel cultural initiatives, educational initiative, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "News": 1
+  }
+ },
+ "israel cultural initiatives, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel cultural initiatives, structured dialog, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "israel cultural initiatives, structured dialog, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "News": 1
+  }
+ },
+ "israel cultural initiatives, structured dialog, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1
+  }
+ },
+ "israel cultural initiatives, trade initiative, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Protest": 1
+  }
+ },
+ "israel cultural initiatives, trade initiative, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Murmur": 1
+  }
+ },
+ "israel cultural initiatives, trade initiative, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Cash": 1
+  }
+ },
+ "israel curfews, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel curfews, impose curfew, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "News": 1
+  }
+ },
+ "israel curfews, impose curfew, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren": 1,
+   "Applause": 1
+  }
+ },
+ "israel curfews, raise curfew, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel curfews, raise curfew, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Applause": 1
+  }
+ },
+ "israel domesitic initiatives, economic stimulus, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Protest": 1
+  }
+ },
+ "israel domesitic initiatives, economic stimulus, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Applause3": 1
+  }
+ },
+ "israel domesitic initiatives, educational grants, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "Protest": 1
+  }
+ },
+ "israel domesitic initiatives, educational grants, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Cheer2": 1
+  }
+ },
+ "israel domesitic initiatives, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel domesitic initiatives, social program, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "whispering": 1,
+   "Whisper": 1
+  }
+ },
+ "israel domesitic initiatives, social program, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause2": 1,
+   "Success": 1
+  }
+ },
+ "israel education aid, direct, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Protest": 1
+  }
+ },
+ "israel education aid, direct, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "News2": 1
+  }
+ },
+ "israel education aid, direct, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "School": 1,
+   "Cheer": 1
+  }
+ },
+ "israel education aid, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel education aid, with restriction, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel education aid, with restriction, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel education aid, with restriction, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "School": 2
+  }
+ },
+ "israel manage checkpoints, decrease checkpoints, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur": 1
+  }
+ },
+ "israel manage checkpoints, decrease checkpoints, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "israel manage checkpoints, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel manage checkpoints, increase checkpoints, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "TrafficJam": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel manage checkpoints, increase checkpoints, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "News": 1
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on green line, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on green line, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on green line, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Bulldoze": 1,
+   "Build": 1
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on palestinian land, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Meeting": 1
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on palestinian land, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 2
+  }
+ },
+ "israel manage security wall, expand security wall, build wall on palestinian land, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "Bulldoze": 1
+  }
+ },
+ "israel manage security wall, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel manage security wall, remove security wall, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Failure": 1
+  }
+ },
+ "israel manage security wall, remove security wall, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Whisper": 1
+  }
+ },
+ "israel manage security wall, remove security wall, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Demolition2": 1,
+   "Demolition": 1
+  }
+ },
+ "israel manage settlements, build settlements, build new settlements, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Protest": 1
+  }
+ },
+ "israel manage settlements, build settlements, build new settlements, feedback, sub-optimal": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Protest": 2,
+   "AngryMob": 1
+  }
+ },
+ "israel manage settlements, build settlements, build new settlements, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 2
+  }
+ },
+ "israel manage settlements, build settlements, expand settlements, feedback, failure": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "": 5
+  },
+  "sounds": {
+   "whispering": 4,
+   "protest": 1
+  }
+ },
+ "israel manage settlements, build settlements, expand settlements, feedback, sub-optimal": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "": 5
+  },
+  "sounds": {
+   "protest": 4,
+   "Build": 1
+  }
+ },
+ "israel manage settlements, build settlements, expand settlements, feedback, success": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "": 5
+  },
+  "sounds": {
+   "Build": 4,
+   "Protest": 1
+  }
+ },
+ "israel manage settlements, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 1": 1
+  },
+  "sounds": {
+   "Bulldoze": 1
+  }
+ },
+ "israel manage settlements, remove settlements, dismantle settlement, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Whisper": 1
+  }
+ },
+ "israel manage settlements, remove settlements, dismantle settlement, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 1": 1,
+   "ISRAEL_SETTLEMENT 2": 1
+  },
+  "sounds": {
+   "Protest": 2
+  }
+ },
+ "israel manage settlements, remove settlements, dismantle settlement, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Siren": 1
+  }
+ },
+ "israel manage settlements, remove settlements, halt settlement expansion, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Build": 1
+  }
+ },
+ "israel manage settlements, remove settlements, halt settlement expansion, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel manage settlements, remove settlements, halt settlement expansion, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel medical aid, direct, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "Whisper": 1
+  }
+ },
+ "israel medical aid, direct, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel medical aid, direct, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 1,
+   "News2": 1
+  }
+ },
+ "israel medical aid, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel medical aid, through un, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Protest": 1
+  }
+ },
+ "israel medical aid, through un, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Type": 1
+  }
+ },
+ "israel medical aid, through un, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause2": 1,
+   "Cheer": 1
+  }
+ },
+ "israel missile strike, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel missile strike, militant hq, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "MissileAttack": 1,
+   "AngryMob2": 1
+  }
+ },
+ "israel missile strike, militant hq, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "MissileAttack": 1,
+   "Helicopter": 1
+  }
+ },
+ "israel missile strike, pa infrastructure, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Helicopter": 1
+  }
+ },
+ "israel missile strike, pa infrastructure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "MissileAttack": 2
+  }
+ },
+ "israel missile strike, pa police, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 2
+  }
+ },
+ "israel missile strike, pa police, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Black": 1,
+   "Normal": 1
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "MissileAttack": 2
+  }
+ },
+ "israel negotiation, ask for safety, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel negotiation, ask for safety, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "israel negotiation, ask for safety, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "israel negotiation, ask for wall removal, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel negotiation, ask for wall removal, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Failure": 1
+  }
+ },
+ "israel negotiation, ask for wall removal, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "israel negotiation, ask for withdrawal, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel negotiation, ask for withdrawal, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "israel negotiation, ask for withdrawal, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Bulldoze": 1,
+   "Success": 1
+  }
+ },
+ "israel negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel negotiation, offer thanks, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel negotiation, offer thanks, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause4": 1,
+   "Success": 1
+  }
+ },
+ "israel order idf, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel order idf, remove idf, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Whisper": 1
+  }
+ },
+ "israel order idf, remove idf, feedback, success": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "": 5
+  },
+  "sounds": {
+   "News": 3,
+   "Meeting": 2
+  }
+ },
+ "israel order idf, send idf, arrest militants, feedback, sub-optimal": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 2,
+   "Black": 1
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Type": 1,
+   "GunAttack": 1,
+   "Siren2": 1
+  }
+ },
+ "israel order idf, send idf, arrest militants, feedback, success": {
+  "variants": 7,
+  "box_types": {
+   "Normal": 6,
+   "Black": 1
+  },
+  "locations": {
+   "": 7
+  },
+  "sounds": {
+   "Siren": 5,
+   "GunAttack": 1,
+   "Type": 1
+  }
+ },
+ "israel order idf, send idf, destroy militant infrastructure, feedback, sub-optimal": {
+  "variants": 6,
+  "box_types": {
+   "Normal": 5,
+   "Black": 1
+  },
+  "locations": {
+   "": 6
+  },
+  "sounds": {
+   "MissileAttack": 2,
+   "Demolition2": 1,
+   "News": 2,
+   "Murmur2": 1
+  }
+ },
+ "israel order idf, send idf, destroy militant infrastructure, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 2,
+   "Black": 1
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "MissileAttack": 2,
+   "Siren": 1
+  }
+ },
+ "israel order idf, send idf, secure area, feedback, sub-optimal": {
+  "variants": 8,
+  "box_types": {
+   "Black": 6,
+   "Normal": 2
+  },
+  "locations": {
+   "": 8
+  },
+  "sounds": {
+   "GunAttack": 3,
+   "GunAttack2": 2,
+   "Mourn": 1,
+   "News": 2
+  }
+ },
+ "israel order idf, send idf, secure area, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Siren": 1,
+   "GunAttack": 2
+  }
+ },
+ "israel order police, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel order police, remove police, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur": 1
+  }
+ },
+ "israel order police, remove police, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Cheer": 1
+  }
+ },
+ "israel order police, send police, patrol, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren": 2
+  }
+ },
+ "israel order police, send police, patrol, feedback, success": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "": 4
+  },
+  "sounds": {
+   "Siren": 4
+  }
+ },
+ "israel order police, send police, secure, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "TrafficJam": 1,
+   "Murmur": 1
+  }
+ },
+ "israel order police, send police, secure, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Siren": 3
+  }
+ },
+ "israel pm, anti-terror, blame you": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "JERUSALEM": 4,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "News": 2,
+   "Murmur2": 1,
+   "News2": 1,
+   "Whisper": 1
+  }
+ },
+ "israel pm, anti-terror, extreme security act": {
+  "variants": 10,
+  "box_types": {
+   "Black": 9,
+   "Normal": 1
+  },
+  "locations": {
+   "JENIN": 1,
+   "NABLUS": 2,
+   "GAZA": 4,
+   "HEBRON": 2,
+   "ISRAEL_SETTLEMENT 2": 1
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "GunAttack2": 1,
+   "MissileAttack": 1,
+   "Mourn": 2,
+   "Helicopter": 3,
+   "Bulldoze": 1,
+   "Demolition2": 1
+  }
+ },
+ "israel pm, anti-terror, security measures": {
+  "variants": 10,
+  "box_types": {
+   "Normal": 8,
+   "Black": 2
+  },
+  "locations": {
+   "JENIN": 2,
+   "TULKARM": 2,
+   "HEBRON": 1,
+   "NABLUS": 3,
+   "KFAR SAVA": 1,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "GunAttack": 1,
+   "GunAttack3": 1,
+   "Siren": 2,
+   "News": 3,
+   "GunAttack2": 1,
+   "Demolition2": 1,
+   "Demolition": 1
+  }
+ },
+ "israel pm, pro-peace, apologize for actions": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 2,
+   "Black": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "GAZA": 3,
+   "JENIN": 1
+  },
+  "sounds": {
+   "Success": 2,
+   "Helicopter": 1,
+   "MortarAttack": 1,
+   "Mourn": 1
+  }
+ },
+ "israel pm, pro-peace, remove a security measure": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "BETHLEHEM": 1,
+   "GAZA": 2,
+   "NABLUS": 2
+  },
+  "sounds": {
+   "News": 3,
+   "Bulldoze": 1,
+   "Helicopter": 1
+  }
+ },
+ "israel pm, pro-reconstruction, offer aid in construction": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "HEBRON": 2,
+   "GAZA": 1,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Build": 3,
+   "Cash": 1
+  }
+ },
+ "israel reconstruction aid, civilian aid, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 2
+  }
+ },
+ "israel reconstruction aid, civilian aid, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 2
+  }
+ },
+ "israel reconstruction aid, civilian aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Cheer": 1
+  }
+ },
+ "israel reconstruction aid, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel reconstruction aid, infrastructure aid, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Protest": 1
+  }
+ },
+ "israel reconstruction aid, infrastructure aid, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Whisper": 1
+  }
+ },
+ "israel reconstruction aid, infrastructure aid, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 2,
+   "": 1
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Build": 3
+  }
+ },
+ "israel reconstruction aid, security aid, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Failure": 1
+  }
+ },
+ "israel reconstruction aid, security aid, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel reconstruction aid, security aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "israel refugee affairs, allow some palestinian immigrants, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Meeting": 1
+  }
+ },
+ "israel refugee affairs, allow some palestinian immigrants, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel refugee affairs, allow some palestinian immigrants, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Cheer": 1
+  }
+ },
+ "israel refugee affairs, authorize payments to refugees, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Failure": 1
+  }
+ },
+ "israel refugee affairs, authorize payments to refugees, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel refugee affairs, authorize payments to refugees, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Cash": 1
+  }
+ },
+ "israel refugee affairs, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel release prisoners, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel release prisoners, release non-violent prisoners, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel release prisoners, release non-violent prisoners, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 2
+  }
+ },
+ "israel release prisoners, release non-violent prisoners, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Cheer": 1
+  }
+ },
+ "israel release prisoners, release violent prisoners, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Protest": 1
+  }
+ },
+ "israel release prisoners, release violent prisoners, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel release prisoners, release violent prisoners, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer3": 1,
+   "Applause": 1
+  }
+ },
+ "israel talk to palestinian president, ask for anti-militant support, feedback, delay": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "": 3
+  },
+  "sounds": {
+   "protest": 1,
+   "whispering": 1,
+   "Whisper2": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to palestinian president, ask for anti-militant support, feedback, refusal": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Failure": 3
+  }
+ },
+ "israel talk to palestinian president, ask for anti-militant support, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "JERUSALEM": 2
+  },
+  "sounds": {
+   "Success": 3
+  }
+ },
+ "israel talk to palestinian president, feedback, aggression": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Aggressive": 1
+  }
+ },
+ "israel talk to palestinian president, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to palestinian president, insist on anti-militant support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel talk to palestinian president, insist on anti-militant support, feedback, refusal": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur2": 1,
+   "Failure": 1
+  }
+ },
+ "israel talk to palestinian president, insist on anti-militant support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "israel talk to palestinian president, promise reconstruction assistance, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel talk to palestinian president, promise reconstruction assistance, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to palestinian president, promise security, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to palestinian president, promise security, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "israel talk to the world, anti-militancy, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel talk to the world, anti-militancy, feedback, poorly": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Murmur": 1
+  }
+ },
+ "israel talk to the world, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to the world, pro-palestinian cooperation, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to the world, pro-palestinian cooperation, feedback, poorly": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur2": 1
+  }
+ },
+ "israel talk to the world, pro-peace process, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel talk to the world, pro-security, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to the world, pro-security, feedback, poorly": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "protest": 2
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for mediation support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for mediation support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for mediation support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for political pressure on palestine, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for political pressure on palestine, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, ask for political pressure on palestine, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Applause": 1
+  }
+ },
+ "israel talk to world leaders, eu negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for mediation support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "Meeting": 1
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for mediation support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for mediation support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for political pressure on palestine, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for political pressure on palestine, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Failure": 1
+  }
+ },
+ "israel talk to world leaders, un negotiation, ask for political pressure on palestine, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "israel talk to world leaders, un negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for mediation support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for mediation support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for mediation support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for political pressure on palestine, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for political pressure on palestine, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Failure": 1
+  }
+ },
+ "israel talk to world leaders, usa negotiation, ask for political pressure on palestine, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to world leaders, usa negotiation, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to your government, ask for less criticism, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel talk to your government, ask for less criticism, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to your government, ask for less criticism, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to your government, ask for withdrawal support, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Suboptimal": 1
+  }
+ },
+ "israel talk to your government, ask for withdrawal support, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Meeting": 1
+  }
+ },
+ "israel talk to your government, ask for withdrawal support, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to your government, ask to unite for peace, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Meeting": 1
+  }
+ },
+ "israel talk to your government, ask to unite for peace, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to your government, ask to unite for peace, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 2,
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Success": 1,
+   "Applause": 2
+  }
+ },
+ "israel talk to your government, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to your government, promise more security, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Whisper2": 1
+  }
+ },
+ "israel talk to your government, promise more security, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Success": 1
+  }
+ },
+ "israel talk to your people, anti-militancy, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to your people, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel talk to your people, pro-palestinian cooperation, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel talk to your people, pro-palestinian cooperation, feedback, poorly": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "News2": 1
+  }
+ },
+ "israel talk to your people, pro-peace process, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "JERUSALEM": 2
+  },
+  "sounds": {
+   "Whisper2": 2
+  }
+ },
+ "israel talk to your people, pro-peace process, feedback, poorly": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel talk to your people, pro-security, feedback, neutrally": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "JERUSALEM": 2
+  },
+  "sounds": {
+   "News2": 2
+  }
+ },
+ "israel trade restrictions, decrease trade restrictions, feedback, failure": {
+  "variants": 1,
+  "box_types": {
+   "": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "grumbling": 1
+  }
+ },
+ "israel trade restrictions, decrease trade restrictions, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel trade restrictions, decrease trade restrictions, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Cheer": 1
+  }
+ },
+ "israel trade restrictions, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel trade restrictions, increase trade restrictions, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "News2": 1
+  }
+ },
+ "israel trade restrictions, increase trade restrictions, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "TrafficJam": 2
+  }
+ },
+ "israel worker permits, decrease worker permits, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel worker permits, decrease worker permits, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 2
+  }
+ },
+ "israel worker permits, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel worker permits, increase worker permits, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "": 1
+  }
+ },
+ "israel worker permits, increase worker permits, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel worker permits, increase worker permits, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Applause": 1
+  }
+ },
+ "israel yesha, arrest leaders, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "News2": 1
+  }
+ },
+ "israel yesha, arrest leaders, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "AngryMen": 1
+  }
+ },
+ "israel yesha, arrest leaders, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Siren": 1
+  }
+ },
+ "israel yesha, ask for restraint, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "AngryMob": 1
+  }
+ },
+ "israel yesha, ask for restraint, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Murmur": 1
+  }
+ },
+ "israel yesha, ask for restraint, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper": 1,
+   "News": 1
+  }
+ },
+ "israel yesha, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "israel yesha, promise concessions, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren2": 1,
+   "Protest": 1
+  }
+ },
+ "israel yesha, promise concessions, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "News": 1
+  }
+ },
+ "israel yesha, promise concessions, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer3": 1,
+   "Cheer": 1
+  }
+ },
+ "israel yesha, suppress violence, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Murmur2": 1
+  }
+ },
+ "israel yesha, suppress violence, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Siren2": 1
+  }
+ },
+ "israeli ending, israeli lose": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Failure": 1
+  }
+ },
+ "israeli ending, palestinian lose": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "GunAttack4": 1
+  }
+ },
+ "israeli ending, win": {
+  "variants": 1,
+  "box_types": {
+   "ending": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Success": 1
+  }
+ },
+ "israeli forces cooperation, joint training stop, feedback, success": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Whisper": 1
+  }
+ },
+ "israeli government, anti-palestine, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JENIN": 1,
+   "JERUSALEM": 1,
+   "HEBRON": 1
+  },
+  "sounds": {
+   "Type2": 1,
+   "Murmur2": 1,
+   "GunAttack4": 1
+  }
+ },
+ "israeli government, anti-you, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Murmur2": 2,
+   "Protest": 1
+  }
+ },
+ "israeli government, concern, low palestinian trust": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "GAZA": 1
+  },
+  "sounds": {
+   "News": 1,
+   "Protest": 1,
+   "Type": 1
+  }
+ },
+ "israeli government, concern, low popular approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 3
+  },
+  "sounds": {
+   "Murmur": 2,
+   "Failure": 1
+  }
+ },
+ "israeli government, concern, low quality of life": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "JENIN": 1
+  },
+  "sounds": {
+   "Murmur": 1,
+   "Suboptimal": 1,
+   "Type": 1
+  }
+ },
+ "israeli government, concern, low security": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 3
+  },
+  "sounds": {
+   "Siren": 1,
+   "Whisper": 1,
+   "Failure": 1
+  }
+ },
+ "israeli government, concern, low sympathy": {
+  "variants": 3,
+  "box_types": {
+   "": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "crying": 3
+  }
+ },
+ "israeli government, praise, high palestinian trust": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "RAMALLAH": 1,
+   "BETHLEHEM": 1
+  },
+  "sounds": {
+   "Success": 2,
+   "Applause": 1
+  }
+ },
+ "israeli government, praise, high popular approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Cheer3": 2,
+   "Cheer2": 1
+  }
+ },
+ "israeli government, praise, high quality of life": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "GAZA": 1,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Applause": 1,
+   "Cheer": 1,
+   "Type2": 1
+  }
+ },
+ "israeli government, praise, high security": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "TEL-AVIV": 1,
+   "JERUSALEM": 2
+  },
+  "sounds": {
+   "Success": 2,
+   "Applause": 1
+  }
+ },
+ "israeli government, praise, high sympathy": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "RAMALLAH": 1,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1,
+   "News2": 1
+  }
+ },
+ "israeli government, pro-you, words": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "TEL-AVIV": 2,
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Cheer": 1,
+   "News": 1,
+   "Applause": 1
+  }
+ },
+ "israeli plot 1": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Cheer": 1
+  }
+ },
+ "israeli plot 2": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "GAZA": 1
+  },
+  "sounds": {
+   "Cheer": 1
+  }
+ },
+ "israeli plot 3": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Cheer3": 1
+  }
+ },
+ "israeli public, anti-palestine, street protest": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "EAST JERUSALEM": 1
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "AngryMob2": 1,
+   "AngryMen": 1
+  }
+ },
+ "israeli public, anti-you, petition": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "NETANYA": 1,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Failure": 3
+  }
+ },
+ "israeli public, anti-you, street protest": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "AFULA": 1,
+   "JERUSALEM": 1,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "AngryMob": 1,
+   "Murmur2": 1,
+   "Protest": 1
+  }
+ },
+ "israeli public, concern, low approval": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "TEL-AVIV": 1,
+   "JERUSALEM": 4
+  },
+  "sounds": {
+   "Failure": 1,
+   "Murmur": 1,
+   "AngryMen": 1,
+   "Protest": 2
+  }
+ },
+ "israeli public, concern, low security": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "HAIFA": 1,
+   "NETANYA": 1,
+   "JERUSALEM": 2,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "AngryMob2": 2,
+   "News2": 1,
+   "News": 1,
+   "Murmur2": 1
+  }
+ },
+ "israeli public, concern, low suppression": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "JERUSALEM": 2,
+   "ISRAEL_SETTLEMENT 1": 1,
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "Siren": 1,
+   "Protest": 1,
+   "News": 1,
+   "News2": 1,
+   "GunAttack4": 1
+  }
+ },
+ "israeli public, praise, high approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 3
+  },
+  "sounds": {
+   "Success": 1,
+   "Cheer2": 1,
+   "Cheer": 1
+  }
+ },
+ "israeli public, praise, high security": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "HAIFA": 1,
+   "JERUSALEM": 2,
+   "AFULA": 1,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Success": 2,
+   "Cheer2": 1,
+   "Camera": 1,
+   "Cheer3": 1
+  }
+ },
+ "israeli public, praise, high suppression": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "HEBRON": 2,
+   "NABLUS": 1,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Bulldoze": 1,
+   "News": 1,
+   "GunAttack3": 1,
+   "News2": 2
+  }
+ },
+ "israeli public, praise, high sympathy": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "TEL-AVIV": 2,
+   "QALQILYE": 1
+  },
+  "sounds": {
+   "Applause": 1,
+   "News": 1,
+   "Cheer2": 2,
+   "Cheer": 1
+  }
+ },
+ "israeli public, pro-you, petition": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "AFULA": 1,
+   "HAIFA": 1,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "Success": 3
+  }
+ },
+ "israeli public, pro-you, street rally": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "JERUSALEM": 1,
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "Applause4": 1,
+   "Cheer2": 1,
+   "Cheer3": 1
+  }
+ },
+ "jordan negotiate, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "jordan negotiate, request aid, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "jordan negotiate, request aid, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "jordan negotiate, request aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "jordan negotiate, request investment, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "jordan negotiate, request investment, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "jordan negotiate, request investment, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "jordan negotiate, request meeting, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "jordan negotiate, request meeting, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "jordan negotiate, request meeting, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "jordan negotiate, request political pressure, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "jordan negotiate, request political pressure, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "jordan negotiate, request political pressure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Success": 1
+  }
+ },
+ "natural resource construction, communications, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News2": 1,
+   "Type": 1
+  }
+ },
+ "natural resource construction, infrastructure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Demolition2": 1,
+   "Build": 1
+  }
+ },
+ "natural resource construction, power plant, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "PowerPlant": 2
+  }
+ },
+ "natural resource construction, water table, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "natural resource construction, water table, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "natural resource construction, water table, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "natural resource construction, water treatment plant, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "PowerPlant": 2
+  }
+ },
+ "palestinian president, anti-militant, extreme police": {
+  "variants": 5,
+  "box_types": {
+   "Black": 5
+  },
+  "locations": {
+   "GAZA": 3,
+   "JENIN": 1,
+   "NABLUS": 1
+  },
+  "sounds": {
+   "AngryMob2": 1,
+   "GunAttack2": 1,
+   "GunAttack3": 2,
+   "SuicideBomb": 1
+  }
+ },
+ "palestinian president, anti-militant, police": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "HEBRON": 2,
+   "GAZA": 2,
+   "JENIN": 1
+  },
+  "sounds": {
+   "Siren": 2,
+   "GunAttack2": 1,
+   "MortarAttack": 1,
+   "GunAttack3": 1
+  }
+ },
+ "palestinian president, anti-militant, political": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 4,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Meeting": 2,
+   "Cash": 1,
+   "Whisper": 1,
+   "Whisper2": 1
+  }
+ },
+ "palestinian president, anti-militant, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 3
+  },
+  "sounds": {
+   "GunAttack4": 1,
+   "News2": 1,
+   "Type2": 1,
+   "Murmur": 1,
+   "AngryMob2": 1
+  }
+ },
+ "palestinian president, anti-you, words": {
+  "variants": 6,
+  "box_types": {
+   "Normal": 4,
+   "Black": 2
+  },
+  "locations": {
+   "GAZA": 3,
+   "RAMALLAH": 2,
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Whisper": 1,
+   "Whisper2": 1,
+   "Helicopter": 1,
+   "Bulldoze": 1,
+   "Murmur2": 1,
+   "Failure": 1
+  }
+ },
+ "palestinian president, concern, low quality of life": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 1,
+   "RAFAH": 1,
+   "JENIN": 1
+  },
+  "sounds": {
+   "TrafficJam": 1,
+   "Whisper2": 1,
+   "Failure": 1,
+   "Murmur": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "palestinian president, concern, low trust": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 3,
+   "RAMALLAH": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "Failure": 1,
+   "Whisper2": 1,
+   "News": 1,
+   "Meeting": 1
+  }
+ },
+ "palestinian president, concern, too much violence": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 3,
+   "Black": 2
+  },
+  "locations": {
+   "RAMALLAH": 3,
+   "GAZA": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Aggressive": 1,
+   "Failure": 1,
+   "Bulldoze": 1,
+   "Helicopter": 1
+  }
+ },
+ "palestinian president, praise, high quality of life": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 4,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Success": 1,
+   "TrafficJam": 1,
+   "Applause": 1,
+   "News": 1,
+   "Cash": 1
+  }
+ },
+ "palestinian president, praise, high trust": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 4,
+   "RAFAH": 1
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 1,
+   "Applause4": 1,
+   "Cheer2": 1,
+   "Applause3": 1
+  }
+ },
+ "palestinian president, pro-you, offer to meet for negotiations": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 4,
+   "TEL-AVIV": 1
+  },
+  "sounds": {
+   "News": 3,
+   "TelephoneRing1": 1,
+   "News2": 1
+  }
+ },
+ "palestinian president, pro-you, street rally": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 3,
+   "GAZA": 2
+  },
+  "sounds": {
+   "Applause4": 1,
+   "Cheer3": 1,
+   "Cheer2": 2,
+   "Fanfare": 1
+  }
+ },
+ "palestinian president, pro-you, words": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "GAZA": 2,
+   "NABLUS": 1,
+   "JERUSALEM": 1
+  },
+  "sounds": {
+   "Applause": 1,
+   "Success": 2,
+   "Applause3": 1,
+   "Airplane": 1
+  }
+ },
+ "palestinian public, anti-you, aggressive protest": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 1,
+   "JERUSALEM": 1,
+   "BETHLEHEM": 1,
+   "GAZA": 1,
+   "ISRAEL_SETTLEMENT 3": 1
+  },
+  "sounds": {
+   "GunAttack3": 1,
+   "Siren": 1,
+   "AngryMob2": 1,
+   "GunAttack2": 1,
+   "Protest": 1
+  }
+ },
+ "palestinian public, anti-you, street protest": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 2,
+   "GAZA": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Protest": 2,
+   "AngryMob": 1,
+   "AngryMob2": 1,
+   "News": 1
+  }
+ },
+ "palestinian public, concern, low quality of life": {
+  "variants": 6,
+  "box_types": {
+   "Normal": 6
+  },
+  "locations": {
+   "HEBRON": 1,
+   "RAMALLAH": 1,
+   "JENIN": 1,
+   "GAZA": 2,
+   "NABLUS": 1
+  },
+  "sounds": {
+   "News": 1,
+   "Murmur": 1,
+   "News2": 1,
+   "Protest": 2,
+   "Failure": 1
+  }
+ },
+ "palestinian public, concern, too much violence": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "NABLUS": 2,
+   "HEBRON": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Protest": 2,
+   "Demolition2": 1,
+   "Failure": 1,
+   "News": 1
+  }
+ },
+ "palestinian public, feedback about government, negative, material needs": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 4,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "News": 4,
+   "Protest": 1
+  }
+ },
+ "palestinian public, feedback about government, negative, rights": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "ISRAEL_SETTLEMENT 2": 1,
+   "NABLUS": 1,
+   "EAST JERUSALEM": 1,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Protest": 3,
+   "AngryMob": 1,
+   "News": 1
+  }
+ },
+ "palestinian public, feedback about government, negative, support fatah": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "RAMALLAH": 1,
+   "NABLUS": 1,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "News": 1,
+   "AngryMob2": 1
+  }
+ },
+ "palestinian public, feedback about government, negative, support hamas": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 3
+  },
+  "sounds": {
+   "Protest": 1,
+   "News": 1,
+   "Cheer": 1
+  }
+ },
+ "palestinian public, feedback about government, positive, reconstruction": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 1,
+   "EAST JERUSALEM": 1,
+   "BETHLEHEM": 1
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "News": 1,
+   "Build": 1
+  }
+ },
+ "palestinian public, feedback about government, positive, support": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "GAZA": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Cheer": 1,
+   "Type": 1,
+   "News2": 1
+  }
+ },
+ "palestinian public, feedback about peace process, angry": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "JENIN": 1,
+   "NABLUS": 1,
+   "GAZA": 3
+  },
+  "sounds": {
+   "AngryMob2": 2,
+   "Murmur2": 1,
+   "Protest": 1,
+   "News": 1
+  }
+ },
+ "palestinian public, feedback about peace process, desire action": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 4,
+   "EAST JERUSALEM": 1
+  },
+  "sounds": {
+   "News": 3,
+   "Cheer3": 1,
+   "Protest": 1
+  }
+ },
+ "palestinian public, feedback about peace process, enthusiastic": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "RAMALLAH": 2,
+   "GAZA": 1,
+   "JERUSALEM": 1,
+   "HAIFA": 1
+  },
+  "sounds": {
+   "TelephoneDial": 1,
+   "Cheer": 1,
+   "News": 1,
+   "Cash": 1,
+   "Cheer3": 1
+  }
+ },
+ "palestinian public, praise, high quality of life": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "GAZA": 3,
+   "NABLUS": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Cheer2": 1,
+   "Cash": 1,
+   "Airplane": 1,
+   "Cheer3": 1
+  }
+ },
+ "palestinian public, pro-you, street rally": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "TULKARM": 1,
+   "RAMALLAH": 3,
+   "GAZA": 1
+  },
+  "sounds": {
+   "Cheer3": 1,
+   "Meeting": 1,
+   "Cheer": 1,
+   "News": 1,
+   "Cheer2": 1
+  }
+ },
+ "plot 1": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "GAZA": 1
+  },
+  "sounds": {
+   "Cheer2": 1
+  }
+ },
+ "plot 2": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "GAZA": 1
+  },
+  "sounds": {
+   "Cheer2": 1
+  }
+ },
+ "plot 3": {
+  "variants": 1,
+  "box_types": {
+   "plot": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Cheer2": 1
+  }
+ },
+ "police manage, decrease funding, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Murmur": 1,
+   "News": 1
+  }
+ },
+ "police manage, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "police manage, increase funding, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "police manage, restructure, feedback, failure": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Protest": 1,
+   "Failure": 1
+  }
+ },
+ "police manage, restructure, feedback, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur": 1
+  }
+ },
+ "police manage, restructure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 2
+  }
+ },
+ "police manage, train, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "News": 1
+  }
+ },
+ "police presence, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "police presence, maintain order, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Whisper2": 1,
+   "Murmur2": 1
+  }
+ },
+ "police presence, maintain order, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Siren": 3
+  }
+ },
+ "police presence, patrol for militants, sub-optimal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "GunAttack3": 1,
+   "Suboptimal": 1
+  }
+ },
+ "police presence, patrol for militants, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Siren": 2
+  }
+ },
+ "push control, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "social services construction, care for the poor, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Applause": 1,
+   "Cash": 1
+  }
+ },
+ "social services construction, health care, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 2
+  }
+ },
+ "speech to palestinians, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "speech to palestinians, pro-law and order, feedback, received well": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cheer2": 1,
+   "Applause": 1
+  }
+ },
+ "speech to palestinians, pro-reconstruction, feedback, received well": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Cheer": 1
+  }
+ },
+ "speech to world, cautious, feedback, received well": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur": 1
+  }
+ },
+ "speech to world, demanding, feedback, received well": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Meeting": 1
+  }
+ },
+ "speech to world, hopeful, feedback, received well": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "": 1
+  },
+  "sounds": {
+   "Murmur": 1
+  }
+ },
+ "speech to world, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "transportation construction, airport, feedback, success": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "": 3
+  },
+  "sounds": {
+   "Success": 1,
+   "Build": 1,
+   "Airplane": 1
+  }
+ },
+ "transportation construction, airspace, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "News": 1
+  }
+ },
+ "transportation construction, airspace, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "Bulldoze": 1
+  }
+ },
+ "transportation construction, airspace, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Airplane": 2
+  }
+ },
+ "transportation construction, coastal waters, push control, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "Seaport2": 1
+  }
+ },
+ "transportation construction, coastal waters, push control, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 1,
+   "MortarAttack": 1
+  }
+ },
+ "transportation construction, coastal waters, push control, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "Seaport2": 1
+  }
+ },
+ "transportation construction, roads, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Build": 1,
+   "Bulldoze": 1
+  }
+ },
+ "transportation construction, seaport, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Seaport2": 1,
+   "Build": 1
+  }
+ },
+ "un negotiate, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "un negotiate, request aid, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "un negotiate, request aid, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "un negotiate, request aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "un negotiate, request investment, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 2
+  }
+ },
+ "un negotiate, request investment, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "un negotiate, request investment, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "un negotiate, request meeting, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "un negotiate, request meeting, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "un negotiate, request meeting, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "Meeting": 1
+  }
+ },
+ "un negotiate, request political pressure, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "un negotiate, request political pressure, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "un negotiate, request political pressure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Meeting": 1,
+   "Success": 1
+  }
+ },
+ "usa negotiate, immediate, repetition": {
+  "variants": 1,
+  "box_types": {
+   "Normal": 1
+  },
+  "locations": {
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Repetative": 1
+  }
+ },
+ "usa negotiate, request aid, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "usa negotiate, request aid, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "usa negotiate, request aid, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 1,
+   "Success": 1
+  }
+ },
+ "usa negotiate, request investment, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "usa negotiate, request investment, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "usa negotiate, request investment, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Cash": 2
+  }
+ },
+ "usa negotiate, request meeting, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "usa negotiate, request meeting, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Repetative": 1,
+   "Failure": 1
+  }
+ },
+ "usa negotiate, request meeting, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "News": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "usa negotiate, request political pressure, feedback, delay": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Suboptimal": 2
+  }
+ },
+ "usa negotiate, request political pressure, feedback, refusal": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Failure": 2
+  }
+ },
+ "usa negotiate, request political pressure, feedback, success": {
+  "variants": 2,
+  "box_types": {
+   "Normal": 2
+  },
+  "locations": {
+   "": 2
+  },
+  "sounds": {
+   "Success": 1,
+   "TelephoneRing1": 1
+  }
+ },
+ "yesha, anti-palestine, assault": {
+  "variants": 7,
+  "box_types": {
+   "Black": 7
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 1,
+   "NABLUS": 2,
+   "ISRAEL_SETTLEMENT 4": 1,
+   "HEBRON": 3
+  },
+  "sounds": {
+   "AngryMob2": 2,
+   "Siren": 1,
+   "GunAttack": 1,
+   "GunAttack2": 1,
+   "MortarAttack": 1,
+   "GunAttack4": 1
+  }
+ },
+ "yesha, anti-palestine, harassment": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "TULKARM": 1,
+   "HEBRON": 3,
+   "ISRAEL_SETTLEMENT 3": 1
+  },
+  "sounds": {
+   "Type": 1,
+   "Build": 1,
+   "Demolition2": 1,
+   "AngryMob2": 1,
+   "News": 1
+  }
+ },
+ "yesha, anti-palestine, illegal expansion": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 5
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 1,
+   "ISRAEL_SETTLEMENT 3": 2,
+   "ISRAEL_SETTLEMENT 1": 1,
+   "ISRAEL_SETTLEMENT 4": 1
+  },
+  "sounds": {
+   "Failure": 1,
+   "AngryMob2": 1,
+   "Protest": 1,
+   "Build": 1,
+   "AngryMen": 1
+  }
+ },
+ "yesha, anti-you, petition": {
+  "variants": 4,
+  "box_types": {
+   "Normal": 4
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 1": 1,
+   "JERUSALEM": 1,
+   "TEL-AVIV": 1,
+   "HAIFA": 1
+  },
+  "sounds": {
+   "News": 3,
+   "News2": 1
+  }
+ },
+ "yesha, anti-you, street protests": {
+  "variants": 7,
+  "box_types": {
+   "Normal": 7
+  },
+  "locations": {
+   "JERUSALEM": 4,
+   "AFULA": 1,
+   "TEL-AVIV": 2
+  },
+  "sounds": {
+   "Protest": 3,
+   "TrafficJam": 2,
+   "AngryMob": 1,
+   "AngryMob2": 1
+  }
+ },
+ "yesha, concern, low approval": {
+  "variants": 5,
+  "box_types": {
+   "Normal": 4,
+   "Black": 1
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 1": 1,
+   "HEBRON": 3,
+   "NABLUS": 1
+  },
+  "sounds": {
+   "Murmur2": 1,
+   "Protest": 2,
+   "AngryMen": 1,
+   "Mourn": 1
+  }
+ },
+ "yesha, concern, settlement withdrawal": {
+  "variants": 6,
+  "box_types": {
+   "Normal": 6
+  },
+  "locations": {
+   "TEL-AVIV": 2,
+   "ISRAEL_SETTLEMENT 3": 1,
+   "JENIN": 1,
+   "NABLUS": 1,
+   "ISRAEL_SETTLEMENT 2": 1
+  },
+  "sounds": {
+   "Protest": 2,
+   "Whisper": 1,
+   "Whisper2": 1,
+   "Build": 1,
+   "Murmur2": 1
+  }
+ },
+ "yesha, praise, high approval": {
+  "variants": 3,
+  "box_types": {
+   "Normal": 3
+  },
+  "locations": {
+   "ISRAEL_SETTLEMENT 2": 2,
+   "RAMALLAH": 1
+  },
+  "sounds": {
+   "Applause": 2,
+   "Cheer2": 1
+  }
+ },
+ "yesha, praise, settlement expansion": {
+  "variants": 5,
+  "box_types": {
+   "": 5
+  },
+  "locations": {
+   "": 1,
+   "Jerusalem": 4
+  },
+  "sounds": {
+   "applause": 5
+  }
+ }
+}
