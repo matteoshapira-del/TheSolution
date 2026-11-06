@@ -1,0 +1,53 @@
+{
+  "title": "The spectrum at a glance",
+  "intro": "Proposals are ordered from the end that gives the whole land to Israeli sovereignty and removes or disenfranchises Palestinians, through partition and shared arrangements, to the end that gives the whole land to a single state, ending with a Palestinian-ruled state that excludes or expels Jews. The ordering runs mainly along who holds sovereignty over which territory, and then along how political rights are distributed. It is a simplification: two-state, confederal and one-state models can each be built with very different security and rights terms.",
+  "caption": "Ordering by the editors for game-design purposes. Placement describes each proposal's structure, not its merit, legality or likelihood; several proposals at both ends would involve serious violations of international law, as discussed in the relevant sections.",
+  "groups": [
+    {
+      "name": "Israeli sovereignty over all the land",
+      "band": "a",
+      "models": [
+        {"name": "Population transfer / \"encouraged emigration\"", "gist": "Palestinians leave the West Bank and/or Gaza, by agreement, incentive or force (Peel 1937 exchange idea, Moledet, post-2023 Gaza emigration schemes, the 2025 \"Gaza Riviera\")."},
+        {"name": "Annexation without equal rights", "gist": "Israel annexes the territories. Palestinians get residency or local self-rule without a national vote (Smotrich's 2017 Decisive Plan)."},
+        {"name": "Annexation with citizenship", "gist": "Israel annexes the West Bank and phases in citizenship for its Palestinians, usually excluding Gaza and refugee return (Glick, Elitzur, Hotovely, Rivlin)."}
+      ]
+    },
+    {
+      "name": "Israeli control, limited Palestinian self-rule",
+      "band": "b",
+      "models": [
+        {"name": "Partial annexation", "gist": "Israel annexes Area C or the Jordan Valley and settlement blocs; Palestinian enclaves in Areas A and B (Bennett 2012 Stability Initiative)."},
+        {"name": "Autonomy and emirates", "gist": "Administrative autonomy without sovereignty (Allon 1967, Begin 1977, Camp David 1978), or city-state \"emirates\" run by local clans (Kedar; the 2025 Hebron proposal)."},
+        {"name": "Jordanian option", "gist": "Jordan takes responsibility for West Bank Palestinians (the London Agreement 1987, \"Jordan is Palestine\"). Jordan has rejected this since 1988."},
+        {"name": "Conflict management", "gist": "No final settlement: a security-led status quo, \"shrinking the conflict\", economic peace and regional normalisation around an unresolved core."}
+      ]
+    },
+    {
+      "name": "Partition",
+      "band": "c",
+      "models": [
+        {"name": "Three-state solution", "gist": "Gaza linked to Egypt and the West Bank to Jordan (Bolton 2009, Eiland's land swaps), or two separate Palestinian entities, as entrenched since 2007."},
+        {"name": "Conditional or limited statehood", "gist": "A Palestinian state with restricted sovereignty, reached through conditions and phases (the Trump plan of 2020; the 2025 Gaza plan's \"pathway\")."},
+        {"name": "Two states on the 1967 lines", "gist": "Sovereign Palestine on the 1967 lines with land swaps, a shared or divided Jerusalem and an agreed refugee solution (Clinton Parameters, Geneva Initiative, Olmert 2008, Arab Peace Initiative, the 2025 New York Declaration)."}
+      ]
+    },
+    {
+      "name": "Shared and layered sovereignty",
+      "band": "d",
+      "models": [
+        {"name": "Confederation", "gist": "Two sovereign states with open borders, residency separate from citizenship, and joint institutions (A Land for All; the Beilin–Husseini Holy Land Confederation)."},
+        {"name": "Federation, cantons or parallel states", "gist": "One federal framework with ethnic or territorial units (canton plans; LeVine and Mossberg's \"parallel states\")."},
+        {"name": "International trusteeship", "gist": "International administration of contested areas: the 1947 Jerusalem corpus separatum, a special regime for the Holy Basin, and the 2025 Board of Peace and stabilisation force for Gaza."}
+      ]
+    },
+    {
+      "name": "One state over all the land",
+      "band": "e",
+      "models": [
+        {"name": "One democratic or binational state", "gist": "Equal citizenship for Jews and Palestinians in a single state (Brit Shalom, Said, Judt, Abunimah, the One Democratic State Campaign)."},
+        {"name": "One state with full refugee return", "gist": "A single state that implements UN Resolution 194 return at scale. This would produce a Palestinian majority."},
+        {"name": "Palestinian/Arab state with limited or no rights for Jews", "gist": "Palestinian sovereignty over all the land with Jewish presence limited or removed (the 1968 PLO Charter, the 1988 Hamas Charter, the 2021 \"Promise of the Hereafter\" conference)."}
+      ]
+    }
+  ]
+}
