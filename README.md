@@ -10,7 +10,8 @@ solutions, rather than a single two-state win.
 
 | Path | What |
 |---|---|
-| `docs/harvest/` | Teardown of PeaceMaker: engine, rules, scoring, AI, events, balance, quirks, design implications |
+| `docs/harvest/` | Teardown of PeaceMaker: engine, rules, scoring, AI, events, balance, quirks, public record, design implications |
+| `docs/guide/peacemaker-decoded.html` | Interactive guide to the game's stages and rules (built by `tools/harvest/build_guide.py`) |
 | `docs/harvest/catalog/` | Generated catalogs of every action, outcome branch, AI decision tree, variable and event tag |
 | `data/harvest/` | The game's mechanics as structured JSON (no copyrighted prose or media) |
 | `tools/harvest/` | `fetch.sh` (download and unpack the official free build), `extract.py` (parse to JSON), `render_docs.py`, `simulate.py` (headless engine) |

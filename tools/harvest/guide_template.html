@@ -1,0 +1,728 @@
+<title>PeaceMaker Decoded</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: a briefing dossier. Sticky section index on the left, one reading column, and a role switch that re-tints the accent between the two sides. */
+:root {
+  --bg: #edf1f1;
+  --panel: #fbfcfc;
+  --ink: #1b2224;
+  --muted: #56636a;
+  --rule: #d2dadb;
+  --isr: #1f86b8;
+  --pal: #4f8a2a;
+  --good: #2e7d5b;
+  --warn: #9a6a12;
+  --bad: #b8434d;
+  --zone-bad: rgba(184, 67, 77, 0.12);
+  --zone-good: rgba(46, 125, 91, 0.13);
+  --accent: var(--isr);
+  --f-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.1875rem;
+  --step-2: 1.5rem;
+  --step-3: 2.25rem;
+  --step-4: clamp(2.4rem, 6vw, 4rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121819; --panel: #1a2223; --ink: #e2e8e8; --muted: #9aa7ab; --rule: #2d383a;
+    --isr: #2f9fd0; --pal: #6aa33c; --good: #4fb487; --warn: #d9a441; --bad: #e0707a;
+    --zone-bad: rgba(224, 112, 122, 0.14); --zone-good: rgba(79, 180, 135, 0.14);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121819; --panel: #1a2223; --ink: #e2e8e8; --muted: #9aa7ab; --rule: #2d383a;
+  --isr: #2f9fd0; --pal: #6aa33c; --good: #4fb487; --warn: #d9a441; --bad: #e0707a;
+  --zone-bad: rgba(224, 112, 122, 0.14); --zone-good: rgba(79, 180, 135, 0.14);
+  color-scheme: dark;
+}
+body[data-role="palestinian"] { --accent: var(--pal); }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--step-0); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel); }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+h1, h2, h3, h4 { font-family: var(--f-display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h2 { font-size: var(--step-3); font-weight: 760; font-stretch: 78%; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 700; font-stretch: 90%; }
+h4 { font-size: var(--step-0); font-weight: 650; font-stretch: 95%; }
+p { margin: 0; max-width: 66ch; }
+code, .mono { font-family: var(--f-mono); font-size: 0.86em; }
+.eyebrow { font-family: var(--f-display); font-size: var(--step--1); font-weight: 650; font-stretch: 100%; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+
+/* top bar */
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9;
+  background: var(--panel); border-bottom: 1px solid var(--rule);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 10px;
+}
+.bar-inner { max-width: 1180px; margin: 0 auto; display: flex; gap: 12px 20px; align-items: center; flex-wrap: wrap; justify-content: space-between; }
+.brand { font-family: var(--f-display); font-weight: 800; font-stretch: 70%; font-size: 1.35rem; letter-spacing: 0.01em; text-transform: uppercase; }
+.brand span { color: var(--accent); }
+.switch { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--bg); }
+.switch button {
+  font: 600 var(--step--1)/1 var(--f-display); letter-spacing: 0.04em; border: 0; border-radius: 999px;
+  padding: 9px 14px; background: transparent; color: var(--muted); cursor: pointer;
+}
+.switch button[aria-pressed="true"] { background: var(--accent); color: var(--panel); }
+.switch-label { font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); margin-right: 8px; }
+
+/* page grid */
+.page {
+  max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 80px;
+}
+.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); align-self: start; display: grid; gap: 2px; }
+.index a {
+  display: grid; grid-template-columns: 2.2em 1fr; text-decoration: none; color: var(--muted);
+  font-family: var(--f-display); font-size: 0.92rem; font-stretch: 92%; padding: 5px 8px; border-radius: 6px;
+}
+.index a b { font-family: var(--f-mono); font-weight: 400; font-size: 0.78rem; color: var(--muted); opacity: 0.8; padding-top: 2px; }
+.index a:hover, .index a.on { color: var(--ink); background: var(--panel); }
+.index a.on b { color: var(--accent); opacity: 1; }
+main { display: grid; gap: 72px; min-width: 0; }
+section { display: grid; gap: 20px; min-width: 0; }
+.sec-head { display: grid; gap: 8px; border-top: 2px solid var(--ink); padding-top: 14px; }
+
+@media (max-width: 600px) {
+  .bar { position: static; }
+  html { scroll-padding-top: 12px; }
+}
+@media (max-width: 860px) {
+  .page { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 24px 64px; }
+  .index { position: static; display: flex; overflow-x: auto; gap: 4px; padding-bottom: 4px; scrollbar-width: thin; }
+  .index a { flex: 0 0 auto; grid-template-columns: auto auto; gap: 6px; background: var(--panel); }
+}
+
+/* hero */
+.hero { display: grid; gap: 18px; }
+.hero h1 { font-size: var(--step-4); font-weight: 820; font-stretch: 66%; text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.95; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.dek { font-size: var(--step-1); line-height: 1.5; color: var(--ink); max-width: 60ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); font-stretch: 95%; }
+.facts b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* score track */
+.track-wrap { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 16px 14px 8px; overflow-x: auto; }
+.track-wrap svg { display: block; width: 100%; min-width: 560px; height: auto; }
+.readout .track-wrap svg { min-width: 0; }
+.track-cap { font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); padding: 2px 6px 6px; }
+svg text { font-family: var(--f-display); }
+
+/* stages */
+.stages { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; counter-reset: st; }
+.stage { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; display: grid; gap: 8px; align-content: start; }
+.stage .n { font-family: var(--f-mono); font-size: 0.78rem; color: var(--accent); }
+.stage p { font-size: 0.93rem; line-height: 1.5; }
+@media (max-width: 980px) { .stages { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .stages { grid-template-columns: minmax(0, 1fr); } }
+
+.endings { display: grid; gap: 8px; }
+.ending { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 10px 12px; background: var(--panel); border: 1px solid var(--rule); border-left-width: 4px; border-radius: 8px; }
+.ending.win { border-left-color: var(--good); }
+.ending.lose { border-left-color: var(--bad); }
+.ending.milestone { border-left-color: var(--accent); }
+.ending .k { font-family: var(--f-display); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.ending .t { font-family: var(--f-display); font-weight: 650; font-stretch: 92%; }
+.ending .c { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+@media (max-width: 560px) { .ending { grid-template-columns: minmax(0, 1fr); gap: 2px; } .ending .c { white-space: normal; } }
+
+/* turn steps */
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+.steps li::before { content: counter(s, decimal-leading-zero); font-family: var(--f-mono); color: var(--accent); padding-top: 2px; }
+.steps h4 { margin-bottom: 2px; }
+.steps p { font-size: 0.95rem; color: var(--ink); }
+.callouts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.callout { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px; display: grid; gap: 6px; }
+.callout p { font-size: 0.93rem; }
+@media (max-width: 640px) { .callouts { grid-template-columns: minmax(0, 1fr); } }
+
+/* formula + calculator */
+.formula { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; display: grid; gap: 10px; overflow-x: auto; }
+.formula .row { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 10px; align-items: baseline; }
+.formula .lab { font-family: var(--f-display); font-weight: 700; font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.formula code { line-height: 1.7; }
+.calc { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.sliders { display: grid; gap: 10px; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; }
+.sl { display: grid; grid-template-columns: minmax(0, 1fr) 3ch; gap: 2px 10px; align-items: center; }
+.sl label { font-family: var(--f-display); font-size: 0.9rem; font-stretch: 92%; display: flex; gap: 8px; align-items: baseline; justify-content: space-between; }
+.sl label small { font-family: var(--f-mono); color: var(--muted); font-size: 0.74rem; }
+.sl output { font-family: var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; font-size: 0.9rem; }
+.sl input { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); }
+.readout { display: grid; gap: 12px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 84px); }
+.scorebox { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.score { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; display: grid; gap: 2px; }
+.score .v { font-family: var(--f-display); font-weight: 800; font-stretch: 70%; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.score .raw { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); }
+.status { font-family: var(--f-display); font-size: 0.95rem; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 14px; }
+.btn { font: 600 var(--step--1)/1 var(--f-display); letter-spacing: 0.04em; border: 1px solid var(--rule); background: var(--panel); color: var(--ink); border-radius: 999px; padding: 9px 14px; cursor: pointer; justify-self: start; }
+.btn:hover { border-color: var(--accent); }
+@media (max-width: 820px) { .calc { grid-template-columns: minmax(0, 1fr); } .readout { position: static; } }
+
+/* meters */
+.meters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.mtable { width: 100%; border-collapse: collapse; font-size: 0.93rem; }
+.mtable th { font-family: var(--f-display); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); text-align: left; font-weight: 650; padding: 6px 8px; border-bottom: 1px solid var(--ink); }
+.mtable td { padding: 7px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.mtable td.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.mtable th.num { text-align: right; }
+.meterbar { display: inline-block; height: 6px; border-radius: 0 3px 3px 0; background: var(--accent); vertical-align: middle; margin-right: 6px; }
+@media (max-width: 760px) { .meters { grid-template-columns: minmax(0, 1fr); } }
+
+/* actions explorer */
+.tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.chip { font: 600 var(--step--1)/1 var(--f-display); letter-spacing: 0.03em; border: 1px solid var(--rule); background: var(--panel); color: var(--muted); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.search { flex: 1 1 220px; min-width: 0; font: 400 0.95rem var(--f-body); padding: 9px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--panel); color: var(--ink); }
+.count { font-family: var(--f-mono); font-size: 0.8rem; color: var(--muted); }
+.acts { display: grid; gap: 8px; }
+details.act { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; }
+details.act > summary { cursor: pointer; list-style: none; padding: 12px 14px; display: flex; gap: 10px; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+details.act > summary::-webkit-details-marker { display: none; }
+details.act > summary .ttl { font-family: var(--f-display); font-weight: 650; font-stretch: 92%; font-size: 1.02rem; }
+details.act > summary .ttl::before { content: "+"; display: inline-block; width: 1.1em; font-family: var(--f-mono); color: var(--accent); }
+details.act[open] > summary .ttl::before { content: "–"; }
+details.act > summary .meta { font-family: var(--f-mono); font-size: 0.76rem; color: var(--muted); }
+.leaves { display: grid; gap: 18px; padding: 4px 14px 16px; }
+.leaf { display: grid; gap: 8px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.leaf h4 .path { color: var(--muted); font-weight: 500; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-family: var(--f-mono); font-size: 0.72rem; border: 1px solid var(--rule); border-radius: 4px; padding: 2px 6px; color: var(--muted); }
+.br { display: grid; grid-template-columns: 7.2rem minmax(0, 1fr); gap: 4px 12px; font-size: 0.9rem; line-height: 1.45; }
+.br + .br { margin-top: 6px; }
+.res { font-family: var(--f-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.03em; text-transform: uppercase; border-left: 3px solid var(--muted); padding-left: 7px; height: fit-content; }
+.res.good { border-color: var(--good); } .res.warn { border-color: var(--warn); } .res.bad { border-color: var(--bad); }
+.br .when { color: var(--muted); font-family: var(--f-mono); font-size: 0.78rem; }
+.br .eff { overflow-wrap: anywhere; }
+.br .side { color: var(--muted); font-size: 0.82rem; overflow-wrap: anywhere; }
+@media (max-width: 520px) { .br { grid-template-columns: minmax(0, 1fr); } }
+
+/* AI list */
+.ai { display: grid; gap: 0; }
+.ai-row { display: grid; grid-template-columns: 2rem minmax(0, 13rem) minmax(0, 1fr) auto; gap: 10px 14px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+.ai-row .o { font-family: var(--f-mono); color: var(--accent); font-size: 0.8rem; }
+.ai-row .nm { font-family: var(--f-display); font-weight: 700; font-stretch: 92%; }
+.ai-row .nt { font-size: 0.93rem; }
+.ai-row .fq { font-family: var(--f-mono); font-size: 0.76rem; color: var(--muted); white-space: nowrap; text-align: right; }
+@media (max-width: 680px) { .ai-row { grid-template-columns: 2rem minmax(0, 1fr); } .ai-row .nt, .ai-row .fq { grid-column: 2; text-align: left; } }
+
+/* charts */
+.charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.chart { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 14px 10px; display: grid; gap: 8px; min-width: 0; position: relative; }
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--panel); font-family: var(--f-display); font-size: 0.82rem; line-height: 1.35; padding: 7px 9px; border-radius: 6px; max-width: 240px; z-index: 3; }
+details.tbl summary { cursor: pointer; font-family: var(--f-display); font-size: var(--step--1); color: var(--muted); }
+details.tbl .scroll { overflow-x: auto; margin-top: 8px; }
+@media (max-width: 760px) { .charts { grid-template-columns: minmax(0, 1fr); } }
+
+.findings { display: grid; gap: 10px; padding-left: 1.2rem; margin: 0; }
+.findings li { max-width: 70ch; }
+.quirks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.quirks .callout h4 { font-size: 0.98rem; }
+@media (max-width: 680px) { .quirks { grid-template-columns: minmax(0, 1fr); } }
+
+.gap-table { width: 100%; border-collapse: collapse; font-size: 0.93rem; min-width: 560px; }
+.gap-table th { text-align: left; font-family: var(--f-display); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 8px; border-bottom: 1px solid var(--ink); font-weight: 650; }
+.gap-table td { padding: 9px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.scroll-x { overflow-x: auto; }
+footer { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; }
+</style>
+
+<div class="bar">
+  <div class="bar-inner">
+    <div class="brand">Peace<span>Maker</span> Decoded</div>
+    <div><span class="switch-label">Play as</span><div class="switch" role="group" aria-label="Choose a side">
+      <button type="button" id="role-isr" data-role="israeli" aria-pressed="true">Israeli Prime Minister</button>
+      <button type="button" id="role-pal" data-role="palestinian" aria-pressed="false">Palestinian President</button>
+    </div></div>
+  </div>
+</div>
+
+<div class="page">
+  <nav class="index" aria-label="Sections">
+    <a href="#overview"><b>00</b>Overview</a>
+    <a href="#stages"><b>01</b>Stages of a game</a>
+    <a href="#turn"><b>02</b>One turn</a>
+    <a href="#scores"><b>03</b>Scores &amp; endings</a>
+    <a href="#meters"><b>04</b>Meters</a>
+    <a href="#actions"><b>05</b>Actions</a>
+    <a href="#world"><b>06</b>The world (AI)</a>
+    <a href="#news"><b>07</b>News &amp; events</a>
+    <a href="#balance"><b>08</b>Difficulty &amp; balance</a>
+    <a href="#quirks"><b>09</b>Quirks</a>
+    <a href="#solution"><b>10</b>For The Solution</a>
+  </nav>
+
+  <main>
+    <section id="overview" class="hero">
+      <div class="eyebrow">ImpactGames · PeaceMaker · 2015 Unity build, fully extracted</div>
+      <h1>Two numbers <em>decide</em> the peace</h1>
+      <p class="dek">PeaceMaker casts you as the Israeli Prime Minister or the Palestinian President. You pick one action
+        a turn, the region reacts, and the news tells you how it went. Under the photos and headlines, the outcome
+        comes down to two scores on the track below. This guide lays out every rule the game files contain.</p>
+      <div class="track-wrap">
+        <div id="hero-track"></div>
+        <div class="track-cap">Score track for both scores. Every game starts at 0. Milestones fire after 2 turns at or above 30, 50 and 70. You win after 4 turns with both scores at 95 or more, and lose after 4 turns with either one at −50 or below.</div>
+      </div>
+      <div class="facts" id="facts"></div>
+    </section>
+
+    <section id="stages">
+      <div class="sec-head"><div class="eyebrow">01 · Structure</div><h2>Stages of a game</h2></div>
+      <div class="stages">
+        <div class="stage"><div class="n">Stage 1</div><h3>Set up</h3><p>Choose a side (or Random) and a difficulty: Calm, Tense or Violent. Pick a language: English, Hebrew or Arabic.</p></div>
+        <div class="stage"><div class="n">Stage 2</div><h3>Briefing</h3><p>An intro video and a welcome letter from your office. Then an inciting incident, a violent news event shown as a red pin on the map.</p></div>
+        <div class="stage"><div class="n">Stage 3</div><h3>Governing</h3><p>Turn after turn: choose one action, watch time pass, read the outcome, then open every news pin before you can act again.</p></div>
+        <div class="stage"><div class="n">Stage 4</div><h3>Milestones</h3><p>At 30, 50 and 70 on both scores a cut-scene marks progress: Gaza first, then a Gaza–West Bank rail link, then the West Bank.</p></div>
+        <div class="stage"><div class="n">Stage 5</div><h3>Ending</h3><p>A win or loss video, then an end report that rates the violence during your term, then the credits.</p></div>
+      </div>
+      <h3 id="endings-title">Milestones and endings</h3>
+      <div class="endings" id="endings"></div>
+    </section>
+
+    <section id="turn">
+      <div class="sec-head"><div class="eyebrow">02 · The loop</div><h2>What happens in one turn</h2></div>
+      <ol class="steps">
+        <li><div><h4>You choose an action</h4><p>Open a category (Security, Politics, Construction; the Palestinian side also has Financing), go down the sub-menus, and read the two opposing advisors if you like. Greyed-out items are on cooldown or not unlocked yet.</p></div></li>
+        <li><div><h4>The outcome table picks a result</h4><p>Each action has an ordered list of results, such as repetition, success, sub-optimal, delay, refusal and failure. They're checked top to bottom, and the first whose conditions hold is used. Most conditions compare one meter against a noisy threshold.</p></div></li>
+        <li><div><h4>Some results end here</h4><p>“You just did this” (repetition), financing replies and refusals appear at once and cost no turn. Pick something else.</p></div></li>
+        <li><div><h4>Time passes</h4><p>A clock animates the days. Cooldowns and delayed effects tick, and the turn counter goes up.</p></div></li>
+        <li><div><h4>You read the result</h4><p>A news-style report appears, with a photo, a headline and a sound cue. Its meter changes apply now.</p></div></li>
+        <li><div><h4>The world responds</h4><p>The AI actors run in a fixed order: militants, publics, governments, the press, settlers, the other leader. At most three of them make news in a turn. Their stories land as pins on the map.</p></div></li>
+        <li><div><h4>Scores update, milestones are checked</h4><p>Both scores are recomputed from the meters. If a milestone, win or loss condition has held long enough, it fires.</p></div></li>
+        <li><div><h4>You open every pin</h4><p>Each pin's effects apply when you open it. The action menu unlocks only after the last one. Then the game autosaves.</p></div></li>
+      </ol>
+      <div class="callouts">
+        <div class="callout"><h4>Cooldowns</h4><p>Each channel (the army, the Palestinian president, the UN…) has a hidden cooldown. Using it blocks that channel for about two turns.</p></div>
+        <div class="callout"><h4>Noisy thresholds</h4><p>A check like “sympathy ≥ 50 ± 10” draws a random bar between 40 and 60. Below 40 it always fails, above 60 it always passes, and in between the odds rise steadily.</p></div>
+        <div class="callout"><h4>Three-story cap</h4><p>Once three AI actors have made news in a turn, the rest skip it. On violent turns, actors late in the list rarely get heard.</p></div>
+        <div class="callout"><h4>Turns are weeks</h4><p>The code calls a turn a week. A skilled player wins in about 21–29 turns.</p></div>
+      </div>
+    </section>
+
+    <section id="scores">
+      <div class="sec-head"><div class="eyebrow">03 · Win condition</div><h2>Scores and endings</h2></div>
+      <p id="score-intro"></p>
+      <div class="formula" id="formula"></div>
+      <h3>Try it: set the meters, watch the scores</h3>
+      <div class="calc">
+        <div class="sliders" id="sliders"></div>
+        <div class="readout">
+          <div class="scorebox">
+            <div class="score"><div class="eyebrow" id="int-label">Internal</div><div class="v" id="int-v">0</div><div class="raw" id="int-raw"></div></div>
+            <div class="score"><div class="eyebrow" id="ext-label">External</div><div class="v" id="ext-v">0</div><div class="raw" id="ext-raw"></div></div>
+          </div>
+          <div class="track-wrap"><div id="calc-track"></div></div>
+          <div class="status" id="calc-status"></div>
+          <button class="btn" type="button" id="reset">Reset to starting values</button>
+        </div>
+      </div>
+      <div class="callout"><h4>The violence report</h4><p>A separate hidden tally grows with almost every military action and attack. The ending screen shows it as None, Low, Moderate, High or Extreme. It's commentary only: you can win with an Extreme rating.</p></div>
+    </section>
+
+    <section id="meters">
+      <div class="sec-head"><div class="eyebrow">04 · State</div><h2>Meters: who you answer to</h2></div>
+      <p id="meters-intro"></p>
+      <div class="meters">
+        <div><h3>Groups and leaders</h3><table class="mtable" id="m-groups"></table></div>
+        <div><h3>Polls</h3><table class="mtable" id="m-polls"></table></div>
+      </div>
+      <div class="callout" id="meters-note"></div>
+    </section>
+
+    <section id="actions">
+      <div class="sec-head"><div class="eyebrow">05 · Choices</div><h2>Every action, every result</h2></div>
+      <p>Each entry lists the possible results in the order the game checks them, with the conditions and the meter changes. “rand(50±10)” means a random bar between 40 and 60.</p>
+      <div class="tools">
+        <div id="cat-chips" class="tools" role="group" aria-label="Filter by category"></div>
+        <input class="search" id="q" type="search" placeholder="Search actions, e.g. settlements, police, UN" aria-label="Search actions">
+        <span class="count" id="act-count"></span>
+      </div>
+      <div class="acts" id="acts"></div>
+    </section>
+
+    <section id="world">
+      <div class="sec-head"><div class="eyebrow">06 · Opponents</div><h2>The world: scripted actors</h2></div>
+      <p>The other side, your own factions and the world are simple scripted actors. They run every turn in this order. Each reads one or two meters, rolls dice, and either does something or sleeps.</p>
+      <div class="ai" id="ai"></div>
+    </section>
+
+    <section id="news">
+      <div class="sec-head"><div class="eyebrow">07 · Feedback</div><h2>News and events</h2></div>
+      <div class="callouts">
+        <div class="callout"><h4>1,350 events, 574 story types</h4><p>Every result names a story type (a tag such as <code>hamas, anti-israel, attack</code>). The game picks one of that tag's written variants at random, up to 11 of them, so the same event reads differently each time.</p></div>
+        <div class="callout"><h4>On the map</h4><p>World events appear as pins on 27 locations, from Ramallah, Gaza and Jerusalem to settlements, Sderot and Beersheba. Red pins are violent or bad news, white pins are the rest.</p></div>
+        <div class="callout"><h4>Real photography and video</h4><p>1,096 news photos, a documentary video for each milestone and ending, and sound cues by mood: sirens, crowds, cheers, cash registers, construction.</p></div>
+        <div class="callout"><h4>Context tools</h4><p>A 15-era history timeline from 1920 to the present, a 12-step tutorial, and two advisors on every decision: the Hawk and the Dove for Israel, a National and a Foreign advisor for Palestine.</p></div>
+      </div>
+    </section>
+
+    <section id="balance">
+      <div class="sec-head"><div class="eyebrow">08 · Measured</div><h2>Difficulty and balance</h2></div>
+      <p>Difficulty changes one thing: how long the AI actors sleep. Calm gives the most breathing room, Violent the least. Odds, effects and scoring are the same at every level. We re-ran the game's rules headlessly to see what that means in practice.</p>
+      <div class="legend" id="legend"></div>
+      <div class="charts">
+        <div class="chart" id="chart-naive"><h4>Win rate, naive player</h4><div class="eyebrow">Random actions · 300 games per bar</div></div>
+        <div class="chart" id="chart-greedy"><h4>Turns to win, skilled player</h4><div class="eyebrow">Turns · median dot, fastest–slowest line · 100 games per row, all won</div></div>
+      </div>
+      <details class="tbl"><summary>Show the data as a table</summary><div class="scroll"><table class="mtable" id="sim-table"></table></div></details>
+      <ul class="findings">
+        <li><b>The sides are very unequal.</b> Random play as Israel loses about 9 games in 10, usually to “The Third Intifada” around turn 15. Random play as Palestine wins most games.</li>
+        <li><b>Difficulty barely matters to a skilled player</b>: it shifts the win by about one turn.</li>
+        <li><b>A few actions dominate.</b> For Israel: seeking the government's backing for withdrawal, asking the PA for anti-militant action, restraining settler violence. For Palestine: housing, a power plant, health care, law-and-order speeches, then declaring independence once world opinion is high.</li>
+        <li><b>Winning and stability are separate.</b> Skilled Israeli wins end with an Extreme violence rating (median 152–218). Skilled Palestinian wins end Low (18–38).</li>
+      </ul>
+    </section>
+
+    <section id="quirks">
+      <div class="sec-head"><div class="eyebrow">09 · Fine print</div><h2>Quirks in the shipped game</h2></div>
+      <div class="quirks">
+        <div class="callout"><h4>Endings ignore what you built</h4><p>The Palestinian side tracks control of airspace, coast, water, borders and holy sites, and whether a state was declared. No ending checks any of it.</p></div>
+        <div class="callout"><h4>Settlers don't count</h4><p>The in-game help says the settlers' council feeds the Israeli score. The formula leaves it out.</p></div>
+        <div class="callout"><h4>Free money</h4><p>Financing replies are meant to cost the funder's goodwill, but those changes are never applied. The water treatment plant's cost is misspelled in the data, so it's free.</p></div>
+        <div class="callout"><h4>Double-speed cooldowns</h4><p>Cooldowns and delayed effects tick twice per turn, once after your move and once after the AI's.</p></div>
+        <div class="callout"><h4>An inverted menu</h4><p>The Gaza border starts open, but the menu offers to open it, not to close it.</p></div>
+        <div class="callout"><h4>Debug tools left in</h4><p>Hidden menu items add or subtract 10 on every meter, crash the game, or reset the database. There are also tables for logging every turn for research.</p></div>
+      </div>
+    </section>
+
+    <section id="solution">
+      <div class="sec-head"><div class="eyebrow">10 · Next</div><h2>What this means for The Solution</h2></div>
+      <p>PeaceMaker models legitimacy, not arrangements. “Two-State Solution” is the name of a score threshold. The Solution's multiple endgames need the arrangements themselves in the simulation.</p>
+      <div class="scroll-x"><table class="gap-table">
+        <thead><tr><th>In PeaceMaker</th><th>Direction for The Solution</th></tr></thead>
+        <tbody>
+          <tr><td>Two score thresholds decide everything</td><td>Endings are combinations of final-status choices (sovereignty, borders, security, Jerusalem, refugees, citizenship, regional frame), each with an acceptance and a stability test</td></tr>
+          <tr><td>One win per side, always two states</td><td>A catalogue of endgames across the whole spectrum of proposals, each with stable, fragile and collapsing versions</td></tr>
+          <tr><td>Violence is commentary</td><td>Violence and rights violations shape the ending's quality, world legitimacy and escalation</td></tr>
+          <tr><td>Badly unbalanced sides; a few dominant moves</td><td>Balance tested by simulation on every build; diminishing returns and events that break routines</td></tr>
+          <tr><td>Talks are one-click menu items</td><td>Negotiation over the core issues, with offers, counter-offers, linkage and spoilers</td></tr>
+          <tr><td>Hidden formulas</td><td>Visible scoring and previews of likely effects</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <footer>
+      <div>Source: the free official PeaceMaker desktop build (macOS and Windows, November 2015), unpacked and decompiled; the numbers come from its rules files. Balance figures come from a headless re-implementation of the engine and are estimates, not in-game measurements.</div>
+      <div>PeaceMaker and all its writing, images and video belong to ImpactGames and its licensors. This guide describes the mechanics and reproduces none of that content.</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const SCALE = { israeli: { int: [95, 280], ext: [70, 270] }, palestinian: { int: [136.25, 500], ext: [155, 500] } };
+const NAMES = { israeli: "Israeli Prime Minister", palestinian: "Palestinian President" };
+const LABELS = {
+  israeli: { int: "Israeli approval", ext: "Palestinian approval" },
+  palestinian: { int: "National approval", ext: "World approval" }
+};
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const css = name => getComputedStyle(document.body).getPropertyValue(name).trim();
+let role = "israeli";
+let values = {};
+let cat = "All";
+try { const r = localStorage.getItem("pm-role"); if (r === "palestinian" || r === "israeli") role = r; } catch (e) {}
+
+function mapScore(raw, [zero, full]) {
+  let s = raw < zero ? (raw - zero) / zero * 100 : raw > full ? 100 : (raw - zero) / (full - zero) * 100;
+  return Math.trunc(s);
+}
+
+/* ---------- score track ---------- */
+function track(el, marks) {
+  const compact = !!marks;
+  const W = compact ? 600 : 1000, H = compact ? 132 : 96, pad = compact ? 24 : 40;
+  const x = v => pad + (v + 100) / 200 * (W - 2 * pad), y0 = 44;
+  const ticks = compact
+    ? [[-100, "−100"], [-50, "−50"], [0, "0"], [30, "30"], [50, "50"], [70, "70"], [95, "95"], [100, ""]]
+    : [[-100, "−100"], [-50, "−50 lose"], [0, "0 start"], [30, "30"], [50, "50"], [70, "70"], [95, "95 win"], [100, ""]];
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Score scale from minus 100 to 100 with the lose line at minus 50, milestones at 30, 50 and 70, and the win line at 95">`;
+  s += `<rect x="${x(-100)}" y="${y0 - 16}" width="${x(-50) - x(-100)}" height="32" fill="var(--zone-bad)"/>`;
+  s += `<rect x="${x(95)}" y="${y0 - 16}" width="${x(100) - x(95)}" height="32" fill="var(--zone-good)"/>`;
+  s += `<line x1="${x(-100)}" x2="${x(100)}" y1="${y0}" y2="${y0}" stroke="var(--ink)" stroke-width="2"/>`;
+  for (const [v, l] of ticks) {
+    const big = [-50, 0, 95].includes(v);
+    s += `<line x1="${x(v)}" x2="${x(v)}" y1="${y0 - (big ? 16 : 8)}" y2="${y0 + (big ? 16 : 8)}" stroke="var(--ink)" stroke-width="${big ? 2 : 1}"/>`;
+    if (l) s += `<text x="${x(v)}" y="${y0 + (compact ? 38 : 34)}" text-anchor="${v === 100 ? "end" : v === -100 ? "start" : "middle"}" font-size="15" fill="var(--muted)" font-weight="${big ? 700 : 500}">${l}</text>`;
+  }
+  for (const [v, l] of [[30, "M1"], [50, "M2"], [70, "M3"]]) s += `<text x="${x(v)}" y="${y0 - 22}" text-anchor="middle" font-size="13" fill="var(--accent)" font-weight="700">${l}</text>`;
+  s += `<text x="${(x(-100) + x(-50)) / 2}" y="${y0 - 22}" text-anchor="middle" font-size="13" fill="var(--bad)" font-weight="700">LOSE ZONE</text>`;
+  s += `<text x="${x(97.5)}" y="${y0 - 22}" text-anchor="middle" font-size="13" fill="var(--good)" font-weight="700">WIN</text>`;
+  if (marks) {
+    const [iv, ev] = marks;
+    const yi = y0 - 9, ye = y0 + 9;
+    s += `<g><circle cx="${x(iv)}" cy="${yi}" r="9" fill="var(--accent)" stroke="var(--panel)" stroke-width="2"/><text x="${x(iv)}" y="${yi + 4}" text-anchor="middle" font-size="11" font-weight="800" fill="var(--panel)">I</text></g>`;
+    s += `<g><rect x="${x(ev) - 9}" y="${ye - 9}" width="18" height="18" rx="3" fill="var(--ink)" stroke="var(--panel)" stroke-width="2"/><text x="${x(ev)}" y="${ye + 4}" text-anchor="middle" font-size="11" font-weight="800" fill="var(--panel)">E</text></g>`;
+    s += `<text x="${pad}" y="${H - 26}" font-size="14" fill="var(--muted)">● I = ${esc(LABELS[role].int)}</text>`;
+    s += `<text x="${pad}" y="${H - 6}" font-size="14" fill="var(--muted)">■ E = ${esc(LABELS[role].ext)}</text>`;
+  }
+  el.innerHTML = s + "</svg>";
+}
+
+/* ---------- facts ---------- */
+function renderFacts() {
+  const R = DATA.roles[role];
+  const leaves = Object.values(R.actions).flat().reduce((n, t) => n + t.leaves.length, 0);
+  $("#facts").innerHTML = [
+    [leaves, "actions for the " + NAMES[role]], [R.ai.length, "scripted world actors"], ["1,350", "news events"],
+    ["2", "ways to win (one per side)"], ["4", "ways to lose"], ["3", "difficulty levels"]
+  ].map(([n, l]) => `<span><b>${n}</b> ${esc(l)}</span>`).join("");
+}
+
+/* ---------- endings ---------- */
+function renderEndings() {
+  const R = DATA.roles[role];
+  $("#endings-title").textContent = "Milestones and endings · " + NAMES[role];
+  $("#endings").innerHTML = R.endings.map(e => {
+    const cmp = e.cmp === "more" ? "≥" : "≤";
+    const cond = Object.entries(e.th).map(([k, v]) => `${k.replace(" authority score", "")} ${cmp} ${v}`).join(" and ");
+    const kind = e.mode === "milestone" ? "Milestone" : e.mode === "win" ? "Win" : "Loss";
+    return `<div class="ending ${e.mode}"><div class="k">${kind}</div><div class="t">${esc(e.title)}</div><div class="c">${esc(cond)} · ${e.hold} turns</div></div>`;
+  }).join("");
+}
+
+/* ---------- formula + calculator ---------- */
+function renderFormula() {
+  const R = DATA.roles[role], sc = SCALE[role];
+  const term = (k) => R.meters.filter(m => m[k]).map(m => (m[k] === 1 ? "" : m[k] + "×") + m.label).join(" + ");
+  $("#score-intro").textContent = role === "israeli"
+    ? "As Prime Minister you need two audiences: Israelis (internal) and the Palestinians plus the world (external). Each score is a plain sum of meters, rescaled so that the starting position is 0."
+    : "As President you need two audiences: Palestinians (internal) and the world, including Israel (external). Each score is a weighted sum of meters, rescaled so that the starting position is 0.";
+  $("#formula").innerHTML = `
+    <div class="row"><div class="lab">${esc(LABELS[role].int)}</div><code>${esc(term("wi"))}</code></div>
+    <div class="row"><div class="lab">${esc(LABELS[role].ext)}</div><code>${esc(term("we"))}</code></div>
+    <div class="row"><div class="lab">Rescaling</div><code>internal: 0 at ${sc.int[0]}, 100 at ${sc.int[1]} · external: 0 at ${sc.ext[0]}, 100 at ${sc.ext[1]} · below 0 drops twice as fast or more</code></div>`;
+  $("#int-label").textContent = LABELS[role].int;
+  $("#ext-label").textContent = LABELS[role].ext;
+}
+function resetValues() { values = {}; for (const m of DATA.roles[role].meters) values[m.id] = m.def; }
+function renderSliders() {
+  const R = DATA.roles[role];
+  $("#sliders").innerHTML = R.meters.filter(m => m.wi || m.we).map((m, i) => {
+    const w = [m.wi ? `${m.wi}× internal` : "", m.we ? `${m.we}× external` : ""].filter(Boolean).join(", ");
+    return `<div class="sl"><label for="sl-${i}">${esc(m.label)} <small>${esc(w)}</small></label><output id="o-${i}" for="sl-${i}">${values[m.id]}</output>
+      <input type="range" min="0" max="100" step="1" id="sl-${i}" data-id="${esc(m.id)}" value="${values[m.id]}"></div>`;
+  }).join("");
+  $("#sliders").querySelectorAll("input").forEach((inp, i) => inp.addEventListener("input", () => {
+    values[inp.dataset.id] = +inp.value; $("#o-" + i).textContent = inp.value; updateCalc();
+  }));
+  updateCalc();
+}
+function updateCalc() {
+  const R = DATA.roles[role];
+  let ri = 0, re = 0;
+  for (const m of R.meters) { ri += (m.wi || 0) * values[m.id]; re += (m.we || 0) * values[m.id]; }
+  const si = mapScore(ri, SCALE[role].int), se = mapScore(re, SCALE[role].ext);
+  $("#int-v").textContent = si; $("#ext-v").textContent = se;
+  $("#int-raw").textContent = `raw ${ri.toFixed(2).replace(/\.00$/, "")}`;
+  $("#ext-raw").textContent = `raw ${re.toFixed(2).replace(/\.00$/, "")}`;
+  track($("#calc-track"), [si, se]);
+  let msg;
+  const lo = Math.min(si, se);
+  if (si <= -50 || se <= -50) {
+    const which = si <= -50 ? R.endings.find(e => e.mode === "lose" && e.th["internal authority score"] !== undefined) : R.endings.find(e => e.mode === "lose" && e.th["external authority score"] !== undefined);
+    msg = `Losing position. Four turns here ends the game: “${which.title}”.`;
+  } else if (lo >= 95) msg = `Winning position. Hold it for four turns: “${R.endings.find(e => e.mode === "win").title}”.`;
+  else if (lo >= 70) msg = "Past milestone 3. Push both scores to 95.";
+  else if (lo >= 50) msg = "Past milestone 2.";
+  else if (lo >= 30) msg = "Past milestone 1.";
+  else msg = "No milestone yet. Both scores must reach 30.";
+  $("#calc-status").textContent = msg;
+}
+
+/* ---------- meters ---------- */
+function renderMeters() {
+  const R = DATA.roles[role];
+  const head = `<tr><th>Meter</th><th class="num">Start</th><th>Feeds</th></tr>`;
+  const row = m => `<tr><td>${esc(m.label)}</td><td class="num"><span class="meterbar" style="width:${Math.max(2, m.def * 0.6)}px"></span>${m.def}</td><td>${
+    [m.wi ? `internal ×${m.wi}` : "", m.we ? `external ×${m.we}` : ""].filter(Boolean).join(", ") || "<span style='color:var(--muted)'>AI only</span>"}</td></tr>`;
+  $("#m-groups").innerHTML = head + R.meters.filter(m => m.kind === "group").map(row).join("");
+  $("#m-polls").innerHTML = head + R.meters.filter(m => m.kind === "poll").map(row).join("");
+  $("#meters-intro").textContent = role === "israeli"
+    ? "Twelve visible meters, all 0–100. Eight portraits show approval of you by each group and leader. Four polls track the situation. Settlers and militants are shown, but don't count toward your score directly."
+    : "Fourteen visible meters, all 0–100, plus eight hidden funding pools. Your leadership poll is the heaviest single input in the game.";
+  $("#meters-note").innerHTML = role === "israeli"
+    ? "<h4>The hidden engine of the Israeli game</h4><p>Every turn, the PA president's trust grows Palestinian cooperation, cooperation grows Israeli security, and security grows public approval. Suppression of militants decays by 2 a turn. Winning over your counterpart pays off at home.</p>"
+    : "<h4>Money and sovereignty</h4><p>Construction needs a funder: the USA, UN, EU, Arab states, Israel, Palestinian allies or your own budget. Each pool refills in proportion to that patron's approval, and your own only once the economy reaches 15. “Push for control” actions over airspace, coast, water, schools, travel, the Gaza border and holy sites unlock the projects that depend on them.</p>";
+}
+
+/* ---------- actions ---------- */
+function resClass(r) {
+  r = r.toLowerCase();
+  if (/success|enthusias|support|hopeful|received well|pro-law|pro-recon|win/.test(r)) return "good";
+  if (/fail|refus|aggress|poorly|lose|angry|attack/.test(r)) return "bad";
+  if (/repetition/.test(r)) return "";
+  return "warn";
+}
+function renderCats() {
+  const R = DATA.roles[role];
+  const cats = ["All", ...Object.keys(R.actions)];
+  if (!cats.includes(cat)) cat = "All";
+  $("#cat-chips").innerHTML = cats.map(c => `<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="${c === cat}">${esc(c)}</button>`).join("");
+  $("#cat-chips").querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => { cat = b.dataset.cat; renderCats(); renderActions(); }));
+}
+function renderActions() {
+  const R = DATA.roles[role], q = $("#q").value.trim().toLowerCase();
+  let html = "", shown = 0, total = 0;
+  for (const [c, tops] of Object.entries(R.actions)) {
+    if (cat !== "All" && c !== cat) continue;
+    for (const t of tops) {
+      const leaves = t.leaves.filter(l => {
+        total++;
+        if (!q) return true;
+        return (t.t + " " + l.p.join(" ") + " " + l.l + " " + (l.b || []).map(b => b.e + " " + b.r).join(" ")).toLowerCase().includes(q);
+      });
+      if (!leaves.length) continue;
+      shown += leaves.length;
+      html += `<details class="act"${q ? " open" : ""}><summary><span class="ttl">${esc(t.t)}</span><span class="meta">${esc(c)} · ${leaves.length} choice${leaves.length > 1 ? "s" : ""}</span></summary><div class="leaves">`;
+      for (const l of leaves) {
+        const path = l.p.slice(0, -1).filter(p => p && p !== l.l);
+        const tags = [];
+        if (l.poll) tags.push(`Asks ${l.poll} for their concerns`);
+        if (l.fin) tags.push("Needs a funder");
+        if (l.gate) tags.push("Unlocked when " + l.gate);
+        html += `<div class="leaf"><h4>${path.length ? `<span class="path">${esc(path.join(" › "))} › </span>` : ""}${esc(l.l)}</h4>`;
+        if (tags.length) html += `<div class="tags">${tags.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>`;
+        if (l.poll) html += `<p class="br-note" style="font-size:.9rem;color:var(--muted)">The answer comes from that actor's own reasoning: it reports on your weakest related meter.</p>`;
+        for (const b of (l.b || [])) {
+          html += `<div class="br"><div class="res ${resClass(b.r)}">${esc(b.r)}</div><div><div class="when">${esc(b.w === "otherwise" ? "otherwise" : "if " + b.w)}${b.imm ? " · no turn used" : ""}</div>` +
+            `<div class="eff">${esc(b.e || "no meter changes")}</div>${b.s ? `<div class="side">Cooldown and violence: ${esc(b.s)}</div>` : ""}</div></div>`;
+        }
+        html += `</div>`;
+      }
+      html += `</div></details>`;
+    }
+  }
+  $("#acts").innerHTML = html || `<p>No actions match “${esc(q)}”. Try a shorter word, or choose All.</p>`;
+  $("#act-count").textContent = q ? `${shown} of ${total} match` : `${shown} actions`;
+}
+
+/* ---------- AI ---------- */
+function renderAI() {
+  const R = DATA.roles[role];
+  $("#ai").innerHTML = R.ai.map((a, i) => {
+    const f = a.freq === 0 ? "every turn" : `every ${a.freq + 1} turns`;
+    return `<div class="ai-row"><div class="o">${String(i + 1).padStart(2, "0")}</div><div class="nm">${esc(a.id.replace(/^IPM/, "").replace("PalestinianPublic", "Palestinian Public"))}</div><div class="nt">${esc(a.note)}</div><div class="fq">${f}${a.diff ? " · difficulty-scaled" : ""}</div></div>`;
+  }).join("");
+}
+
+/* ---------- balance charts ---------- */
+const ROWS = ["calm", "tense", "violent"];
+function simRows() {
+  const out = [];
+  for (const r of ["israeli", "palestinian"]) for (const d of ROWS) {
+    const rn = DATA.sim[`${r}-${d}-random`], gr = DATA.sim[`${r}-${d}-greedy`];
+    const loses = Object.entries(rn.results).filter(([k]) => k.startsWith("lose")).reduce((s, [, v]) => s + v, 0);
+    out.push({ role: r, diff: d, win: (rn.results.win || 0) / rn.games, wins: rn.results.win || 0, loses, to: rn.results.timeout || 0, games: rn.games,
+      rttw: rn.ttw, g: gr.ttw, gviol: gr.viol, gwins: gr.results.win || 0, ggames: gr.games });
+  }
+  return out;
+}
+function tipOn(chart, html, evt) {
+  let t = chart.querySelector(".tip");
+  if (!t) { t = document.createElement("div"); t.className = "tip"; chart.appendChild(t); }
+  t.innerHTML = html; t.hidden = false;
+  const box = chart.getBoundingClientRect();
+  let x = evt.clientX - box.left + 12, y = evt.clientY - box.top + 12;
+  x = Math.min(x, box.width - t.offsetWidth - 6);
+  t.style.left = Math.max(6, x) + "px"; t.style.top = y + "px";
+}
+function tipOff(chart) { const t = chart.querySelector(".tip"); if (t) t.hidden = true; }
+function cap(s) { return s[0].toUpperCase() + s.slice(1); }
+function barChart() {
+  const el = $("#chart-naive"), rows = simRows();
+  const W = 460, L = 150, R = 50, rowH = 30, top = 8, H = top + rows.length * rowH + 30, x = v => L + v * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Win rate of a naive player by side and difficulty">`;
+  for (const v of [0, 0.25, 0.5, 0.75, 1]) {
+    s += `<line x1="${x(v)}" x2="${x(v)}" y1="${top - 4}" y2="${H - 24}" stroke="var(--rule)" stroke-width="1"/>`;
+    s += `<text x="${x(v)}" y="${H - 8}" text-anchor="middle" font-size="12" fill="var(--muted)">${v * 100}%</text>`;
+  }
+  rows.forEach((r, i) => {
+    const y = top + i * rowH + 7, h = 16, w = Math.max(0, x(r.win) - x(0)), col = r.role === "israeli" ? "var(--isr)" : "var(--pal)";
+    const rr = Math.min(4, w / 2);
+    s += `<text x="${L - 10}" y="${y + 12}" text-anchor="end" font-size="13" fill="var(--ink)">${r.role === "israeli" ? "Israeli PM" : "Palestinian Pres."} · ${cap(r.diff)}</text>`;
+    if (w > 0) s += `<path d="M${x(0)},${y} h${w - rr} a${rr},${rr} 0 0 1 ${rr},${rr} v${h - 2 * rr} a${rr},${rr} 0 0 1 -${rr},${rr} h-${w - rr} z" fill="${col}"/>`;
+    s += `<text x="${x(r.win) + 6}" y="${y + 12}" font-size="12.5" fill="var(--ink)" font-weight="600">${Math.round(r.win * 100)}%</text>`;
+    s += `<rect class="hit" data-i="${i}" x="0" y="${y - 6}" width="${W}" height="${rowH}" fill="transparent"/>`;
+  });
+  el.insertAdjacentHTML("beforeend", s + "</svg>");
+  el.querySelectorAll(".hit").forEach(h => {
+    const r = rows[+h.dataset.i];
+    const html = `<b>${NAMES[r.role]}, ${r.diff}</b><br>${r.wins} wins · ${r.loses} losses · ${r.to} unfinished (of ${r.games})${r.rttw ? `<br>median win at turn ${r.rttw.median}` : ""}`;
+    h.addEventListener("pointermove", e => tipOn(el, html, e)); h.addEventListener("pointerleave", () => tipOff(el));
+  });
+}
+function rangeChart() {
+  const el = $("#chart-greedy"), rows = simRows();
+  const W = 460, L = 150, R = 24, rowH = 30, top = 8, H = top + rows.length * rowH + 30, max = 40, x = v => L + v / max * (W - L - R);
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Turns needed to win for a skilled player, median and range">`;
+  for (const v of [0, 10, 20, 30, 40]) {
+    s += `<line x1="${x(v)}" x2="${x(v)}" y1="${top - 4}" y2="${H - 24}" stroke="var(--rule)" stroke-width="1"/>`;
+    s += `<text x="${x(v)}" y="${H - 8}" text-anchor="middle" font-size="12" fill="var(--muted)">${v}</text>`;
+  }
+  rows.forEach((r, i) => {
+    const y = top + i * rowH + 15, col = r.role === "israeli" ? "var(--isr)" : "var(--pal)";
+    s += `<text x="${L - 10}" y="${y + 4}" text-anchor="end" font-size="13" fill="var(--ink)">${r.role === "israeli" ? "Israeli PM" : "Palestinian Pres."} · ${cap(r.diff)}</text>`;
+    s += `<line x1="${x(r.g.min)}" x2="${x(r.g.max)}" y1="${y}" y2="${y}" stroke="${col}" stroke-width="2" stroke-linecap="round"/>`;
+    s += `<circle cx="${x(r.g.median)}" cy="${y}" r="5" fill="${col}" stroke="var(--panel)" stroke-width="2"/>`;
+    s += `<text x="${x(r.g.max) + 6}" y="${y + 4}" font-size="12.5" fill="var(--ink)" font-weight="600">${r.g.median}</text>`;
+    s += `<rect class="hit" data-i="${i}" x="0" y="${y - 15}" width="${W}" height="${rowH}" fill="transparent"/>`;
+  });
+  el.insertAdjacentHTML("beforeend", s + "</svg>");
+  el.querySelectorAll(".hit").forEach(h => {
+    const r = rows[+h.dataset.i];
+    const html = `<b>${NAMES[r.role]}, ${r.diff}</b><br>won ${r.gwins} of ${r.ggames}<br>median ${r.g.median} turns (fastest ${r.g.min}, slowest ${r.g.max})<br>violence rating: median ${r.gviol}`;
+    h.addEventListener("pointermove", e => tipOn(el, html, e)); h.addEventListener("pointerleave", () => tipOff(el));
+  });
+}
+function simTable() {
+  const rows = simRows();
+  $("#sim-table").innerHTML = `<tr><th>Side</th><th>Difficulty</th><th class="num">Naive win rate</th><th class="num">Naive median win turn</th><th class="num">Skilled median win turn</th><th class="num">Skilled violence (median)</th></tr>` +
+    rows.map(r => `<tr><td>${NAMES[r.role]}</td><td>${cap(r.diff)}</td><td class="num">${Math.round(r.win * 100)}%</td><td class="num">${r.rttw ? r.rttw.median : "—"}</td><td class="num">${r.g.median} (${r.g.min}–${r.g.max})</td><td class="num">${r.gviol}</td></tr>`).join("");
+  $("#legend").innerHTML = `<span><i style="background:var(--isr)"></i>Israeli Prime Minister</span><span><i style="background:var(--pal)"></i>Palestinian President</span>`;
+}
+
+/* ---------- role switching ---------- */
+function setRole(r) {
+  role = r;
+  document.body.dataset.role = r;
+  document.querySelectorAll(".switch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === r)));
+  try { localStorage.setItem("pm-role", r); } catch (e) {}
+  resetValues(); renderFacts(); renderEndings(); renderFormula(); renderSliders(); renderMeters(); renderCats(); renderActions(); renderAI();
+  track($("#hero-track"), null);
+}
+document.querySelectorAll(".switch button").forEach(b => b.addEventListener("click", () => setRole(b.dataset.role)));
+$("#q").addEventListener("input", renderActions);
+$("#reset").addEventListener("click", () => { resetValues(); renderSliders(); });
+
+/* section index highlight */
+const links = [...document.querySelectorAll(".index a")];
+const obs = new IntersectionObserver(entries => {
+  for (const en of entries) if (en.isIntersecting) links.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id));
+}, { rootMargin: "-30% 0px -60% 0px" });
+document.querySelectorAll("main > section").forEach(s => obs.observe(s));
+
+setRole(role);
+barChart(); rangeChart(); simTable();
+</script>
