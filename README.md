@@ -15,7 +15,9 @@ solutions, rather than a single two-state win.
 | `docs/harvest/catalog/` | Generated catalogs of every action, outcome branch, AI decision tree, variable and event tag |
 | `data/harvest/` | The game's mechanics as structured JSON (no copyrighted prose or media) |
 | `tools/harvest/` | `fetch.sh` (download and unpack the official free build), `extract.py` (parse to JSON), `render_docs.py`, `simulate.py` (headless engine) |
-| `research_notes/`, `reports/` | Research on proposed real-world solutions (feeds the endgame design) |
+| `reports/Israeli Palestinian conflict solutions spectrum.pdf` | Research report: every major proposed solution, ordered from one extreme to the other, with legality, support, feasibility and endgame-design inputs (Markdown source alongside) |
+| `research_notes/` | The six sourced research dossiers behind that report |
+| `tools/research/` | `build_pdf.py` (Markdown → designed PDF) and `spectrum.json` (the spectrum figure) |
 
 Verbatim game text and media are **not** committed. `tools/harvest/fetch.sh && python3 tools/harvest/extract.py`
 recreates them locally in the git-ignored `harvest_raw/`.

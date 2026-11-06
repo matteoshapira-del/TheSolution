@@ -82,6 +82,8 @@ th { font-family: "Archivo", "DejaVu Sans", sans-serif; font-weight: 700; font-s
 td { border-bottom: 0.5pt solid var(--rule); padding: 1.5mm 1.8mm; vertical-align: top; overflow-wrap: break-word; hyphens: auto; }
 td a, li a { overflow-wrap: anywhere; }
 tr { break-inside: avoid; }
+table.wide { font-size: 7.5pt; line-height: 1.33; }
+table.wide th, table.wide td { padding: 1.2mm 1.4mm; }
 tbody tr:nth-child(even) td { background: var(--soft); }
 sup, .footnote-ref { font-size: 0.72em; }
 .footnote { font-size: 8.2pt; color: var(--muted); }
@@ -140,15 +142,22 @@ def spectrum_html(spec: dict) -> str:
             f'<div class="cap">{html.escape(spec["caption"])}</div></div>')
 
 
-def build(md_path: Path, pdf_path: Path, spectrum: Path | None, subtitle: str, kicker: str) -> None:
+def build(md_path: Path, pdf_path: Path, spectrum: Path | None, subtitle: str, kicker: str, title: str | None = None) -> None:
     text = md_path.read_text(encoding="utf-8")
     m = re.match(r"\s*#\s+(.+)\n", text)
-    title = m.group(1).strip() if m else md_path.stem
-    if m:
-        text = text[m.end():]
+    if title:
+        # Keep the report's own H1 (its thesis) as the opening heading of the body.
+        if m:
+            text = "## " + m.group(1).strip() + "\n" + text[m.end():]
+    else:
+        title = m.group(1).strip() if m else md_path.stem
+        if m:
+            text = text[m.end():]
     md = markdown.Markdown(extensions=["tables", "toc", "footnotes", "sane_lists", "attr_list", "fenced_code"],
                            extension_configs={"toc": {"toc_depth": "2-3", "permalink": False}})
     body = md.convert(text)
+    # Dense tables (5+ columns) get a smaller font so they fit A4 portrait.
+    body = re.sub(r"<table>(\s*<thead>\s*<tr>(?:\s*<th[^>]*>.*?</th>){5,})", r'<table class="wide">\1', body, flags=re.S)
     toc = md.toc
     spec_html = spectrum_html(json.loads(spectrum.read_text(encoding="utf-8"))) if spectrum else ""
     today = dt.date.today().strftime("%d %B %Y")
@@ -214,8 +223,9 @@ def main() -> int:
     ap.add_argument("--subtitle", default="")
     ap.add_argument("--kicker", default="Research report")
     ap.add_argument("--keep-html", action="store_true")
+    ap.add_argument("--title")
     a = ap.parse_args()
-    build(Path(a.md), Path(a.pdf), Path(a.spectrum) if a.spectrum else None, a.subtitle, a.kicker)
+    build(Path(a.md), Path(a.pdf), Path(a.spectrum) if a.spectrum else None, a.subtitle, a.kicker, a.title)
     print("Wrote", a.pdf)
     return 0
 
