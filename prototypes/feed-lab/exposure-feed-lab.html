@@ -1,0 +1,642 @@
+<title>Exposure Feed Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..110,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a lab bench. The participant's phone sits on the left as the instrument; the researcher's console fills the right with design, clip codebook, live telemetry and per-participant KPIs. */
+:root {
+  --bg: #eceff2;
+  --panel: #ffffff;
+  --ink: #161a20;
+  --muted: #5b6470;
+  --rule: #d6dbe2;
+  --accent: #0e6e7a;
+  --accent-ink: #ffffff;
+  --good: #1f7a4d;
+  --bad: #b3363f;
+  --c1: #2a78d6; --c2: #eb6834; --c3: #1baf7a; --c4: #eda100;
+  --f-ui: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* the phone screen is always a dark video surface */
+  --scr: #0b0d10; --scr-ink: #f2f4f6; --scr-muted: #a3acb6; --scr-line: #2a3038; --scr-field: #161a20;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12161b; --panel: #1a1f26; --ink: #e6eaee; --muted: #9aa4af; --rule: #2c333c;
+    --accent: #3fb6c2; --accent-ink: #0b1215; --good: #4cc08a; --bad: #e57a82;
+    --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12161b; --panel: #1a1f26; --ink: #e6eaee; --muted: #9aa4af; --rule: #2c333c;
+  --accent: #3fb6c2; --accent-ink: #0b1215; --good: #4cc08a; --bad: #e57a82;
+  --c1: #3987e5; --c2: #d95926; --c3: #199e70; --c4: #c98500;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-ui); font-size: 14px; line-height: 1.5; }
+button, input, select, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.mono { font-family: var(--f-mono); font-size: 0.92em; }
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { margin: 0; text-wrap: balance; line-height: 1.15; }
+p { margin: 0; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 48px; display: grid; gap: 20px; }
+.top { display: flex; flex-wrap: wrap; gap: 10px 24px; align-items: end; justify-content: space-between; }
+.top h1 { font-size: clamp(26px, 4vw, 34px); font-weight: 800; font-stretch: 78%; letter-spacing: -0.01em; }
+.top p { color: var(--muted); max-width: 70ch; }
+.notice { display: flex; gap: 10px; align-items: baseline; background: var(--panel); border: 1px solid var(--rule); border-left: 4px solid var(--c4); border-radius: 8px; padding: 10px 14px; font-size: 13px; }
+.notice b { white-space: nowrap; }
+.bench { display: grid; grid-template-columns: 390px minmax(0, 1fr); gap: 24px; align-items: start; }
+@media (max-width: 960px) { .bench { grid-template-columns: minmax(0, 1fr); } }
+
+/* phone */
+.device { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); justify-self: center; width: 100%; max-width: 390px; }
+.device-cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); padding: 0 6px 6px; }
+.phone { position: relative; width: 100%; aspect-ratio: 9 / 18.5; max-height: 780px; background: var(--scr); color: var(--scr-ink); border-radius: 34px; border: 10px solid #1c2128; box-shadow: 0 18px 40px rgba(10, 14, 20, 0.25); overflow: hidden; }
+@media (max-width: 960px) { .device { position: static; } }
+.screen { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.scroll { flex: 1; overflow-y: auto; padding: 22px 18px 18px; display: grid; gap: 14px; align-content: start; }
+.scroll h2 { font-size: 21px; font-weight: 750; font-stretch: 88%; }
+.scroll p, .scroll li { color: var(--scr-muted); font-size: 13.5px; }
+.scroll ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.warnbox { border: 1px solid #6b4a12; background: #22190a; color: #f4d39a; border-radius: 10px; padding: 10px 12px; font-size: 12.5px; }
+.chk { display: flex; gap: 10px; align-items: flex-start; color: var(--scr-ink); font-size: 13.5px; }
+.chk input { margin-top: 3px; accent-color: #3fb6c2; width: 18px; height: 18px; }
+.pbtn { border: 0; border-radius: 999px; padding: 13px 18px; background: #f2f4f6; color: #0b0d10; font-weight: 700; cursor: pointer; }
+.pbtn[disabled] { opacity: 0.35; cursor: not-allowed; }
+.pbtn.ghost { background: transparent; color: var(--scr-ink); border: 1px solid var(--scr-line); }
+.bar-foot { padding: 12px 18px 18px; border-top: 1px solid var(--scr-line); display: grid; gap: 8px; }
+.q { display: grid; gap: 6px; padding-bottom: 12px; border-bottom: 1px solid var(--scr-line); }
+.q label, .q .ql { font-size: 13.5px; color: var(--scr-ink); }
+.q .ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--scr-muted); }
+.q input[type=range] { width: 100%; accent-color: #3fb6c2; }
+.q .val { font-family: var(--f-mono); font-size: 12px; color: #3fb6c2; }
+.likert { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.likert button { border: 1px solid var(--scr-line); background: var(--scr-field); color: var(--scr-ink); border-radius: 8px; padding: 8px 0; font-family: var(--f-mono); font-size: 12px; cursor: pointer; }
+.likert button[aria-pressed="true"] { background: #3fb6c2; color: #0b0d10; border-color: #3fb6c2; }
+.opts { display: grid; gap: 6px; }
+.opts button { text-align: left; border: 1px solid var(--scr-line); background: var(--scr-field); color: var(--scr-ink); border-radius: 10px; padding: 10px 12px; cursor: pointer; font-size: 13.5px; }
+.opts button[aria-pressed="true"] { border-color: #3fb6c2; box-shadow: inset 0 0 0 1px #3fb6c2; }
+.progress-dots { display: flex; gap: 4px; padding: 10px 14px 0; position: absolute; top: 0; left: 0; right: 0; z-index: 2; }
+.progress-dots i { flex: 1; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, 0.25); }
+.progress-dots i.done { background: rgba(255, 255, 255, 0.85); }
+.progress-dots i.now { background: #3fb6c2; }
+
+/* clip */
+.clip { position: absolute; inset: 0; touch-action: none; user-select: none; }
+.clip .art { position: absolute; inset: 0; }
+.clip .stamp { position: absolute; top: 34%; left: 0; right: 0; text-align: center; font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.2em; color: rgba(255, 255, 255, 0.55); }
+.clip .big { position: absolute; top: 38%; left: 18px; right: 18px; text-align: center; font-weight: 800; font-stretch: 80%; font-size: 26px; line-height: 1.1; text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45); }
+.clip .plat { position: absolute; top: 22px; left: 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; background: rgba(0, 0, 0, 0.45); padding: 4px 8px; border-radius: 6px; z-index: 3; }
+.clip .cap { position: absolute; left: 14px; right: 70px; bottom: 26px; display: grid; gap: 4px; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6); }
+.clip .cap b { font-size: 14px; }
+.clip .cap span { font-size: 13px; color: #e3e7ea; }
+.rail { position: absolute; right: 10px; bottom: 26px; display: grid; gap: 14px; justify-items: center; z-index: 3; }
+.rail button { width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(0, 0, 0, 0.45); color: #fff; font-size: 19px; cursor: pointer; display: grid; place-items: center; }
+.rail button[aria-pressed="true"] { background: #e8455a; }
+.rail small { font-size: 10.5px; color: #e3e7ea; margin-top: -10px; }
+.vbar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255, 255, 255, 0.2); z-index: 3; }
+.vbar i { display: block; height: 100%; width: 0; background: #fff; }
+.swipehint { position: absolute; bottom: 86px; left: 0; right: 0; text-align: center; font-size: 11.5px; color: rgba(255, 255, 255, 0.7); }
+
+/* console */
+.console { display: grid; gap: 14px; min-width: 0; }
+.tabs { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid var(--rule); }
+.tabs button { border: 0; background: transparent; padding: 10px 12px; font-weight: 650; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; cursor: pointer; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; display: grid; gap: 10px; min-width: 0; }
+.card h3 { font-size: 15px; font-weight: 750; }
+.row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; }
+.muted { color: var(--muted); }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--rule); border-radius: 999px; padding: 3px 9px; font-size: 12px; white-space: nowrap; background: var(--panel); }
+.chip i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.slot { display: inline-grid; place-items: center; min-width: 34px; height: 34px; padding: 0 6px; border-radius: 6px; border: 1px solid var(--rule); font-family: var(--f-mono); font-size: 11px; }
+.slot.f { color: var(--muted); border-style: dashed; }
+.slot.t { border-color: var(--ink); }
+.slot.now { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.slot.seen { opacity: 0.55; }
+.slots { display: flex; flex-wrap: wrap; gap: 5px; }
+.cond { display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-top: 1px solid var(--rule); }
+.cond:first-of-type { border-top: 0; }
+.cond .sw { width: 14px; height: 14px; border-radius: 3px; margin-top: 3px; }
+.cond b { font-size: 14px; }
+.cond p { color: var(--muted); font-size: 13px; }
+.ctl { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.ctl label { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.ctl select { border: 1px solid var(--rule); background: var(--panel); border-radius: 8px; padding: 6px 8px; }
+.btn { border: 1px solid var(--rule); background: var(--panel); border-radius: 999px; padding: 8px 14px; font-weight: 650; cursor: pointer; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn:hover { border-color: var(--accent); }
+.tbl-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+th { text-align: left; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding: 6px 8px; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+td { padding: 6px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+td.n, th.n { text-align: right; font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.up { color: var(--good); } .down { color: var(--bad); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.kpi { border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px; display: grid; gap: 2px; }
+.kpi .v { font-family: var(--f-mono); font-size: 20px; font-variant-numeric: tabular-nums; }
+.kpi .l { font-size: 12px; color: var(--muted); }
+.kpi .s { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); }
+.flag { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--rule); }
+.flag.ok::before { content: "✓"; color: var(--good); font-weight: 800; }
+.flag.no::before { content: "!"; color: var(--bad); font-weight: 800; }
+textarea { width: 100%; min-height: 160px; border: 1px solid var(--rule); border-radius: 8px; background: var(--bg); padding: 10px; font-family: var(--f-mono); font-size: 12px; }
+.ex { font-family: var(--f-mono); font-size: 10.5px; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 1px 5px; }
+.empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
+.note { font-size: 12.5px; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">The Solution · exposure study prototype</div>
+      <h1>Exposure Feed Lab</h1>
+    </div>
+    <p>Run through the study as a participant on the phone: consent, pre-survey, an orchestrated short-video feed, post-survey and debrief. The console shows how each sequence is built and what gets measured.</p>
+  </header>
+  <div class="notice"><b>Prototype.</b><span>Clips are labelled placeholders, not real videos, and data stays in this browser. A real study needs ethics-committee approval, informed consent, a debriefing and a data-protection plan.</span></div>
+
+  <div class="bench">
+    <div class="device">
+      <div class="device-cap"><span>Participant view</span><span class="mono" id="pid-cap"></span></div>
+      <div class="phone" id="phone"></div>
+    </div>
+
+    <div class="console">
+      <div class="tabs" role="tablist" aria-label="Console sections">
+        <button role="tab" id="tab-design" aria-selected="true" data-tab="design">Study design</button>
+        <button role="tab" id="tab-clips" aria-selected="false" data-tab="clips">Clip codebook</button>
+        <button role="tab" id="tab-live" aria-selected="false" data-tab="live">Live session</button>
+        <button role="tab" id="tab-results" aria-selected="false" data-tab="results">Participant KPIs</button>
+      </div>
+      <div id="pane-design" class="console"></div>
+      <div id="pane-clips" class="console" hidden></div>
+      <div id="pane-live" class="console" hidden></div>
+      <div id="pane-results" class="console" hidden></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===================== study configuration ===================== */
+const CONDITIONS = {
+  control:     { label: "Control", color: "var(--c1)", desc: "Unrelated clips only (food, sport, nature). Gives the baseline for test-retest change and pretest sensitisation.",
+                 slots: ["F", "F", "F", "F", "F", "F", "F", "F"] },
+  balanced:    { label: "Balanced exposure", color: "var(--c2)", desc: "Alternates Israeli and Palestinian perspectives across news, explainer and personal clips, with fillers to mask the topic.",
+                 slots: ["F", { persp: "israeli" }, { persp: "palestinian" }, "F", { persp: "palestinian" }, { persp: "israeli" }, "F", { persp: "both" }] },
+  humanizing:  { label: "Humanizing stories", color: "var(--c3)", desc: "Personal stories from people on both sides. Based on research that individual narratives reduce dehumanization.",
+                 slots: ["F", { frame: "personal", persp: "palestinian" }, { frame: "personal", persp: "israeli" }, "F", { frame: "personal", persp: "israeli" }, { frame: "personal", persp: "palestinian" }, "F", { frame: "personal", persp: "both" }] },
+  paradoxical: { label: "Paradoxical thinking", color: "var(--c4)", desc: "Exaggerated messages that agree with conflict-supporting beliefs, after Hameiri et al. (PNAS 2014). Needs careful ethics review and a debrief.",
+                 slots: ["F", { frame: "paradoxical" }, "F", { frame: "paradoxical" }, { frame: "paradoxical" }, "F", { frame: "paradoxical" }, "F"] }
+};
+const COND_KEYS = Object.keys(CONDITIONS);
+
+/* Coded clip library. Every entry is a PLACEHOLDER standing in for a real clip that would be collected, coded and approved. */
+const CLIPS = [
+  ["F01","filler","none","filler","calm","creator","Reels","en",22,"Street-food recipe"],
+  ["F02","filler","none","filler","calm","creator","Shorts","en",18,"Surf time-lapse"],
+  ["F03","filler","none","filler","joy","creator","TikTok","en",25,"Football skills"],
+  ["F04","filler","none","filler","calm","creator","Reels","en",30,"Street musician"],
+  ["F05","filler","none","filler","calm","creator","Shorts","en",20,"Desert hike"],
+  ["F06","filler","none","filler","joy","creator","TikTok","en",16,"Latte art"],
+  ["F07","filler","none","filler","joy","creator","Reels","en",15,"Cat video"],
+  ["F08","filler","none","filler","calm","creator","Shorts","en",24,"City time-lapse"],
+  ["I01","target","israeli","personal","grief","personal","Reels","he",34,"Personal story, Israeli speaker: family"],
+  ["I02","target","israeli","personal","hope","personal","TikTok","he",28,"Personal story, Israeli speaker: work and daily life"],
+  ["I03","target","israeli","personal","fear","personal","Shorts","he",31,"Personal story, Israeli speaker: life near the border"],
+  ["I04","target","israeli","security","fear","news","Shorts","en",40,"Explainer, Israeli perspective: security"],
+  ["I05","target","israeli","history","calm","creator","TikTok","en",45,"History explainer, Israeli narrative"],
+  ["P01","target","palestinian","personal","grief","personal","Reels","ar",33,"Personal story, Palestinian speaker: family"],
+  ["P02","target","palestinian","personal","hope","personal","TikTok","ar",27,"Personal story, Palestinian speaker: work and daily life"],
+  ["P03","target","palestinian","personal","fear","personal","Shorts","ar",30,"Personal story, Palestinian speaker: movement and checkpoints"],
+  ["P04","target","palestinian","rights","anger","ngo","Shorts","en",42,"Explainer, Palestinian perspective: rights"],
+  ["P05","target","palestinian","history","calm","creator","TikTok","en",44,"History explainer, Palestinian narrative"],
+  ["B01","target","both","personal","hope","ngo","Reels","en",38,"Joint story: Israeli and Palestinian speakers"],
+  ["B02","target","both","news","calm","news","Shorts","en",35,"News report, wire-service style"],
+  ["X01","target","none","paradoxical","anger","creator","TikTok","en",20,"Paradoxical stimulus: exaggerated conflict-supporting claim A"],
+  ["X02","target","none","paradoxical","anger","creator","Reels","en",22,"Paradoxical stimulus: exaggerated conflict-supporting claim B"],
+  ["X03","target","none","paradoxical","fear","creator","Shorts","en",19,"Paradoxical stimulus: exaggerated conflict-supporting claim C"],
+  ["X04","target","none","paradoxical","anger","creator","TikTok","en",21,"Paradoxical stimulus: exaggerated conflict-supporting claim D"]
+].map(([id, kind, persp, frame, emotion, source, platform, lang, dur, title]) => ({ id, kind, persp, frame, emotion, source, platform, lang, dur, title, graphic: false }));
+
+const SOLUTIONS = [
+  ["sup_two", "Two states on the 1967 lines with land swaps"],
+  ["sup_confed", "A confederation of two states with open borders"],
+  ["sup_one", "One democratic state with equal rights for all"],
+  ["sup_annex", "Israeli annexation of the West Bank"]
+];
+
+/* ===================== utilities ===================== */
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+function hash(str) { let h = 2166136261; for (const ch of str) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+function shuffle(arr, r) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function store(key, val) { try { if (val === undefined) return JSON.parse(localStorage.getItem(key)); localStorage.setItem(key, JSON.stringify(val)); } catch (e) { return undefined; } }
+const fmt = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : (Math.round(v * 10 ** d) / 10 ** d).toFixed(d);
+const sgn = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(Math.round(v * 10 ** d) / 10 ** d).toFixed(d);
+
+/* ===================== state ===================== */
+let settings = Object.assign({ force: "auto", adaptive: false, speed: 5 }, store("fl-settings") || {});
+let blockState = store("fl-block") || { block: [], n: 0 };
+let sessions = store("fl-sessions");
+if (!Array.isArray(sessions)) sessions = exampleSessions();
+let S = null;            // current participant session
+let screen = "consent";
+let feed = null;         // playback state
+
+function saveAll() { store("fl-settings", settings); store("fl-block", blockState); store("fl-sessions", sessions); }
+
+function assignCondition(pid) {
+  if (settings.force !== "auto") return settings.force;
+  // Permuted-block randomisation: each block of 4 contains every condition once, in random order.
+  if (!blockState.block.length) blockState.block = shuffle(COND_KEYS, rng(hash("block" + blockState.n + Date.now())));
+  blockState.n++;
+  return blockState.block.shift();
+}
+
+function newSession() {
+  const pid = "P-" + Math.random().toString(36).slice(2, 7).toUpperCase();
+  const cond = assignCondition(pid);
+  S = { pid, cond, adaptive: settings.adaptive, speed: settings.speed, startedAt: Date.now(), example: false,
+        pre: {}, post: {}, identity: null, manip: null, plan: [], impressions: [], surveyMs: {}, finished: false };
+  S.plan = planSequence(S);
+  screen = "consent";
+  saveAll();
+  renderAll();
+}
+
+/* Build the sequence: each slot is filled with a random clip that matches its spec, without repeats.
+   In adaptive mode the target slots are filled at run time, preferring the emotion the participant engaged with most. */
+function matches(clip, spec) {
+  if (spec === "F") return clip.kind === "filler";
+  if (clip.kind !== "target") return false;
+  return Object.entries(spec).every(([k, v]) => clip[k] === v);
+}
+function planSequence(sess) {
+  const r = rng(hash(sess.pid));
+  const used = new Set();
+  return CONDITIONS[sess.cond].slots.map(spec => {
+    if (sess.adaptive && spec !== "F") return { spec, clip: null };
+    const pool = shuffle(CLIPS.filter(c => matches(c, spec) && !used.has(c.id)), r);
+    const clip = pool[0] || null;
+    if (clip) used.add(clip.id);
+    return { spec, clip: clip ? clip.id : null };
+  });
+}
+function resolveSlot(i) {
+  const slot = S.plan[i];
+  if (slot.clip) return CLIPS.find(c => c.id === slot.clip);
+  const used = new Set(S.plan.map(s => s.clip).filter(Boolean));
+  const pool = CLIPS.filter(c => matches(c, slot.spec) && !used.has(c.id));
+  // engagement score per emotion from impressions so far
+  const score = {};
+  for (const im of S.impressions) { const c = CLIPS.find(x => x.id === im.clipId); score[c.emotion] = (score[c.emotion] || 0) + im.pctWatched + (im.liked ? 1 : 0) - (im.skipped ? 0.5 : 0); }
+  const r = rng(hash(S.pid + i));
+  const ranked = shuffle(pool, r).sort((a, b) => (score[b.emotion] || 0) - (score[a.emotion] || 0));
+  const pick = ranked[0];
+  slot.clip = pick ? pick.id : null;
+  slot.adaptivePick = true;
+  return pick;
+}
+
+/* ===================== surveys ===================== */
+function surveyItems(phase) {
+  const items = [];
+  if (phase === "pre") items.push({ id: "identity", type: "opts", q: "Which group do you identify with most?", opts: [["israeli", "Israeli"], ["palestinian", "Palestinian (including Palestinian citizens of Israel)"], ["neither", "Neither or other"]] });
+  items.push({ id: "therm_isr", type: "range", q: "How warm or cold do you feel toward Israelis?", lo: "Very cold (0)", hi: "Very warm (100)", def: 50 });
+  items.push({ id: "therm_pal", type: "range", q: "How warm or cold do you feel toward Palestinians?", lo: "Very cold (0)", hi: "Very warm (100)", def: 50 });
+  items.push({ id: "hum_isr", type: "range", q: "Humanity rating for Israelis (Ascent-of-Man style item, 0–100)", lo: "Less", hi: "Fully human (100)", def: 100 });
+  items.push({ id: "hum_pal", type: "range", q: "Humanity rating for Palestinians (Ascent-of-Man style item, 0–100)", lo: "Less", hi: "Fully human (100)", def: 100 });
+  for (const [id, label] of SOLUTIONS) items.push({ id, type: "likert", q: `How much do you support: ${label}?`, lo: "Strongly oppose", hi: "Strongly support" });
+  items.push({ id: "hope", type: "likert", q: "I have hope that this conflict can end peacefully.", lo: "Strongly disagree", hi: "Strongly agree" });
+  items.push({ id: phase === "pre" ? "attn" : "attn2", type: "likert", q: "To show you are reading carefully, choose 3 on this item.", lo: "1", hi: "7", attention: 3 });
+  if (phase === "post") items.push({ id: "manip", type: "opts", q: "Overall, the videos you watched mostly showed…", opts: [["israeli", "Israeli perspectives"], ["palestinian", "Palestinian perspectives"], ["both", "Both perspectives"], ["unrelated", "Mostly unrelated topics"]] });
+  return items;
+}
+function expectedManip(cond) { return cond === "control" ? "unrelated" : cond === "paradoxical" ? null : "both"; }
+
+/* ===================== phone screens ===================== */
+function renderPhone() {
+  const ph = $("#phone");
+  $("#pid-cap").textContent = S ? `${S.pid} · ${CONDITIONS[S.cond].label}` : "";
+  stopFeed();
+  if (screen === "consent") {
+    ph.innerHTML = `<div class="screen"><div class="scroll">
+      <div class="eyebrow" style="color:var(--scr-muted)">Research study · information sheet</div>
+      <h2>Short videos and views on the Israeli–Palestinian conflict</h2>
+      <p>You will answer a few questions, watch about 8 short videos (around 4 minutes), answer the questions again and read a short explanation of the study.</p>
+      <div class="warnbox">Some videos discuss the conflict and may be upsetting. You can stop at any time without giving a reason, and you can ask for your answers to be deleted.</div>
+      <ul><li>Your answers are stored under a random code, not your name.</li><li>Some details of the study's purpose are explained at the end.</li><li>Contact: research team address goes here (ethics approval number goes here).</li></ul>
+      <label class="chk"><input type="checkbox" id="c-age"> I am 18 or older.</label>
+      <label class="chk"><input type="checkbox" id="c-ok"> I have read this information and agree to take part.</label>
+    </div><div class="bar-foot"><button class="pbtn" id="c-go" disabled>Start</button><button class="pbtn ghost" id="c-no">I don't want to take part</button></div></div>`;
+    const upd = () => { $("#c-go").disabled = !($("#c-age").checked && $("#c-ok").checked); };
+    $("#c-age").addEventListener("change", upd); $("#c-ok").addEventListener("change", upd);
+    $("#c-go").addEventListener("click", () => { S.consentAt = Date.now(); go("pre"); });
+    $("#c-no").addEventListener("click", () => { go("declined"); });
+  } else if (screen === "declined") {
+    ph.innerHTML = `<div class="screen"><div class="scroll"><h2>Thank you</h2><p>No data was recorded. You can close this page.</p></div><div class="bar-foot"><button class="pbtn" id="again">Start a new participant</button></div></div>`;
+    $("#again").addEventListener("click", newSession);
+  } else if (screen === "pre" || screen === "post") {
+    renderSurvey(ph, screen);
+  } else if (screen === "feed") {
+    renderFeed(ph);
+  } else if (screen === "debrief") {
+    renderDebrief(ph);
+  }
+}
+
+function renderSurvey(ph, phase) {
+  const items = surveyItems(phase);
+  const ans = phase === "pre" ? S.pre : S.post;
+  const t0 = Date.now();
+  ph.innerHTML = `<div class="screen"><div class="scroll" id="sv">
+    <div class="eyebrow" style="color:var(--scr-muted)">${phase === "pre" ? "Before the videos" : "After the videos"} · ${items.length} questions</div>
+    ${items.map(it => qHTML(it, ans)).join("")}
+  </div><div class="bar-foot"><button class="pbtn" id="sv-go">Continue</button></div></div>`;
+  ph.querySelectorAll("input[type=range]").forEach(inp => {
+    const out = ph.querySelector(`[data-out="${inp.id}"]`);
+    const set = () => { ans[inp.dataset.id] = +inp.value; out.textContent = inp.value; };
+    if (ans[inp.dataset.id] === undefined) ans[inp.dataset.id] = +inp.value;
+    inp.addEventListener("input", set);
+  });
+  ph.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => {
+    const [id, v] = b.dataset.pick.split("|");
+    ans[id] = isNaN(+v) ? v : +v;
+    b.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    if (id === "identity") S.identity = v;
+    if (id === "manip") S.manip = v;
+  }));
+  $("#sv-go").addEventListener("click", () => {
+    const missing = items.filter(it => ans[it.id] === undefined);
+    if (missing.length) {
+      $("#sv-go").textContent = `Answer ${missing.length} more question${missing.length > 1 ? "s" : ""} to continue`;
+      return;
+    }
+    S.surveyMs[phase] = Date.now() - t0;
+    if (phase === "pre") { go("feed"); } else { S.finished = true; S.finishedAt = Date.now(); commitSession(); go("debrief"); }
+  });
+}
+function qHTML(it, ans) {
+  const v = ans[it.id];
+  if (it.type === "range") {
+    const val = v ?? it.def;
+    return `<div class="q"><label for="q-${it.id}">${esc(it.q)}</label><input type="range" min="0" max="100" step="1" id="q-${it.id}" data-id="${it.id}" value="${val}">
+      <div class="ends"><span>${esc(it.lo)}</span><span class="val" data-out="q-${it.id}">${val}</span><span>${esc(it.hi)}</span></div></div>`;
+  }
+  if (it.type === "likert") {
+    return `<div class="q"><div class="ql" id="ql-${it.id}">${esc(it.q)}</div><div class="likert" role="group" aria-labelledby="ql-${it.id}">${
+      [1, 2, 3, 4, 5, 6, 7].map(n => `<button type="button" data-pick="${it.id}|${n}" aria-pressed="${v === n}">${n}</button>`).join("")}</div>
+      <div class="ends"><span>${esc(it.lo)}</span><span>${esc(it.hi)}</span></div></div>`;
+  }
+  return `<div class="q"><div class="ql" id="ql-${it.id}">${esc(it.q)}</div><div class="opts" role="group" aria-labelledby="ql-${it.id}">${
+    it.opts.map(([k, l]) => `<button type="button" data-pick="${it.id}|${k}" aria-pressed="${v === k}">${esc(l)}</button>`).join("")}</div></div>`;
+}
+
+/* ---------- feed ---------- */
+function renderFeed(ph) {
+  const i = S.impressions.length;
+  if (i >= S.plan.length) { go("post"); return; }
+  const clip = resolveSlot(i);
+  const h1 = hash(clip.id) % 360, h2 = (h1 + 40) % 360;
+  ph.innerHTML = `<div class="screen">
+    <div class="progress-dots">${S.plan.map((_, k) => `<i class="${k < i ? "done" : k === i ? "now" : ""}"></i>`).join("")}</div>
+    <div class="clip" id="clip">
+      <div class="art" style="background:linear-gradient(160deg, hsl(${h1} 35% 22%), hsl(${h2} 45% 12%) 70%)"></div>
+      <div class="plat">${esc(clip.platform.toUpperCase())}</div>
+      <div class="stamp">PLACEHOLDER · CLIP ${esc(clip.id)}</div>
+      <div class="big">${esc(clip.kind === "filler" ? clip.title : clip.title.split(":")[0])}</div>
+      <div class="cap"><b>@sample_${esc(clip.id.toLowerCase())}</b><span>${esc(clip.title)}</span></div>
+      <div class="rail">
+        <button type="button" id="b-like" aria-pressed="false" aria-label="Like">♥</button><small>Like</small>
+        <button type="button" id="b-replay" aria-label="Watch again">↺</button><small>Again</small>
+        <button type="button" id="b-next" aria-label="Next video">↑</button><small>Next</small>
+      </div>
+      <div class="swipehint">Swipe up or press ↑ for the next video</div>
+      <div class="vbar"><i id="vb"></i></div>
+    </div></div>`;
+  feed = { clip, pos: i, shownAt: performance.now(), last: performance.now(), watched: 0, replays: 0, liked: false, raf: 0 };
+  const tick = now => {
+    if (!feed) return;
+    const dt = now - feed.last; feed.last = now;
+    feed.watched += dt * S.speed;
+    const durMs = feed.clip.dur * 1000;
+    const loopPos = feed.watched % durMs;
+    if (Math.floor(feed.watched / durMs) > feed.loops) { feed.replays++; }
+    feed.loops = Math.floor(feed.watched / durMs);
+    const vb = $("#vb"); if (vb) vb.style.width = (loopPos / durMs * 100) + "%";
+    feed.raf = requestAnimationFrame(tick);
+  };
+  feed.loops = 0;
+  feed.raf = requestAnimationFrame(tick);
+  $("#b-like").addEventListener("click", e => { feed.liked = !feed.liked; e.currentTarget.setAttribute("aria-pressed", String(feed.liked)); });
+  $("#b-replay").addEventListener("click", () => { feed.watched = Math.ceil(feed.watched / (feed.clip.dur * 1000)) * feed.clip.dur * 1000; });
+  $("#b-next").addEventListener("click", nextClip);
+  let y0 = null;
+  const el = $("#clip");
+  el.addEventListener("pointerdown", e => { if (e.target.closest("button")) return; y0 = e.clientY; });
+  el.addEventListener("pointerup", e => { if (y0 !== null && y0 - e.clientY > 50) nextClip(); y0 = null; });
+  renderLive();
+}
+function nextClip() {
+  if (!feed) return;
+  const durMs = feed.clip.dur * 1000;
+  const pct = feed.watched / durMs;
+  S.impressions.push({ pos: feed.pos + 1, clipId: feed.clip.id, dwellMs: Math.round(performance.now() - feed.shownAt),
+    watchedS: +(feed.watched / 1000).toFixed(1), pctWatched: +pct.toFixed(2), replays: feed.replays, liked: feed.liked,
+    skipped: pct < 0.5, adaptivePick: !!S.plan[feed.pos].adaptivePick });
+  stopFeed();
+  renderPhone();
+}
+function stopFeed() { if (feed) cancelAnimationFrame(feed.raf); feed = null; }
+document.addEventListener("keydown", e => {
+  if (screen !== "feed" || !feed) return;
+  if (e.key === "ArrowUp" || e.key === "PageDown") { e.preventDefault(); nextClip(); }
+});
+
+function renderDebrief(ph) {
+  const c = CONDITIONS[S.cond];
+  ph.innerHTML = `<div class="screen"><div class="scroll">
+    <div class="eyebrow" style="color:var(--scr-muted)">Debrief</div>
+    <h2>Thank you. Here is what this study was about.</h2>
+    <p>We are studying whether the order and mix of short videos changes how people feel about Israelis and Palestinians and which solutions they support.</p>
+    <p>You were randomly assigned to the <b style="color:var(--scr-ink)">${esc(c.label)}</b> group. ${esc(c.desc)}</p>
+    <p>The researchers chose the videos and their order in advance; no platform algorithm was involved. ${S.cond === "paradoxical" ? "Some videos made deliberately exaggerated claims. They do not represent the researchers' views or established facts." : ""}</p>
+    <div class="warnbox">If anything in the videos upset you, support contacts go here (local helplines in Hebrew, Arabic and English).</div>
+    <p>You can withdraw now and your answers will be deleted.</p>
+  </div><div class="bar-foot"><button class="pbtn ghost" id="wd">Delete my answers</button><button class="pbtn" id="again">Start a new participant</button></div></div>`;
+  $("#wd").addEventListener("click", () => { sessions = sessions.filter(x => x.pid !== S.pid); saveAll(); $("#wd").textContent = "Your answers were deleted"; $("#wd").disabled = true; renderResults(); });
+  $("#again").addEventListener("click", newSession);
+}
+
+function go(next) { screen = next; renderPhone(); renderLive(); }
+function commitSession() { sessions = sessions.filter(x => x.pid !== S.pid); sessions.push(JSON.parse(JSON.stringify(S))); saveAll(); renderResults(); }
+
+/* ===================== KPIs ===================== */
+function kpis(s) {
+  const ident = s.identity || s.pre.identity;
+  const og = ident === "israeli" ? "pal" : ident === "palestinian" ? "isr" : null;
+  const ig = og === "pal" ? "isr" : og === "isr" ? "pal" : null;
+  const gap = a => ig ? a["therm_" + ig] - a["therm_" + og] : Math.abs(a.therm_isr - a.therm_pal);
+  const d = k => (s.post[k] !== undefined && s.pre[k] !== undefined) ? s.post[k] - s.pre[k] : null;
+  const im = s.impressions || [];
+  return {
+    outgroup: og ? (og === "pal" ? "Palestinians" : "Israelis") : "both groups (no ingroup)",
+    warmthOut: og ? d("therm_" + og) : (d("therm_isr") + d("therm_pal")) / 2,
+    gap: (s.post.therm_isr !== undefined) ? gap(s.post) - gap(s.pre) : null,
+    humanOut: og ? d("hum_" + og) : (d("hum_isr") + d("hum_pal")) / 2,
+    sup_two: d("sup_two"), sup_confed: d("sup_confed"), sup_one: d("sup_one"), sup_annex: d("sup_annex"), hope: d("hope"),
+    clips: im.length,
+    pctWatched: im.length ? im.reduce((a, x) => a + Math.min(1, x.pctWatched), 0) / im.length : null,
+    likes: im.filter(x => x.liked).length, skips: im.filter(x => x.skipped).length, replays: im.reduce((a, x) => a + x.replays, 0),
+    attnOk: s.pre.attn === 3 && s.post.attn2 === 3,
+    manipOk: expectedManip(s.cond) === null ? null : s.post.manip === expectedManip(s.cond),
+    speeding: (s.surveyMs && s.surveyMs.post !== undefined) ? s.surveyMs.post < 20000 : null
+  };
+}
+
+/* ===================== console panes ===================== */
+function slotHTML(spec, i, state) {
+  const t = spec === "F" ? "F" : (spec.frame === "paradoxical" ? "PX" : (spec.frame === "personal" ? "S" : "T") + (spec.persp ? spec.persp[0].toUpperCase() : ""));
+  return `<span class="slot ${spec === "F" ? "f" : "t"} ${state || ""}" title="${spec === "F" ? "Filler" : esc(JSON.stringify(spec))}">${t}</span>`;
+}
+function renderDesign() {
+  const p = $("#pane-design");
+  p.innerHTML = `
+  <div class="card"><h3>Conditions</h3>
+    <p class="note">Each condition is a fixed list of 8 slots. A slot names the kind of clip that goes there (F = filler; T/S + I, P or B = target clip, story, Israeli / Palestinian / both; PX = paradoxical). Clips are drawn at random within each slot, so every participant sees a different but equivalent sequence.</p>
+    ${COND_KEYS.map(k => { const c = CONDITIONS[k]; return `<div class="cond"><span class="sw" style="background:${c.color}"></span><div><b>${esc(c.label)}</b><p>${esc(c.desc)}</p><div class="slots" style="margin-top:6px">${c.slots.map((s, i) => slotHTML(s, i)).join("")}</div></div></div>`; }).join("")}
+  </div>
+  <div class="card"><h3>Assignment and playback</h3>
+    <div class="ctl">
+      <label for="set-force">Next participant's condition
+        <select id="set-force"><option value="auto">Random (blocks of 4)</option>${COND_KEYS.map(k => `<option value="${k}">${esc(CONDITIONS[k].label)}</option>`).join("")}</select></label>
+      <label for="set-adapt"><input type="checkbox" id="set-adapt"> Adaptive sequencing</label>
+      <label for="set-speed">Playback speed
+        <select id="set-speed"><option value="1">Real time</option><option value="5">5× (demo)</option><option value="15">15× (quick test)</option></select></label>
+    </div>
+    <p class="note">Random assignment uses permuted blocks, so every 4 participants include one of each condition. Adaptive sequencing fills target slots during the session with the emotion the participant engaged with most, the way a recommender would. It stays inside the condition's constraints.</p>
+    <div class="row"><button class="btn primary" type="button" id="new-p">Start a new participant</button><span class="note">Changes apply to the next participant.</span></div>
+  </div>`;
+  $("#set-force").value = settings.force; $("#set-adapt").checked = settings.adaptive; $("#set-speed").value = String(settings.speed);
+  $("#set-force").addEventListener("change", e => { settings.force = e.target.value; saveAll(); });
+  $("#set-adapt").addEventListener("change", e => { settings.adaptive = e.target.checked; saveAll(); });
+  $("#set-speed").addEventListener("change", e => { settings.speed = +e.target.value; saveAll(); });
+  $("#new-p").addEventListener("click", newSession);
+}
+function renderClips() {
+  const p = $("#pane-clips");
+  p.innerHTML = `<div class="card"><h3>Clip codebook (${CLIPS.length} placeholder clips)</h3>
+    <p class="note">Every clip in a real study would be collected with its source metadata, coded by two trained coders (with Krippendorff's alpha reported), and approved by the ethics committee before it enters a condition. These rows show the coding fields only.</p>
+    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Use</th><th>Perspective</th><th>Frame</th><th>Emotion</th><th>Source</th><th>Platform</th><th>Lang</th><th class="n">Secs</th><th>Graphic</th><th>Description</th></tr></thead><tbody>
+    ${CLIPS.map(c => `<tr><td class="mono">${c.id}</td><td>${c.kind}</td><td>${c.persp}</td><td>${c.frame}</td><td>${c.emotion}</td><td>${c.source}</td><td>${c.platform}</td><td>${c.lang}</td><td class="n">${c.dur}</td><td>${c.graphic ? "yes" : "no"}</td><td>${esc(c.title)}</td></tr>`).join("")}
+    </tbody></table></div></div>`;
+}
+function renderLive() {
+  const p = $("#pane-live");
+  if (!S) { p.innerHTML = `<div class="card"><p class="empty">No participant yet.</p></div>`; return; }
+  const c = CONDITIONS[S.cond];
+  const i = S.impressions.length;
+  const stage = { consent: "Consent", declined: "Declined", pre: "Pre-survey", feed: `Feed, clip ${Math.min(i + 1, S.plan.length)} of ${S.plan.length}`, post: "Post-survey", debrief: "Debrief" }[screen];
+  p.innerHTML = `<div class="card"><div class="row"><h3>${esc(S.pid)}</h3><span class="chip"><i style="background:${c.color}"></i>${esc(c.label)}</span><span class="chip">${S.adaptive ? "Adaptive" : "Fixed"} sequence</span><span class="chip">${esc(stage)}</span></div>
+    <div><div class="eyebrow">Planned sequence</div><div class="slots" style="margin-top:6px">${S.plan.map((s, k) => {
+      const st = k < i ? "seen" : (k === i && screen === "feed") ? "now" : "";
+      return `<span class="slot ${s.spec === "F" ? "f" : "t"} ${st}" title="${esc(s.clip || "chosen at run time")}">${esc(s.clip || "?")}</span>`; }).join("")}</div></div>
+  </div>
+  <div class="card"><h3>Viewing log</h3>
+    ${i ? `<div class="tbl-wrap"><table><thead><tr><th class="n">#</th><th>Clip</th><th class="n">Dwell (s)</th><th class="n">Watched (s)</th><th class="n">% of clip</th><th class="n">Replays</th><th>Liked</th><th>Skipped</th></tr></thead><tbody>
+      ${S.impressions.map(r => `<tr><td class="n">${r.pos}</td><td class="mono">${r.clipId}${r.adaptivePick ? " ·a" : ""}</td><td class="n">${fmt(r.dwellMs / 1000, 1)}</td><td class="n">${fmt(r.watchedS, 1)}</td><td class="n">${fmt(r.pctWatched * 100)}%</td><td class="n">${r.replays}</td><td>${r.liked ? "yes" : "no"}</td><td>${r.skipped ? "yes" : "no"}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="empty">Each video the participant sees is logged here: time on screen, how much of it played, replays, likes and skips (under 50% watched). ".a" marks a clip picked by adaptive sequencing.</p>`}
+  </div>`;
+}
+function kpiCards(k) {
+  const cell = (label, v, d, sub) => `<div class="kpi"><div class="v ${v > 0 ? "up" : v < 0 ? "down" : ""}">${sgn(v, d)}</div><div class="l">${esc(label)}</div>${sub ? `<div class="s">${esc(sub)}</div>` : ""}</div>`;
+  return `<div class="kpis">
+    ${cell("Warmth toward " + k.outgroup, k.warmthOut, 0, "thermometer, 0–100")}
+    ${cell("Ingroup–outgroup warmth gap", k.gap, 0, "lower = less polarized")}
+    ${cell("Humanity rating, outgroup", k.humanOut, 0, "0–100")}
+    ${cell("Hope for a peaceful end", k.hope, 0, "1–7")}
+    ${cell("Support: two states", k.sup_two, 0, "1–7")}
+    ${cell("Support: confederation", k.sup_confed, 0, "1–7")}
+    ${cell("Support: one equal state", k.sup_one, 0, "1–7")}
+    ${cell("Support: annexation", k.sup_annex, 0, "1–7")}
+  </div>
+  <div class="row">
+    <span class="flag">${k.clips} clips · ${fmt((k.pctWatched ?? 0) * 100)}% watched · ${k.likes} likes · ${k.skips} skips · ${k.replays} replays</span>
+    <span class="flag ${k.attnOk ? "ok" : "no"}">Attention checks</span>
+    ${k.manipOk === null ? `<span class="flag">Manipulation check n/a</span>` : `<span class="flag ${k.manipOk ? "ok" : "no"}">Manipulation check</span>`}
+    ${k.speeding === null ? "" : `<span class="flag ${k.speeding ? "no" : "ok"}">${k.speeding ? "Post-survey under 20 s" : "Survey timing"}</span>`}
+  </div>`;
+}
+function renderResults() {
+  const p = $("#pane-results");
+  const real = sessions.filter(s => !s.example);
+  const latest = real[real.length - 1];
+  const byCond = COND_KEYS.map(k => {
+    const xs = sessions.filter(s => s.cond === k).map(kpis);
+    const m = f => xs.length ? xs.reduce((a, x) => a + (x[f] ?? 0), 0) / xs.length : null;
+    return { k, n: xs.length, warmth: m("warmthOut"), gap: m("gap"), human: m("humanOut"), two: m("sup_two"), hope: m("hope") };
+  });
+  p.innerHTML = `
+  <div class="card"><h3>Latest participant</h3>
+    ${latest ? `<div class="row"><b class="mono">${esc(latest.pid)}</b><span class="chip"><i style="background:${CONDITIONS[latest.cond].color}"></i>${esc(CONDITIONS[latest.cond].label)}</span><span class="note">Change from pre to post survey</span></div>${kpiCards(kpis(latest))}`
+      : `<p class="empty">Complete one run on the phone to see that participant's KPIs here: changes in warmth, the warmth gap, humanity ratings, hope and support for each solution, plus engagement and data-quality checks.</p>`}
+    <p class="note">One person's change score is noisy: a 0–100 thermometer moves several points between two sittings even with no intervention. Treat these as data-quality and engagement checks per person, and estimate effects by comparing conditions.</p>
+  </div>
+  <div class="card"><h3>By condition</h3>
+    <div class="tbl-wrap"><table><thead><tr><th>Condition</th><th class="n">n</th><th class="n">Δ outgroup warmth</th><th class="n">Δ warmth gap</th><th class="n">Δ humanity</th><th class="n">Δ two states</th><th class="n">Δ hope</th></tr></thead><tbody>
+    ${byCond.map(r => `<tr><td><span class="chip"><i style="background:${CONDITIONS[r.k].color}"></i>${esc(CONDITIONS[r.k].label)}</span></td><td class="n">${r.n}</td><td class="n">${sgn(r.warmth, 1)}</td><td class="n">${sgn(r.gap, 1)}</td><td class="n">${sgn(r.human, 1)}</td><td class="n">${sgn(r.two, 2)}</td><td class="n">${sgn(r.hope, 2)}</td></tr>`).join("")}
+    </tbody></table></div>
+    ${sessions.some(s => s.example) ? `<p class="note"><span class="ex">EXAMPLE</span> Rows marked as examples are random numbers so the tables have something to show. They are not results. <button class="btn" type="button" id="clear-ex">Remove examples</button></p>` : ""}
+  </div>
+  <div class="card"><h3>All participants</h3>
+    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Condition</th><th>Identity</th><th class="n">Δ warmth</th><th class="n">Δ gap</th><th class="n">Δ humanity</th><th class="n">% watched</th><th>Checks</th></tr></thead><tbody>
+    ${sessions.slice().reverse().map(s => { const k = kpis(s); return `<tr><td class="mono">${esc(s.pid)} ${s.example ? '<span class="ex">EXAMPLE</span>' : ""}</td><td>${esc(CONDITIONS[s.cond].label)}</td><td>${esc(s.identity || "—")}</td><td class="n">${sgn(k.warmthOut)}</td><td class="n">${sgn(k.gap)}</td><td class="n">${sgn(k.humanOut)}</td><td class="n">${fmt((k.pctWatched ?? 0) * 100)}%</td><td>${k.attnOk ? "pass" : "fail"}</td></tr>`; }).join("")}
+    </tbody></table></div>
+  </div>
+  <div class="card"><h3>Export</h3>
+    <p class="note">One JSON record per participant: condition, sequence, every impression and both surveys. In a real deployment this goes to the university's secure server, not the browser.</p>
+    <textarea id="export" readonly aria-label="Exported data">${esc(JSON.stringify(sessions.filter(s => !s.example), null, 1))}</textarea>
+    <div class="row"><button class="btn" type="button" id="copy">Copy JSON</button><span class="note" id="copy-msg"></span></div>
+  </div>`;
+  const ce = $("#clear-ex"); if (ce) ce.addEventListener("click", () => { sessions = sessions.filter(s => !s.example); saveAll(); renderResults(); });
+  $("#copy").addEventListener("click", () => {
+    const ta = $("#export");
+    navigator.clipboard.writeText(ta.value).then(() => { $("#copy-msg").textContent = "Copied"; }).catch(() => { ta.focus(); ta.select(); $("#copy-msg").textContent = "Selected. Press Ctrl+C or ⌘C to copy."; });
+  });
+}
+
+function exampleSessions() {
+  const r = rng(20261107);
+  const out = [];
+  for (let n = 0; n < 12; n++) {
+    const cond = COND_KEYS[n % 4];
+    const ident = ["israeli", "palestinian", "neither"][Math.floor(r() * 3)];
+    const pre = { identity: ident, therm_isr: Math.round(20 + r() * 70), therm_pal: Math.round(20 + r() * 70), hum_isr: Math.round(70 + r() * 30), hum_pal: Math.round(70 + r() * 30),
+      sup_two: 1 + Math.floor(r() * 7), sup_confed: 1 + Math.floor(r() * 7), sup_one: 1 + Math.floor(r() * 7), sup_annex: 1 + Math.floor(r() * 7), hope: 1 + Math.floor(r() * 7), attn: 3 };
+    const post = {}; for (const k in pre) if (k !== "identity" && k !== "attn") post[k] = Math.max(k.startsWith("therm") || k.startsWith("hum") ? 0 : 1, Math.min(k.startsWith("therm") || k.startsWith("hum") ? 100 : 7, pre[k] + Math.round((r() - 0.5) * (k.startsWith("therm") || k.startsWith("hum") ? 16 : 2))));
+    post.attn2 = r() > 0.1 ? 3 : 5;
+    const imps = Array.from({ length: 8 }, (_, i) => { const pct = +(0.3 + r() * 1.2).toFixed(2); return { pos: i + 1, clipId: "—", dwellMs: 6000, watchedS: 6, pctWatched: pct, replays: pct > 1 ? 1 : 0, liked: r() > 0.8, skipped: pct < 0.5 }; });
+    out.push({ pid: "EX-" + String(n + 1).padStart(2, "0"), cond, example: true, identity: ident, pre, post, impressions: imps, surveyMs: { pre: 60000, post: 50000 }, plan: [] });
+  }
+  return out;
+}
+
+/* ===================== tabs & boot ===================== */
+document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", String(x === b)));
+  ["design", "clips", "live", "results"].forEach(t => { $("#pane-" + t).hidden = t !== b.dataset.tab; });
+  try { localStorage.setItem("fl-tab", b.dataset.tab); } catch (e) {}
+}));
+function renderAll() { renderPhone(); renderDesign(); renderClips(); renderLive(); renderResults(); }
+newSession();
+try { const t = localStorage.getItem("fl-tab"); if (t) { const b = document.querySelector(`.tabs button[data-tab="${t}"]`); if (b) b.click(); } } catch (e) {}
+</script>
