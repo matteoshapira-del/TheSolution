@@ -151,6 +151,22 @@ textarea { width: 100%; min-height: 160px; border: 1px solid var(--rule); border
 .ex { font-family: var(--f-mono); font-size: 10.5px; color: var(--muted); border: 1px solid var(--rule); border-radius: 4px; padding: 1px 5px; }
 .empty { color: var(--muted); font-size: 13px; padding: 8px 0; }
 .note { font-size: 12.5px; color: var(--muted); }
+
+.q input[type=range].untouched::-webkit-slider-thumb { opacity: 0; }
+.q input[type=range].untouched::-moz-range-thumb { opacity: 0; }
+.q .val.na { color: var(--scr-muted); }
+.feedtop { position: absolute; top: 18px; right: 12px; display: flex; gap: 6px; z-index: 4; }
+.feedtop button { border: 1px solid rgba(255,255,255,0.35); background: rgba(0,0,0,0.5); color: #fff; border-radius: 999px; padding: 6px 10px; font-size: 11.5px; font-weight: 700; cursor: pointer; }
+.overlay { position: absolute; inset: 0; background: rgba(5,7,9,0.88); z-index: 6; display: grid; align-content: center; gap: 10px; padding: 24px; }
+.overlay h2 { font-size: 19px; font-weight: 750; }
+.overlay p { color: var(--scr-muted); font-size: 13.5px; }
+.code { font-family: var(--f-mono); font-size: 18px; letter-spacing: 0.08em; color: var(--scr-ink); background: var(--scr-field); border: 1px solid var(--scr-line); border-radius: 8px; padding: 8px 10px; text-align: center; }
+.dbpart { display: grid; gap: 4px; padding-bottom: 10px; border-bottom: 1px solid var(--scr-line); }
+.dbpart .n { font-family: var(--f-mono); font-size: 11px; color: #3fb6c2; letter-spacing: 0.08em; }
+.dbpart b { color: var(--scr-ink); font-size: 14px; }
+.delta { font-family: var(--f-mono); }
+.rc { font-size: 11px; border: 1px solid var(--ink); border-radius: 4px; padding: 0 5px; margin-left: 4px; font-family: var(--f-ui); font-weight: 700; }
+.testmode { color: var(--bad); font-weight: 700; }
 </style>
 
 <div class="wrap">
@@ -159,7 +175,7 @@ textarea { width: 100%; min-height: 160px; border: 1px solid var(--rule); border
       <div class="eyebrow">The Solution · exposure study prototype</div>
       <h1>Exposure Feed Lab</h1>
     </div>
-    <p>Run through the study as a participant on the phone: consent, pre-survey, an orchestrated short-video feed, post-survey and debrief. The console shows how each sequence is built and what gets measured.</p>
+    <p>Run through the study as a participant on the phone: consent, screening, a baseline survey, an orchestrated short-video feed, a post-survey, a seven-part debrief and a final check. The console shows how each sequence is built and what gets measured. Revised after the design report.</p>
   </header>
   <div class="notice"><b>Prototype.</b><span>Clips are labelled placeholders, not real videos, and data stays in this browser. A real study needs ethics-committee approval, informed consent, a debriefing and a data-protection plan.</span></div>
 
@@ -185,212 +201,294 @@ textarea { width: 100%; min-height: 160px; border: 1px solid var(--rule); border
 </div>
 
 <script>
-/* ===================== study configuration ===================== */
+/* =====================================================================
+   Exposure Feed Lab v2 — revised after the design report
+   (reports/Short video persuasion experiment design.md, prototype table)
+   ===================================================================== */
+
+/* ---------- participant groups (strata) ---------- */
+const IDENTITIES = [
+  ["jewish_israeli", "Jewish Israeli", "israeli"],
+  ["arab_citizen", "Arab or Palestinian citizen of Israel", "arab_citizen"],
+  ["pal_wb", "Palestinian in the West Bank or East Jerusalem", "palestinian"],
+  ["pal_gaza", "Palestinian in Gaza", "palestinian"],
+  ["pal_diaspora", "Palestinian living outside the region", "palestinian"],
+  ["third", "None of these", "third"]
+];
+const STRATA = { israeli: "Jewish Israelis", arab_citizen: "Arab citizens of Israel", palestinian: "Palestinians (WB, Gaza, diaspora)", third: "Third parties" };
+const stratumOf = id => (IDENTITIES.find(x => x[0] === id) || [])[2] || "third";
+// Thermometer and humanity targets are specific groups, rated by everyone.
+const TARGETS = { isr: "Jewish Israelis", pal: "Palestinians" };
+const ingroupOf = st => st === "israeli" ? "isr" : (st === "palestinian" || st === "arab_citizen") ? "pal" : null;
+
+/* ---------- conditions ---------- */
+// Every treatment arm shows 4 target clips and 4 fillers. Positions rotate through 4 patterns (counterbalancing).
+const PATTERNS = ["FTTFTFTF", "TFFTFTTF", "FTFTTFFT", "TFTFFTFT"];
 const CONDITIONS = {
-  control:     { label: "Control", color: "var(--c1)", desc: "Unrelated clips only (food, sport, nature). Gives the baseline for test-retest change and pretest sensitisation.",
-                 slots: ["F", "F", "F", "F", "F", "F", "F", "F"] },
-  balanced:    { label: "Balanced exposure", color: "var(--c2)", desc: "Alternates Israeli and Palestinian perspectives across news, explainer and personal clips, with fillers to mask the topic.",
-                 slots: ["F", { persp: "israeli" }, { persp: "palestinian" }, "F", { persp: "palestinian" }, { persp: "israeli" }, "F", { persp: "both" }] },
-  humanizing:  { label: "Humanizing stories", color: "var(--c3)", desc: "Personal stories from people on both sides. Based on research that individual narratives reduce dehumanization.",
-                 slots: ["F", { frame: "personal", persp: "palestinian" }, { frame: "personal", persp: "israeli" }, "F", { frame: "personal", persp: "israeli" }, { frame: "personal", persp: "palestinian" }, "F", { frame: "personal", persp: "both" }] },
-  paradoxical: { label: "Paradoxical thinking", color: "var(--c4)", desc: "Exaggerated messages that agree with conflict-supporting beliefs, after Hameiri et al. (PNAS 2014). Needs careful ethics review and a debrief.",
-                 slots: ["F", { frame: "paradoxical" }, "F", { frame: "paradoxical" }, { frame: "paradoxical" }, "F", { frame: "paradoxical" }, "F"] }
+  control:     { label: "Control", color: "var(--c1)", eligible: ["israeli", "arab_citizen", "palestinian", "third"],
+                 desc: "Unrelated clips only. With a pretest it estimates test-retest drift; it cannot measure pretest sensitisation, which would need a post-only arm.",
+                 targets: [] },
+  balanced:    { label: "Balanced exposure", color: "var(--c2)", eligible: ["israeli", "arab_citizen", "palestinian", "third"],
+                 desc: "Two clips from Israeli and two from Palestinian perspectives (news, explainers, stories), mixed with fillers.",
+                 intent: "show both perspectives in equal measure",
+                 targets: [{ persp: "israeli" }, { persp: "palestinian" }, { persp: "palestinian" }, { persp: "israeli" }] },
+  humanizing:  { label: "Humanizing stories", color: "var(--c3)", eligible: ["israeli", "arab_citizen", "palestinian", "third"],
+                 desc: "Personal stories from ordinary people on both sides. Tests whether individual narratives reduce dehumanization.",
+                 intent: "make people on the other side feel more human and familiar",
+                 targets: [{ frame: "personal", persp: "palestinian" }, { frame: "personal", persp: "israeli" }, { frame: "personal", persp: "israeli" }, { frame: "personal", persp: "palestinian" }] },
+  paradoxical: { label: "Paradoxical thinking", color: "var(--c4)", eligible: ["israeli", "palestinian"],
+                 desc: "Exaggerated messages that agree with the participant's own side's conflict-supporting beliefs (Hameiri et al., PNAS 2014). Validated for Jewish Israelis; the Palestinian-audience set is unvalidated and must be piloted.",
+                 intent: "loosen firmly held conflict beliefs by pushing them to an absurd extreme",
+                 targets: [{ frame: "paradoxical", aud: "own" }, { frame: "paradoxical", aud: "own" }, { frame: "paradoxical", aud: "own" }, { frame: "paradoxical", aud: "own" }] }
 };
 const COND_KEYS = Object.keys(CONDITIONS);
 
-/* Coded clip library. Every entry is a PLACEHOLDER standing in for a real clip that would be collected, coded and approved. */
+/* ---------- clip codebook (all placeholders) ---------- */
+// id, kind, perspective, frame, emotion, source, platform, lang, secs, graphic (0–3), audience, description
 const CLIPS = [
-  ["F01","filler","none","filler","calm","creator","Reels","en",22,"Street-food recipe"],
-  ["F02","filler","none","filler","calm","creator","Shorts","en",18,"Surf time-lapse"],
-  ["F03","filler","none","filler","joy","creator","TikTok","en",25,"Football skills"],
-  ["F04","filler","none","filler","calm","creator","Reels","en",30,"Street musician"],
-  ["F05","filler","none","filler","calm","creator","Shorts","en",20,"Desert hike"],
-  ["F06","filler","none","filler","joy","creator","TikTok","en",16,"Latte art"],
-  ["F07","filler","none","filler","joy","creator","Reels","en",15,"Cat video"],
-  ["F08","filler","none","filler","calm","creator","Shorts","en",24,"City time-lapse"],
-  ["I01","target","israeli","personal","grief","personal","Reels","he",34,"Personal story, Israeli speaker: family"],
-  ["I02","target","israeli","personal","hope","personal","TikTok","he",28,"Personal story, Israeli speaker: work and daily life"],
-  ["I03","target","israeli","personal","fear","personal","Shorts","he",31,"Personal story, Israeli speaker: life near the border"],
-  ["I04","target","israeli","security","fear","news","Shorts","en",40,"Explainer, Israeli perspective: security"],
-  ["I05","target","israeli","history","calm","creator","TikTok","en",45,"History explainer, Israeli narrative"],
-  ["P01","target","palestinian","personal","grief","personal","Reels","ar",33,"Personal story, Palestinian speaker: family"],
-  ["P02","target","palestinian","personal","hope","personal","TikTok","ar",27,"Personal story, Palestinian speaker: work and daily life"],
-  ["P03","target","palestinian","personal","fear","personal","Shorts","ar",30,"Personal story, Palestinian speaker: movement and checkpoints"],
-  ["P04","target","palestinian","rights","anger","ngo","Shorts","en",42,"Explainer, Palestinian perspective: rights"],
-  ["P05","target","palestinian","history","calm","creator","TikTok","en",44,"History explainer, Palestinian narrative"],
-  ["B01","target","both","personal","hope","ngo","Reels","en",38,"Joint story: Israeli and Palestinian speakers"],
-  ["B02","target","both","news","calm","news","Shorts","en",35,"News report, wire-service style"],
-  ["X01","target","none","paradoxical","anger","creator","TikTok","en",20,"Paradoxical stimulus: exaggerated conflict-supporting claim A"],
-  ["X02","target","none","paradoxical","anger","creator","Reels","en",22,"Paradoxical stimulus: exaggerated conflict-supporting claim B"],
-  ["X03","target","none","paradoxical","fear","creator","Shorts","en",19,"Paradoxical stimulus: exaggerated conflict-supporting claim C"],
-  ["X04","target","none","paradoxical","anger","creator","TikTok","en",21,"Paradoxical stimulus: exaggerated conflict-supporting claim D"]
-].map(([id, kind, persp, frame, emotion, source, platform, lang, dur, title]) => ({ id, kind, persp, frame, emotion, source, platform, lang, dur, title, graphic: false }));
+  ["F01","filler","none","filler","calm","creator","Reels","en",24,0,"","Street-food recipe"],
+  ["F02","filler","none","filler","calm","creator","Shorts","en",22,0,"","Surf time-lapse"],
+  ["F03","filler","none","filler","joy","creator","TikTok","en",25,0,"","Football skills"],
+  ["F04","filler","none","filler","calm","creator","Reels","en",26,0,"","Street musician"],
+  ["F05","filler","none","filler","calm","creator","Shorts","en",24,0,"","Desert hike"],
+  ["F06","filler","none","filler","joy","creator","TikTok","en",23,0,"","Latte art"],
+  ["F07","filler","none","filler","joy","creator","Reels","en",22,0,"","Cat video"],
+  ["F08","filler","none","filler","calm","creator","Shorts","en",24,0,"","City time-lapse"],
+  ["I01","target","israeli","personal","grief","personal","Reels","he",27,1,"","Personal story, Israeli speaker: family"],
+  ["I02","target","israeli","personal","hope","personal","TikTok","he",26,0,"","Personal story, Israeli speaker: work and daily life"],
+  ["I03","target","israeli","personal","fear","personal","Shorts","he",27,1,"","Personal story, Israeli speaker: life near the border"],
+  ["I04","target","israeli","security","fear","news","Shorts","en",26,1,"","Explainer, Israeli perspective: security"],
+  ["I05","target","israeli","history","calm","creator","TikTok","en",27,0,"","History explainer, Israeli narrative"],
+  ["P01","target","palestinian","personal","grief","personal","Reels","ar",27,1,"","Personal story, Palestinian speaker: family"],
+  ["P02","target","palestinian","personal","hope","personal","TikTok","ar",26,0,"","Personal story, Palestinian speaker: work and daily life"],
+  ["P03","target","palestinian","personal","fear","personal","Shorts","ar",27,1,"","Personal story, Palestinian speaker: movement and checkpoints"],
+  ["P04","target","palestinian","rights","anger","ngo","Shorts","en",26,1,"","Explainer, Palestinian perspective: rights"],
+  ["P05","target","palestinian","history","calm","creator","TikTok","en",27,0,"","History explainer, Palestinian narrative"],
+  ["X01","target","none","paradoxical","anger","commissioned","TikTok","he",26,0,"israeli","Paradoxical stimulus for Israeli audiences A"],
+  ["X02","target","none","paradoxical","anger","commissioned","Reels","he",26,0,"israeli","Paradoxical stimulus for Israeli audiences B"],
+  ["X03","target","none","paradoxical","fear","commissioned","Shorts","he",26,0,"israeli","Paradoxical stimulus for Israeli audiences C"],
+  ["X04","target","none","paradoxical","anger","commissioned","TikTok","he",26,0,"israeli","Paradoxical stimulus for Israeli audiences D"],
+  ["X05","target","none","paradoxical","anger","commissioned","TikTok","ar",26,0,"palestinian","Paradoxical stimulus for Palestinian audiences A (unvalidated)"],
+  ["X06","target","none","paradoxical","anger","commissioned","Reels","ar",26,0,"palestinian","Paradoxical stimulus for Palestinian audiences B (unvalidated)"],
+  ["X07","target","none","paradoxical","fear","commissioned","Shorts","ar",26,0,"palestinian","Paradoxical stimulus for Palestinian audiences C (unvalidated)"],
+  ["X08","target","none","paradoxical","anger","commissioned","TikTok","ar",26,0,"palestinian","Paradoxical stimulus for Palestinian audiences D (unvalidated)"]
+].map(([id, kind, persp, frame, emotion, source, platform, lang, dur, graphic, aud, title]) =>
+  ({ id, kind, persp, frame, emotion, source, platform, lang, dur, graphic, aud, title,
+     rights: source === "commissioned" ? "commissioned" : "to license", subs: ["he", "ar", "en"] }));
+const GRAPHIC_CAP = 1;          // clips rated above this are never shown
+const HIGH_AROUSAL = ["anger", "fear", "grief"];
 
 const SOLUTIONS = [
-  ["sup_two", "Two states on the 1967 lines with land swaps"],
-  ["sup_confed", "A confederation of two states with open borders"],
-  ["sup_one", "One democratic state with equal rights for all"],
-  ["sup_annex", "Israeli annexation of the West Bank"]
+  ["sup_two", "Two states: an independent Palestinian state alongside Israel"],
+  ["sup_confed", "A confederation of two states with freedom of movement and residence"],
+  ["sup_one", "One state with equal rights for Jews and Palestinians"],
+  ["sup_annex", "Israeli annexation of the West Bank without equal rights for Palestinians"],
+  ["sup_palonly", "One Palestinian state without equal rights for Jews"]
 ];
+const HOPE = ["hope1", "hope2", "hope3"];
+// Reliable-change bars (RCI 1.96·SD·√(2(1−r))). Defaults until the control arm supplies real SD and r.
+const RCI = { slider: { sd: 25, r: 0.8 }, likert: { sd: 1.5, r: 0.8 } };
+const rciBar = k => 1.96 * RCI[k].sd * Math.sqrt(2 * (1 - RCI[k].r));
 
-/* ===================== utilities ===================== */
+/* ---------- utilities ---------- */
 const $ = (s, el = document) => el.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 function hash(str) { let h = 2166136261; for (const ch of str) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return h >>> 0; }
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 function shuffle(arr, r) { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function store(key, val) { try { if (val === undefined) return JSON.parse(localStorage.getItem(key)); localStorage.setItem(key, JSON.stringify(val)); } catch (e) { return undefined; } }
-const fmt = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : (Math.round(v * 10 ** d) / 10 ** d).toFixed(d);
-const sgn = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : (v > 0 ? "+" : v < 0 ? "−" : "±") + Math.abs(Math.round(v * 10 ** d) / 10 ** d).toFixed(d);
+const mean = xs => { const v = xs.filter(x => x !== null && x !== undefined && !Number.isNaN(x)); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+const fmt = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : v.toFixed(d);
+const delta = (v, d = 0) => (v === null || v === undefined || Number.isNaN(v)) ? "—" : (v > 0 ? "▲ +" : v < 0 ? "▼ −" : "± ") + Math.abs(v).toFixed(d);
 
-/* ===================== state ===================== */
-let settings = Object.assign({ force: "auto", adaptive: false, speed: 5 }, store("fl-settings") || {});
-let blockState = store("fl-block") || { block: [], n: 0 };
-let sessions = store("fl-sessions");
+/* ---------- state ---------- */
+let settings = Object.assign({ force: "auto", adaptive: "random", speed: 5 }, store("fl2-settings") || {});
+let blocks = store("fl2-blocks") || {};        // one permuted block queue per stratum
+let sessions = store("fl2-sessions");
 if (!Array.isArray(sessions)) sessions = exampleSessions();
-let S = null;            // current participant session
-let screen = "consent";
-let feed = null;         // playback state
-
-function saveAll() { store("fl-settings", settings); store("fl-block", blockState); store("fl-sessions", sessions); }
-
-function assignCondition(pid) {
-  if (settings.force !== "auto") return settings.force;
-  // Permuted-block randomisation: each block of 4 contains every condition once, in random order.
-  if (!blockState.block.length) blockState.block = shuffle(COND_KEYS, rng(hash("block" + blockState.n + Date.now())));
-  blockState.n++;
-  return blockState.block.shift();
-}
+let S = null, screen = "consent", feed = null;
+function saveAll() { store("fl2-settings", settings); store("fl2-blocks", blocks); store("fl2-sessions", sessions); }
 
 function newSession() {
+  stopFeed();
   const pid = "P-" + Math.random().toString(36).slice(2, 7).toUpperCase();
-  const cond = assignCondition(pid);
-  S = { pid, cond, adaptive: settings.adaptive, speed: settings.speed, startedAt: Date.now(), example: false,
-        pre: {}, post: {}, identity: null, manip: null, plan: [], impressions: [], surveyMs: {}, finished: false };
-  S.plan = planSequence(S);
+  S = { pid, withdrawCode: Math.random().toString(36).slice(2, 8).toUpperCase(), cond: null, policy: null, forced: false,
+        stratum: null, identity: null, pattern: null, plan: [], pre: {}, post: {}, redo: {}, impressions: [], events: [],
+        surveyMs: {}, speed: settings.speed, startedAt: Date.now(), finished: false, stoppedEarly: false, example: false };
   screen = "consent";
-  saveAll();
   renderAll();
 }
 
-/* Build the sequence: each slot is filled with a random clip that matches its spec, without repeats.
-   In adaptive mode the target slots are filled at run time, preferring the emotion the participant engaged with most. */
+/* Randomisation happens after the baseline survey, within the participant's stratum, over the arms that stratum is eligible for. */
+function randomise() {
+  const st = S.stratum;
+  if (settings.force !== "auto") {
+    S.cond = CONDITIONS[settings.force].eligible.includes(st) ? settings.force : "control";
+    S.forced = true;
+  } else {
+    const elig = COND_KEYS.filter(k => CONDITIONS[k].eligible.includes(st));
+    if (!blocks[st] || !blocks[st].queue.length) {
+      const n = (blocks[st] ? blocks[st].n : 0) + 1;
+      blocks[st] = { n, queue: shuffle(elig, rng(hash(st + n + Date.now()))) };
+    }
+    S.cond = blocks[st].queue.shift();
+  }
+  S.policy = settings.adaptive === "on" ? "adaptive-v1" : settings.adaptive === "off" ? "fixed" : (Math.random() < 0.5 ? "adaptive-v1" : "fixed");
+  if (S.cond === "control") S.policy = "fixed";
+  S.pattern = (blocks[st] ? blocks[st].n : 0) % PATTERNS.length;
+  S.plan = planSequence();
+  saveAll();
+}
+
 function matches(clip, spec) {
+  if (clip.graphic > GRAPHIC_CAP) return false;
   if (spec === "F") return clip.kind === "filler";
   if (clip.kind !== "target") return false;
-  return Object.entries(spec).every(([k, v]) => clip[k] === v);
+  return Object.entries(spec).every(([k, v]) => k === "aud" ? clip.aud === (S.stratum === "israeli" ? "israeli" : "palestinian") : clip[k] === v);
 }
-function planSequence(sess) {
-  const r = rng(hash(sess.pid));
+function planSequence() {
+  const c = CONDITIONS[S.cond];
+  const pat = S.cond === "control" ? "FFFFFFFF" : PATTERNS[S.pattern];
+  const r = rng(hash(S.pid));
   const used = new Set();
-  return CONDITIONS[sess.cond].slots.map(spec => {
-    if (sess.adaptive && spec !== "F") return { spec, clip: null };
-    const pool = shuffle(CLIPS.filter(c => matches(c, spec) && !used.has(c.id)), r);
-    const clip = pool[0] || null;
-    if (clip) used.add(clip.id);
-    return { spec, clip: clip ? clip.id : null };
+  let t = 0;
+  return [...pat].map(ch => {
+    const spec = ch === "F" ? "F" : c.targets[t++];
+    if (S.policy === "adaptive-v1" && spec !== "F") return { spec, clip: null };
+    const pick = shuffle(CLIPS.filter(x => matches(x, spec) && !used.has(x.id)), r)[0];
+    if (pick) used.add(pick.id);
+    return { spec, clip: pick ? pick.id : null };
   });
 }
+/* adaptive-v1: picks the target clip whose emotion the participant engaged with most, scoring TARGET clips only,
+   and never shows two high-arousal target clips in a row. */
 function resolveSlot(i) {
   const slot = S.plan[i];
   if (slot.clip) return CLIPS.find(c => c.id === slot.clip);
   const used = new Set(S.plan.map(s => s.clip).filter(Boolean));
-  const pool = CLIPS.filter(c => matches(c, slot.spec) && !used.has(c.id));
-  // engagement score per emotion from impressions so far
+  let pool = CLIPS.filter(c => matches(c, slot.spec) && !used.has(c.id));
+  const targetsSeen = S.impressions.map(im => CLIPS.find(c => c.id === im.clipId)).filter(c => c && c.kind === "target");
+  const last = targetsSeen[targetsSeen.length - 1];
+  if (last && HIGH_AROUSAL.includes(last.emotion)) { const calmer = pool.filter(c => !HIGH_AROUSAL.includes(c.emotion)); if (calmer.length) pool = calmer; }
   const score = {};
-  for (const im of S.impressions) { const c = CLIPS.find(x => x.id === im.clipId); score[c.emotion] = (score[c.emotion] || 0) + im.pctWatched + (im.liked ? 1 : 0) - (im.skipped ? 0.5 : 0); }
-  const r = rng(hash(S.pid + i));
-  const ranked = shuffle(pool, r).sort((a, b) => (score[b.emotion] || 0) - (score[a.emotion] || 0));
-  const pick = ranked[0];
-  slot.clip = pick ? pick.id : null;
-  slot.adaptivePick = true;
+  for (const im of S.impressions) { const c = CLIPS.find(x => x.id === im.clipId); if (!c || c.kind !== "target") continue; score[c.emotion] = (score[c.emotion] || 0) + Math.min(1, im.pctWatched) + (im.liked ? 1 : 0) - (im.skipped ? 0.5 : 0); }
+  const pick = shuffle(pool, rng(hash(S.pid + i))).sort((a, b) => (score[b.emotion] || 0) - (score[a.emotion] || 0))[0];
+  slot.clip = pick ? pick.id : null; slot.adaptivePick = true;
   return pick;
 }
+const runtime = plan => plan.reduce((a, s) => a + (s.clip ? CLIPS.find(c => c.id === s.clip).dur : 26), 0);
 
-/* ===================== surveys ===================== */
-function surveyItems(phase) {
-  const items = [];
-  if (phase === "pre") items.push({ id: "identity", type: "opts", q: "Which group do you identify with most?", opts: [["israeli", "Israeli"], ["palestinian", "Palestinian (including Palestinian citizens of Israel)"], ["neither", "Neither or other"]] });
-  items.push({ id: "therm_isr", type: "range", q: "How warm or cold do you feel toward Israelis?", lo: "Very cold (0)", hi: "Very warm (100)", def: 50 });
-  items.push({ id: "therm_pal", type: "range", q: "How warm or cold do you feel toward Palestinians?", lo: "Very cold (0)", hi: "Very warm (100)", def: 50 });
-  items.push({ id: "hum_isr", type: "range", q: "Humanity rating for Israelis (Ascent-of-Man style item, 0–100)", lo: "Less", hi: "Fully human (100)", def: 100 });
-  items.push({ id: "hum_pal", type: "range", q: "Humanity rating for Palestinians (Ascent-of-Man style item, 0–100)", lo: "Less", hi: "Fully human (100)", def: 100 });
-  for (const [id, label] of SOLUTIONS) items.push({ id, type: "likert", q: `How much do you support: ${label}?`, lo: "Strongly oppose", hi: "Strongly support" });
-  items.push({ id: "hope", type: "likert", q: "I have hope that this conflict can end peacefully.", lo: "Strongly disagree", hi: "Strongly agree" });
-  items.push({ id: phase === "pre" ? "attn" : "attn2", type: "likert", q: "To show you are reading carefully, choose 3 on this item.", lo: "1", hi: "7", attention: 3 });
-  if (phase === "post") items.push({ id: "manip", type: "opts", q: "Overall, the videos you watched mostly showed…", opts: [["israeli", "Israeli perspectives"], ["palestinian", "Palestinian perspectives"], ["both", "Both perspectives"], ["unrelated", "Mostly unrelated topics"]] });
-  return items;
+/* ---------- surveys ---------- */
+function items(phase) {
+  const L = [];
+  if (phase === "screen") {
+    L.push({ id: "identity", type: "opts", q: "Which of these describes you best?", opts: IDENTITIES.map(x => [x[0], x[1]]) });
+    L.push({ id: "orient", type: "likert", q: "In politics, where would you place yourself?", lo: "1 Left", hi: "7 Right" });
+    L.push({ id: "relig", type: "opts", q: "How religious are you?", opts: [["secular", "Secular"], ["traditional", "Traditional"], ["religious", "Religious"], ["very", "Very religious"]] });
+    L.push({ id: "age", type: "opts", q: "Your age group", opts: [["18-29", "18–29"], ["30-44", "30–44"], ["45-64", "45–64"], ["65+", "65 or older"]] });
+    L.push({ id: "vuln1", type: "opts", q: "Would watching short videos about the war be very difficult for you right now?", opts: [["no", "No"], ["yes", "Yes"]] });
+    L.push({ id: "vuln2", type: "opts", q: "Since October 2023, have you or your close family been bereaved, injured, displaced or held captive because of the conflict?", opts: [["no", "No"], ["yes", "Yes"], ["skip", "I prefer not to say"]] });
+    return L;
+  }
+  const therm = (t, short) => ({ id: "therm_" + t, type: "range", q: `How warm or cold do you feel toward ${TARGETS[t]}?`, lo: "0 Very cold", hi: "100 Very warm" });
+  const hum = t => ({ id: "hum_" + t, type: "range", q: `How human are ${TARGETS[t]}?`, lo: "0 Not at all human", hi: "100 Completely human" });
+  if (phase === "redo") return [therm("isr"), therm("pal"), hum("isr"), hum("pal")];
+  L.push(therm("isr"), therm("pal"), hum("isr"), hum("pal"));
+  for (const [id, label] of SOLUTIONS) L.push({ id, type: "likert", q: `Do you support or oppose: ${label}?`, lo: "1 Strongly oppose", hi: "7 Strongly support" });
+  L.push({ id: "hope1", type: "likert", q: "I feel hopeful about the future relations between Israelis and Palestinians.", lo: "1 Disagree", hi: "7 Agree" });
+  L.push({ id: "hope2", type: "likert", q: "I believe a peaceful solution can be reached.", lo: "1 Disagree", hi: "7 Agree" });
+  L.push({ id: "hope3", type: "likert", q: "I expect the coming years to bring more cooperation than violence.", lo: "1 Disagree", hi: "7 Agree" });
+  if (phase === "pre") L.push({ id: "attn", type: "likert", q: "To show you are reading carefully, choose 3 on this item.", lo: "1", hi: "7" });
+  if (phase === "post") {
+    L.push({ id: "manip", type: "opts", q: "Overall, the videos you watched mostly showed…", opts: [["israeli", "Israeli perspectives"], ["palestinian", "Palestinian perspectives"], ["both", "Both perspectives"], ["unrelated", "Mostly unrelated topics"]] });
+    L.push({ id: "extreme", type: "likert", q: "How extreme did the messages in the videos seem?", lo: "1 Not at all", hi: "7 Very extreme" });
+  }
+  return L;
 }
-function expectedManip(cond) { return cond === "control" ? "unrelated" : cond === "paradoxical" ? null : "both"; }
+const expectedManip = cond => cond === "control" ? "unrelated" : cond === "paradoxical" ? null : "both";
 
-/* ===================== phone screens ===================== */
+/* ---------- phone screens ---------- */
 function renderPhone() {
   const ph = $("#phone");
-  $("#pid-cap").textContent = S ? `${S.pid} · ${CONDITIONS[S.cond].label}` : "";
+  $("#pid-cap").innerHTML = S ? `${esc(S.pid)}${S.cond ? " · " + esc(CONDITIONS[S.cond].label) : " · not yet assigned"}${S.forced ? ' · <span class="testmode">test mode</span>' : ""}` : "";
   stopFeed();
+  const page = (body, foot) => { ph.innerHTML = `<div class="screen"><div class="scroll">${body}</div><div class="bar-foot">${foot}</div></div>`; };
   if (screen === "consent") {
-    ph.innerHTML = `<div class="screen"><div class="scroll">
-      <div class="eyebrow" style="color:var(--scr-muted)">Research study · information sheet</div>
+    page(`<div class="eyebrow" style="color:var(--scr-muted)">Key information</div>
       <h2>Short videos and views on the Israeli–Palestinian conflict</h2>
-      <p>You will answer a few questions, watch about 8 short videos (around 4 minutes), answer the questions again and read a short explanation of the study.</p>
-      <div class="warnbox">Some videos discuss the conflict and may be upsetting. You can stop at any time without giving a reason, and you can ask for your answers to be deleted.</div>
-      <ul><li>Your answers are stored under a random code, not your name.</li><li>Some details of the study's purpose are explained at the end.</li><li>Contact: research team address goes here (ethics approval number goes here).</li></ul>
+      <ul>
+        <li><b style="color:var(--scr-ink)">What you'll do:</b> about 20 minutes. Questions, 8 short videos (about 3½ minutes), more questions, and an explanation of the study at the end.</li>
+        <li><b style="color:var(--scr-ink)">What the videos show:</b> news, explainers and personal stories about the conflict, mixed with unrelated clips. Some describe loss, fear or anger. None show graphic injury or bodies.</li>
+        <li><b style="color:var(--scr-ink)">Your political opinions</b> will be collected and analysed. This is sensitive data. It is stored under a random code, never with your name, on the university's servers.</li>
+        <li>Some aspects of the study will be described only at the end.</li>
+        <li>You can skip any video, press <b style="color:var(--scr-ink)">This upset me</b> or stop at any time, without losing payment. You can delete your data later with a withdrawal code.</li>
+      </ul>
+      <p>Privacy notice, data protection officer, funders and ethics approval number: placeholders for the real study.</p>
       <label class="chk"><input type="checkbox" id="c-age"> I am 18 or older.</label>
-      <label class="chk"><input type="checkbox" id="c-ok"> I have read this information and agree to take part.</label>
-    </div><div class="bar-foot"><button class="pbtn" id="c-go" disabled>Start</button><button class="pbtn ghost" id="c-no">I don't want to take part</button></div></div>`;
-    const upd = () => { $("#c-go").disabled = !($("#c-age").checked && $("#c-ok").checked); };
-    $("#c-age").addEventListener("change", upd); $("#c-ok").addEventListener("change", upd);
-    $("#c-go").addEventListener("click", () => { S.consentAt = Date.now(); go("pre"); });
-    $("#c-no").addEventListener("click", () => { go("declined"); });
-  } else if (screen === "declined") {
-    ph.innerHTML = `<div class="screen"><div class="scroll"><h2>Thank you</h2><p>No data was recorded. You can close this page.</p></div><div class="bar-foot"><button class="pbtn" id="again">Start a new participant</button></div></div>`;
+      <label class="chk"><input type="checkbox" id="c-pol"> I agree that my political opinions are collected and analysed for this research.</label>
+      <label class="chk"><input type="checkbox" id="c-ok"> I have read this information and agree to take part.</label>`,
+      `<button class="pbtn" id="c-go" disabled>Continue</button><button class="pbtn ghost" id="c-no">I don't want to take part</button>`);
+    const boxes = ["#c-age", "#c-pol", "#c-ok"];
+    boxes.forEach(b => $(b).addEventListener("change", () => { $("#c-go").disabled = !boxes.every(x => $(x).checked); }));
+    $("#c-go").addEventListener("click", () => { S.consentAt = Date.now(); go("screen"); });
+    $("#c-no").addEventListener("click", () => go("declined"));
+  } else if (screen === "declined" || screen === "routed") {
+    page(screen === "declined" ? `<h2>Thank you</h2><p>No data was recorded.</p>`
+      : `<h2>Thank you for telling us</h2><p>This study is not a good fit right now, so we have not recorded any of your answers.</p><div class="warnbox">Support contacts in Hebrew, Arabic and English go here.</div>`,
+      `<button class="pbtn" id="again">Start a new participant</button>`);
     $("#again").addEventListener("click", newSession);
-  } else if (screen === "pre" || screen === "post") {
+  } else if (["screen", "pre", "post", "redo"].includes(screen)) {
     renderSurvey(ph, screen);
   } else if (screen === "feed") {
     renderFeed(ph);
   } else if (screen === "debrief") {
     renderDebrief(ph);
+  } else if (screen === "done") {
+    page(`<h2>All done</h2><p>Thank you for taking part. Keep your withdrawal code in case you want your data deleted later.</p><div class="code">${esc(S.withdrawCode)}</div>`,
+      `<button class="pbtn" id="again">Start a new participant</button>`);
+    $("#again").addEventListener("click", newSession);
   }
 }
 
 function renderSurvey(ph, phase) {
-  const items = surveyItems(phase);
-  const ans = phase === "pre" ? S.pre : S.post;
+  const list = items(phase);
+  const ans = phase === "screen" || phase === "pre" ? S.pre : phase === "post" ? S.post : S.redo;
   const t0 = Date.now();
-  ph.innerHTML = `<div class="screen"><div class="scroll" id="sv">
-    <div class="eyebrow" style="color:var(--scr-muted)">${phase === "pre" ? "Before the videos" : "After the videos"} · ${items.length} questions</div>
-    ${items.map(it => qHTML(it, ans)).join("")}
+  const title = { screen: "About you", pre: "Before the videos", post: "After the videos", redo: "One last check" }[phase];
+  ph.innerHTML = `<div class="screen"><div class="scroll">
+    <div class="eyebrow" style="color:var(--scr-muted)">${title} · ${list.length} questions</div>
+    ${phase === "redo" ? "<p>Now that you know what the study was about, please answer these four questions again.</p>" : ""}
+    ${list.map(it => qHTML(it, ans)).join("")}
   </div><div class="bar-foot"><button class="pbtn" id="sv-go">Continue</button></div></div>`;
   ph.querySelectorAll("input[type=range]").forEach(inp => {
     const out = ph.querySelector(`[data-out="${inp.id}"]`);
-    const set = () => { ans[inp.dataset.id] = +inp.value; out.textContent = inp.value; };
-    if (ans[inp.dataset.id] === undefined) ans[inp.dataset.id] = +inp.value;
-    inp.addEventListener("input", set);
+    // No answer is recorded until the participant moves the slider.
+    inp.addEventListener("input", () => { ans[inp.dataset.id] = +inp.value; out.textContent = inp.value; out.classList.remove("na"); inp.classList.remove("untouched"); });
   });
   ph.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => {
     const [id, v] = b.dataset.pick.split("|");
     ans[id] = isNaN(+v) ? v : +v;
     b.parentElement.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-    if (id === "identity") S.identity = v;
-    if (id === "manip") S.manip = v;
   }));
   $("#sv-go").addEventListener("click", () => {
-    const missing = items.filter(it => ans[it.id] === undefined);
-    if (missing.length) {
-      $("#sv-go").textContent = `Answer ${missing.length} more question${missing.length > 1 ? "s" : ""} to continue`;
-      return;
-    }
+    const missing = list.filter(it => ans[it.id] === undefined);
+    if (missing.length) { $("#sv-go").textContent = `Answer ${missing.length} more question${missing.length > 1 ? "s" : ""} to continue`; return; }
     S.surveyMs[phase] = Date.now() - t0;
-    if (phase === "pre") { go("feed"); } else { S.finished = true; S.finishedAt = Date.now(); commitSession(); go("debrief"); }
+    if (phase === "screen") {
+      if (ans.vuln1 === "yes" || ans.vuln2 === "yes") { S = null; go("routed"); return; }   // routed out, nothing kept
+      S.identity = ans.identity; S.stratum = stratumOf(ans.identity); go("pre");
+    } else if (phase === "pre") { randomise(); go("feed"); }
+    else if (phase === "post") { go("debrief"); }
+    else { S.finished = true; S.finishedAt = Date.now(); commitSession(); go("done"); }
   });
 }
 function qHTML(it, ans) {
   const v = ans[it.id];
   if (it.type === "range") {
-    const val = v ?? it.def;
-    return `<div class="q"><label for="q-${it.id}">${esc(it.q)}</label><input type="range" min="0" max="100" step="1" id="q-${it.id}" data-id="${it.id}" value="${val}">
-      <div class="ends"><span>${esc(it.lo)}</span><span class="val" data-out="q-${it.id}">${val}</span><span>${esc(it.hi)}</span></div></div>`;
+    const touched = v !== undefined;
+    return `<div class="q"><label for="q-${it.id}">${esc(it.q)}</label>
+      <input type="range" min="0" max="100" step="1" id="q-${it.id}" data-id="${it.id}" value="${touched ? v : 50}" class="${touched ? "" : "untouched"}">
+      <div class="ends"><span>${esc(it.lo)}</span><span class="val ${touched ? "" : "na"}" data-out="q-${it.id}">${touched ? v : "not answered"}</span><span>${esc(it.hi)}</span></div></div>`;
   }
   if (it.type === "likert") {
     return `<div class="q"><div class="ql" id="ql-${it.id}">${esc(it.q)}</div><div class="likert" role="group" aria-labelledby="ql-${it.id}">${
@@ -401,7 +499,7 @@ function qHTML(it, ans) {
     it.opts.map(([k, l]) => `<button type="button" data-pick="${it.id}|${k}" aria-pressed="${v === k}">${esc(l)}</button>`).join("")}</div></div>`;
 }
 
-/* ---------- feed ---------- */
+/* ---------- feed (placeholder playback with foreground-only timing) ---------- */
 function renderFeed(ph) {
   const i = S.impressions.length;
   if (i >= S.plan.length) { go("post"); return; }
@@ -412,199 +510,251 @@ function renderFeed(ph) {
     <div class="clip" id="clip">
       <div class="art" style="background:linear-gradient(160deg, hsl(${h1} 35% 22%), hsl(${h2} 45% 12%) 70%)"></div>
       <div class="plat">${esc(clip.platform.toUpperCase())}</div>
+      <div class="feedtop"><button type="button" id="b-upset">This upset me</button><button type="button" id="b-stop">Stop</button></div>
       <div class="stamp">PLACEHOLDER · CLIP ${esc(clip.id)}</div>
       <div class="big">${esc(clip.kind === "filler" ? clip.title : clip.title.split(":")[0])}</div>
       <div class="cap"><b>@sample_${esc(clip.id.toLowerCase())}</b><span>${esc(clip.title)}</span></div>
       <div class="rail">
         <button type="button" id="b-like" aria-pressed="false" aria-label="Like">♥</button><small>Like</small>
-        <button type="button" id="b-replay" aria-label="Watch again">↺</button><small>Again</small>
+        <button type="button" id="b-replay" aria-label="Watch again from the start">↺</button><small>Again</small>
         <button type="button" id="b-next" aria-label="Next video">↑</button><small>Next</small>
       </div>
       <div class="swipehint">Swipe up or press ↑ for the next video</div>
       <div class="vbar"><i id="vb"></i></div>
     </div></div>`;
-  feed = { clip, pos: i, shownAt: performance.now(), last: performance.now(), watched: 0, replays: 0, liked: false, raf: 0 };
+  feed = { clip, pos: i, shownAt: performance.now(), last: performance.now(), at: 0, played: 0, hiddenMs: 0, replays: 0, liked: false, paused: false, raf: 0 };
   const tick = now => {
     if (!feed) return;
-    const dt = now - feed.last; feed.last = now;
-    feed.watched += dt * S.speed;
-    const durMs = feed.clip.dur * 1000;
-    const loopPos = feed.watched % durMs;
-    if (Math.floor(feed.watched / durMs) > feed.loops) { feed.replays++; }
-    feed.loops = Math.floor(feed.watched / durMs);
-    const vb = $("#vb"); if (vb) vb.style.width = (loopPos / durMs * 100) + "%";
+    let dt = now - feed.last; feed.last = now;
+    if (document.hidden || dt > 250) { feed.hiddenMs += dt; dt = 0; }   // only foreground time counts as watching
+    if (!feed.paused) {
+      const step = dt * S.speed, durMs = feed.clip.dur * 1000;
+      feed.at += step; feed.played += step;
+      if (feed.at >= durMs) { feed.at -= durMs; feed.replays++; }        // a genuine loop
+      const vb = $("#vb"); if (vb) vb.style.width = (feed.at / durMs * 100) + "%";
+    }
     feed.raf = requestAnimationFrame(tick);
   };
-  feed.loops = 0;
   feed.raf = requestAnimationFrame(tick);
   $("#b-like").addEventListener("click", e => { feed.liked = !feed.liked; e.currentTarget.setAttribute("aria-pressed", String(feed.liked)); });
-  $("#b-replay").addEventListener("click", () => { feed.watched = Math.ceil(feed.watched / (feed.clip.dur * 1000)) * feed.clip.dur * 1000; });
+  $("#b-replay").addEventListener("click", () => { if (feed.at > 0) { feed.at = 0; feed.replays++; } });   // seek to zero
   $("#b-next").addEventListener("click", nextClip);
+  $("#b-upset").addEventListener("click", upset);
+  $("#b-stop").addEventListener("click", () => stopStudy("stop button"));
   let y0 = null;
   const el = $("#clip");
   el.addEventListener("pointerdown", e => { if (e.target.closest("button")) return; y0 = e.clientY; });
   el.addEventListener("pointerup", e => { if (y0 !== null && y0 - e.clientY > 50) nextClip(); y0 = null; });
   renderLive();
 }
-function nextClip() {
-  if (!feed) return;
-  const durMs = feed.clip.dur * 1000;
-  const pct = feed.watched / durMs;
-  S.impressions.push({ pos: feed.pos + 1, clipId: feed.clip.id, dwellMs: Math.round(performance.now() - feed.shownAt),
-    watchedS: +(feed.watched / 1000).toFixed(1), pctWatched: +pct.toFixed(2), replays: feed.replays, liked: feed.liked,
-    skipped: pct < 0.5, adaptivePick: !!S.plan[feed.pos].adaptivePick });
-  stopFeed();
-  renderPhone();
+function logImpression() {
+  const pct = feed.played / (feed.clip.dur * 1000);
+  S.impressions.push({ pos: feed.pos + 1, clipId: feed.clip.id, policy: S.policy, adaptivePick: !!S.plan[feed.pos].adaptivePick,
+    dwellMs: Math.round(performance.now() - feed.shownAt), foregroundMs: Math.round(performance.now() - feed.shownAt - feed.hiddenMs),
+    watchedS: +(feed.played / 1000).toFixed(1), pctWatched: +pct.toFixed(2), replays: feed.replays, liked: feed.liked, skipped: pct < 0.5 });
 }
+function nextClip() { if (!feed || feed.paused) return; logImpression(); stopFeed(); renderPhone(); }
 function stopFeed() { if (feed) cancelAnimationFrame(feed.raf); feed = null; }
-document.addEventListener("keydown", e => {
-  if (screen !== "feed" || !feed) return;
-  if (e.key === "ArrowUp" || e.key === "PageDown") { e.preventDefault(); nextClip(); }
-});
+function upset() {
+  feed.paused = true;
+  S.events.push({ type: "distress", clipId: feed.clip.id, pos: feed.pos + 1, t: Date.now() });
+  const n = S.events.filter(e => e.type === "distress").length;
+  const ov = document.createElement("div");
+  ov.className = "overlay";
+  ov.innerHTML = `<h2>Thanks for telling us</h2>
+    <p>${n >= 2 ? "You have told us twice that videos upset you. We suggest stopping here. A researcher can call you back if you would like." : "What would you like to do?"}</p>
+    <div class="warnbox">Support contacts in Hebrew, Arabic and English go here.</div>
+    <button class="pbtn" id="ov-skip">Skip this video</button>
+    <button class="pbtn ghost" id="ov-break">Take a break, then continue</button>
+    <button class="pbtn ghost" id="ov-stop">Stop the study</button>`;
+  $("#phone .screen").appendChild(ov);
+  $("#ov-skip").addEventListener("click", () => { feed.paused = false; nextClip(); });
+  $("#ov-break").addEventListener("click", () => { ov.remove(); feed.paused = false; });
+  $("#ov-stop").addEventListener("click", () => stopStudy("distress"));
+  renderLive();
+}
+function stopStudy(reason) {
+  if (feed) { feed.paused = false; logImpression(); }
+  S.stoppedEarly = true; S.events.push({ type: "stop", reason, t: Date.now() });
+  stopFeed(); go("debrief");
+}
+document.addEventListener("keydown", e => { if (screen === "feed" && feed && (e.key === "ArrowUp" || e.key === "PageDown")) { e.preventDefault(); nextClip(); } });
 
+/* ---------- debrief: seven parts, same structure for every arm ---------- */
 function renderDebrief(ph) {
   const c = CONDITIONS[S.cond];
+  const seenPX = S.impressions.map(im => CLIPS.find(x => x.id === im.clipId)).filter(x => x && x.frame === "paradoxical");
+  const adaptiveSeen = S.impressions.some(im => im.adaptivePick);
+  const part = (n, t, body) => `<div class="dbpart"><span class="n">${n} OF 7</span><b>${t}</b>${body}</div>`;
   ph.innerHTML = `<div class="screen"><div class="scroll">
-    <div class="eyebrow" style="color:var(--scr-muted)">Debrief</div>
-    <h2>Thank you. Here is what this study was about.</h2>
-    <p>We are studying whether the order and mix of short videos changes how people feel about Israelis and Palestinians and which solutions they support.</p>
-    <p>You were randomly assigned to the <b style="color:var(--scr-ink)">${esc(c.label)}</b> group. ${esc(c.desc)}</p>
-    <p>The researchers chose the videos and their order in advance; no platform algorithm was involved. ${S.cond === "paradoxical" ? "Some videos made deliberately exaggerated claims. They do not represent the researchers' views or established facts." : ""}</p>
-    <div class="warnbox">If anything in the videos upset you, support contacts go here (local helplines in Hebrew, Arabic and English).</div>
-    <p>You can withdraw now and your answers will be deleted.</p>
-  </div><div class="bar-foot"><button class="pbtn ghost" id="wd">Delete my answers</button><button class="pbtn" id="again">Start a new participant</button></div></div>`;
-  $("#wd").addEventListener("click", () => { sessions = sessions.filter(x => x.pid !== S.pid); saveAll(); $("#wd").textContent = "Your answers were deleted"; $("#wd").disabled = true; renderResults(); });
-  $("#again").addEventListener("click", newSession);
+    <div class="eyebrow" style="color:var(--scr-muted)">${S.stoppedEarly ? "You stopped early. Thank you." : "Debrief"}</div>
+    <h2>What this study was about</h2>
+    ${part(1, "What we did", `<p>We are testing whether the mix and order of short videos changes how people feel about Jewish Israelis and Palestinians, and which solutions they support. You were randomly placed in the <b style="color:var(--scr-ink)">${esc(c.label)}</b> group${c.intent ? `, which was designed to ${esc(c.intent)}` : ", which showed unrelated videos for comparison"}. The researchers chose the videos and their order.${adaptiveSeen ? " In your session, some videos were picked while you watched, based on how you responded to earlier videos, within the researchers' plan." : ""}</p>`)}
+    ${part(2, "Why impressions can last", `<p>Feelings formed while watching can persist even after you learn how the videos were chosen. Knowing this tends to weaken the effect.</p>`)}
+    ${part(3, "Corrections", seenPX.length ? `<p>These videos made deliberately exaggerated claims that do not reflect facts or the researchers' views:</p><ul>${seenPX.map(x => `<li>${esc(x.title)}: correction and source go here.</li>`).join("")}</ul>` : `<p>None of the videos you saw were designed to contain false or exaggerated claims.</p>`)}
+    ${part(4, "A balanced overview", `<p>Link to a short, balanced summary of the main positions goes here.</p>`)}
+    ${part(5, "How are you feeling?", `<div class="warnbox">If anything upset you, support contacts in Hebrew, Arabic and English go here.</div>`)}
+    ${part(6, "Your data", `<p>Now that you know the full purpose, you can keep or delete your answers. Your withdrawal code:</p><div class="code">${esc(S.withdrawCode)}</div>
+      <div class="opts"><button type="button" id="keep" aria-pressed="false">Keep my answers</button><button type="button" id="del" aria-pressed="false">Delete my answers</button></div>`)}
+    ${part(7, "One last check", `<p>We will ask four short questions again, to see where your views stand after this explanation.</p>`)}
+  </div><div class="bar-foot"><button class="pbtn" id="db-go" disabled>Continue</button></div></div>`;
+  $("#keep").addEventListener("click", () => { $("#keep").setAttribute("aria-pressed", "true"); $("#del").setAttribute("aria-pressed", "false"); S.reconsent = true; $("#db-go").disabled = false; });
+  $("#del").addEventListener("click", () => { $("#del").setAttribute("aria-pressed", "true"); $("#keep").setAttribute("aria-pressed", "false"); S.reconsent = false; $("#db-go").disabled = false; });
+  $("#db-go").addEventListener("click", () => {
+    if (S.reconsent === false) { sessions = sessions.filter(x => x.pid !== S.pid); saveAll(); renderResults(); go("done"); return; }
+    go("redo");
+  });
 }
 
 function go(next) { screen = next; renderPhone(); renderLive(); }
 function commitSession() { sessions = sessions.filter(x => x.pid !== S.pid); sessions.push(JSON.parse(JSON.stringify(S))); saveAll(); renderResults(); }
 
-/* ===================== KPIs ===================== */
+/* ---------- KPIs ---------- */
 function kpis(s) {
-  const ident = s.identity || s.pre.identity;
-  const og = ident === "israeli" ? "pal" : ident === "palestinian" ? "isr" : null;
-  const ig = og === "pal" ? "isr" : og === "isr" ? "pal" : null;
-  const gap = a => ig ? a["therm_" + ig] - a["therm_" + og] : Math.abs(a.therm_isr - a.therm_pal);
-  const d = k => (s.post[k] !== undefined && s.pre[k] !== undefined) ? s.post[k] - s.pre[k] : null;
+  const ig = ingroupOf(s.stratum), og = ig === "isr" ? "pal" : ig === "pal" ? "isr" : null;
+  const d = (a, b, k) => (a[k] !== undefined && b[k] !== undefined) ? b[k] - a[k] : null;
+  const hopeOf = a => mean(HOPE.map(k => a[k]));
+  const humGap = a => ig ? (a["hum_" + ig] ?? NaN) - (a["hum_" + og] ?? NaN) : Math.abs((a.hum_isr ?? NaN) - (a.hum_pal ?? NaN));
+  const warmOut = a => og ? a["therm_" + og] : mean([a.therm_isr, a.therm_pal]);
   const im = s.impressions || [];
-  return {
-    outgroup: og ? (og === "pal" ? "Palestinians" : "Israelis") : "both groups (no ingroup)",
-    warmthOut: og ? d("therm_" + og) : (d("therm_isr") + d("therm_pal")) / 2,
-    gap: (s.post.therm_isr !== undefined) ? gap(s.post) - gap(s.pre) : null,
-    humanOut: og ? d("hum_" + og) : (d("hum_isr") + d("hum_pal")) / 2,
-    sup_two: d("sup_two"), sup_confed: d("sup_confed"), sup_one: d("sup_one"), sup_annex: d("sup_annex"), hope: d("hope"),
-    clips: im.length,
-    pctWatched: im.length ? im.reduce((a, x) => a + Math.min(1, x.pctWatched), 0) / im.length : null,
-    likes: im.filter(x => x.liked).length, skips: im.filter(x => x.skipped).length, replays: im.reduce((a, x) => a + x.replays, 0),
-    attnOk: s.pre.attn === 3 && s.post.attn2 === 3,
-    manipOk: expectedManip(s.cond) === null ? null : s.post.manip === expectedManip(s.cond),
-    speeding: (s.surveyMs && s.surveyMs.post !== undefined) ? s.surveyMs.post < 20000 : null
+  const g = (x, y) => (x === null || x === undefined || y === null || y === undefined || Number.isNaN(x) || Number.isNaN(y)) ? null : y - x;
+  const k = {
+    outgroup: og ? TARGETS[og] : "both groups",
+    warmthOut: g(warmOut(s.pre), warmOut(s.post)),
+    humGap: g(humGap(s.pre), humGap(s.post)),
+    hope: g(hopeOf(s.pre), hopeOf(s.post)),
+    redoWarmth: s.redo && Object.keys(s.redo).length ? g(warmOut(s.post), warmOut(s.redo)) : null,
+    clips: im.length, pctWatched: mean(im.map(x => Math.min(1, x.pctWatched))),
+    foregroundS: im.reduce((a, x) => a + (x.foregroundMs || 0), 0) / 1000,
+    likes: im.filter(x => x.liked).length, skips: im.filter(x => x.skipped).length,
+    distress: (s.events || []).filter(e => e.type === "distress").length, stopped: !!s.stoppedEarly,
+    attnOk: s.pre.attn === 3,
+    manipOk: expectedManip(s.cond) === null ? null : (s.post.manip === undefined ? null : s.post.manip === expectedManip(s.cond)),
+    implausible: im.some(x => x.foregroundMs !== undefined && x.watchedS * 1000 / (s.speed || 1) > x.foregroundMs + 500)
   };
+  for (const [id] of SOLUTIONS) k[id] = d(s.pre, s.post, id);
+  return k;
 }
+const beyond = (v, kind) => v !== null && v !== undefined && Math.abs(v) >= rciBar(kind);
 
-/* ===================== console panes ===================== */
-function slotHTML(spec, i, state) {
-  const t = spec === "F" ? "F" : (spec.frame === "paradoxical" ? "PX" : (spec.frame === "personal" ? "S" : "T") + (spec.persp ? spec.persp[0].toUpperCase() : ""));
-  return `<span class="slot ${spec === "F" ? "f" : "t"} ${state || ""}" title="${spec === "F" ? "Filler" : esc(JSON.stringify(spec))}">${t}</span>`;
-}
+/* ---------- console ---------- */
 function renderDesign() {
   const p = $("#pane-design");
+  const avgRuntime = k => { const c = CONDITIONS[k]; const tgt = c.targets.length ? mean(c.targets.map(sp => mean(CLIPS.filter(x => { if (x.graphic > GRAPHIC_CAP) return false; if (x.kind !== "target") return false; return Object.entries(sp).every(([a, v]) => a === "aud" || x[a] === v); }).map(x => x.dur)))) : 0; const fil = mean(CLIPS.filter(x => x.kind === "filler").map(x => x.dur)); return Math.round(c.targets.length * tgt + (8 - c.targets.length) * fil); };
   p.innerHTML = `
   <div class="card"><h3>Conditions</h3>
-    <p class="note">Each condition is a fixed list of 8 slots. A slot names the kind of clip that goes there (F = filler; T/S + I, P or B = target clip, story, Israeli / Palestinian / both; PX = paradoxical). Clips are drawn at random within each slot, so every participant sees a different but equivalent sequence.</p>
-    ${COND_KEYS.map(k => { const c = CONDITIONS[k]; return `<div class="cond"><span class="sw" style="background:${c.color}"></span><div><b>${esc(c.label)}</b><p>${esc(c.desc)}</p><div class="slots" style="margin-top:6px">${c.slots.map((s, i) => slotHTML(s, i)).join("")}</div></div></div>`; }).join("")}
+    <p class="note">Every treatment arm shows 4 topic clips and 4 fillers. Where the topic clips go rotates through 4 position patterns, so no clip type always sits first or last. Clips are drawn at random within each slot, from clips rated at or below graphicness ${GRAPHIC_CAP} of 3.</p>
+    ${COND_KEYS.map(k => { const c = CONDITIONS[k]; return `<div class="cond"><span class="sw" style="background:${c.color}"></span><div><b>${esc(c.label)}</b><p>${esc(c.desc)}</p>
+      <p class="note">Eligible groups: ${c.eligible.map(e => esc(STRATA[e])).join(", ")} · expected runtime about ${avgRuntime(k)} s</p>
+      <div class="slots" style="margin-top:6px">${(k === "control" ? "FFFFFFFF" : PATTERNS[0]).split("").map((ch, i) => {
+        if (ch === "F") return `<span class="slot f">F</span>`;
+        const idx = (k === "control" ? "" : PATTERNS[0]).slice(0, i).split("").filter(x => x === "T").length; const sp = c.targets[idx];
+        const t = sp.frame === "paradoxical" ? "PX" : (sp.frame === "personal" ? "S" : "T") + (sp.persp ? sp.persp[0].toUpperCase() : "");
+        return `<span class="slot t" title="${esc(JSON.stringify(sp))}">${t}</span>`; }).join("")}</div></div></div>`; }).join("")}
+    <p class="note">Slot codes: F filler · T + I/P topic clip from an Israeli or Palestinian perspective · S personal story · PX paradoxical stimulus matched to the participant's own side. Pattern shown: rotation 1 of 4.</p>
   </div>
-  <div class="card"><h3>Assignment and playback</h3>
+  <div class="card"><h3>Randomisation and playback</h3>
     <div class="ctl">
-      <label for="set-force">Next participant's condition
-        <select id="set-force"><option value="auto">Random (blocks of 4)</option>${COND_KEYS.map(k => `<option value="${k}">${esc(CONDITIONS[k].label)}</option>`).join("")}</select></label>
-      <label for="set-adapt"><input type="checkbox" id="set-adapt"> Adaptive sequencing</label>
+      <label for="set-force">Assignment
+        <select id="set-force"><option value="auto">Random, after the baseline survey</option>${COND_KEYS.map(k => `<option value="${k}">Test mode: always ${esc(CONDITIONS[k].label)}</option>`).join("")}</select></label>
+      <label for="set-adapt">Adaptive sequencing
+        <select id="set-adapt"><option value="random">Randomised (half the sessions)</option><option value="off">Off for everyone</option><option value="on">On for everyone</option></select></label>
       <label for="set-speed">Playback speed
         <select id="set-speed"><option value="1">Real time</option><option value="5">5× (demo)</option><option value="15">15× (quick test)</option></select></label>
     </div>
-    <p class="note">Random assignment uses permuted blocks, so every 4 participants include one of each condition. Adaptive sequencing fills target slots during the session with the emotion the participant engaged with most, the way a recommender would. It stays inside the condition's constraints.</p>
-    <div class="row"><button class="btn primary" type="button" id="new-p">Start a new participant</button><span class="note">Changes apply to the next participant.</span></div>
+    <p class="note">Each participant is randomised after the baseline survey, within their group, using permuted blocks over the arms that group is eligible for. Test mode is marked on the session and shown in red. Adaptive sequencing (policy adaptive-v1) is its own randomised factor. It ranks the remaining topic clips by the emotion the participant engaged with most among topic clips only, and never puts two high-arousal clips in a row.</p>
+    <p class="note">The full study adds a baseline wave a week earlier, a follow-up 1–2 weeks later with a second debrief, and server-side storage. This prototype runs one sitting in the browser.</p>
+    <div class="row"><button class="btn primary" type="button" id="new-p">Start a new participant</button><span class="note">Settings apply to the next participant.</span></div>
   </div>`;
-  $("#set-force").value = settings.force; $("#set-adapt").checked = settings.adaptive; $("#set-speed").value = String(settings.speed);
+  $("#set-force").value = settings.force; $("#set-adapt").value = settings.adaptive; $("#set-speed").value = String(settings.speed);
   $("#set-force").addEventListener("change", e => { settings.force = e.target.value; saveAll(); });
-  $("#set-adapt").addEventListener("change", e => { settings.adaptive = e.target.checked; saveAll(); });
+  $("#set-adapt").addEventListener("change", e => { settings.adaptive = e.target.value; saveAll(); });
   $("#set-speed").addEventListener("change", e => { settings.speed = +e.target.value; saveAll(); });
   $("#new-p").addEventListener("click", newSession);
 }
 function renderClips() {
-  const p = $("#pane-clips");
-  p.innerHTML = `<div class="card"><h3>Clip codebook (${CLIPS.length} placeholder clips)</h3>
-    <p class="note">Every clip in a real study would be collected with its source metadata, coded by two trained coders (with Krippendorff's alpha reported), and approved by the ethics committee before it enters a condition. These rows show the coding fields only.</p>
-    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Use</th><th>Perspective</th><th>Frame</th><th>Emotion</th><th>Source</th><th>Platform</th><th>Lang</th><th class="n">Secs</th><th>Graphic</th><th>Description</th></tr></thead><tbody>
-    ${CLIPS.map(c => `<tr><td class="mono">${c.id}</td><td>${c.kind}</td><td>${c.persp}</td><td>${c.frame}</td><td>${c.emotion}</td><td>${c.source}</td><td>${c.platform}</td><td>${c.lang}</td><td class="n">${c.dur}</td><td>${c.graphic ? "yes" : "no"}</td><td>${esc(c.title)}</td></tr>`).join("")}
+  $("#pane-clips").innerHTML = `<div class="card"><h3>Clip codebook (${CLIPS.length} placeholder clips)</h3>
+    <p class="note">In a real study each clip is commissioned or licensed, stored with its provenance and file hash, subtitled in Hebrew, Arabic and English, and coded by two trained coders. Condition-defining fields (perspective, frame, graphicness) need Krippendorff's α of at least .80. Clips rated above ${GRAPHIC_CAP} on graphicness are excluded from every arm.</p>
+    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Use</th><th>Perspective</th><th>Frame</th><th>Audience</th><th>Emotion</th><th class="n">Graphic 0–3</th><th>Source</th><th>Rights</th><th>Lang</th><th>Subtitles</th><th class="n">Secs</th><th>Description</th></tr></thead><tbody>
+    ${CLIPS.map(c => `<tr><td class="mono">${c.id}</td><td>${c.kind}</td><td>${c.persp}</td><td>${c.frame}</td><td>${c.aud || "—"}</td><td>${c.emotion}</td><td class="n">${c.graphic}</td><td>${c.source}</td><td>${c.rights}</td><td>${c.lang}</td><td>${c.subs.join(" ")}</td><td class="n">${c.dur}</td><td>${esc(c.title)}</td></tr>`).join("")}
     </tbody></table></div></div>`;
 }
 function renderLive() {
   const p = $("#pane-live");
-  if (!S) { p.innerHTML = `<div class="card"><p class="empty">No participant yet.</p></div>`; return; }
-  const c = CONDITIONS[S.cond];
+  if (!S) { p.innerHTML = `<div class="card"><p class="empty">The last participant was routed out at screening. No data was kept. Start a new participant from Study design.</p></div>`; return; }
   const i = S.impressions.length;
-  const stage = { consent: "Consent", declined: "Declined", pre: "Pre-survey", feed: `Feed, clip ${Math.min(i + 1, S.plan.length)} of ${S.plan.length}`, post: "Post-survey", debrief: "Debrief" }[screen];
-  p.innerHTML = `<div class="card"><div class="row"><h3>${esc(S.pid)}</h3><span class="chip"><i style="background:${c.color}"></i>${esc(c.label)}</span><span class="chip">${S.adaptive ? "Adaptive" : "Fixed"} sequence</span><span class="chip">${esc(stage)}</span></div>
-    <div><div class="eyebrow">Planned sequence</div><div class="slots" style="margin-top:6px">${S.plan.map((s, k) => {
+  const stage = { consent: "Consent", declined: "Declined", screen: "Screening", pre: "Baseline survey", feed: `Feed, clip ${Math.min(i + 1, 8)} of 8`, post: "Post-survey", debrief: "Debrief", redo: "Post-debrief check", done: "Finished" }[screen] || screen;
+  const c = S.cond ? CONDITIONS[S.cond] : null;
+  p.innerHTML = `<div class="card"><div class="row"><h3>${esc(S.pid)}</h3>
+      ${c ? `<span class="chip"><i style="background:${c.color}"></i>${esc(c.label)}</span>` : `<span class="chip">Assigned after baseline</span>`}
+      ${S.stratum ? `<span class="chip">${esc(STRATA[S.stratum])}</span>` : ""}
+      ${S.policy ? `<span class="chip">Policy: ${esc(S.policy)}</span>` : ""}
+      ${S.forced ? `<span class="chip testmode">Test mode</span>` : ""}
+      <span class="chip">${esc(stage)}</span></div>
+    ${S.plan.length ? `<div><div class="eyebrow">Sequence · rotation ${S.pattern + 1} · about ${runtime(S.plan)} s</div><div class="slots" style="margin-top:6px">${S.plan.map((s, k) => {
       const st = k < i ? "seen" : (k === i && screen === "feed") ? "now" : "";
-      return `<span class="slot ${s.spec === "F" ? "f" : "t"} ${st}" title="${esc(s.clip || "chosen at run time")}">${esc(s.clip || "?")}</span>`; }).join("")}</div></div>
+      return `<span class="slot ${s.spec === "F" ? "f" : "t"} ${st}" title="${esc(s.clip || "chosen at run time")}">${esc(s.clip || "?")}</span>`; }).join("")}</div></div>` : `<p class="note">The sequence is built after randomisation, once the baseline survey is complete.</p>`}
   </div>
   <div class="card"><h3>Viewing log</h3>
-    ${i ? `<div class="tbl-wrap"><table><thead><tr><th class="n">#</th><th>Clip</th><th class="n">Dwell (s)</th><th class="n">Watched (s)</th><th class="n">% of clip</th><th class="n">Replays</th><th>Liked</th><th>Skipped</th></tr></thead><tbody>
-      ${S.impressions.map(r => `<tr><td class="n">${r.pos}</td><td class="mono">${r.clipId}${r.adaptivePick ? " ·a" : ""}</td><td class="n">${fmt(r.dwellMs / 1000, 1)}</td><td class="n">${fmt(r.watchedS, 1)}</td><td class="n">${fmt(r.pctWatched * 100)}%</td><td class="n">${r.replays}</td><td>${r.liked ? "yes" : "no"}</td><td>${r.skipped ? "yes" : "no"}</td></tr>`).join("")}
-      </tbody></table></div>` : `<p class="empty">Each video the participant sees is logged here: time on screen, how much of it played, replays, likes and skips (under 50% watched). ".a" marks a clip picked by adaptive sequencing.</p>`}
+    ${i ? `<div class="tbl-wrap"><table><thead><tr><th class="n">#</th><th>Clip</th><th>Policy</th><th class="n">On screen (s)</th><th class="n">Foreground (s)</th><th class="n">Played (s)</th><th class="n">% of clip</th><th class="n">Replays</th><th>Liked</th><th>Skipped</th></tr></thead><tbody>
+      ${S.impressions.map(r => `<tr><td class="n">${r.pos}</td><td class="mono">${r.clipId}${r.adaptivePick ? " ·a" : ""}</td><td>${esc(r.policy)}</td><td class="n">${fmt(r.dwellMs / 1000, 1)}</td><td class="n">${fmt(r.foregroundMs / 1000, 1)}</td><td class="n">${fmt(r.watchedS, 1)}</td><td class="n">${fmt(r.pctWatched * 100)}%</td><td class="n">${r.replays}</td><td>${r.liked ? "yes" : "no"}</td><td>${r.skipped ? "yes" : "no"}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="empty">Each video is logged here: time on screen, time with the tab in the foreground, playback time at the chosen speed, replays, likes and skips (under 50% played). ".a" marks a clip chosen by adaptive sequencing.</p>`}
+    ${(S.events || []).length ? `<p class="note">Welfare events: ${S.events.map(e => esc(e.type + (e.clipId ? " at " + e.clipId : "") + (e.reason ? " (" + e.reason + ")" : ""))).join(", ")}</p>` : ""}
   </div>`;
 }
 function kpiCards(k) {
-  const cell = (label, v, d, sub) => `<div class="kpi"><div class="v ${v > 0 ? "up" : v < 0 ? "down" : ""}">${sgn(v, d)}</div><div class="l">${esc(label)}</div>${sub ? `<div class="s">${esc(sub)}</div>` : ""}</div>`;
-  return `<div class="kpis">
-    ${cell("Warmth toward " + k.outgroup, k.warmthOut, 0, "thermometer, 0–100")}
-    ${cell("Ingroup–outgroup warmth gap", k.gap, 0, "lower = less polarized")}
-    ${cell("Humanity rating, outgroup", k.humanOut, 0, "0–100")}
-    ${cell("Hope for a peaceful end", k.hope, 0, "1–7")}
-    ${cell("Support: two states", k.sup_two, 0, "1–7")}
-    ${cell("Support: confederation", k.sup_confed, 0, "1–7")}
-    ${cell("Support: one equal state", k.sup_one, 0, "1–7")}
-    ${cell("Support: annexation", k.sup_annex, 0, "1–7")}
-  </div>
+  const cell = (label, v, kind, d, sub) => `<div class="kpi"><div class="v delta">${delta(v, d)}${beyond(v, kind) ? '<span class="rc" title="Larger than the reliable-change bar">beyond noise</span>' : ""}</div><div class="l">${esc(label)}</div><div class="s">${esc(sub)}</div></div>`;
+  return `<div class="eyebrow">Exposure, quality and welfare</div>
   <div class="row">
-    <span class="flag">${k.clips} clips · ${fmt((k.pctWatched ?? 0) * 100)}% watched · ${k.likes} likes · ${k.skips} skips · ${k.replays} replays</span>
-    <span class="flag ${k.attnOk ? "ok" : "no"}">Attention checks</span>
+    <span class="flag">${k.clips} clips · ${fmt((k.pctWatched ?? 0) * 100)}% played · ${fmt(k.foregroundS, 0)} s in foreground · ${k.likes} likes · ${k.skips} skips</span>
+    <span class="flag ${k.attnOk ? "ok" : "no"}">Baseline attention check</span>
     ${k.manipOk === null ? `<span class="flag">Manipulation check n/a</span>` : `<span class="flag ${k.manipOk ? "ok" : "no"}">Manipulation check</span>`}
-    ${k.speeding === null ? "" : `<span class="flag ${k.speeding ? "no" : "ok"}">${k.speeding ? "Post-survey under 20 s" : "Survey timing"}</span>`}
-  </div>`;
+    <span class="flag ${k.implausible ? "no" : "ok"}">Telemetry plausible</span>
+    <span class="flag ${k.distress || k.stopped ? "no" : "ok"}">${k.distress} distress report${k.distress === 1 ? "" : "s"}${k.stopped ? ", stopped early" : ""}</span>
+  </div>
+  <div class="eyebrow" style="margin-top:6px">Change from before to after the videos (descriptive)</div>
+  <div class="kpis">
+    ${cell("Warmth toward " + k.outgroup, k.warmthOut, "slider", 0, `thermometer · bar ±${fmt(rciBar("slider"))}`)}
+    ${cell("Humanity gap (own group minus other)", k.humGap, "slider", 0, `0–100 · bar ±${fmt(rciBar("slider"))}`)}
+    ${cell("Hope (3-item mean)", k.hope, "likert", 1, `1–7 · bar ±${fmt(rciBar("likert"), 1)}`)}
+    ${SOLUTIONS.map(([id, label]) => cell("Support: " + label.split(":")[0].replace(/ without.*/, " (without equal rights)"), k[id], "likert", 0, `1–7 · bar ±${fmt(rciBar("likert"), 1)}`)).join("")}
+  </div>
+  ${k.redoWarmth !== null ? `<p class="note">After the debrief, warmth toward ${esc(k.outgroup)} moved ${esc(delta(k.redoWarmth))} relative to the post-survey.</p>` : ""}`;
 }
 function renderResults() {
   const p = $("#pane-results");
   const real = sessions.filter(s => !s.example);
+  const pool = real.length ? real : sessions.filter(s => s.example);
+  const usingExamples = !real.length && pool.length;
   const latest = real[real.length - 1];
-  const byCond = COND_KEYS.map(k => {
-    const xs = sessions.filter(s => s.cond === k).map(kpis);
-    const m = f => xs.length ? xs.reduce((a, x) => a + (x[f] ?? 0), 0) / xs.length : null;
-    return { k, n: xs.length, warmth: m("warmthOut"), gap: m("gap"), human: m("humanOut"), two: m("sup_two"), hope: m("hope") };
-  });
+  const rows = [];
+  for (const st of Object.keys(STRATA)) for (const ck of COND_KEYS) {
+    const xs = pool.filter(s => s.stratum === st && s.cond === ck).map(kpis);
+    if (!xs.length) continue;
+    rows.push({ st, ck, n: xs.length, w: mean(xs.map(x => x.warmthOut)), g: mean(xs.map(x => x.humGap)), h: mean(xs.map(x => x.hope)), two: mean(xs.map(x => x.sup_two)) });
+  }
   p.innerHTML = `
   <div class="card"><h3>Latest participant</h3>
-    ${latest ? `<div class="row"><b class="mono">${esc(latest.pid)}</b><span class="chip"><i style="background:${CONDITIONS[latest.cond].color}"></i>${esc(CONDITIONS[latest.cond].label)}</span><span class="note">Change from pre to post survey</span></div>${kpiCards(kpis(latest))}`
-      : `<p class="empty">Complete one run on the phone to see that participant's KPIs here: changes in warmth, the warmth gap, humanity ratings, hope and support for each solution, plus engagement and data-quality checks.</p>`}
-    <p class="note">One person's change score is noisy: a 0–100 thermometer moves several points between two sittings even with no intervention. Treat these as data-quality and engagement checks per person, and estimate effects by comparing conditions.</p>
+    ${latest ? `<div class="row"><b class="mono">${esc(latest.pid)}</b><span class="chip"><i style="background:${CONDITIONS[latest.cond].color}"></i>${esc(CONDITIONS[latest.cond].label)}</span><span class="chip">${esc(STRATA[latest.stratum])}</span><span class="chip">${esc(latest.policy)}</span>${latest.forced ? '<span class="chip testmode">Test mode</span>' : ""}</div>${kpiCards(kpis(latest))}`
+      : `<p class="empty">Finish one run on the phone to see that participant's KPIs: exposure, data quality and welfare first, then descriptive attitude change.</p>`}
+    <p class="note">Per-person KPIs check that the videos were delivered, the data is usable and the participant is OK. Attitude changes are shown without good/bad colouring. "Beyond noise" means the change is larger than the reliable-change bar (default SD 25 and r = .80 for sliders; replace with values from the control arm). Effects are estimated by comparing conditions, not people.</p>
   </div>
-  <div class="card"><h3>By condition</h3>
-    <div class="tbl-wrap"><table><thead><tr><th>Condition</th><th class="n">n</th><th class="n">Δ outgroup warmth</th><th class="n">Δ warmth gap</th><th class="n">Δ humanity</th><th class="n">Δ two states</th><th class="n">Δ hope</th></tr></thead><tbody>
-    ${byCond.map(r => `<tr><td><span class="chip"><i style="background:${CONDITIONS[r.k].color}"></i>${esc(CONDITIONS[r.k].label)}</span></td><td class="n">${r.n}</td><td class="n">${sgn(r.warmth, 1)}</td><td class="n">${sgn(r.gap, 1)}</td><td class="n">${sgn(r.human, 1)}</td><td class="n">${sgn(r.two, 2)}</td><td class="n">${sgn(r.hope, 2)}</td></tr>`).join("")}
-    </tbody></table></div>
-    ${sessions.some(s => s.example) ? `<p class="note"><span class="ex">EXAMPLE</span> Rows marked as examples are random numbers so the tables have something to show. They are not results. <button class="btn" type="button" id="clear-ex">Remove examples</button></p>` : ""}
+  <div class="card"><h3>By group and condition</h3>
+    ${usingExamples ? `<p class="note"><span class="ex">EXAMPLE</span> No real sessions yet, so these rows use labelled example data with random numbers. They are not results.</p>` : ""}
+    ${rows.length ? `<div class="tbl-wrap"><table><thead><tr><th>Group</th><th>Condition</th><th class="n">n</th><th class="n">Mean Δ warmth to outgroup</th><th class="n">Mean Δ humanity gap</th><th class="n">Mean Δ hope</th><th class="n">Mean Δ two states</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td>${esc(STRATA[r.st])}</td><td><span class="chip"><i style="background:${CONDITIONS[r.ck].color}"></i>${esc(CONDITIONS[r.ck].label)}</span></td><td class="n">${r.n}</td><td class="n">${delta(r.w, 1)}</td><td class="n">${delta(r.g, 1)}</td><td class="n">${delta(r.h, 2)}</td><td class="n">${delta(r.two, 2)}</td></tr>`).join("")}
+      </tbody></table></div>` : `<p class="empty">No sessions yet.</p>`}
+    <p class="note">Raw mean changes are for monitoring only. The analysis estimates each arm's effect against control with ANCOVA (post-score adjusted for baseline), with confidence intervals, separately for each group. Missing answers are left out, not counted as zero.</p>
   </div>
   <div class="card"><h3>All participants</h3>
-    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Condition</th><th>Identity</th><th class="n">Δ warmth</th><th class="n">Δ gap</th><th class="n">Δ humanity</th><th class="n">% watched</th><th>Checks</th></tr></thead><tbody>
-    ${sessions.slice().reverse().map(s => { const k = kpis(s); return `<tr><td class="mono">${esc(s.pid)} ${s.example ? '<span class="ex">EXAMPLE</span>' : ""}</td><td>${esc(CONDITIONS[s.cond].label)}</td><td>${esc(s.identity || "—")}</td><td class="n">${sgn(k.warmthOut)}</td><td class="n">${sgn(k.gap)}</td><td class="n">${sgn(k.humanOut)}</td><td class="n">${fmt((k.pctWatched ?? 0) * 100)}%</td><td>${k.attnOk ? "pass" : "fail"}</td></tr>`; }).join("")}
+    <div class="tbl-wrap"><table><thead><tr><th>ID</th><th>Group</th><th>Condition</th><th>Policy</th><th class="n">Δ warmth</th><th class="n">Δ humanity gap</th><th class="n">% played</th><th>Attention</th><th>Welfare</th></tr></thead><tbody>
+    ${sessions.slice().reverse().map(s => { const k = kpis(s); return `<tr><td class="mono">${esc(s.pid)} ${s.example ? '<span class="ex">EXAMPLE</span>' : ""}${s.forced ? ' <span class="testmode">test</span>' : ""}</td><td>${esc(STRATA[s.stratum] || "—")}</td><td>${esc(CONDITIONS[s.cond].label)}</td><td>${esc(s.policy || "—")}</td><td class="n">${delta(k.warmthOut)}</td><td class="n">${delta(k.humGap)}</td><td class="n">${fmt((k.pctWatched ?? 0) * 100)}%</td><td>${k.attnOk ? "pass" : "fail"}</td><td>${k.distress ? k.distress + " report(s)" : "—"}${k.stopped ? ", stopped" : ""}</td></tr>`; }).join("")}
     </tbody></table></div>
+    ${sessions.some(s => s.example) ? `<button class="btn" type="button" id="clear-ex">Remove examples</button>` : ""}
   </div>
   <div class="card"><h3>Export</h3>
-    <p class="note">One JSON record per participant: condition, sequence, every impression and both surveys. In a real deployment this goes to the university's secure server, not the browser.</p>
-    <textarea id="export" readonly aria-label="Exported data">${esc(JSON.stringify(sessions.filter(s => !s.example), null, 1))}</textarea>
+    <p class="note">One JSON record per participant: group, condition, policy, sequence, every impression, welfare events and all three surveys. In the real study this goes to a server-side, append-only store with salted-hash IDs.</p>
+    <textarea id="export" readonly aria-label="Exported data">${esc(JSON.stringify(real, null, 1))}</textarea>
     <div class="row"><button class="btn" type="button" id="copy">Copy JSON</button><span class="note" id="copy-msg"></span></div>
   </div>`;
   const ce = $("#clear-ex"); if (ce) ce.addEventListener("click", () => { sessions = sessions.filter(s => !s.example); saveAll(); renderResults(); });
@@ -617,20 +767,26 @@ function renderResults() {
 function exampleSessions() {
   const r = rng(20261107);
   const out = [];
-  for (let n = 0; n < 12; n++) {
-    const cond = COND_KEYS[n % 4];
-    const ident = ["israeli", "palestinian", "neither"][Math.floor(r() * 3)];
-    const pre = { identity: ident, therm_isr: Math.round(20 + r() * 70), therm_pal: Math.round(20 + r() * 70), hum_isr: Math.round(70 + r() * 30), hum_pal: Math.round(70 + r() * 30),
-      sup_two: 1 + Math.floor(r() * 7), sup_confed: 1 + Math.floor(r() * 7), sup_one: 1 + Math.floor(r() * 7), sup_annex: 1 + Math.floor(r() * 7), hope: 1 + Math.floor(r() * 7), attn: 3 };
-    const post = {}; for (const k in pre) if (k !== "identity" && k !== "attn") post[k] = Math.max(k.startsWith("therm") || k.startsWith("hum") ? 0 : 1, Math.min(k.startsWith("therm") || k.startsWith("hum") ? 100 : 7, pre[k] + Math.round((r() - 0.5) * (k.startsWith("therm") || k.startsWith("hum") ? 16 : 2))));
-    post.attn2 = r() > 0.1 ? 3 : 5;
-    const imps = Array.from({ length: 8 }, (_, i) => { const pct = +(0.3 + r() * 1.2).toFixed(2); return { pos: i + 1, clipId: "—", dwellMs: 6000, watchedS: 6, pctWatched: pct, replays: pct > 1 ? 1 : 0, liked: r() > 0.8, skipped: pct < 0.5 }; });
-    out.push({ pid: "EX-" + String(n + 1).padStart(2, "0"), cond, example: true, identity: ident, pre, post, impressions: imps, surveyMs: { pre: 60000, post: 50000 }, plan: [] });
+  const ids = ["jewish_israeli", "pal_wb", "arab_citizen", "third"];
+  for (let n = 0; n < 16; n++) {
+    const identity = ids[n % 4], stratum = stratumOf(identity);
+    const elig = COND_KEYS.filter(k => CONDITIONS[k].eligible.includes(stratum));
+    const cond = elig[Math.floor(n / 4) % elig.length];
+    const slider = () => Math.round(r() * 100), lik = () => 1 + Math.floor(r() * 7);
+    const pre = { identity, therm_isr: slider(), therm_pal: slider(), hum_isr: slider(), hum_pal: slider(), hope1: lik(), hope2: lik(), hope3: lik(), attn: r() > 0.1 ? 3 : 5 };
+    for (const [id] of SOLUTIONS) pre[id] = lik();
+    const post = {};
+    for (const key of Object.keys(pre)) if (!["identity", "attn"].includes(key)) {
+      const isS = key.startsWith("therm") || key.startsWith("hum");
+      post[key] = Math.max(isS ? 0 : 1, Math.min(isS ? 100 : 7, pre[key] + Math.round((r() - 0.5) * (isS ? 16 : 2))));
+    }
+    const imps = Array.from({ length: 8 }, (_, i) => { const pct = +(0.3 + r() * 1.1).toFixed(2); return { pos: i + 1, clipId: "—", policy: "fixed", dwellMs: 6000, foregroundMs: 6000, watchedS: 6, pctWatched: pct, replays: pct > 1 ? 1 : 0, liked: r() > 0.8, skipped: pct < 0.5 }; });
+    out.push({ pid: "EX-" + String(n + 1).padStart(2, "0"), example: true, identity, stratum, cond, policy: "fixed", speed: 1, pre, post, redo: {}, impressions: imps, events: [], plan: [] });
   }
   return out;
 }
 
-/* ===================== tabs & boot ===================== */
+/* ---------- tabs & boot ---------- */
 document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", String(x === b)));
   ["design", "clips", "live", "results"].forEach(t => { $("#pane-" + t).hidden = t !== b.dataset.tab; });

@@ -16,7 +16,9 @@ solutions, rather than a single two-state win.
 | `data/harvest/` | The game's mechanics as structured JSON (no copyrighted prose or media) |
 | `tools/harvest/` | `fetch.sh` (download and unpack the official free build), `extract.py` (parse to JSON), `render_docs.py`, `simulate.py` (headless engine) |
 | `reports/Israeli Palestinian conflict solutions spectrum.pdf` | Research report: every major proposed solution, ordered from one extreme to the other, with legality, support, feasibility and endgame-design inputs (Markdown source alongside) |
-| `research_notes/` | The six sourced research dossiers behind that report |
+| `reports/Short video persuasion experiment design.pdf` | Research report: per-participant KPIs, lawful collection and coding of short-form video, the mock feed app, and ethics for an opinion-change study (Markdown source alongside) |
+| `prototypes/feed-lab/exposure-feed-lab.html` | Exposure Feed Lab: clickable prototype of the short-video exposure experiment |
+| `research_notes/` | The sourced research dossiers behind both reports |
 | `tools/research/` | `build_pdf.py` (Markdown → designed PDF) and `spectrum.json` (the spectrum figure) |
 
 Verbatim game text and media are **not** committed. `tools/harvest/fetch.sh && python3 tools/harvest/extract.py`
